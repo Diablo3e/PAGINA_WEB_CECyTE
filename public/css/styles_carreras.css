@@ -1,0 +1,72 @@
+.no-background .background-box {
+  display: none !important;
+}
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    margin-top: 160px;
+    background-color: #13322b ;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  .tabs {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .tab-titles {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: #651d32;
+    padding: 10px;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .tab-titles li {
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .tab-titles li.active {
+    background-color: #4B4F54;
+  }
+  
+  .tab-titles li:hover {
+    background-color: #4B4F54;
+  }
+  
+  .tab-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #B9975B;
+    color: white;
+  }
+  

@@ -1,0 +1,75 @@
+/* Carrusel */
+.container-carrusel {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+/* Mapa */
+.container-mapa {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Ajusta según necesites la separación */
+
+}
+
+.iframe {
+    width: 100%;
+    height: 50vh;
+    border: none;
+}
+
+.carrusel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.imagenes {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.imagenes img {
+    max-width: 100%;
+    display: block;
+}
+/* Evitar conflictos con otros botones */
+.container-carrusel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+@media (max-width: 768px) {
+    .container-carrusel {
+        flex-direction: column; /* Cambia la disposición a columna */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .left, .right {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .left {
+        order: 1; /* Asegura que el carrusel esté arriba */
+    }
+
+    .right {
+        order: 2; /* Asegura que el mapa esté abajo */
+    }
+}

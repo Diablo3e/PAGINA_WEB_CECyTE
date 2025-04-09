@@ -1,0 +1,79 @@
+/* Estilo personalizado para la barra de navegación */
+.navbar-custom .nav-link,
+.navbar-custom .dropdown-item {
+    color: white !important;
+}
+.navbar-custom{
+    background-color: #3B0000 !important;
+}
+.navbar-custom .nav-link:hover,
+.navbar-custom .dropdown-item:hover {
+    color: #3B0000 !important; /* o el color que tú quieras para el hover */
+    
+}
+/* Fondo oscuro para el menú desplegable */
+.navbar-custom .dropdown-menu {
+    background-color: #3B0000 !important;
+}
+
+/* Texto blanco para los ítems del dropdown */
+.navbar-custom .dropdown-item {
+    color: white !important;
+}
+.navbar-brand img {
+    width: auto;
+    height: 50px; /* Ajusta la altura sin deformar el ancho */
+    max-height: 100%; /* Mantiene el tamaño dentro de la barra */
+    object-fit: contain; /* Evita el recorte o estiramiento */
+}
+
+/* Lupa de búsqueda (icono) */
+.navbar .btn-outline-light img {
+    filter: invert(1); /* Lupa blanca */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar .btn-outline-light:hover img {
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+}
+/* Estilo para el ícono de la lupa */
+.search-button img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.search-button img:hover {
+    transform: scale(1.3); /* Efecto de zoom */
+}
+
+/* Estilos de la barra de búsqueda */
+#search-bar {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(248, 242, 242, 0.1);
+}
+
+/* Personalización del input y botón */
+.search-bar input {
+    width: 150px; /* Ajusta el tamaño del campo de búsqueda */
+}
+
+.search-bar button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: white;
+    color: #8B0000;
+}

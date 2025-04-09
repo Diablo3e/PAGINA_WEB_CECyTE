@@ -1,0 +1,53 @@
+body.no-background .background-box {
+    display: none !important;
+}
+
+.admision-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.section {
+    margin-bottom: 40px;
+}
+.two-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.two-columns > div {
+    flex: 1 1 300px;
+}
+.feature-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.btn-admision {
+    display: inline-block;
+    background: #003366;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.btn-admision:hover {
+    background: #004080;
+}
+body.no-background .admision-container .section:first-of-type {
+    margin-top: 100px; /* Ajusta el valor según el alto de tu navbar */
+}
+
+
+@media (max-width: 768px) {
+    .two-columns {
+        flex-direction: column;
+    }
+}

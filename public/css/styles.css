@@ -1,0 +1,108 @@
+:root {
+    --pantone-7421c: #A6192E; /* Guinda intenso */
+}
+
+/* Aplicarlo al fondo del header */
+.header {
+    background-color: var(--pantone-7421c);
+}
+
+/* Usarlo en texto, botones y otros elementos */
+.text-puebla {
+    color: var(--pantone-7421c);
+}
+
+.btn-puebla {
+    background-color: var(--pantone-7421c);
+    color: white;
+    border: none;
+}
+
+.btn-puebla:hover {
+    background-color: #8D162A; /* Versión un poco más oscura */
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía global */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* CONTENEDORES GENERALES */
+.inicio-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    right: 10vh;
+    width: 100%;
+    min-height: 120vh;
+    height: 70vh; /* Ajusta la altura según necesites */
+    position: relative; /* Para que el fondo solo esté en esta parte */
+    padding: 80px;
+    margin-bottom: 60px;
+}
+/* Fondo con imagen */
+.background-box {
+    margin-top: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    background-image: url("/imagenes/FotoPortadaWeb.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    .background-box {
+        height: 30vh; /* Reducir la altura en dispositivos pequeños */
+        z-index: -1;
+    }
+
+    .inicio-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info-icons img {
+        width: 100px;
+    }
+
+    #chatbot {
+        width: 40%; /* Ajusta el ancho del chatbot */
+    }
+
+    #ocelote-icon {
+        width: 60px;
+        height: auto;
+    }
+    
+}
+@media (max-width: 480px) {
+    .background-box {
+        margin-top: 30%;
+        height: 15vh; /* Reducir la altura en dispositivos pequeños */
+        z-index: -1;
+    }
+    
+}

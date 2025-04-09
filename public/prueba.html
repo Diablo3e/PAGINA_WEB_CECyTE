@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Hamburguesa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Ícono de hamburguesa */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .hamburger div {
+            background-color: #8B0000;
+            height: 4px;
+            width: 100%;
+        }
+
+        /* Barra de navegación oculta */
+        .navbar {
+            display: none; /* Oculta por defecto */
+            flex-direction: column;
+            background-color: #8B0000;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .navbar.active {
+            display: flex; /* Mostrar cuando está activa */
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: white;
+            color: #8B0000;
+        }
+
+        /* Contenedor del submenú */
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Ocultar el submenú por defecto */
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        /* Estilo de los enlaces dentro del submenú */
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Mostrar el submenú al pasar el mouse en pantallas grandes */
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Estilo responsive */
+        @media (min-width: 768px) {
+            .navbar {
+                display: flex !important; /* Siempre visible en pantallas grandes */
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                background: #8B0000;
+            }
+
+            .hamburger {
+                display: none; /* Ocultar el ícono hamburguesa en pantallas grandes */
+            }
+
+            .navbar a {
+                padding: 12px 20px;
+            }
+
+            /* Mostrar el submenú en pantallas grandes al pasar el mouse */
+            .navbar .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar .dropdown-content {
+                display: none; /* Por defecto, el submenú está oculto */
+                position: static; /* Lo hacemos estático en pantallas pequeñas */
+                background-color: #8B0000;
+                min-width: 100%;
+                box-shadow: none;
+            }
+
+            /* Mostrar el submenú cuando se toque */
+            .navbar .dropdown.active .dropdown-content {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Ícono de hamburguesa -->
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Menú oculto -->
+    <div class="navbar" id="navbar">
+        <a href="#">Inicio</a>
+        <a href="#">Admisión</a>
+        <div class="dropdown" id="dropdown">
+            <a href="#">Oferta Educativa ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Admisión</a>
+                <a href="#">Orientación Juvenil</a>
+                <a href="#">Educación Media Superior</a>
+                <a href="#">Educación Superior</a>
+                <a href="#">Posgrado</a>
+                <a href="#">Educación Virtual</a>
+                <a href="#">Lenguas Extranjeras</a>
+            </div>
+        </div>
+        <a href="#">Vinculación</a>
+        <a href="#">Nosotros</a>
+    </div>
+
+    <script>
+        // Mostrar/ocultar menú hamburguesa
+        document.getElementById("hamburger").addEventListener("click", function() {
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        });
+
+        // Hacer que el submenú se muestre en pantallas pequeñas al hacer clic
+        const dropdown = document.getElementById('dropdown');
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();  // Evita que el clic se propague
+            this.classList.toggle('active');
+        });
+
+        // Cerrar el submenú si se hace clic fuera de él
+        window.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+.tabs-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.tabs {
+    display: flex;
+    overflow-x: auto;
+    background: #f4f4f4;
+    padding: 10px;
+}
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #9b8c8c;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.tab.active {
+    background: rgb(89, 7, 7);
+    color: white;
+}
+
+.content {
+    display: none;
+    padding: 20px;
+}
+
+.content.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.program {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+}
+
+.program-img {
+    max-width: 400px;
+    max-height: 250px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.program button {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background: white;
+    min-width: 250px; /* Ajusta el tamaño mínimo */
+    flex: 1; /* Hace que los elementos sean flexibles */
+    max-width: 300px;
+}
+
+.program button:hover {
+    background: #eee;
+}
+
+@media (max-width: 768px) {
+    .program img {
+        display: none;
+    }
+    .tabs {
+    display: flex;
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+    white-space: nowrap; /* Evita que los elementos se vayan a la siguiente línea */
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+    -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer */
+}
+
+.tabs::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome y Edge */
+}
+
+} 

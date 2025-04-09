@@ -1,0 +1,27 @@
+.no-background .background-box {
+    display: none !important;
+}
+.convenios-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+  }
+  text {
+    font-size: 10px;
+    fill: white;
+    font-family: sans-serif;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+  }
+/* Animación al pasar el mouse */
+path {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform-origin: center;
+}
+
+a:hover path {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
