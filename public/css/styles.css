@@ -21,14 +21,6 @@
 .btn-puebla:hover {
     background-color: #8D162A; /* Versión un poco más oscura */
 }
-
-/* RESET GENERAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Tipografía global */
 body {
     font-family: Arial, sans-serif;
@@ -41,11 +33,9 @@ body {
     align-items: flex-start;
     right: 10vh;
     width: 100%;
-    min-height: 120vh;
-    height: 70vh; /* Ajusta la altura según necesites */
+    min-height: 100vh;
     position: relative; /* Para que el fondo solo esté en esta parte */
-    padding: 80px;
-    margin-bottom: 60px;
+
 }
 /* Fondo con imagen */
 .background-box {

@@ -16,7 +16,7 @@ main {
     margin-top: 100px !important;
     position: relative;
     width: 100%;
-    z-index: 1;
+    z-index: -1;
 }
 
 .footer-container {

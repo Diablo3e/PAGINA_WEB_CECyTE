@@ -1,7 +1,7 @@
 <div id="chat-container">
     <div id="chatbot">
         <div id="chatbot-header">
-            <img src="{{ asset('imagenes/ocelote.png') }}" alt="Chatbot Icono" id="chatbot-img">
+            <img src="{{ asset('imagenes/Cecilio.png') }}" alt="Chatbot Icono" id="chatbot-img">
             <h2>¡Hola! Me llamo Chatbot.</h2>
         </div>
         <div id="chatbot-body">
@@ -12,5 +12,5 @@
             </div>
         </div>
     </div>
-    <img src="{{ asset('imagenes/ocelote.png') }}" alt="Abrir Chatbot" id="ocelote-icon">
+    <img src="{{ asset('imagenes/Cecilio.jpg') }}" alt="Abrir Chatbot" id="ocelote-icon">
 </div>
