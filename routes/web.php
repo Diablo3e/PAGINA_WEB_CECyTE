@@ -58,6 +58,9 @@ Route::get('/convenios', function () {
 Route::get('/Admision', function () {
     return view('Admision', ['noFondo' => true]);
 })->name('Admision');
+Route::get('/Planteles', function () {
+    return view('Planteles', ['noFondo' => true]);
+})->name('Planteles');
 Route::get('/Carerras', function () {
     return view('Carreras', ['noFondo' => true]);
 })->name('Carreras');
