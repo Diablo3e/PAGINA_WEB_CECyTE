@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot CECyTE Puebla</title>
+  <title>Cecilio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
 <div id="chat-icon-container">
-    <img src="{{ asset('imagenes/cecilio.jpg') }}" alt="Abrir Chatbot" id="ocelote-icon">
+    <img src="{{ asset('imagenes/cecilio.png') }}" alt="Abrir Chatbot" id="ocelote-icon">
 </div>
 
 <div id="chat-container">
     <div id="chatbot">
         <div id="chatbot-header">
-            <img src="{{ asset('imagenes/cecilio.png') }}" alt="Chatbot Icono" id="chatbot-img">
-            <h2>Chatbot CECyTE Puebla</h2>
+            <img src="{{ asset('imagenes/cecilio.jpg') }}" alt="Chatbot Icono" id="chatbot-img">
+            <h2>Cecilio</h2>
             <button class="close-btn" id="close-chatbot"><i class="fas fa-times"></i></button>
         </div>
         <div id="chatbot-body">

@@ -6,6 +6,7 @@ use App\Models\Modalidad;
 use App\Models\Nivel;
 use App\Models\Plantel;
 use App\Models\Carrera;
+use App\Http\Controllers\PlantelesController;
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -65,7 +66,8 @@ Route::get('/Carerras', function () {
     return view('Carreras', ['noFondo' => true]);
 })->name('Carreras');
 // Ruta para obtener los planteles por nivel
-Route::get('/planteles/{nivel_id}', [FormularioController::class, 'getPlantelesByNivel']);
+Route::get('/planteles', [PlantelController::class, 'index']);
+
 
 // Ruta para obtener las carreras por plantel
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
