@@ -1,41 +1,315 @@
-/* Ajustes para barra de navegación fija */
-.main-content {
-    padding-top: 50px; /* Ajusta según altura de tu navbar */
+:root {
+    --color-primario: #5c0000;       /* Vino oscuro institucional */
+    --color-secundario: #a70000;     /* Rojo más brillante para acentos */
+    --color-terciario: #fff5f5;      /* Fondo claro con tinte cálido */
+    --color-acento: #ffc107;         /* Amarillo dorado como acento */
+    --color-texto-oscuro: #2d2d2d;   /* Texto oscuro neutro */
+    --color-texto-claro: #ffffff;    /* Texto claro */
+    --sombra-suave: 0 4px 6px rgba(92, 0, 0, 0.1);
+    --sombra-intensa: 0 10px 15px rgba(92, 0, 0, 0.2);
+    --transicion: all 0.3s ease-in-out;
+    --borde-redondeado: 12px;
+    --espaciado-seccion: 5rem;
 }
 
-/* Estilos específicos para la vista de planteles */
-.planteles-container {
-    padding: 2rem 0;
+
+/* Estilos base mejorados */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-terciario);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-.plantel-header {
+.container-fluid {
+    padding: var(--espaciado-seccion) 3%;
+}
+
+/* Tarjetas de planteles - Versión premium */
+.plantel-card {
+    cursor: pointer;
+    transition: var(--transicion);
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.plantel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-intensa);
+}
+
+.plantel-card .card-body {
+    padding: 2rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plantel-card h3 {
+    color: var(--color-primario);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.plantel-card i {
+    font-size: 4rem;
+    color: var(--color-secundario);
+    margin-bottom: 1.5rem;
+}
+
+/* Carrusel mejorado */
+.carousel-container {
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-intensa);
+    margin-bottom: 3rem;
+}
+
+.carousel-item {
+    height: 60vh;
+    min-height: 500px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: var(--transicion);
+}
+
+.carousel-container:hover .carousel-control-prev,
+.carousel-container:hover .carousel-control-next {
+    opacity: 1;
+}
+
+/* Directores */
+.director-card {
+    border: none;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    transition: var(--transicion);
+    height: 100%;
+}
+
+.director-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-intensa);
+}
+
+.director-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px var(--color-sombra);
+}
+
+.director-card h5 {
+    font-size: 1.2rem;
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.director-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Secciones informativas */
+.info-section {
+    background: white;
+    border-radius: var(--borde-redondeado);
+    padding: 2rem;
     margin-bottom: 2rem;
+    box-shadow: var(--sombra-suave);
 }
 
-.plantel-list .list-group-item {
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
+/* Barra de redes sociales */
+.redes-sociales {
+    background-color: var(--color-primario);
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.btn {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--borde-redondeado);
+    transition: var(--transicion);
 }
 
-.plantel-list .list-group-item:hover {
-    background-color: #f1f8ff;
-    border-left-color: #0d6efd;
+.btn:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto-oscuro);
+}
+/* Barra de navegación ultra delgada */
+.navbar {
+    background-color: var(--color-primario); /* Color vino/rojo oscuro */
+    padding: 0.1rem 1rem; /* Padding vertical mínimo */
+    min-height: 30px; /* Altura mínima muy reducida */
+    box-shadow: none; /* Eliminar sombra para más minimalismo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil inferior opcional */
 }
 
-.plantel-list .list-group-item.active {
-    background-color: #e7f1ff;
-    border-left-color: #0d6efd;
-    color: #0d6efd;
-    font-weight: 500;
+/* Versión ultra minimalista - altura mínima */
+.navbar-minimal {
+    background-color: var(--color-primario);
+    padding: 0 !important; /* Elimina todo padding interno */
+    min-height: 24px !important; /* Altura mínima posible */
+    line-height: 24px; /* Alineación vertical perfecta */
 }
 
-/* Responsive adjustments */
+/* Ajuste de elementos internos */
+.navbar-minimal .navbar-nav {
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+.navbar-minimal .nav-item {
+    margin: 0 8px; /* Espaciado horizontal reducido */
+}
+
+.navbar-minimal .nav-link {
+    padding: 0 !important; /* Sin padding */
+    font-size: 0.78rem; /* Texto muy pequeño */
+    line-height: inherit; /* Mantiene alineación */
+}
+
+/* Separadores mini */
+.navbar-minimal .nav-item:not(:last-child)::after {
+    content: "•";
+    color: rgba(255, 255, 255, 0.2);
+    right: -9px;
+    font-size: 0.5rem;
+    top: 52%;
+}
+
+/* Efecto hover casi invisible */
+.navbar-minimal .nav-link:hover {
+    opacity: 0.8;
+}
+/* Estilos para la tabla de carreras */
+.tabla-carreras {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+}
+/* Estilos para la tabla de carreras */
+.tabla-carreras {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+}
+
+.tabla-carreras th,
+.tabla-carreras td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-carreras th {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-carreras tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-carreras tr:hover {
+    background-color: #f8fafc;
+}
+
+.contenedor-tabla {
+    background-color: #f8f9fa;
+    border-radius: var(--borde-redondeado);
+    padding: 1.5rem;
+    box-shadow: var(--sombra-suave);
+}
+/* Responsividad */
+@media (max-width: 1024px) {
+    .carousel-item {
+        height: 50vh;
+        min-height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
-    .main-content {
-        padding-top: 70px;
+    :root {
+        --espaciado-seccion: 3rem;
     }
 
-    .planteles-container {
-        padding: 1rem 0;
+    .plantel-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .carousel-item {
+        height: 40vh;
+        min-height: 350px;
+    }
+
+    .director-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --espaciado-seccion: 2rem;
+    }
+
+    .carousel-item {
+        height: 35vh;
+        min-height: 300px;
+    }
+
+    .plantel-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .plantel-card i {
+        font-size: 3rem;
     }
 }
