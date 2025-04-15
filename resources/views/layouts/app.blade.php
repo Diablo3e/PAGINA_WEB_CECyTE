@@ -1,14 +1,16 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'CECyTE')</title> <!-- Permite que cada vista defina su propio título -->
+    <title>@yield('title', 'CECyTE')</title>
 
-    <!-- Agregar Bootstrap CSS -->
-    <link href="{{asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <!-- Estilos personalizados -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style_formulario.css') }}" rel="stylesheet">
@@ -16,23 +18,23 @@
     <link href="{{ asset('css/styles_barra_redes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles_pie_pagina.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/planteles.css') }}" rel="stylesheet">
 
-    <!-- Espacio para agregar estilos adicionales desde las vistas -->
+    <!-- Espacio para estilos adicionales -->
     @stack('styles')
-
 </head>
 <body class="@yield('body-class')">
-    
-    <div class="background-box"></div> <!-- Solo visible en pantallas grandes -->
-    <div class="background-box d-none d-sm-block"></div> <!-- Solo visible en pantallas pequeñas -->
+
+    <div class="background-box"></div>
+    <div class="background-box d-none d-sm-block"></div>
 
     <!-- Componentes de la página -->
     @include('components.navbar')
     @include('components.barra_redes')
     @include('components.chatbot')
 
-    <!-- Contenido principal de la vista -->
-    <main class="container">
+    <!-- Contenido principal con ajuste para barra de navegación fija -->
+    <main class="main-content">
         @yield('content')
     </main>
 
@@ -45,8 +47,7 @@
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/chatbot.js') }}"></script>
 
-
-    <!-- Espacio para agregar scripts adicionales desde las vistas -->
+    <!-- Scripts específicos para planteles -->
     @stack('scripts')
 
 </body>
