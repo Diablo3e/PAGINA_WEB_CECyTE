@@ -23,12 +23,12 @@
       padding: 40px 0;
     }
 
-    /* Línea central brillante */
+    /* Línea central azul que cruza la línea del tiempo */
     .timeline::after {
       content: '';
       position: absolute;
       width: 4px;
-      background-color: #00fff7;
+      background-color: #39ff14;
       top: 0;
       bottom: 0;
       left: 50%;
@@ -36,25 +36,49 @@
       z-index: 1;
     }
 
-    /* --------------------- ESTILO DE CADA EVENTO --------------------- */
-    .container {
-      position: relative;
-      background-color: #111;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #00fff7;
-      width: 45%;
-      padding: 20px 40px;
-      margin: 30px 0;
-      animation: fadeIn 1s ease-in;
-    }
+    /* Cada recuadro de evento */
+	.container {
+  position: relative;
+  background-color: transparent;
+  border-radius: 12px;
+  width: 45%;
+  margin: 30px 0;
+  animation: fadeIn 1s ease-in;
+  cursor: pointer;
+  height: 300px; /* Establecemos una altura fija para que frente y reverso coincidan */
+}
 
-    /* Glow suave al pasar el mouse */
+/* Asegura que ambos lados usen toda la altura disponible */
+.flip-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.flip-front, .flip-back {
+  height: 100%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #39ff14;
+}
+
+/* Ajuste para la imagen en el reverso */
+.flip-back img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+    /* Efecto de resplandor al pasar el mouse */
     .container:hover {
-      box-shadow: 0 0 30px #00fff7;
+      box-shadow: 0 0 30px #39ff14;
       transition: box-shadow 0.3s ease;
     }
 
-    /* Animación al cargar */
+    /* Animación de entrada desde abajo */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -66,7 +90,7 @@
       }
     }
 
-    /* Alineación izquierda/derecha */
+    /* Alineación izquierda/derecha de los eventos */
     .left {
       left: 0;
     }
@@ -75,20 +99,20 @@
       left: 50%;
     }
 
-    /* --------------------- CÍRCULO CON LOGO --------------------- */
+    /* Círculo con el logo */
     .container::after {
       content: '';
       position: absolute;
       top: 20px;
       width: 60px;
       height: 60px;
-      background-image: url('logo_cecyte.png'); /* Puedes reemplazar por tu propia ruta */
+      background-image: url('logo_cecyte.png'); /* Ruta del logo */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 50%;
-      border: 4px solid #00fff7;
-      box-shadow: 0 0 15px #00fff7;
+      border: 4px solid #39ff14;
+      box-shadow: 0 0 15px #39ff14;
       z-index: 2;
     }
 
@@ -100,7 +124,7 @@
       left: -30px;
     }
 
-    /* Contenido del evento */
+    /* Contenido dentro de la tarjeta */
     .content h3 {
       margin-top: 0;
     }
@@ -113,11 +137,12 @@
       transition: transform 0.3s;
     }
 
+    /* Zoom suave al pasar el mouse sobre la imagen */
     .content img:hover {
       transform: scale(1.03);
     }
 
-    /* --------------------- LIGHTBOX --------------------- */
+    /* --------------------- LIGHTBOX PARA VER IMAGEN AMPLIADA --------------------- */
     #lightbox {
       position: fixed;
       top: 0;
@@ -125,10 +150,9 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.9);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
-      display: none;
       z-index: 100;
     }
 
@@ -140,10 +164,10 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 12px;
-      box-shadow: 0 0 25px #00fff7;
+      box-shadow: 0 0 25px #39ff14;
     }
 
-    /* --------------------- RESPONSIVE --------------------- */
+    /* --------------------- RESPONSIVE PARA CELULARES --------------------- */
     @media screen and (max-width: 768px) {
       .timeline::after {
         left: 31px;
@@ -163,22 +187,64 @@
         left: 0%;
       }
     }
+
+    /* --------------------- EFECTO FLIP (VOLTEAR TARJETAS) --------------------- */
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px; /* Efecto de profundidad al voltear */
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    /* Clase agregada con JS para voltear */
+    .flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Caras de la tarjeta (frontal y trasera) */
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden; /* Oculta el reverso cuando no está visible */
+      top: 0;
+      left: 0;
+    }
+
+    .flip-front {
+      z-index: 2;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg); /* Gira la cara trasera */
+    }
+
+    .flip-back img {
+      width: 100%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Lightbox oculto -->
+  <!-- Lightbox oculto inicialmente -->
   <div id="lightbox">
     <img id="lightbox-img" src="" alt="Imagen ampliada">
   </div>
 
-  <!-- Línea del tiempo -->
+  <!-- Contenedor de la línea del tiempo -->
   <div class="timeline" id="timeline">
-    <!-- Los eventos se insertan aquí con JS -->
+    <!-- Aquí se insertan los eventos con JS -->
   </div>
 
-  <!-- --------------------- SCRIPT DE EVENTOS --------------------- -->
   <script>
+    // Lista de eventos históricos del CECyTE Puebla
     const eventos = [
       {
         fecha: "1996",
@@ -207,33 +273,49 @@
       }
     ];
 
-    // Referencias al DOM
+    // Referencias a elementos del DOM
     const timeline = document.getElementById('timeline');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    // Crea dinámicamente cada evento
+    // Generar dinámicamente las tarjetas de eventos
     eventos.forEach((evento, index) => {
-      const lado = index % 2 === 0 ? 'left' : 'right';
+      const lado = index % 2 === 0 ? 'left' : 'right'; // alternar izquierda/derecha
       const contenedor = document.createElement('div');
-      contenedor.className = `container ${lado}`;
+      contenedor.className = `container ${lado} flip-card`;
+
+      // Agrega estructura HTML del frente y reverso
       contenedor.innerHTML = `
-        <div class="content">
-          <h3>${evento.fecha}</h3>
-          <p>${evento.descripcion}</p>
-          <img src="${evento.imagen}" alt="Evento ${evento.fecha}" onclick="abrirLightbox('${evento.imagen}')"/>
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="content">
+              <h3>${evento.fecha}</h3>
+              <p>${evento.descripcion}</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="content">
+              <img src="${evento.imagen}" alt="Evento ${evento.fecha}" onclick="abrirLightbox('${evento.imagen}')"/>
+            </div>
+          </div>
         </div>
       `;
+
+      // Agrega el evento de clic para voltear la tarjeta
+      contenedor.addEventListener('click', () => {
+        contenedor.classList.toggle('flipped');
+      });
+
       timeline.appendChild(contenedor);
     });
 
-    // Muestra la imagen ampliada
+    // Mostrar la imagen ampliada en el lightbox
     function abrirLightbox(src) {
       lightboxImg.src = src;
       lightbox.classList.add('active');
     }
 
-    // Cierra el lightbox al hacer clic fuera de la imagen
+    // Cierra el lightbox al hacer clic en cualquier parte de él
     lightbox.addEventListener('click', () => {
       lightbox.classList.remove('active');
     });
