@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Técnico en Programación')
+@section('title', 'Programación')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/styles_carreras.css') }}">
@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>Técnico en programación</h1>
+    <h1>Programación</h1>
 </header>
 
 <div class="tabs">
@@ -39,8 +39,11 @@
 
         <div id="perfil-egreso" class="tab-pane">
             <h2>Perfil de Egreso</h2>
-            <p>El egresado podrá desempeñar actividades dirigidas a la inserción en el campo laboral, incluyendo habilidades en registros contables y análisis de costos.</p>
-        </div>
+            <p>La formación que ofrece la carrera de Técnico en Procesos de Gestión Administrativa permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a su inserción al campo laboral.</p>
+            <p aling="justify">
+            "Durante el proceso de formación de la carrera de Técnico en Procesos de Gestión Administrativa, comprendida de cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales: Auxilia en el registro y análisis de procesos, contables de una organización, Auxilia en el área de costos de una organización, Asiste en el proceso de ventas de una organización, Apoya en la cadena productiva de una organización, Asiste en la gerencia de una organización."
+            </p>
+          </div>
 
 <div id="mapa_curricular" class="tab-pane">
         <h2>Mapa Curricular</h2>
@@ -111,6 +114,7 @@
               <td>Probabilidad y Estadística</td>
               <td>Temas de Filosofía</td>
               <td>IAsignatura propedéutica*</td>
+              /*borrar o dejar I*/
               <td>Asignatura propedéutica*</td>
               <td>Módulo V
                 Desarrolla aplicaciones para dispositivos móviles

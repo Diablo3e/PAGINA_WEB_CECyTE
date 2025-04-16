@@ -1,41 +1,286 @@
-/* Ajustes para barra de navegación fija */
-.main-content {
-    padding-top: 50px; /* Ajusta según altura de tu navbar */
+:root {
+    /* Colores principales (ajusta según tu paleta) */
+    --color-primario: #460a05;    /* Azul oscuro */
+    --color-secundario: #4b1818;  /* Azul claro */
+    --color-terciario: #34100d;   /* Azul medio */
+    --color-acento: #e74c3c;      /* Rojo coral para acentos */
+    --color-fondo: #f8f9fa;       /* Fondo claro */
+}
+body.no-background .background-box {
+    display: none !important;
+}
+/* Estilos base mejorados */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-terciario);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilos específicos para la vista de planteles */
-.planteles-container {
-    padding: 2rem 0;
+.container-fluid {
+    padding: var(--espaciado-seccion) 3%;
 }
 
-.plantel-header {
+/* Tarjetas de planteles - Versión premium */
+.plantel-card {
+    cursor: pointer;
+    transition: var(--transicion);
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* Estilos generales para los iconos */
+.plantel-icon {
+    transition: var(--transicion);
+    opacity: 0.9;
+}
+
+/* Efecto hover para todos los iconos */
+.plantel-card:hover .plantel-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Colores específicos para cada plantel */
+.icon-plantel1 { /* Cholula */
+    color: var(--color-primario); /* #5c0000 - Vino oscuro */
+}
+
+/* Texto "Haz clic..." */
+.click-hint {
+    color: var(--color-secundario);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    transition: var(--transicion);
+}
+
+.plantel-card:hover .click-hint {
+    color: var(--color-acento);
+}
+.plantel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-intensa);
+}
+
+.plantel-card .card-body {
+    padding: 2rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plantel-card h3 {
+    color: var(--color-primario);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.plantel-card i {
+    font-size: 4rem;
+    color: var(--color-secundario);
+    margin-bottom: 1.5rem;
+}
+
+/* Carrusel mejorado */
+.carousel-container {
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-intensa);
+    margin-bottom: 3rem;
+}
+
+.carousel-item {
+    height: 60vh;
+    min-height: 500px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: var(--transicion);
+}
+
+.carousel-container:hover .carousel-control-prev,
+.carousel-container:hover .carousel-control-next {
+    opacity: 1;
+}
+
+/* Directores */
+.director-card {
+    border: none;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    transition: var(--transicion);
+    height: 100%;
+}
+
+.director-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-intensa);
+}
+
+.director-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px var(--color-sombra);
+}
+
+.director-card h5 {
+    font-size: 1.2rem;
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.director-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Secciones informativas */
+.info-section {
+    background: white;
+    border-radius: var(--borde-redondeado);
+    padding: 2rem;
     margin-bottom: 2rem;
+    box-shadow: var(--sombra-suave);
 }
 
-.plantel-list .list-group-item {
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
+
+.btn {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--borde-redondeado);
+    transition: var(--transicion);
 }
 
-.plantel-list .list-group-item:hover {
-    background-color: #f1f8ff;
-    border-left-color: #0d6efd;
+.btn:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto-oscuro);
 }
 
-.plantel-list .list-group-item.active {
-    background-color: #e7f1ff;
-    border-left-color: #0d6efd;
-    color: #0d6efd;
-    font-weight: 500;
+/* Estilos para la tabla de carreras */
+.tabla-carreras {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+}
+/* Estilos para la tabla de carreras */
+.tabla-carreras {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: var(--borde-redondeado);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
 }
 
-/* Responsive adjustments */
+.tabla-carreras th,
+.tabla-carreras td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-carreras th {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-carreras tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-carreras tr:hover {
+    background-color: #f8fafc;
+}
+
+.contenedor-tabla {
+    background-color: #f8f9fa;
+    border-radius: var(--borde-redondeado);
+    padding: 1.5rem;
+    box-shadow: var(--sombra-suave);
+}
+/* Responsividad */
+@media (max-width: 1024px) {
+    .carousel-item {
+        height: 50vh;
+        min-height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
-    .main-content {
-        padding-top: 70px;
+    :root {
+        --espaciado-seccion: 3rem;
     }
 
-    .planteles-container {
-        padding: 1rem 0;
+    .plantel-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .carousel-item {
+        height: 40vh;
+        min-height: 350px;
+    }
+
+    .director-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --espaciado-seccion: 2rem;
+    }
+
+    .carousel-item {
+        height: 35vh;
+        min-height: 300px;
+    }
+
+    .plantel-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .plantel-card i {
+        font-size: 3rem;
     }
 }

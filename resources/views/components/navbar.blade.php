@@ -17,6 +17,9 @@
                     <a class="nav-link active" href="{{ url('/') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
+                <li><a class="nav-link" href="{{ route('linea_tiempo') }}">Nosotros</a></li>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('Admision') }}">Admisión</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -24,28 +27,25 @@
                         Oferta Educativa
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ route('Carreras') }}">Tecnico en Programación</a></li>
-                        <li><a class="dropdown-item" href="#">Fuentes alternas</a></li>
-                        <li><a class="dropdown-item" href="#">Mantenimiento Automotriz</a></li>
-                        <li><a class="dropdown-item" href="#">Mantenimiento industrial</a></li>
-                        <li><a class="dropdown-item" href="#">Mantenimiento</a></li>
-                        <li><a class="dropdown-item" href="#">Mecatronica</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de Energia</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Mantenemiento_Automotriz') }}">Mantenemiento Automotriz</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenemiento Industrial</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Electronica') }}">Electronica</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Mantenimientomotoresdecombustion') }}">Mantenimiento de Motores de Combustion</a></li>
                         <li><a class="dropdown-item" href="#">Proceso de Gestión</a></li>
+
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('Planteles') }}">Planteles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Vinculación</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('convenios') }}">Convenios</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('Planteles') }}">Planteles</a>
-                </li>
-
             </ul>
 
             <!-- Barra de búsqueda -->
