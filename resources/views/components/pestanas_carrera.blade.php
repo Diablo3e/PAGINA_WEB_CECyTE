@@ -61,7 +61,7 @@
 
 <div id="hoteleria" class="content">
     <div class="program">
-        <img src="{{ asset('imagenes/gestion-produccion-industrial.jpg') }}" alt="Hotelería y Servicios" class="program-img">
+        <img src="{{ asset('imagenes/Servicio_hoteleria.jpg') }}" alt="Hotelería y Servicios" class="program-img">
         <h3>Servicios de Hotelería</h3>
         <button onclick="showDetails('hoteleria-servicios')">Ver más</button>
     </div>
