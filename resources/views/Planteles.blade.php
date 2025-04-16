@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Planteles')
 <link href="{{ asset(path: 'css/styles_planteles.css') }}" rel="stylesheet">
 
 @section('body-class', 'no-background')
@@ -36,6 +35,8 @@
 
         <!-- Carrusel de fotos -->
         <div id="plantel-carousel" class="carousel slide carousel-container mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators"></div>
+
             <div class="carousel-inner rounded" id="carousel-inner"></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#plantel-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

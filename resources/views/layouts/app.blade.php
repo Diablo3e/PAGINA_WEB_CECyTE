@@ -18,7 +18,6 @@
     <link href="{{ asset('css/styles_barra_redes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles_pie_pagina.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/planteles.css') }}" rel="stylesheet">
 
     <!-- Espacio para estilos adicionales -->
     @stack('styles')
