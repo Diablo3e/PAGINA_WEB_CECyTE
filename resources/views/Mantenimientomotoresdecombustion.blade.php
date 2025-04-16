@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Programación')
+@section('title', 'Mantenimiento de Motores de Combustión Interna')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/styles_carreras.css') }}">
@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>Programación</h1>
+    <h1>'Mantenimiento de Motores de Combustión Interna'</h1>
 </header>
 
 <div class="tabs">
@@ -23,27 +23,32 @@
     <div class="tab-content">
         <div id="datos-generales" class="tab-pane active">
             <h2>Datos generales de la carrera técnica</h2>
-            <p>La carrera de Técnico en programación ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a: analizar, diseñar, desarrollar, instalar y mantener software de aplicación tomando como base los requerimientos del usuario.</p>
+            <p>La carrera de Técnico en mantenimiento a Motores de Combustión Interna ofrece las competencias profesionales que permiten al egresado realizar actividades dirigidas a prestar servicios en áreas de mantenimiento de motocicletas, en empresas agroindustriales e industriales, en áreas de mantenimiento de motosierras, desbrozadoras, bombas charqueras, generadores de electricidad y en todo tipo de maquinaria que funcione mediante un motor de combustión interna, capaces de proporcionar mantenimiento a motor de combustión interna moderno, que exige cada vez mayor y mejor preparación tanto en áreas mecánicas como en electrónica y electricidad.</p>
         </div>
 
         <div id="perfil-ingreso" class="tab-pane">
             <h2>Perfil de Ingreso</h2>
-            <p>Los aspirantes deben haber concluido su educación media básica y contar con habilidades como:</p>
-            <ul>
-                <li>Resolver problemas mediante operaciones matemáticas</li>
-                <li>Interactuar en diferentes contextos utilizando lenguaje oral y escrito</li>
-                <li>Manejar hábitos de estudio</li>
-                <li>Aplicar las tecnologías de la información y comunicación</li>
+            <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y contar con cumplir los requisitos contemplados en las normas específicas de servicios escolares; además de contar con las siguientes habilidades:<ul>
+                <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
+                <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
+                <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
+                <li>Aplica las tecnologías de la información y comunicación</li>
+                <li>Observa reglas de convivencia para la vida en la sociedad</li>
             </ul>
         </div>
 
         <div id="perfil-egreso" class="tab-pane">
             <h2>Perfil de Egreso</h2>
-            <p>La formación que ofrece la carrera de Técnico en Procesos de Gestión Administrativa permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a su inserción al campo laboral.</p>
-            <p aling="justify">
-            "Durante el proceso de formación de la carrera de Técnico en Procesos de Gestión Administrativa, comprendida de cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales: Auxilia en el registro y análisis de procesos, contables de una organización, Auxilia en el área de costos de una organización, Asiste en el proceso de ventas de una organización, Apoya en la cadena productiva de una organización, Asiste en la gerencia de una organización."
-            </p>
-          </div>
+            <p>La formación que ofrece la carrera de Técnico en Motores de Combustión Interna permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a la empleabilidad y productividad en el área de Mantenimiento a Motores de Combustión Interna.</p>
+            <p>Durante el proceso de formación de los cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales</p>
+            <ul>
+                <li>Mantiene el sistema eléctrico del motor de combustión interna</li>
+                <li>Mantiene el sistema de alimentación del motor de combustión interna</li>
+                <li>Mantiene el motor de combustión interna</li>
+                <li>Mantiene el sistema de enfriamiento de los motores de combustión interna</li>
+                <li>Mantiene el tren de potencia de los motores de combustión interna</li>
+            </ul>
+        </div>
 
 <div id="mapa_curricular" class="tab-pane">
         <h2>Mapa Curricular</h2>
@@ -74,8 +79,9 @@
               <td>Geometría y Trigonometría</td>
               <td>Inglés II</td>
               <td>Química II</td>
+              <td>Lectura, Expresión Oral y Escrita II</td>
               <td>Módulo I
-                Desarrolla software de aplicación con programación estructurada</td>
+              Mantiene el sistema eléctrico del motor de combustión interna</td>
               <td></td>
               <td></td>
             </tr>
@@ -83,20 +89,21 @@
               <td>3°</td>
               <td>Geometría Analítica</td>
               <td>Inglés III</td>
+              <td>Biología</td>
               <td>Ética</td>
               <td>Módulo II
-                Aplica metodologías de desarrollo de software con herramientas de programación visual</td>
+              Mantiene el sistema de alimentación del motor de combustión interna</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <td>4°</td>
               <td>Cálculo Diferencial</td>
-              <td>Inglés IVI</td>
+              <td>Inglés IV</td>
               <td>Física I</td>
               <td>Ecología</td>
               <td>Módulo III
-                Desarrolla aplicaciones Web</td>
+              Mantiene el motor de combustión interna</td>
               <td></td>
             </tr>
             <tr>
@@ -106,19 +113,17 @@
               <td>Física II</td>
               <td>Ciencia, Tecnología, Sociedad y Valores</td>
               <td>Módulo IV
-                Desarrolla software de aplicación Web con almacenamiento persistente de datos</td>
+              Mantiene el sistema de enfriamiento de los motores de combustión interna</td>
               <td></td>
             </tr>
             <tr>
               <td>6°</td>
               <td>Probabilidad y Estadística</td>
               <td>Temas de Filosofía</td>
-              <td>IAsignatura propedéutica*</td>
-              /*borrar o dejar I*/
+              <td>Asignatura propedéutica*</td>
               <td>Asignatura propedéutica*</td>
               <td>Módulo V
-                Desarrolla aplicaciones para dispositivos móviles
-                </td>
+              Mantiene el tren de potencia de los motores de combustión interna</td>
               <td></td>
             </tr>
           </tbody>
