@@ -35,7 +35,35 @@ body {
     display: flex;
     flex-direction: column;
 }
+/* Estilos generales para los iconos */
+.plantel-icon {
+    transition: var(--transicion);
+    opacity: 0.9;
+}
 
+/* Efecto hover para todos los iconos */
+.plantel-card:hover .plantel-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Colores específicos para cada plantel */
+.icon-plantel1 { /* Cholula */
+    color: var(--color-primario); /* #5c0000 - Vino oscuro */
+}
+
+/* Texto "Haz clic..." */
+.click-hint {
+    color: var(--color-secundario);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    transition: var(--transicion);
+}
+
+.plantel-card:hover .click-hint {
+    color: var(--color-acento);
+}
 .plantel-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--sombra-intensa);
