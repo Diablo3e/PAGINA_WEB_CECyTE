@@ -1,47 +1,92 @@
-
-.social-bar {
+ /* Estilos para la barra social */
+ .social-bar {
     position: fixed;
-    top: 50%;
     left: 0;
+    top: 35%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    z-index: 1;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
+
+.social-bar:hover {
+    transform: translateX(0) translateY(-50%);
+}
+
 .social-bar a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
+    font-size: 20px;
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    transition: 0.3s;
-    font-size: 24px;
+    margin: 2px 0;
+    position: relative;
+    left: -35px;
+    transition: all 0.3s ease;
 }
-.facebook { background: #1877f2; }
-.youtube { background: #ff0000; }
-.twitter { background: #000; }
-.instagram { background: #c32aa3; }
-.email { background: #600000; }
-.whatsapp { background: #25d366; }
 
-.social-bar a:hover {
-    transform: scale(1.1);
+.social-bar:hover a {
+    left: 0;
 }
 
 .social-bar a i {
-    font-size: 24px;
+    transition: all 0.3s ease;
 }
-@media (max-width: 768px) {
-    .social-bar a {
-        width: 35px; /* Reduce tamaño del contenedor */
-        height: 35px;
-    }
 
-    .social-bar a i {
-        font-size: 18px; /* Íconos más pequeños */
-    }
+.social-bar a:hover i {
+    transform: scale(1.2);
+}
+
+/* Colores para cada red social */
+.facebook {
+    background: #3b5998;
+}
+
+.youtube {
+    background: #ff0000;
+}
+
+.twitter {
+    background: #1da1f2;
+}
+
+.instagram {
+    background: #e1306c;
+}
+
+.email {
+    background: #666666;
+}
+
+.whatsapp {
+    background: #25d366;
+}
+
+/* Efecto de tooltip */
+.social-bar a::after {
+    content: attr(class);
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.social-bar a:hover::after {
+    right: -110px;
+    opacity: 1;
 }
