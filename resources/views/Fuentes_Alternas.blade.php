@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Programación')
+@section('title', 'Fuentes alternas de energía')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/styles_carreras.css') }}">
@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>Programación</h1>
+    <h1>Fuentes alternas de energía</h1>
 </header>
 
 <div class="tabs">
@@ -23,27 +23,33 @@
     <div class="tab-content">
         <div id="datos-generales" class="tab-pane active">
             <h2>Datos generales de la carrera técnica</h2>
-            <p>La carrera de Técnico en programación ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a: analizar, diseñar, desarrollar, instalar y mantener software de aplicación tomando como base los requerimientos del usuario.</p>
+            <p>La carrera de Técnico en fuentes alternas de energía ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a instalar, operar y mantener sistemas de energía solar térmica, instalar, operar y mantener sistemas de energía solar fotovoltaica de baja potencia, instalar, operar y mantener sistemas de energía eólica de baja potencia, mejorar sistemas de energía solar térmica domestica, solar fotovoltaica y eólica de baja potencia y comercializar sistemas de energía solar térmica domestica, solar fotovoltaica y eólica de baja potencia.</p>
         </div>
 
         <div id="perfil-ingreso" class="tab-pane">
             <h2>Perfil de Ingreso</h2>
-            <p>Los aspirantes deben haber concluido su educación media básica y contar con habilidades como:</p>
+            <p>Durante el proceso de formación de los cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales:</p>
             <ul>
-                <li>Resolver problemas mediante operaciones matemáticas</li>
-                <li>Interactuar en diferentes contextos utilizando lenguaje oral y escrito</li>
-                <li>Manejar hábitos de estudio</li>
-                <li>Aplicar las tecnologías de la información y comunicación</li>
+                <li>Instala, opera y mantiene sistemas domésticos de energía solar térmica</li>
+                <li>Instala, opera y mantiene sistemas de energía solar fotovoltaica de baja potencia</li>
+                <li>Instala, opera y mantiene sistemas de energía eólica de baja potencia</li>
+                <li>Mejora sistemas de energía solar térmica, solar fotovoltaica y eólica de baja potencia</li>
+                <li>Comercializa sistemas de energía solar térmica, solar fotovoltaica y eólica de baja potencia</li>
             </ul>
         </div>
 
         <div id="perfil-egreso" class="tab-pane">
             <h2>Perfil de Egreso</h2>
-            <p>La formación que ofrece la carrera de Técnico en Procesos de Gestión Administrativa permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a su inserción al campo laboral.</p>
-            <p aling="justify">
-            "Durante el proceso de formación de la carrera de Técnico en Procesos de Gestión Administrativa, comprendida de cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales: Auxilia en el registro y análisis de procesos, contables de una organización, Auxilia en el área de costos de una organización, Asiste en el proceso de ventas de una organización, Apoya en la cadena productiva de una organización, Asiste en la gerencia de una organización."
-            </p>
-          </div>
+            <p>La formación que ofrece la carrera de Técnico en Fuentes alternas de energía permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a la instalación, operación, mantenimiento, mejora y comercialización de sistemas domésticos de energía solar térmica y sistemas de energía solar fotovoltaica y eólica de baja potencia</p>
+            <p>Durante el proceso de formación de los cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales:</p>
+            <ul>
+                <li>Instala , opera y mantiene sistemas domésticos de energía solar térmica</li>
+                <li>Instala, opera y mantiene sistemas de energía solar fotovoltaica de baja potencia</li>
+                <li>Instala, opera y mantiene sistemas de energía eólica de baja potencia</li>
+                <li>Mejora sistemas domésticos de energía solar térmica y sistemas de energía solar fotovoltaica y eólica de baja potencia</li>
+                <li>Comercializa sistemas domésticos de energía solar térmica y sistemas de energía solar fotovoltaica y eólica de baja potencia</li>
+            </ul>
+        </div>
 
 <div id="mapa_curricular" class="tab-pane">
         <h2>Mapa Curricular</h2>
@@ -74,8 +80,9 @@
               <td>Geometría y Trigonometría</td>
               <td>Inglés II</td>
               <td>Química II</td>
+              <td>Lectura, Expresión Oral y Escrita II</td>
               <td>Módulo I
-                Desarrolla software de aplicación con programación estructurada</td>
+              Instala, opera y mantiene sistemas domésticos de energía solar térmica</td>
               <td></td>
               <td></td>
             </tr>
@@ -83,20 +90,21 @@
               <td>3°</td>
               <td>Geometría Analítica</td>
               <td>Inglés III</td>
+              <td>Biología</td>
               <td>Ética</td>
               <td>Módulo II
-                Aplica metodologías de desarrollo de software con herramientas de programación visual</td>
+              Instala, opera y mantiene sistemas de energía solar fotovoltaica de baja potencia</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <td>4°</td>
               <td>Cálculo Diferencial</td>
-              <td>Inglés IVI</td>
+              <td>Inglés IV</td>
               <td>Física I</td>
               <td>Ecología</td>
               <td>Módulo III
-                Desarrolla aplicaciones Web</td>
+              Instala, opera y mantiene sistemas de energía eólica de baja potencia</td>
               <td></td>
             </tr>
             <tr>
@@ -106,19 +114,17 @@
               <td>Física II</td>
               <td>Ciencia, Tecnología, Sociedad y Valores</td>
               <td>Módulo IV
-                Desarrolla software de aplicación Web con almacenamiento persistente de datos</td>
+              Mejora sistemas domésticos de energía solar térmica y sistemas de energía solar fotovoltaica y eólica de baja potencia</td>
               <td></td>
             </tr>
             <tr>
               <td>6°</td>
               <td>Probabilidad y Estadística</td>
               <td>Temas de Filosofía</td>
-              <td>IAsignatura propedéutica*</td>
-              /*borrar o dejar I*/
+              <td>Asignatura propedéutica*</td>
               <td>Asignatura propedéutica*</td>
               <td>Módulo V
-                Desarrolla aplicaciones para dispositivos móviles
-                </td>
+              Comercializa sistemas domésticos de energía solar térmica y sistemas de energía solar fotovoltaica y eólica de baja potencia</td>
               <td></td>
             </tr>
           </tbody>

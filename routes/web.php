@@ -65,10 +65,28 @@ Route::get('/Planteles', function () {
 Route::get('/Carerras', function () {
     return view('Carreras', ['noFondo' => true]);
 })->name('Carreras');
+Route::get('/Fuentes_Alternas', function () {
+    return view('Fuentes_Alternas', ['noFondo' => true]);
+})->name('Fuentes_Alternas');
+Route::get('/Mantenemiento_Automotriz', function () {
+    return view('Mantenemiento_Automotriz', ['noFondo' => true]);
+})->name('Mantenemiento_Automotriz');
+Route::get('/Mantenimento_Industrial', function () {
+    return view('Mantenimento_Industrial', ['noFondo' => true]);
+})->name('Mantenimento_Industrial');
+Route::get('/Electronica', function () {
+    return view('Electronica', ['noFondo' => true]);
+})->name('Electronica');
+Route::get('/Mantenimientomotoresdecombustion', function () {
+    return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
+})->name('Mantenimientomotoresdecombustion');
+
+Route::get('/linea_tiempo', function () {
+    return view('linea_tiempo', ['noFondo' => true]);
+})->name('linea_tiempo');
+
 // Ruta para obtener los planteles por nivel
 Route::get('/planteles', [PlantelController::class, 'index']);
-
-
 // Ruta para obtener las carreras por plantel
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
 // asi tambien se pueden poner las rutas 
