@@ -16,8 +16,8 @@
                 <div class="card plantel-card h-100" onclick="mostrarPlantel('{{ $id }}')">
                     <div class="card-body text-center">
                         <h3 class="card-title">{{ $nombre }}</h3>
-                        <i class="fas fa-{{ $id === 'plantel1' ? 'school' : ($id === 'plantel2' ? 'university' : 'graduation-cap') }} fa-4x mt-3 mb-3 text-primary"></i>
-                        <p class="text-muted">Haz clic para ver más detalles</p>
+                         <i class="fas fa-{{ $id === 'plantel1' ? 'school' : ($id === 'plantel2' ? 'university' : 'graduation-cap') }} fa-4x mt-3 mb-3 plantel-icon {{ 'icon-' . $id }}"></i>
+                         <p class="click-hint">Haz clic para ver más detalles</p>
                     </div>
                 </div>
             </div>
