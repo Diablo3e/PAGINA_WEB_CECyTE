@@ -71,3 +71,12 @@ Route::get('/planteles', [PlantelController::class, 'index']);
 
 // Ruta para obtener las carreras por plantel
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
+// asi tambien se pueden poner las rutas 
+/*Route::get('paciente',[PacienteController::class,'index']);
+Route::get('paciente/create',[PacienteController::class,'create']);
+Route::get('paciente/show1',[PacienteController::class,'show']);
+Route::get('paciente/store1',[PacienteController::class,'store']);
+*/
+#Route::get('paciente/index',[PacienteController::class,'index2']);
+#Route::POST('create',[PacienteController::class,'create']);
+
