@@ -31,27 +31,18 @@ const planteles = {
         ]
     },
     plantel2: {
-        nombre: "Plantel Norte",
+        nombre: "Plantel Chignahuapan",
         imagenes: [
-            "{{ asset('imagenes/Plantel_Norte/NortePlantel1.jpg') }}",
-            "{{ asset('imagenes/Plantel_Norte/NortePlantel2.jpg') }}"
+            "/imagenes/Chignahuapan/Chigna13.jpg",
+            "/imagenes/Chignahuapan/Chigna9.jpg",
+            "/imagenes/Chignahuapan/PANO_1.jpg",
         ],
         direccion: "Calle Norte #456, Colonia Industrial, Ciudad de México, C.P. 07800",
         directores: [
             {
-                nombre: "Mtro. Roberto Sánchez",
-                cargo: "Director General",
-                foto: "{{ asset('imagenes/directores/director1.jpg') }}"
-            },
-            {
-                nombre: "Dra. Ana Martínez",
-                cargo: "Directora de Investigación",
-                foto: "{{ asset('imagenes/directores/directora1.jpg') }}"
-            },
-            {
-                nombre: "Lic. Jorge Ramírez",
-                cargo: "Director de Servicios Escolares",
-                foto: "{{ asset('imagenes/directores/director2.jpg') }}"
+                nombre: "María Flora Castillo Vega",
+                cargo: "Control Escolar",
+                foto: "/imagenes/Chignahuapan/Maria_Flora.jpg",
             }
         ],
         carreras: [
@@ -61,29 +52,23 @@ const planteles = {
         ]
     },
     plantel3: {
-        nombre: "Plantel Sur",
+        nombre: "Plantel EMsaD Ameluca",
         imagenes: [
-            "{{ asset('imagenes/Plantel_Sur/SurPlantel1.jpg') }}",
-            "{{ asset('imagenes/Plantel_Sur/SurPlantel2.jpg') }}",
-            "{{ asset('imagenes/Plantel_Sur/SurPlantel3.jpg') }}"
+            "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0.jpg",
+            "/imagenes/EMSaD Ameluca/entrada2 ameluca.jpg",
         ],
         direccion: "Calzada del Sur #789, Colonia Jardines, Ciudad de México, C.P. 14000",
         directores: [
             {
-                nombre: "Dra. Laura Fernández",
-                cargo: "Directora General",
-                foto: "{{ asset('imagenes/directores/directora2.jpg') }}"
+                nombre: "",
+                cargo: "Responsable del Centro",
+                foto: "/imagenes/EMSaD Ameluca/Responsable.jpg",
             },
             {
-                nombre: "Ing. Pedro Gómez",
-                cargo: "Director de Infraestructura",
-                foto: "{{ asset('imagenes/directores/director3.jpg') }}"
+                nombre: "",
+                cargo: "Auxiliar del Responsable",
+                foto: "/imagenes/EMSaD Ameluca/Auxiliar.jpg",
             },
-            {
-                nombre: "Lic. Sofía Castro",
-                cargo: "Directora de Planeación",
-                foto: "{{ asset('imagenes/directores/directora3.jpg') }}"
-            }
         ],
         carreras: [
             { nombre: "Derecho", duracion: "4 años", modalidad: "Presencial" },
