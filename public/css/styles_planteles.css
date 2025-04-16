@@ -1,16 +1,11 @@
 :root {
-    --color-primario: #5c0000;       /* Vino oscuro institucional */
-    --color-secundario: #a70000;     /* Rojo más brillante para acentos */
-    --color-terciario: #fff5f5;      /* Fondo claro con tinte cálido */
-    --color-acento: #ffc107;         /* Amarillo dorado como acento */
-    --color-texto-oscuro: #2d2d2d;   /* Texto oscuro neutro */
-    --color-texto-claro: #ffffff;    /* Texto claro */
-    --sombra-suave: 0 4px 6px rgba(92, 0, 0, 0.1);
-    --sombra-intensa: 0 10px 15px rgba(92, 0, 0, 0.2);
-    --transicion: all 0.3s ease-in-out;
-    --borde-redondeado: 12px;
+    /* Colores principales (ajusta según tu paleta) */
+    --color-primario: #460a05;    /* Azul oscuro */
+    --color-secundario: #4b1818;  /* Azul claro */
+    --color-terciario: #34100d;   /* Azul medio */
+    --color-acento: #e74c3c;      /* Rojo coral para acentos */
+    --color-fondo: #f8f9fa;       /* Fondo claro */
 }
-
 body.no-background .background-box {
     display: none !important;
 }

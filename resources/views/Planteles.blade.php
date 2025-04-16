@@ -11,7 +11,7 @@
     <div id="planteles-list">
         <h1 class="text-center mb-5">Nuestros Planteles Educativos</h1>
         <div class="row">
-            @foreach(['plantel1' => 'Plantel Cholula', 'plantel2' => 'Plantel Norte', 'plantel3' => 'Plantel Sur'] as $id => $nombre)
+            @foreach(['plantel1' => 'Plantel Cholula', 'plantel2' => 'Plantel Chignahuapan', 'plantel3' => 'Plantel EMsaD Ameluca'] as $id => $nombre)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card plantel-card h-100" onclick="mostrarPlantel('{{ $id }}')">
                     <div class="card-body text-center">
@@ -50,7 +50,7 @@
 
         <!-- Dirección -->
         <div class="card mb-5">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header directores-header">
                 <h4 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Dirección</h4>
             </div>
             <div class="card-body">
@@ -60,7 +60,7 @@
 
         <!-- Directores -->
         <div class="card mb-5">
-            <div class="card-header bg-primary text-white">
+        <div class="card-header directores-header">
                 <h4 class="mb-0"><i class="fas fa-users-cog me-2"></i>Directores</h4>
             </div>
             <div class="card-body">
@@ -70,7 +70,7 @@
 
         <!-- Carreras Disponibles -->
         <div class="card">
-            <div class="card-header bg-primary text-white">
+          <div class="card-header directores-header">
                 <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i>Carreras Disponibles</h4>
             </div>
             <div class="card-body">
