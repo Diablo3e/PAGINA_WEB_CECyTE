@@ -21,7 +21,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       object-fit: cover;
-      border: 3px solid #4b0404;
+      border: 3px solid #dc8629;
     }
 
     #ocelote-icon:hover {
@@ -48,7 +48,7 @@
     }
 
     #chatbot-header {
-      background-color: #410a0a;
+      background-color: #db7d30;
       color: white;
       padding: 15px 20px;
       display: flex;
