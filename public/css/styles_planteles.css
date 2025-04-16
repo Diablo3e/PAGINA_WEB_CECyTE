@@ -9,10 +9,11 @@
     --sombra-intensa: 0 10px 15px rgba(92, 0, 0, 0.2);
     --transicion: all 0.3s ease-in-out;
     --borde-redondeado: 12px;
-    --espaciado-seccion: 5rem;
 }
 
-
+body.no-background .background-box {
+    display: none !important;
+}
 /* Estilos base mejorados */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -151,16 +152,7 @@ body {
     box-shadow: var(--sombra-suave);
 }
 
-/* Barra de redes sociales */
-.redes-sociales {
-    background-color: var(--color-primario);
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-}
+
 .btn {
     background-color: var(--color-secundario);
     color: var(--color-texto-claro);
@@ -174,51 +166,7 @@ body {
     background-color: var(--color-acento);
     color: var(--color-texto-oscuro);
 }
-/* Barra de navegación ultra delgada */
-.navbar {
-    background-color: var(--color-primario); /* Color vino/rojo oscuro */
-    padding: 0.1rem 1rem; /* Padding vertical mínimo */
-    min-height: 30px; /* Altura mínima muy reducida */
-    box-shadow: none; /* Eliminar sombra para más minimalismo */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil inferior opcional */
-}
 
-/* Versión ultra minimalista - altura mínima */
-.navbar-minimal {
-    background-color: var(--color-primario);
-    padding: 0 !important; /* Elimina todo padding interno */
-    min-height: 24px !important; /* Altura mínima posible */
-    line-height: 24px; /* Alineación vertical perfecta */
-}
-
-/* Ajuste de elementos internos */
-.navbar-minimal .navbar-nav {
-    margin: 0 auto; /* Centrado horizontal */
-}
-
-.navbar-minimal .nav-item {
-    margin: 0 8px; /* Espaciado horizontal reducido */
-}
-
-.navbar-minimal .nav-link {
-    padding: 0 !important; /* Sin padding */
-    font-size: 0.78rem; /* Texto muy pequeño */
-    line-height: inherit; /* Mantiene alineación */
-}
-
-/* Separadores mini */
-.navbar-minimal .nav-item:not(:last-child)::after {
-    content: "•";
-    color: rgba(255, 255, 255, 0.2);
-    right: -9px;
-    font-size: 0.5rem;
-    top: 52%;
-}
-
-/* Efecto hover casi invisible */
-.navbar-minimal .nav-link:hover {
-    opacity: 0.8;
-}
 /* Estilos para la tabla de carreras */
 .tabla-carreras {
     width: 100%;
