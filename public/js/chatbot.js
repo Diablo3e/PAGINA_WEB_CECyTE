@@ -30,15 +30,15 @@ function showWelcome() {
 }
 
 function showOptions() {
-  displayMessage(responses["hola"], "bot");
-  displayMessage("1️⃣ Fechas de inscripción", "bot");
-  displayMessage("2️⃣ Fechas de reinscripción", "bot");
-  displayMessage("3️⃣ Planteles disponibles", "bot");
-  displayMessage("4️⃣ Carreras técnicas", "bot");
-  displayMessage("5️⃣ Costo de inscripción", "bot");
-  displayMessage("6️⃣ Costo de reinscripción", "bot");
-  waitingForHello = false;
-}
+    displayMessage(responses["hola"], "bot");
+    displayMessage("➊ Fechas de inscripción", "bot");
+    displayMessage("➋ Fechas de reinscripción", "bot");
+    displayMessage("➌ Planteles disponibles", "bot");
+    displayMessage("➍ Carreras técnicas", "bot");
+    displayMessage("➎ Costo de inscripción", "bot");
+    displayMessage("➏ Costo de reinscripción", "bot");
+    waitingForHello = false;
+  }
 
 function initializeChat() {
   if (!chatInitialized) {
