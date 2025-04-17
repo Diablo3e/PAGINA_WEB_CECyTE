@@ -8,40 +8,27 @@ function showTab(tabId) {
     document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
 
     lastActiveTab = tabId;
+
+    moveIndicatorToActiveTab(); // <-- aquí se asegura que se mueva la flecha
 }
 
-function showDetails(courseId) {
-    const details = {
-        'gestion-administrativa': {
-            title: 'Procesos de Gestión Administrativa',
-            description: 'Aprende sobre administración de recursos, procesos empresariales y liderazgo organizacional.'
-        },
-        'programacion': {
-            title: 'Programación',
-            description: 'Domina los lenguajes de programación más utilizados en la industria y desarrolla soluciones innovadoras.'
-        },
-        'produccion-industrial': {
-            title: 'Producción Industrial',
-            description: 'Aprende sobre los procesos industriales, eficiencia productiva y control de calidad en la manufactura.'
-        },
-        'mantenimiento-automotriz': {
-            title: 'Mantenimiento Automotriz',
-            description: 'Especialízate en el diagnóstico, reparación y mantenimiento de vehículos automotores.'
-        },
-        'hoteleria-servicios': {
-            title: 'Servicios de Hotelería',
-            description: 'Prepárate para una carrera en el sector turístico y hotelero con habilidades en gestión y atención al cliente.'
-        }
-    };
 
-    document.getElementById('details-title').innerText = details[courseId].title;
-    document.getElementById('details-description').innerText = details[courseId].description;
-
-    document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
-    document.getElementById('details').classList.add('active');
-}
 
 function goBack() {
     document.getElementById('details').classList.remove('active');
     document.getElementById(lastActiveTab).classList.add('active');
 }
+
+// Inicializar el indicador al cargar la página
+function moveIndicatorToActiveTab() {
+    const activeTab = document.querySelector('.tab.active');
+    const indicator = document.getElementById('indicator');
+    if (activeTab && indicator) {
+        indicator.style.left = `${activeTab.offsetLeft + activeTab.offsetWidth / 2 - 10}px`;
+    }
+}
+
+// Mover al cargar completamente
+window.addEventListener('load', () => {
+    moveIndicatorToActiveTab();
+});
