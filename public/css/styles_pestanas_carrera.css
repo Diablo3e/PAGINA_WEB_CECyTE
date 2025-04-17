@@ -12,16 +12,17 @@
 .tab {
     padding: 12px 24px;
     cursor: pointer;
-    background: #9b8c8c;
+    width: 250px;
+    height: 100px;
+    background: #4b4f54;
     margin-right: 5px;
-    border-radius: 10px 10px 0 0;
     font-weight: bold;
     color: #fff;
     transition: background 0.3s ease;
 }
 
 .tab:hover {
-    background: #7a7070;
+    background: #b9975b;
 }
 
 .tab.active {
@@ -38,7 +39,7 @@
     margin: 0 auto;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid #590707; /* mismo color que tab activa */
+    border-top: 10px solid #b9975b;
     transition: all 0.3s ease;
 }
 

@@ -1,74 +1,62 @@
-.social-bar {
+.menu-circular {
     position: fixed;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-    padding: 5px;
-}
-
-.social-bar a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
+    right: 10px;
+    top: 40%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    z-index: 1000;
+}
+
+.menu-btn {
+    background: #3e06065b;
+    color: white;
+    border: none;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    left: -35px; /* <-- Aquí lo ocultas hacia la izquierda */
-}
-
-.social-bar a {
-    /* ... */
-    left: -35px;
-}
-
-.social-bar a:hover {
-    left: 0;
-}
-
-
-/* Íconos */
-.social-bar a i {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-/* Tooltip bonito */
-.social-bar a::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 60px;
+.menu-btn:hover {
+    transform: scale(1.2); /* Efecto de agrandamiento */
+}
+
+.central {
+    width: 70px;
+    height: 70px;
+    background: #590707; /* Botón central */
+    color: white;
+}
+
+.facebook {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3b5998;
+}
+
+.youtube {
     top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    font-size: 13px;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    background: #ff0000;
 }
-
-.social-bar a:hover::after {
-    opacity: 1;
-    left: 70px;
+.X {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
 }
-
-/* Colores de cada red */
-.facebook { background: #3b5998; }
-.youtube  { background: #FF0000; }
-.twitter  { background: #000000; }
 .instagram {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc188e);
     background-size: 200% 200%;
     animation: instagramGlow 4s ease infinite;
