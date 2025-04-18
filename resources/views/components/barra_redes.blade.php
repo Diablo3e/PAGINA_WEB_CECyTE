@@ -1,5 +1,8 @@
+<div class="menu-hover-zone"></div>
 <div class="menu-circular">
-    <button class="menu-btn central">✖</button>
+<button class="menu-btn central">
+    <img src="/imagenes/icono-redes.png" alt="Icono" class="icono-central">
+</button>
 
     <a href="https://www.facebook.com/cecyte.tk" target="_blank" class="menu-btn Facebook" data-tooltip="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
