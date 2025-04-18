@@ -5,8 +5,27 @@
     display: flex;
     align-items: center;
     z-index: 1000;
+    opacity: 0; /* oculto por defecto */
+    transition: opacity 0.3s ease;
 }
-
+.icono-central {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;           /* si la imagen ya es circular, puedes quitar esto */
+    object-fit: contain;
+}
+.menu-circular:hover {
+    opacity: 1; /* se muestra cuando pasas el cursor */
+}
+/* Puedes añadir una pequeña área de activación */
+.menu-hover-zone {
+    position: fixed;
+    right: 0;
+    top: 35%;
+    width: 40px;
+    height: 100px;
+    z-index: 999;
+}
 .menu-btn {
     background: #3e06065b;
     color: white;
@@ -28,12 +47,13 @@
 }
 
 .central {
-    width: 70px;
-    height: 70px;
-    background: #590707; /* Botón central */
-    color: white;
+    background: transparent;       /* sin fondo */
+    border: none;                  /* sin borde */
+    width: auto;                   /* se ajusta al tamaño de la imagen */
+    height: auto;
+    padding: 0;
+    box-shadow: none;
 }
-
 .facebook {
     top: 0;
     left: 50%;
