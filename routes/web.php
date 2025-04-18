@@ -56,6 +56,12 @@ Route::get('/carreras', function () {
 Route::get('/convenios', function () {
     return view('Convenios', ['noFondo' => true]);
 })->name('convenios');
+
+Route::get('/convenios-v2', function () {
+    return view('conv2', ['noFondo' => true]);
+})->name('convenios.v2');
+
+
 Route::get('/Admision', function () {
     return view('Admision', ['noFondo' => true]);
 })->name('Admision');
@@ -89,12 +95,6 @@ Route::get('/linea_tiempo', function () {
 Route::get('/planteles', [PlantelController::class, 'index']);
 // Ruta para obtener las carreras por plantel
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
-// asi tambien se pueden poner las rutas 
-/*Route::get('paciente',[PacienteController::class,'index']);
-Route::get('paciente/create',[PacienteController::class,'create']);
-Route::get('paciente/show1',[PacienteController::class,'show']);
-Route::get('paciente/store1',[PacienteController::class,'store']);
-*/
-#Route::get('paciente/index',[PacienteController::class,'index2']);
-#Route::POST('create',[PacienteController::class,'create']);
+
+
 

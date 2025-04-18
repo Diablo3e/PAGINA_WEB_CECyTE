@@ -1,0 +1,91 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+}
+
+.convenios-container1 {
+  padding: 40px 20px;
+}
+
+.convenios-container1 h1 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Grid de tarjetas */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Estilo de tarjetas */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 6px solid transparent; /* cada tarjeta cambia con JS */
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.card p {
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* Centrar la novena tarjeta */
+.grid-container > .card:nth-child(9) {
+  grid-column: 2 / span 2;
+  justify-self: center;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+  .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-container > .card:nth-child(9) {
+      grid-column: auto;
+      justify-self: stretch;
+  }
+}
+
+/* Responsive: móvil */
+@media (max-width: 600px) {
+  .grid-container {
+      grid-template-columns: 1fr;
+  }
+
+  .grid-container > .card:nth-child(9) {
+      grid-column: auto;
+      justify-self: stretch;
+  }
+}
+
