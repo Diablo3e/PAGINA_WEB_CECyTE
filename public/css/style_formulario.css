@@ -9,13 +9,6 @@
     transition: all 0.3s ease-in-out;
     z-index: 1;
 }
-
-.form-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .cerrar-btn {
     position: absolute;
     top: 10px;  /* Ajusta la distancia desde arriba */
@@ -26,20 +19,12 @@
     cursor: pointer;
     color: var(--pantone-7421c);
 }
-
-
-
-
-.minimizado {
-    height: 40px;
-    overflow: hidden;
-}
 /* Botón de solicitar información flotante */
 .btn-flotante {
     position: fixed;
     bottom: 80px; /* Distancia desde la parte inferior */
     right: 20px;  /* Distancia desde la parte derecha */
-    background-color: var(--pantone-7421c); /* El color que ya tienes para el botón */
+    background-color: #13322b;
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
@@ -49,20 +34,10 @@
 }
 
 .btn-flotante:hover {
-    background-color: #8D162A; /* Versión más oscura cuando el mouse pasa por encima */
+    background-color: #13322b; /* Versión más oscura cuando el mouse pasa por encima */
     color: black;
 }
 
-/* Fondo general del formulario */
-.formulario-body {
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-}
 /* Contenedor del formulario */
 .form-container {
     background: rgba(187, 24, 24, 0.5);
@@ -76,10 +51,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.form-container h2 {
-    margin-bottom: 15px;
-    color: #0f0b0b;
-}
+
 
 /* Inputs y selectores */
 select, input {

@@ -1,92 +1,89 @@
- /* Estilos para la barra social */
- .social-bar {
+.menu-circular {
     position: fixed;
-    left: 0;
-    top: 35%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.social-bar:hover {
-    transform: translateX(0) translateY(-50%);
-}
-
-.social-bar a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
+    right: 10px;
+    top: 40%;
     display: flex;
     align-items: center;
+    z-index: 1000;
+    opacity: 0; /* oculto por defecto */
+    transition: opacity 0.3s ease;
+}
+.icono-central {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;           /* si la imagen ya es circular, puedes quitar esto */
+    object-fit: contain;
+}
+.menu-circular:hover {
+    opacity: 1; /* se muestra cuando pasas el cursor */
+}
+/* Puedes añadir una pequeña área de activación */
+.menu-hover-zone {
+    position: fixed;
+    right: 0;
+    top: 35%;
+    width: 40px;
+    height: 100px;
+    z-index: 999;
+}
+.menu-btn {
+    background: #3e06065b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
     justify-content: center;
-    margin: 2px 0;
-    position: relative;
-    left: -35px;
-    transition: all 0.3s ease;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.social-bar:hover a {
-    left: 0;
+.menu-btn:hover {
+    transform: scale(1.2); /* Efecto de agrandamiento */
 }
 
-.social-bar a i {
-    transition: all 0.3s ease;
+.central {
+    background: transparent;       /* sin fondo */
+    border: none;                  /* sin borde */
+    width: auto;                   /* se ajusta al tamaño de la imagen */
+    height: auto;
+    padding: 0;
+    box-shadow: none;
 }
-
-.social-bar a:hover i {
-    transform: scale(1.2);
-}
-
-/* Colores para cada red social */
 .facebook {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #3b5998;
 }
 
 .youtube {
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
     background: #ff0000;
 }
-
-.twitter {
-    background: #1da1f2;
+.X {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
 }
-
 .instagram {
-    background: #e1306c;
-}
-
-.email {
-    background: #666666;
-}
-
-.whatsapp {
-    background: #25d366;
-}
-
-/* Efecto de tooltip */
-.social-bar a::after {
-    content: attr(class);
-    position: absolute;
-    right: -100px;
     top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    text-transform: capitalize;
-    white-space: nowrap;
+    left: 0;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc188e);
+    background-size: 200% 200%;
+    animation: instagramGlow 4s ease infinite;
 }
 
-.social-bar a:hover::after {
-    right: -110px;
-    opacity: 1;
+@keyframes instagramGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
