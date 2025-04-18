@@ -21,10 +21,13 @@ body {
 
 .container-fluid {
     padding: var(--espaciado-seccion) 3%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 /* Tarjetas de planteles - Versión premium */
 .plantel-card {
+    background-color: white !important;
     cursor: pointer;
     transition: var(--transicion);
     background: white;
@@ -34,6 +37,10 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 /* Estilos generales para los iconos */
 .plantel-icon {
@@ -237,6 +244,65 @@ body {
     border-radius: var(--borde-redondeado);
     padding: 1.5rem;
     box-shadow: var(--sombra-suave);
+}
+ /* Estilos para las pestañas */
+ .nav-tabs {
+    border-bottom: 2px solid var(--color-primario);
+}
+
+.nav-tabs .nav-link {
+    color: var(--color-primario);
+    font-weight: 600;
+    border: none;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--color-acento);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: white;
+    background-color: var(--color-primario);
+    border: none;
+    position: relative;
+}
+
+.nav-tabs .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-acento);
+}
+.btn-inicio {
+    background-color: #6f0808; /* azul similar al de Bootstrap */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(145, 114, 3, 0.566);
+}
+
+.btn-inicio:hover {
+    background-color: #1d4f02; /* tono más oscuro al hover */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #a05f10;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+/* Ajustes para las tarjetas en las pestañas */
+.tab-pane .plantel-card {
+    margin-bottom: 1.5rem;
 }
 /* Responsividad */
 @media (max-width: 1024px) {
