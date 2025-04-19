@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<link href="{{ asset(path: 'css/styles_planteles.css') }}" rel="stylesheet">
+<link href="{{ asset('css/styles_planteles.css') }}" rel="stylesheet">
 
 @section('body-class', 'no-background')
 
@@ -10,20 +10,71 @@
     <!-- Página principal con lista de planteles -->
     <div id="planteles-list">
         <h1 class="text-center mb-5">Nuestros Planteles Educativos</h1>
-        <div class="row">
-            @foreach(['plantel1' => 'Plantel Cholula', 'plantel2' => 'Plantel Chignahuapan', 'plantel3' => 'Plantel EMsaD Ameluca'] as $id => $nombre)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card plantel-card h-100" onclick="mostrarPlantel('{{ $id }}')">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">{{ $nombre }}</h3>
-                         <i class="fas fa-{{ $id === 'plantel1' ? 'school' : ($id === 'plantel2' ? 'university' : 'graduation-cap') }} fa-4x mt-3 mb-3 plantel-icon {{ 'icon-' . $id }}"></i>
-                         <p class="click-hint">Haz clic para ver más detalles</p>
+
+        <!-- Pestañas de navegación -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="plantelesTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cecyte-tab" data-bs-toggle="tab" data-bs-target="#cecyte" type="button" role="tab">
+                    <i class="fas fa-school me-2"></i>Planteles CECyTE
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="emsad-tab" data-bs-toggle="tab" data-bs-target="#emsad" type="button" role="tab">
+                    <i class="fas fa-graduation-cap me-2"></i>Planteles EMSaD
+                </button>
+            </li>
+        </ul>
+
+        <!-- Contenido de las pestañas -->
+        <div class="tab-content" id="plantelesTabsContent">
+            <!-- Pestaña CECyTE -->
+            <div class="tab-pane fade show active" id="cecyte" role="tabpanel">
+                <div class="row">
+                    @foreach(['plantel1' => 'Plantel Cholula', 'plantel2' => 'Plantel Chignahuapan', 'plantel10' => 'Plantel Guadalupe Victoria', 'plantel11' => 'Plantel Huejotzingo'] as $id => $nombre)
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="card plantel-card h-100" onclick="mostrarPlantel('{{ $id }}')">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">{{ $nombre }}</h3>
+                                <i class="fas fa-school fa-4x mt-3 mb-3 plantel-icon {{ 'icon-' . $id }}"></i>
+                                <p class="click-hint">Haz clic para ver más detalles</p>
+                            </div>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
+
+            <!-- Pestaña EMSaD -->
+            <div class="tab-pane fade" id="emsad" role="tabpanel">
+                <div class="row">
+                    @foreach(['plantel3' => 'Plantel EMSaD Ameluca', 'plantel4' => 'Plantel EMSaD Boca del Monte', 'plantel5' => 'Plantel EMSaD Buena Vista',
+                    'plantel6' => 'Plantel EMSaD La Pahua','plantel7' => 'Plantel EMSaD Mexcaltochintla', 'plantel8' => 'Plantel EMSaD Naranjastitla',
+                    'plantel9' => 'Plantel EMSaD Santa Elena'] as $id => $nombre)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card plantel-card h-100" onclick="mostrarPlantel('{{ $id }}')">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">{{ $nombre }}</h3>
+                                <i class="fas fa-graduation-cap fa-4x mt-3 mb-3 plantel-icon {{ 'icon-' . $id }}"></i>
+                                <p class="click-hint">Haz clic para ver más detalles</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
+    <div class="text-center mt-10">
+    <button
+        onclick="location.href='{{ url('/Planteles') }}'"
+        class="btn-inicio"
+    >
+        <i class="fas fa-home mr-2"></i> Volver al inicio
+    </button>
+</div>
+
+</div>
+@endsection
 
     <!-- Página detalle del plantel -->
     <div id="plantel-detail" style="display: none;">
@@ -92,8 +143,7 @@
         </div>
     </div>
 </div>
-@endsection
+
 @push('scripts')
 <script src="{{ asset('js/planteles.js') }}"></script>
 @endpush
-
