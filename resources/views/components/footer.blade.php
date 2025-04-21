@@ -2,7 +2,7 @@
     <div class="footer-container">
         <!-- Logo -->
         <div class="footer-logo">
-            <img src="https://cecytepuebla.edu.mx/wp-content/uploads/elementor/thumbs/Recurso-1@300x-8-qp4qt315crdyuz9h3a3dt1fo0avs7z00hd9kwb6oxk.png" alt="CECyTE Logo">
+            <img src="imagenes/logo_cecyte.png" alt="CECyTE Logo">
         </div>
 
         <div class="footer-content">
@@ -11,37 +11,46 @@
                 <h3>Contacto</h3>
                 <p><strong>📞 22 29 62 11 26 ext.101</strong></p>
                 <p>✉ Escríbenos</p>
-                <p><span class="location-icon">📍</span> Colorines 2, Bello Horizonte, 72700 Puebla, Pue.</p>
-                <p>📌 Ubicación</p>
             </div>
 
             <!-- Enlaces -->
             <div class="footer-section">
                 <h3>Enlaces</h3>
                 <ul>
-                    <li>Admisión</li>
+                    <li onclick="location.href='{{ route('Admision') }}'">Admisión</li>
                     <li>Contacto</li>
-                    <li>Carreras</li>
+                    <li onclick="location.href='{{ route('Carreras') }}'">Carreras</li>
                     <li>Directorio</li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Transparencia</h3>
+                <h3></h3>
                 <ul>
-                    <li>Código de Ética</li>
-                    <li>Código de Conducta</li>
+                <li onclick="location.href='{{ route('Transparencia') }}'">Transparencia</li>
+                <li>
+                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/codigo-de-etica.pdf" target="_blank" rel="noopener noreferrer">Código de Ética</a>
+                    </li>
+                    <li>
+                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/CodigoDeConductaV05.pdf" target="_blank" rel="noopener noreferrer">Código de Conducta</a>
+                    </li>
                     <li>Portal Dirección General</li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Políticas</h3>
                 <ul>
-                    <li>Política de Igualdad</li>
-                    <li>Política de Calidad</li>
-                    <li>Catálogo de Convenios</li>
-                    <li>Podcast</li>
+                    <li>
+                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/politica-de-igualdad-laboral-no-discriminacion.pdf" target="_blank" rel="noopener noreferrer">Política de Igualdad</a>
+                    </li>
+                    <li>
+                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/politica-de-calidad.pdf" target="_blank" rel="noopener noreferrer">Política de Calidad</a>
+                    </li>
+                    <li>
+                        <a href="https://cecytepuebla.edu.mx/Vinculacion/convenios2024/CONVENIOS2024.pdf" target="_blank" rel="noopener noreferrer">Catálogo de Convenios</a>
+                    </li>
+                    <li onclick="location.href='{{ route('Transparencia') }}'">Podcast</li>
+
                 </ul>
             </div>
         </div>
