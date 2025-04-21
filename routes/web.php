@@ -86,6 +86,9 @@ Route::get('/Electronica', function () {
 Route::get('/Mantenimientomotoresdecombustion', function () {
     return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
 })->name('Mantenimientomotoresdecombustion');
+Route::get('/Transparencia', function () {
+    return view('Transparencia', ['noFondo' => true]);
+})->name('Transparencia');
 
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
