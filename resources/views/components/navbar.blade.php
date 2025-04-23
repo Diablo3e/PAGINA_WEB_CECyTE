@@ -34,9 +34,8 @@
                         <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenimiento Industrial</a></li>
                         <li><a class="dropdown-item" href="{{ route('Electronica') }}">Electrónica</a></li>
                         <li><a class="dropdown-item" href="{{ route('Mantenimientomotoresdecombustion') }}">Motores de Combustión</a></li>
-                        <li><a class="dropdown-item" href="#">Proceso de Gestión</a></li>
-                        <li><a class="dropdown-item" href="#">Programación</a></li>
-                        <li><a class="dropdown-item" href="#">Hotelería</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Proceso-de-Gestión') }}">Proceso de Gestión</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Hoteleria') }}">Hotelería</a></li>
                         <li><a class="dropdown-item" href="#">Semiconductores</a></li>
                         <li><a class="dropdown-item" href="#">Inteligencia Artificial</a></li>
                         <li><a class="dropdown-item" href="#">Electromovilidad</a></li>

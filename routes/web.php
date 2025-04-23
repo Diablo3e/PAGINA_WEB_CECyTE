@@ -86,6 +86,12 @@ Route::get('/Electronica', function () {
 Route::get('/Mantenimientomotoresdecombustion', function () {
     return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
 })->name('Mantenimientomotoresdecombustion');
+Route::get('/Proceso-de-Gestión', function () {
+    return view('Proceso-de-Gestión', ['noFondo' => true]);
+})->name('Proceso-de-Gestión');
+Route::get('/Hoteleria', function () {
+    return view('Hoteleria', ['noFondo' => true]);
+})->name('Hoteleria');
 Route::get('/Transparencia', function () {
     return view('Transparencia', ['noFondo' => true]);
 })->name('Transparencia');
