@@ -130,12 +130,23 @@
                         </div>
                         <div class="mt-3 border-top pt-3">
                             <h5 class="mb-3"><i class="fas fa-map-marked-alt me-2"></i> Ubicación en mapa</h5>
-                            <div id="map-container" style="height: 300px; background: #f5f5f5; border-radius: 8px; position: relative;">
-                                <div class="d-flex justify-content-center align-items-center h-100">
-                                    <div class="spinner-border text-primary" role="status">
-                                        <span class="visually-hidden">Cargando mapa...</span>
-                                    </div>
-                                </div>
+                            <div id="map-container" style="height: 400px; width: 100%; border-radius: 8px;">
+                                <iframe
+                                 width="100%"
+                                 height="100%"
+                                 frameborder="0"
+                                 scrolling="no"
+                                 marginheight="0"
+                                 marginwidth="0"
+                                 src="https://www.openstreetmap.org/export/embed.html?bbox=-98.2063%2C19.0414%2C-98.1963%2C19.0514&amp;layer=mapnik&amp;marker=19.0414,-98.2063"
+                                 style="border: none;">
+                                </iframe>
+                                <br/>
+                                <small class="text-center d-block mt-2">
+                                    <a href="https://www.openstreetmap.org/?mlat=19.0414&amp;mlon=-98.2064#map=15/19.0414/-98.2063" target="_blank">
+                                         Ver mapa más grande
+                                        </a>
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -156,11 +167,16 @@
         </div>
 
         <!-- Carreras Disponibles -->
-        <div class="card mb-5 md-4">
-            <div class="card-header text-black">
-                <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i>Carreras Disponibles</h4>
-            </div>
-            <div class="card-body p-0">
+        <div class="accordion mb-5" id="seccionesAcordeon">
+    <!-- Acordeón de Carreras -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarreras">
+                <i class="fas fa-graduation-cap me-2"></i> Carreras Disponibles
+            </button>
+        </h2>
+        <div id="collapseCarreras" class="accordion-collapse collapse show" data-bs-parent="#seccionesAcordeon">
+            <div class="accordion-body p-0">
                 <div class="table-responsive">
                     <table class="table table-hover tabla-carreras mb-0" id="tabla-carreras">
                         <thead class="table-dark">
@@ -177,12 +193,15 @@
         </div>
         <div class="my-5"></div>
 
-        <!-- Sección de Alumnos -->
-        <div class="card mb-5">
-            <div class="card-header text-black">
-                <h4 class="mb-0"><i class="fas fa-users me-2"></i>Área de Alumnos</h4>
-            </div>
-            <div class="card-body">
+        <!-- Acordeón de Alumnos -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlumnos">
+                <i class="fas fa-users me-2"></i> Área de Alumnos
+            </button>
+        </h2>
+        <div id="collapseAlumnos" class="accordion-collapse collapse" data-bs-parent="#seccionesAcordeon">
+            <div class="accordion-body">
                 <!-- Pestañas para Alumnos -->
                 <ul class="nav nav-tabs mb-4" id="alumnosTabs" role="tablist">
                     <li class="nav-item" role="presentation">
