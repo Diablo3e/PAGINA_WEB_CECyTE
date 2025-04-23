@@ -1,79 +1,112 @@
-/* Estilo personalizado para la barra de navegación */
-.navbar-custom .nav-link,
-.navbar-custom .dropdown-item {
-    color: white !important;
-}
-.navbar-custom{
-    background-color: #3B0000 !important;
-}
-.navbar-custom .nav-link:hover,
-.navbar-custom .dropdown-item:hover {
-    color: #3B0000 !important; /* o el color que tú quieras para el hover */
-    
-}
-/* Fondo oscuro para el menú desplegable */
-.navbar-custom .dropdown-menu {
-    background-color: #3B0000 !important;
+/* ---------- variables ---------- */
+:root{
+    --burdeos:#3B0000;
+    --dor-osc:#b9975b;
+    --gold1:#e4be7f;
+    --gold2:#d39b57;
 }
 
-/* Texto blanco para los ítems del dropdown */
-.navbar-custom .dropdown-item {
-    color: white !important;
+/* ---------- barra ---------- */
+.navbar-cecyte .nav-item{
+    position:relative;
 }
-.navbar-brand img {
-    width: auto;
-    height: 50px; /* Ajusta la altura sin deformar el ancho */
-    max-height: 100%; /* Mantiene el tamaño dentro de la barra */
-    object-fit: contain; /* Evita el recorte o estiramiento */
-}
-
-/* Lupa de búsqueda (icono) */
-.navbar .btn-outline-light img {
-    filter: invert(1); /* Lupa blanca */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.navbar .btn-outline-light:hover img {
-    transform: scale(1.1); /* Efecto de zoom */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
-}
-/* Estilo para el ícono de la lupa */
-.search-button img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
+.navbar-cecyte{
+    background:var(--burdeos)!important;
+    border:2px solid #000;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-.search-button img:hover {
-    transform: scale(1.3); /* Efecto de zoom */
+.navbar-cecyte .nav-link{
+    color:#fff!important;
+    padding:.75rem 1.25rem;
+    position:relative;
+    font-weight:500;
+}
+.navbar-cecyte .nav-item:not(:first-child)::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:25%;
+    width:1px;
+    height:50%;
+    background:#ffffff;
+}
+.navbar-cecyte .nav-link:hover,
+.navbar-cecyte .nav-link:focus{
+    color:var(--dor-osc)!important;
 }
 
-/* Estilos de la barra de búsqueda */
-#search-bar {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(248, 242, 242, 0.1);
+.navbar-cecyte .nav-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:3px;
+    background:var(--dor-osc);
+    transition:.25s;
+}
+.navbar-cecyte .nav-link:hover::after,
+.navbar-cecyte .nav-link.active::after{
+    width:100%;
 }
 
-/* Personalización del input y botón */
-.search-bar input {
-    width: 150px; /* Ajusta el tamaño del campo de búsqueda */
+/* ---------- dropdown ---------- */
+.navbar-cecyte .dropdown-menu{
+    border:none;
+    padding:0;
+    min-width:260px;
+    animation:fade .25s ease-out;
+}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
+.navbar-cecyte .dropdown-item{
+    padding:.55rem 1rem;
+    color:#4a1627;
+    font-weight:600;
+}
+.navbar-cecyte .dropdown-item:nth-child(odd){background:var(--gold1);}
+.navbar-cecyte .dropdown-item:nth-child(even){background:var(--gold2);}
+.navbar-cecyte .dropdown-item:hover{
+    background:var(--burdeos);
+    color:var(--dor-osc);
 }
 
-.search-bar button {
-    background-color: #8B0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* ---------- logo ---------- */
+.navbar-brand img{
+    height:50px;
+    width:auto;
+    object-fit:contain;
 }
 
-.search-bar button:hover {
-    background-color: white;
-    color: #8B0000;
+/* ---------- hamburguesa ---------- */
+.navbar-toggler{
+    border-color:var(--dor-osc);
+}
+.navbar-toggler-icon{
+    background-image:url("data:image/svg+xml,\
+%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23b9975b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ---------- búsqueda ---------- */
+.search-button img{transition:transform .3s;}
+.search-button:hover img{transform:scale(1.15);}
+
+#search-bar{
+    position:absolute;
+    top:60px; right:0;
+    background:#fff;
+    padding:10px;
+    box-shadow:0 4px 6px rgba(0,0,0,.15);
+}
+.search-bar input{width:160px;}
+/* ---------- botón lupa: sin borde ---------- */
+.search-button.btn,
+.search-button.btn:focus,
+.search-button.btn:active{
+    border:none!important;        /* quita el borde */
+    box-shadow:none!important;    /* quita outline azul al hacer click */
+    outline:none!important;
+    padding:0;                    /* opcional: ajusta padding si lo ves grande */
 }
