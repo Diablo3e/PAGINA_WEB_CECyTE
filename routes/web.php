@@ -7,6 +7,8 @@ use App\Models\Nivel;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use App\Http\Controllers\PlantelesController;
+use App\Http\Controllers\PlantelController;
+use App\Http\Controllers\InicioController;
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -57,6 +59,7 @@ Route::get('/convenios', function () {
     return view('Convenios', ['noFondo' => true]);
 })->name('convenios');
 
+/*ruta del convenio no ruleta */
 Route::get('/convenios-v2', function () {
     return view('conv2', ['noFondo' => true]);
 })->name('convenios.v2');
@@ -96,5 +99,6 @@ Route::get('/planteles', [PlantelController::class, 'index']);
 // Ruta para obtener las carreras por plantel
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
 
+/*ruta del plantel estandar */
 
-
+Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');

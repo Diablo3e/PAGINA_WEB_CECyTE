@@ -11,18 +11,24 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('planteles', function (Blueprint $table) {
-            $table->unsignedBigInteger('nivel_id')->nullable();
+        Schema::create('planteles', function (Blueprint $table) {
+            $table->id();
+            $table->string('clave'); // como plantel1, plantel2...
+            $table->string('nombre');
+            $table->string('direccion');
+            $table->unsignedBigInteger('nivel_id')->nullable(); // Relación con la tabla niveles
+            $table->timestamps();
+
+            // Definimos la llave foránea
             $table->foreign('nivel_id')->references('id')->on('niveles');
         });
     }
-    
+
+    /**
+     * Reverse the migrations.
+     */
     public function down()
     {
-        Schema::table('planteles', function (Blueprint $table) {
-            $table->dropForeign(['nivel_id']);
-            $table->dropColumn('nivel_id');
-        });
+        Schema::dropIfExists('planteles');
     }
-    
 };
