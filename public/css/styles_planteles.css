@@ -5,6 +5,12 @@
     --color-terciario: #34100d;   /* Azul medio */
     --color-acento: #e74c3c;      /* Rojo coral para acentos */
     --color-fondo: #f8f9fa;       /* Fondo claro */
+
+     /* Variables de diseño */
+     --borde-redondeado: 10px;
+     --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+     --sombra-intensa: 0 10px 15px rgba(0, 0, 0, 0.15);
+     --transicion: all 0.3s ease;
 }
 body.no-background .background-box {
     display: none !important;
@@ -304,11 +310,227 @@ body {
 .tab-pane .plantel-card {
     margin-bottom: 1.5rem;
 }
+.card-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+#plantel-direccion {
+    line-height: 1.6;
+}
+
+/* Estilos para los íconos de información */
+.fa-info-circle, .fa-map-marked-alt {
+    color: var(--color-primario);
+}
+
+/* Estilos para los datos de contacto */
+.card-body p {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para el mapa */
+#map-container {
+    border: 1px solid #dee2e6;
+}
+/* Contenedor principal del mapa */
+.map-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Contenedor para centrar el mapa */
+.map-center-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+/* Contenedor del mapa con scroll */
+.map-scroll-container {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 100%;
+}
+
+/* Wrapper del mapa */
+.map-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Estilo de la imagen del mapa */
+.map-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* Resaltado mejorado */
+.plantel-highlight {
+    position: absolute;
+    background-color: rgba(40, 167, 69, 0.3);
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 10;
+    display: none;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+
+/* Controles del mapa */
+.map-controls {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+/* Resaltado mejorado */
+.plantel-highlight {
+    position: absolute;
+    background-color: rgba(40, 167, 69, 0.3);
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 10;
+    display: none;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+/* Tooltip mejorado */
+.plantel-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #5c2004;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Efecto hover para las áreas */
+area.plantel-area:hover {
+    cursor: pointer;
+}
+/* Asegurar que ambas columnas tengan la misma altura */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+/* Mejorar la tabla de carreras */
+.tabla-carreras tbody tr {
+    transition: all 0.2s ease;
+}
+
+.tabla-carreras tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateX(2px);
+}
+
+/* Ajustar el carrusel de la galería */
+#galeria-alumnos-carousel {
+    max-height: 400px;
+}
+
+.carousel-item img {
+    object-fit: contain;
+    max-height: 350px;
+    width: auto;
+    margin: 0 auto;
+}
+/* Estilo para móviles */
+@media (max-width: 767px) {
+    .map-scroll-container {
+        overflow: hidden;
+    }
+
+    .map-image {
+        width: 100%;
+        height: auto;
+    }
+
+    map {
+        display: none;
+    }
+
+    #mobilePlantelSelector {
+        max-width: 100%;
+    }
+}
+
+/* Botones de control */
+#zoomIn, #zoomOut, #resetZoom, #changeColor {
+    transition: all 0.2s ease;
+}
+
+#zoomIn:hover, #zoomOut:hover, #resetZoom:hover, #changeColor:hover {
+    transform: scale(1.05);
+}
+/* Listado alternativo para móviles */
+@media (max-width: 767px) {
+    map {
+        display: none;
+    }
+
+    #mobilePlantelSelector {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Estilos existentes */
+.no-background {
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    padding: 0 15px;
+}
 /* Responsividad */
 @media (max-width: 1024px) {
     .carousel-item {
         height: 50vh;
         min-height: 400px;
+    }
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    #map-container {
+        height: 250px;
     }
 }
 
@@ -331,7 +553,25 @@ body {
         height: 100px;
     }
 }
+@media (max-width: 992px) {
+    .row.mb-5 {
+        flex-direction: column;
+    }
 
+    .col-lg-6 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Hacer la tabla más legible en móviles */
+    .tabla-carreras {
+        font-size: 0.9rem;
+    }
+
+    .tabla-carreras th, .tabla-carreras td {
+        padding: 0.5rem;
+    }
+}
 @media (max-width: 576px) {
     :root {
         --espaciado-seccion: 2rem;

@@ -9,7 +9,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    
+
     /**
      * Bootstrap any application services.
      */
