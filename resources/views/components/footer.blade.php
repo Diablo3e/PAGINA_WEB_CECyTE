@@ -34,10 +34,11 @@
                     <li>
                         <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/CodigoDeConductaV05.pdf" target="_blank" rel="noopener noreferrer">Código de Conducta</a>
                     </li>
-                    <li>Portal Dirección General</li>
+                    <li>
+                        <a href="https://portal.cecytepuebla.edu.mx/?_gl=1*1lcw868*_ga*MTE3MzkxMDg0Ny4xNzQ0NjQ3OTky*_ga_N9NT22KNNM*MTc0NTM0Mzk5MC4xMC4xLjE3NDUzNDQ0MjIuMC4wLjA." target="_blank" rel="noopener noreferrer">Portal Dirección General</a>
+                    </li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <ul>
                     <li>
