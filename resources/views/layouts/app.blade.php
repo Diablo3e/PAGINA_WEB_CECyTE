@@ -10,6 +10,7 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Estilos personalizados -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
@@ -18,8 +19,10 @@
     <link href="{{ asset('css/styles_barra_redes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles_pie_pagina.css') }}" rel="stylesheet">
+   <!--pagina estandar y convenio-->
     <link rel="stylesheet" href="{{ asset('css/style_convenio2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style_estandar.css')}}">
+
     <!-- Espacio para estilos adicionales -->
     @stack('styles')
 </head>
@@ -46,7 +49,6 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/chatbot.js') }}"></script>
-
     <!-- Scripts específicos para planteles -->
     @stack('scripts')
 
