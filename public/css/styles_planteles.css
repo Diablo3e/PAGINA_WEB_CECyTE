@@ -439,7 +439,38 @@ body {
 area.plantel-area:hover {
     cursor: pointer;
 }
+/* Asegurar que ambas columnas tengan la misma altura */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.card-body {
+    flex-grow: 1;
+}
+
+/* Mejorar la tabla de carreras */
+.tabla-carreras tbody tr {
+    transition: all 0.2s ease;
+}
+
+.tabla-carreras tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateX(2px);
+}
+
+/* Ajustar el carrusel de la galería */
+#galeria-alumnos-carousel {
+    max-height: 400px;
+}
+
+.carousel-item img {
+    object-fit: contain;
+    max-height: 350px;
+    width: auto;
+    margin: 0 auto;
+}
 /* Estilo para móviles */
 @media (max-width: 767px) {
     .map-scroll-container {
@@ -522,7 +553,25 @@ area.plantel-area:hover {
         height: 100px;
     }
 }
+@media (max-width: 992px) {
+    .row.mb-5 {
+        flex-direction: column;
+    }
 
+    .col-lg-6 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Hacer la tabla más legible en móviles */
+    .tabla-carreras {
+        font-size: 0.9rem;
+    }
+
+    .tabla-carreras th, .tabla-carreras td {
+        padding: 0.5rem;
+    }
+}
 @media (max-width: 576px) {
     :root {
         --espaciado-seccion: 2rem;

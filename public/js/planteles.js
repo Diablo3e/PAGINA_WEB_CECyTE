@@ -17,7 +17,10 @@ const planteles = {
             cp: "72750",
             telefono: "(222) 289 0441",
             email: "cholula.cecytepuebla.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 16:30 hrs"
+            horario: "Lunes a Viernes de 7:00 a 16:30 hrs",
+            latitud: 19.100685740077587,
+            longitud: -98.30183163237301,
+
         },
         directores: [
             {
@@ -58,7 +61,9 @@ const planteles = {
             cp: "73300",
             telefono: "797 971 1991",
             email: "",
-            horario: "Lunes a Viernes de 7:00 a 15:30 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:30 hrs",
+            latitud: 19.852045858102084,
+            longitud: -98.03431692189822
         },
         directores: [
             {
@@ -88,7 +93,9 @@ const planteles = {
             cp: "73029",
             telefono: "55 5454 1559",
             email: "",
-            horario: "Lunes a Viernes de 8:00 a 16:00 hrs"
+            horario: "Lunes a Viernes de 8:00 a 16:00 hrs",
+            latitud: 20.563568214226102,
+            longitud: -97.8328442900193
         },
         directores: [
             {
@@ -124,7 +131,9 @@ const planteles = {
             cp: "75916",
             telefono: "236 111 7775",
             email: "cecytepuebla.edu.mx",
-            horario: "Lunes a Viernes de 8:00 a 16:00 hrs"
+            horario: "Lunes a Viernes de 8:00 a 16:00 hrs",
+            latitud: 18.420917808427905,
+            longitud: -97.06980982370949
         },
         directores: [
             {
@@ -170,7 +179,9 @@ const planteles = {
             cp: "72810",
             telefono: "238 249 2787",
             email: "emsadbuenavista@cecytepuebla.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:23.307801553331412,
+            longitud: -103.36590377115472
         },
         directores: [
             {
@@ -211,7 +222,9 @@ const planteles = {
             cp: "73008",
             telefono: "(222) 123 4567",
             email: "cecytepuebla.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:20.61139985261418,
+            longitud: -97.85333130923871
         },
         directores: [
             {
@@ -252,7 +265,9 @@ const planteles = {
             cp: "75916",
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:18.421244385262213,
+            longitud:-97.04543036306796
         },
         directores: [
             {
@@ -290,7 +305,9 @@ const planteles = {
             cp: "",
             telefono: "238 104 7266",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:18.35814870458713,
+            longitud:-96.78387390354918
         },
         directores: [
             {
@@ -327,7 +344,9 @@ const planteles = {
             cp: "73611",
             telefono: "233 103 9887",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:19.96964970272612,
+            longitud:-97.77138690167436
         },
         directores: [
             {
@@ -359,7 +378,9 @@ const planteles = {
             cp: "75045",
             telefono: "233 121 1402",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:19.301169465939225,
+            longitud:-97.3658274035342
         },
         directores: [
             {
@@ -396,7 +417,9 @@ const planteles = {
             cp: "74160",
             telefono: "55 4742 2801",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:19.176172818543616,
+            longitud:-98.38995186120725
         },
         directores: [
             {
@@ -437,7 +460,9 @@ const planteles = {
             cp: "75118",
             telefono: "223 275 5989",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:19.04220230830243,
+            longitud: -97.94638553237395
         },
         directores: [
             {
@@ -478,7 +503,9 @@ const planteles = {
             cp: "72810",
             telefono: "249 422 2637",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:18.90222038597174,
+            longitud:-97.74182151703407
         },
         directores: [
             {
@@ -520,7 +547,9 @@ const planteles = {
             cp: "74800",
             telefono: "275 432 6026",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:18.33681249536735,
+            longitud:-98.2841749262863
         },
         directores: [
             {
@@ -562,7 +591,9 @@ const planteles = {
             cp: "73271",
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:20.229396085707762,
+            longitud:-97.80535457468302
         },
         directores: [
             {
@@ -599,7 +630,9 @@ const planteles = {
             cp: "62895",
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:18.857791647835953,
+            longitud:-98.76778905216558
         },
         directores: [
             {
@@ -631,7 +664,9 @@ const planteles = {
             cp: "73040",
             telefono: "746 881 0768",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:20.51117087012702,
+            longitud:-97.66794403439089
         },
         directores: [
             {
@@ -668,7 +703,9 @@ const planteles = {
             cp: "73080",
             telefono: "764 101 0038",
             email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs"
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:20.248852231066234,
+            longitud:-97.95657137653139
         },
         directores: [
             {
@@ -1304,6 +1341,31 @@ function mostrarPlantel(idPlantel) {
 
     // Inicializar carruseles
     new bootstrap.Carousel(document.getElementById('plantel-carousel'));
+
+// Coordenadas aproximadas (deberías almacenarlas en tu objeto plantel)
+const lat = plantel.direccion.latitud;
+const lon = plantel.direccion.longitud; // Ejemplo para Puebla
+
+const mapContainer = document.getElementById('map-container');
+mapContainer.innerHTML = `
+    <iframe
+        width="100%"
+        height="100%"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.01}%2C${lat-0.01}%2C${lon+0.01}%2C${lat+0.01}&amp;layer=mapnik&amp;marker=${lat},${lon}"
+        style="border: none;">
+    </iframe>
+    <br/>
+    <small class="text-center d-block mt-2">
+        <a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=15/${lat}/${lon}" target="_blank">
+            Ver mapa más grande
+        </a>
+    </small>
+`;
+
 }
 
 // Función para volver a la lista de planteles
@@ -1314,10 +1376,8 @@ function volverALista() {
 }
 // Variables para control de colores
 const highlightColors = [
-    {bg: 'rgba(40, 167, 69, 0.3)', border: '#28a745'}, // Verde
-    {bg: 'rgba(0, 123, 255, 0.3)', border: '#007bff'}, // Azul
     {bg: 'rgba(220, 53, 69, 0.3)', border: '#dc3545'}, // Rojo
-    {bg: 'rgba(255, 193, 7, 0.3)', border: '#ffc107'}  // Amarillo
+
 ];
 let currentColorIndex = 0;
 
@@ -1437,6 +1497,7 @@ function changeHighlightColor() {
         tooltip.style.backgroundColor = color.border;
     }
 }
+
 
 // Inicialización cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
