@@ -8,10 +8,13 @@
 <div class="bg-white"> 
 <section class="seccion-con-fondo-blanco">
     <section class="seccion-hero text-center text-white" style="background-image: url('/imagenes/estandar1/fondo1.jpg'); min-height: 300px; background-size: cover; background-position: center;">
-        <div style="padding: 100px 20px;">
-            <h1 class="display-4">Directorio del Plantel</h1>
-            <p class="lead">Conoce a las áreas que conforman nuestra institución</p>
+        <div class="container py-5">
+            <div class="card shadow-lg p-5 text-center bg-white rounded-4">
+                <h1 class="display-5 fw-bold mb-3">Directorio del Plantel</h1>
+                <p class="lead">Conoce a las áreas que conforman nuestra institución</p>
+            </div>
         </div>
+        
     </section>
 </section>
 
