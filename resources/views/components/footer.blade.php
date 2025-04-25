@@ -20,7 +20,8 @@
                     <li onclick="location.href='{{ route('Admision') }}'">Admisión</li>
                     <li>Contacto</li>
                     <li onclick="location.href='{{ route('Carreras') }}'">Carreras</li>
-                    <li>Directorio</li>
+                    <li onclick="location.href='{{ route('directorio') }}'">Directorio</li>
+
                 </ul>
             </div>
 
