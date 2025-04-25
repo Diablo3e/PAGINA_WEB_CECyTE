@@ -1,0 +1,42 @@
+/*––– Layout general –––––––––––––––––––––––––*/
+.no-background .background-box{display:none !important;}
+.top-strip{background:#d5d1c5;height:40px}
+
+/* tarjetas‑botón */
+.cta-card{border:2px solid #d5d1c5;border-radius:.5rem;transition:.25s}
+.cta-card:hover{transform:scale(1.03)}
+
+/* encabezados */
+h1,h2{text-align:center;color:#3f4654}
+
+/*—————————  Acordeones —————————*/
+
+/* 1) Botón principal (sin ícono custom) */
+.accordion-button{font-weight:600}
+
+/* 2) Botones de submenú con “+ / –” a la izquierda */
+.accordion-button.submenu{
+    /* estilo previo + layout flex */
+    display:flex;align-items:center;
+    column-gap:.5rem;padding-left:1.25rem;
+    border:none;background:#fafafa;font-size:.95rem;
+}
+
+/* Ícono “+” cerrado */
+.accordion-button.submenu::after{
+    order:-1;margin-right:.5rem;margin-left:-.25rem;
+    background-image:none !important;
+    font-family:"Arial",sans-serif;font-weight:700;font-size:1rem;
+    color:#3f4654;content:"+";
+}
+
+/* Ícono “–” abierto */
+.accordion-button.submenu:not(.collapsed)::after{content:"–";}
+
+/* contenedor de los años */
+.inner-menu{
+    border:1px solid #dcdcdc;background:#fff;
+    padding:.75rem 0 .5rem;display:flex;gap:1.5rem;flex-wrap:wrap;margin:0;
+}
+.inner-menu a{font-weight:700;color:#000;text-decoration:none;}
+.inner-menu a:hover{color:#0060df;text-decoration:underline;}
