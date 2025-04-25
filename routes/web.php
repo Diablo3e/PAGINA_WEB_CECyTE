@@ -113,3 +113,5 @@ Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasB
 Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');
 /*ruta del directorio */
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
+/*Ruta de la bolsa de trabajo*/
+Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
