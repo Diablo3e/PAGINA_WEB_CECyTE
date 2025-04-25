@@ -104,6 +104,10 @@ Route::get('/linea_tiempo', function () {
 Route::get('/directorio', function () {
     return view('directorio', ['noFondo' => true]);
 })->name('directorio');
+Route::get('/bolsa', function () {
+    return view('bolsa', ['noFondo' => true]);
+})->name('bolsa');
+
 
 
 // Ruta para obtener los planteles por nivel
