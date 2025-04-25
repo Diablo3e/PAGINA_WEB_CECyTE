@@ -98,10 +98,13 @@ Route::get('/Hoteleria', function () {
 Route::get('/Transparencia', function () {
     return view('Transparencia', ['noFondo' => true]);
 })->name('Transparencia');
-
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
 })->name('linea_tiempo');
+Route::get('/directorio', function () {
+    return view('directorio', ['noFondo' => true]);
+})->name('directorio');
+
 
 // Ruta para obtener los planteles por nivel
 Route::get('/planteles', [PlantelController::class, 'index']);

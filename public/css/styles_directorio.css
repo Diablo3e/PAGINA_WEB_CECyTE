@@ -1,3 +1,6 @@
+.no-background .background-box {
+    display: none !important;
+}
 body {
     background-color: white !important; /* Fondo blanco para evitar herencia */
 }
