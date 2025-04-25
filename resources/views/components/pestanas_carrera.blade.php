@@ -11,7 +11,7 @@
     <div class="program">
         <img src="{{ asset('imagenes/Proceso_Gestion_Administrativa.jpg') }}" alt="Procesos de Gestión Administrativa" class="program-img">
         <h3>Procesos de Gestión Administrativa</h3>
-        <button onclick="location.href='{{ route('Carreras') }}'">Ver más</button>
+        <button onclick="location.href='{{ route('Proceso-de-Gestión') }}'">Ver más</button>
         </div>
     <div class="program">
         <img src="{{ asset('imagenes/Produccion_Industrial.jpg') }}" alt="Producción Industrial" class="program-img">
@@ -57,7 +57,7 @@
     <div class="program">
         <img src="{{ asset('imagenes/gestion-produccion-industrial.jpg') }}" alt="Transformación de Plásticos" class="program-img">
         <h3>Transformación de Plásticos</h3>
-        <button onclick="location.href='{{ route('Carreras') }}'">Ver más</button>
+        <button onclick="location.href='{{ route('Proceso-de-Gestión') }}'">Ver más</button>
     </div>
 </div>
 
