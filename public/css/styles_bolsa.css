@@ -1,3 +1,6 @@
+.no-background .background-box {
+    display: none !important;
+  }
 .seccion-imagenes {
     padding: 2rem 1rem;
     background-color: #f9f9f9;

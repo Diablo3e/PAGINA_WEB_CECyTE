@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('body-class', 'no-background')
 
 @section('title', 'Bolsa de trabajo cecyte')
 
