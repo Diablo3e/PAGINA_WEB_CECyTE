@@ -17,5 +17,8 @@ class InicioController extends Controller
     {
         return view('pagina_informativa');
     }
+    public function mostrarDirectorio()
+    {
+    return view('directorio'); // Este sería el nombre del Blade
+    }
 }
-
