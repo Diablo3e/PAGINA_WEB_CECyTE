@@ -1,101 +1,24 @@
-.tabs-container {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.tabs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-.tab {
-    padding: 12px 24px;
-    cursor: pointer;
-    width: 250px;
-    height: 100px;
-    background: #4b4f54;
-    margin-right: 5px;
-    font-weight: bold;
-    color: #fff;
-    transition: background 0.3s ease;
-}
-
-.tab:hover {
-    background: #b9975b;
-}
-
-.tab.active {
-    background: #b9975b;
-    color: white;
-}
-
-.indicator {
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 0;
-    bottom: -10px;
-    margin: 0 auto;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #b9975b;
-    transition: all 0.3s ease;
-}
-
-.content {
-    display: none;
-    padding: 20px;
-}
-
-.content.active {
-    display: flex;
-    justify-content: center;
-
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
 .program {
-    background: #fff;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+    position: relative;
+    width: 200px;/* Controla el tamaño de cada caja */
+    overflow: hidden;
+}
+.program img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(300%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.program:hover img {
+    filter: none;
+}
+
+.grid {
     display: flex;
-    flex-direction: column;
-}
-.program:hover {
-    transform: translateY(-5px);
-}
-.program h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #590707;
-    padding: 0 10px;
-}
-.program p {
-    padding: 0 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-
-.program button {
-    margin: 15px 10px 10px 10px;
-    background-color: #590707;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-
-.program button:hover {
-    background-color: #7a0d0d;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 
@@ -103,16 +26,22 @@
     .program img {
         display: none;
     }
+
     .tabs {
-    display: flex;
-    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
-    white-space: nowrap; /* Evita que los elementos se vayan a la siguiente línea */
-    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
-    -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer */
-}
+        display: flex;
+        overflow-x: auto;
+        /* Permite desplazamiento horizontal si es necesario */
+        white-space: nowrap;
+        /* Evita que los elementos se vayan a la siguiente línea */
+        scrollbar-width: none;
+        /* Oculta la barra de desplazamiento en Firefox */
+        -ms-overflow-style: none;
+        /* Oculta la barra de desplazamiento en Internet Explorer */
+    }
 
-.tabs::-webkit-scrollbar {
-    display: none; /* Oculta la barra de desplazamiento en Chrome y Edge */
-}
+    .tabs::-webkit-scrollbar {
+        display: none;
+        /* Oculta la barra de desplazamiento en Chrome y Edge */
+    }
 
-} 
+}

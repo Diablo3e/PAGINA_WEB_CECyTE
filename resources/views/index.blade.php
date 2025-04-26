@@ -39,8 +39,7 @@
     </section>
 </div>
 
-<!-- Botón flotante para solicitar información -->
-<button onclick="mostrarFormulario()" class="btn-flotante">Solicitar Información</button>
+
 
 @push('scripts')
 <script src="{{ asset('js/pestanas_carrera.js') }}"></script>

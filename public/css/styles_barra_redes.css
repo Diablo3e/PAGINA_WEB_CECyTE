@@ -1,88 +1,27 @@
-.menu-circular {
+.social-bar {
     position: fixed;
-    right: 10px;
-    top: 40%;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.social-icon {
     display: flex;
     align-items: center;
-    z-index: 1000;
-    transition: opacity 0.3s ease;
-}
-.icono-central {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;           /* si la imagen ya es circular, puedes quitar esto */
-    object-fit: contain;
-}
-.menu-circular:hover {
-    opacity: 1; /* se muestra cuando pasas el cursor */
-}
-/* Puedes añadir una pequeña área de activación */
-.menu-hover-zone {
-    position: fixed;
-    right: 0;
-    top: 35%;
-    width: 40px;
-    height: 100px;
-    z-index: 999;
-}
-.menu-btn {
-    background: #3e06065b;
-    color: white;
-    border: none;
-    border-radius: 50%;
+    justify-content: center;
     width: 50px;
     height: 50px;
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    background-color: #3B0000; /* Fondo vino */
+    border-radius: 10px;
+    font-size: 24px;
+    color: white;
+    transition: background 0.3s ease-in-out;
 }
 
-.menu-btn:hover {
-    transform: scale(1.2); /* Efecto de agrandamiento */
-}
-
-.central {
-    background: transparent;       /* sin fondo */
-    border: none;                  /* sin borde */
-    width: auto;                   /* se ajusta al tamaño de la imagen */
-    height: auto;
-    padding: 0;
-    box-shadow: none;
-}
-.facebook {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #3b5998;
-}
-
-.youtube {
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    background: #ff0000;
-}
-.X {
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #000;
-}
-.instagram {
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc188e);
-    background-size: 200% 200%;
-    animation: instagramGlow 4s ease infinite;
-}
-
-@keyframes instagramGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.social-icon:hover {
+    background-color: #b9975b; /* Color dorado al pasar el mouse */
 }
