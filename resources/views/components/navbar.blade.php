@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-cecyte fixed-top">
+<nav class="navbar navbar-expand-lg navbar-cecyte"
+    style="background: url('{{ asset('imagenes/Barra-Navegacion.jpg') }}') no-repeat center center; background-size: cover;">
     <div class="container-fluid px-4">
-        <!-- Logo -->
+
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('imagenes/LOGO.png') }}" alt="CECyTE Logo">
         </a>
-
         <!-- Hamburguesa -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,21 +58,21 @@
 
                 <li class="nav-item"><a class="nav-link" href="{{ route('Planteles') }}">Planteles</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('convenios') }}">Convenios</a></li>
+                <li class="nav-item">
+                    <a class="nav-link informes" href="#" onclick="mostrarFormulario()">Informes</a>
+                </li>
+
             </ul>
 
             {{-- Búsqueda --}}
-            <div class="d-flex ms-3">
-                <button class="btn btn-outline-light search-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#search-bar" aria-expanded="false" aria-controls="search-bar" title="Buscar">
-                    <img src="{{ asset('imagenes/lupa-icon.png') }}" alt="Buscar" width="28" height="28">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar..." class="search-input">
+                <button class="search-button">
+                    <img src="{{ asset(path: 'imagenes/LUPA-BARRA.svg') }}" alt="Buscar" width="28" height="28">
+
                 </button>
-                <div class="collapse" id="search-bar">
-                    <form class="d-flex search-bar">
-                        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Ir</button>
-                    </form>
-                </div>
             </div>
+
         </div>
     </div>
 </nav>
