@@ -1,592 +1,236 @@
 :root {
-    /* Colores principales (ajusta según tu paleta) */
-    --color-primario: #460a05;    /* Azul oscuro */
-    --color-secundario: #4b1818;  /* Azul claro */
-    --color-terciario: #34100d;   /* Azul medio */
-    --color-acento: #e74c3c;      /* Rojo coral para acentos */
-    --color-fondo: #f8f9fa;       /* Fondo claro */
+    --color-vino: #6D071A; /* Color principal requerido */
+    --color-fondo: #f8f9fa;
+    --borde-redondeado: 10px;
+    --sombra-suave: 0 4px 6px rgba(0,0,0,0.1);
+    --transicion: all 0.3s ease;
+}
 
-     /* Variables de diseño */
-     --borde-redondeado: 10px;
-     --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
-     --sombra-intensa: 0 10px 15px rgba(0, 0, 0, 0.15);
-     --transicion: all 0.3s ease;
-}
-body.no-background .background-box {
-    display: none !important;
-}
-/* Estilos base mejorados */
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--color-terciario);
-    color: var(--color-texto-oscuro);
-    line-height: 1.6;
+/* Base tipográfica Roboto Condensed Bold */
+body, html {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-weight: 700 !important;
     margin: 0;
     padding: 0;
+    background: var(--color-fondo);
+    color: var(--color-vino); /* Color vino como principal */
 }
-
-.container-fluid {
-    padding: var(--espaciado-seccion) 3%;
-    max-width: 1800px;
-    margin: 0 auto;
-}
-
-/* Tarjetas de planteles - Versión premium */
-.plantel-card {
-    background-color: white !important;
-    cursor: pointer;
-    transition: var(--transicion);
-    background: white;
-    border-radius: var(--borde-redondeado);
-    overflow: hidden;
-    box-shadow: var(--sombra-suave);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-/* Estilos generales para los iconos */
-.plantel-icon {
-    transition: var(--transicion);
-    opacity: 0.9;
-}
-
-/* Efecto hover para todos los iconos */
-.plantel-card:hover .plantel-icon {
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-/* Colores específicos para cada plantel */
-.icon-plantel1 { /* Cholula */
-    color: var(--color-primario); /* #5c0000 - Vino oscuro */
-}
-
-/* Texto "Haz clic..." */
-.click-hint {
-    color: var(--color-secundario);
-    font-style: italic;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    transition: var(--transicion);
-}
-
-.plantel-card:hover .click-hint {
-    color: var(--color-acento);
-}
-.plantel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-intensa);
-}
-
-.plantel-card .card-body {
-    padding: 2rem;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.plantel-card h3 {
-    color: var(--color-primario);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-.plantel-card i {
-    font-size: 4rem;
-    color: var(--color-secundario);
-    margin-bottom: 1.5rem;
-}
-
-/* Carrusel mejorado */
-.carousel-container {
-    border-radius: var(--borde-redondeado);
-    overflow: hidden;
-    box-shadow: var(--sombra-intensa);
-    margin-bottom: 3rem;
-}
-
-.carousel-item {
-    height: 60vh;
-    min-height: 500px;
-}
-
-.carousel-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: var(--transicion);
-}
-
-.carousel-container:hover .carousel-control-prev,
-.carousel-container:hover .carousel-control-next {
-    opacity: 1;
-}
-
-/* Directores */
-.director-card {
-    border: none;
-    box-shadow: var(--sombra-suave);
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: var(--borde-redondeado);
-    transition: var(--transicion);
-    height: 100%;
-}
-
-.director-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-intensa);
-}
-
-.director-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    display: block;
-    border: 3px solid white;
-    box-shadow: 0 2px 4px var(--color-sombra);
-}
-
-.director-card h5 {
-    font-size: 1.2rem;
-    color: var(--color-primario);
-    margin-bottom: 0.5rem;
-}
-
-.director-card p {
-    font-size: 0.9rem;
-    color: #64748b;
-}
-
-/* Secciones informativas */
-.info-section {
-    background: white;
-    border-radius: var(--borde-redondeado);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--sombra-suave);
-}
-
-
-.btn {
-    background-color: var(--color-secundario);
-    color: var(--color-texto-claro);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--borde-redondeado);
-    transition: var(--transicion);
-}
-
-.btn:hover {
-    background-color: var(--color-acento);
-    color: var(--color-texto-oscuro);
-}
-
-/* Estilos para la tabla de carreras */
-.tabla-carreras {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background: white;
-    border-radius: var(--borde-redondeado);
-    overflow: hidden;
-    box-shadow: var(--sombra-suave);
-}
-/* Estilos para la tabla de carreras */
-.tabla-carreras {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background: white;
-    border-radius: var(--borde-redondeado);
-    overflow: hidden;
-    box-shadow: var(--sombra-suave);
-}
-
-.tabla-carreras th,
-.tabla-carreras td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.tabla-carreras th {
-    background-color: var(--color-primario);
-    color: white;
-    font-weight: 600;
-}
-
-.tabla-carreras tr:last-child td {
-    border-bottom: none;
-}
-
-.tabla-carreras tr:hover {
-    background-color: #f8fafc;
-}
-
-.contenedor-tabla {
-    background-color: #f8f9fa;
-    border-radius: var(--borde-redondeado);
-    padding: 1.5rem;
-    box-shadow: var(--sombra-suave);
-}
- /* Estilos para las pestañas */
- .nav-tabs {
-    border-bottom: 2px solid var(--color-primario);
-}
-
-.nav-tabs .nav-link {
-    color: var(--color-primario);
-    font-weight: 600;
-    border: none;
-    padding: 1rem 2rem;
-    transition: all 0.3s ease;
-}
-
-.nav-tabs .nav-link:hover {
-    color: var(--color-acento);
-    border-color: transparent;
-}
-
-.nav-tabs .nav-link.active {
-    color: white;
-    background-color: var(--color-primario);
-    border: none;
-    position: relative;
-}
-
-.nav-tabs .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-acento);
-}
-.btn-inicio {
-    background-color: #6f0808; /* azul similar al de Bootstrap */
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(145, 114, 3, 0.566);
-}
-
-.btn-inicio:hover {
-    background-color: #1d4f02; /* tono más oscuro al hover */
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-.section-title {
-    color: #2c3e50;
-    border-bottom: 2px solid #a05f10;
-    padding-bottom: 8px;
-    display: inline-block;
-}
-/* Ajustes para las tarjetas en las pestañas */
-.tab-pane .plantel-card {
-    margin-bottom: 1.5rem;
-}
+/* styles_planteles.css */
 .card-header {
-    font-weight: 600;
+    position: relative;
+    z-index: 2; /* Evita superposición con otros elementos */
+}
+
+.map-container {
+    margin-top: 0.5rem; /* Espacio adicional bajo el título del mapa */
+}
+
+#planteles-list h1 {
+    position: relative;
+    top: -10px; /* Ajuste fino de posición */
+}
+/* Componentes principales */
+.titulo-principal {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Lista de planteles - Efecto hover */
+#lista-planteles .plantel-list-item {
+    transition: var(--transicion);
+    border-left: 4px solid transparent;
+    cursor: pointer;
+}
+
+#lista-planteles .plantel-list-item:hover {
+    transform: scale(1.05);
+    border-left-color: var(--color-vino);
+    background: rgba(109, 7, 26, 0.05);
+}
+
+.badge-vino {
+    background: var(--color-vino);
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    padding: 0.4em 0.8em;
+}
+
+/* Mapa interactivo */
+.map-container {
+    position: relative;
+    overflow: visible;
+    border: 3px solid var(--color-vino);
+    border-radius: var(--borde-redondeado);
+}
+
+#plantelHighlight {
+    transition: var(--transicion);
+    background: rgba(109, 7, 26, 0.15);
+    border: 2px solid var(--color-vino);
+    transform-origin: center;
+}
+
+.plantel-tooltip {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    background: var(--color-vino) !important;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
     font-size: 1.1rem;
 }
 
-#plantel-direccion {
-    line-height: 1.6;
+/* Efectos hover para todos los elementos interactivos */
+[class*="plantel"]:hover {
+    transform: scale(1.03);
+    z-index: 1000;
 }
 
-/* Estilos para los íconos de información */
-.fa-info-circle, .fa-map-marked-alt {
-    color: var(--color-primario);
-}
-
-/* Estilos para los datos de contacto */
-.card-body p {
-    margin-bottom: 0.5rem;
-}
-
-/* Estilos para el mapa */
-#map-container {
-    border: 1px solid #dee2e6;
-}
-/* Contenedor principal del mapa */
-.map-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Contenedor para centrar el mapa */
-.map-center-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-/* Contenedor del mapa con scroll */
-.map-scroll-container {
-    width: 100%;
-    overflow: auto;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    background-color: #f8f9fa;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    max-width: 100%;
-}
-
-/* Wrapper del mapa */
-.map-wrapper {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-/* Estilo de la imagen del mapa */
-.map-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease;
-}
-
-/* Resaltado mejorado */
-.plantel-highlight {
-    position: absolute;
-    background-color: rgba(40, 167, 69, 0.3);
-    border: 2px solid #28a745;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 10;
-    display: none;
-    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
-    transform: translate(-50%, -50%);
-}
-
-
-/* Controles del mapa */
-.map-controls {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 15px;
-}
-
-/* Resaltado mejorado */
-.plantel-highlight {
-    position: absolute;
-    background-color: rgba(40, 167, 69, 0.3);
-    border: 2px solid #28a745;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 10;
-    display: none;
-    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
-    transform: translate(-50%, -50%);
-}
-
-/* Tooltip mejorado */
-.plantel-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #5c2004;
+/* Botones y controles */
+.btn-vino {
+    background: var(--color-vino);
     color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    white-space: nowrap;
-    margin-bottom: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    transition: var(--transicion);
 }
 
-/* Efecto hover para las áreas */
-area.plantel-area:hover {
-    cursor: pointer;
+.btn-vino:hover {
+    background: #580913;
+    transform: translateY(-2px);
 }
-/* Asegurar que ambas columnas tengan la misma altura */
+
+/* Tarjetas */
 .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    border: 2px solid rgba(109, 7, 26, 0.1);
+    transition: var(--transicion);
 }
 
-.card-body {
-    flex-grow: 1;
+.card-header {
+    background: var(--color-vino) !important;
+    color: white !important;
+    font-size: 1.2rem;
 }
 
-/* Mejorar la tabla de carreras */
-.tabla-carreras tbody tr {
-    transition: all 0.2s ease;
+/* Tablas */
+.tabla-carreras th {
+    background: var(--color-vino);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.tabla-carreras tbody tr:hover {
-    background-color: #f8f9fa;
-    transform: translateX(2px);
-}
-
-/* Ajustar el carrusel de la galería */
-#galeria-alumnos-carousel {
-    max-height: 400px;
-}
-
-.carousel-item img {
-    object-fit: contain;
-    max-height: 350px;
-    width: auto;
-    margin: 0 auto;
-}
-/* Estilo para móviles */
-@media (max-width: 767px) {
-    .map-scroll-container {
-        overflow: hidden;
-    }
-
-    .map-image {
-        width: 100%;
-        height: auto;
-    }
-
-    map {
-        display: none;
-    }
-
-    #mobilePlantelSelector {
-        max-width: 100%;
-    }
-}
-
-/* Botones de control */
-#zoomIn, #zoomOut, #resetZoom, #changeColor {
-    transition: all 0.2s ease;
-}
-
-#zoomIn:hover, #zoomOut:hover, #resetZoom:hover, #changeColor:hover {
-    transform: scale(1.05);
-}
-/* Listado alternativo para móviles */
-@media (max-width: 767px) {
-    map {
-        display: none;
-    }
-
-    #mobilePlantelSelector {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
-
-/* Estilos existentes */
-.no-background {
-    background-color: #f8f9fa;
-}
-
-.container-fluid {
-    padding: 0 15px;
-}
-/* Responsividad */
-@media (max-width: 1024px) {
-    .carousel-item {
-        height: 50vh;
-        min-height: 400px;
-    }
-    .card-body {
-        padding: 1.25rem;
-    }
-
-    #map-container {
-        height: 250px;
-    }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-    :root {
-        --espaciado-seccion: 3rem;
+    .map-container {
+        margin-top: 1.5rem;
+        border-width: 2px;
     }
 
-    .plantel-card {
-        margin-bottom: 1.5rem;
-    }
-
-    .carousel-item {
-        height: 40vh;
-        min-height: 350px;
-    }
-
-    .director-card img {
-        width: 100px;
-        height: 100px;
+    #mobilePlantelSelector {
+        border: 2px solid var(--color-vino);
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 700;
     }
 }
+/* Estilos para las columnas */
+.plantel-column {
+    min-height: 70vh;
+    border-right: 2px solid #dee2e6;
+}
+
 @media (max-width: 992px) {
-    .row.mb-5 {
-        flex-direction: column;
-    }
-
-    .col-lg-6 {
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    /* Hacer la tabla más legible en móviles */
-    .tabla-carreras {
-        font-size: 0.9rem;
-    }
-
-    .tabla-carreras th, .tabla-carreras td {
-        padding: 0.5rem;
+    .plantel-column {
+        border-right: none;
+        border-bottom: 2px solid #dee2e6;
     }
 }
-@media (max-width: 576px) {
-    :root {
-        --espaciado-seccion: 2rem;
+
+/* Colores distintivos */
+.emsad-badge {
+    background-color: #520606 !important;
+    color: white;
+}
+
+.cecyte-badge {
+    background-color: #5f0401 !important;
+    color: white;
+}
+/* Ajustes específicos para la tipografía */
+h1, h2, h3, h4, h5, h6,
+.btn, .badge, .form-select,
+.nav-tabs .nav-link {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* Efectos de zoom en mapa */
+.map-image {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Iconos con color vino */
+.fa-school, .fa-map-marked-alt, .fa-info-circle {
+    color: var(--color-vino);
+}
+@media (max-width: 768px) {
+    #planteles-list h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem !important;
     }
 
-    .carousel-item {
-        height: 35vh;
-        min-height: 300px;
+    .card-header h4 {
+        padding-top: 0.5rem !important;
     }
+}
+.volver-btn {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    padding: 12px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(110, 23, 1, 0.2);
+}
 
-    .plantel-card h3 {
-        font-size: 1.3rem;
-    }
+.volver-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 10, 0, 0.3);
+    background-color: #640902;
+}
 
-    .plantel-card i {
-        font-size: 3rem;
+.volver-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+}
+
+.volver-btn::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.7s;
+}
+
+.volver-btn:hover::after {
+    left: 100%;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    .volver-btn {
+        width: 100%;
+        padding: 15px 30px;
+        font-size: 1.1rem;
     }
 }

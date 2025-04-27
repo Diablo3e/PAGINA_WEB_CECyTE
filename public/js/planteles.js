@@ -1135,387 +1135,388 @@ const datosAlumnos = {
     }
     // Puedes agregar datos para los demás planteles de la misma manera
 };
-// Función para generar indicadores del carrusel
-function generarIndicadores(cantidad, containerClass, targetId) {
-    const indicatorsContainer = document.querySelector(containerClass);
-    if (indicatorsContainer) {
-        indicatorsContainer.innerHTML = '';
 
-        for (let i = 0; i < cantidad; i++) {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.dataset.bsTarget = targetId;
-            button.dataset.bsSlideTo = i;
-            button.ariaLabel = `Slide ${i + 1}`;
-            if (i === 0) {
-                button.className = 'active';
-                button.ariaCurrent = 'true';
-            }
-            indicatorsContainer.appendChild(button);
+// Variables globales
+let plantelSeleccionado = null;
+const highlightColors = [
+    {bg: 'rgba(220, 53, 69, 0.3)', border: '#dc3545'},
+    {bg: 'rgba(13, 110, 253, 0.3)', border: '#0d6efd'},
+    {bg: 'rgba(25, 135, 84, 0.3)', border: '#198754'}
+];
+let currentColorIndex = 0;
+
+// ======================
+// FUNCIONES PRINCIPALES
+// ======================
+
+function handlePlantelSelection(plantelId, fromMap = false) {
+    const plantel = planteles[plantelId];
+    if (!plantel) return;
+
+    // Remover selección previa
+    document.querySelectorAll('.plantel-list-item').forEach(item => {
+        item.classList.remove('active');
+    });
+
+    // Resaltar elemento seleccionado
+    const selectedItem = document.querySelector(`.plantel-list-item[data-plantel="${plantelId}"]`);
+    if (selectedItem) {
+        selectedItem.classList.add('active');
+        selectedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    mostrarPlantel(plantelId);
+
+    if (!fromMap) {
+        const area = document.querySelector(`.plantel-area[data-plantel="${plantelId}"]`);
+        if (area) {
+            resaltarAreaPlantel(area);
+            const coords = area.getAttribute('coords').split(',');
+            scrollToMapPosition(parseInt(coords[0]), parseInt(coords[1]));
         }
     }
 }
 
-// Función para cargar los avisos del plantel
-function cargarAvisos(plantelId) {
-    const listaAvisos = document.getElementById('lista-avisos');
-    const sinAvisos = document.getElementById('sin-avisos');
-
-    listaAvisos.innerHTML = '';
-    sinAvisos.style.display = 'none';
-
-    const plantelData = datosAlumnos[plantelId];
-    if (!plantelData?.avisos?.length) {
-        sinAvisos.style.display = 'block';
-        return;
-    }
-
-    plantelData.avisos.forEach(aviso => {
-        const avisoElement = document.createElement('a');
-        avisoElement.href = '#';
-        avisoElement.className = `list-group-item list-group-item-action ${aviso.importante ? 'list-group-item-warning' : ''}`;
-        avisoElement.innerHTML = `
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">${aviso.titulo}</h5>
-                <small>${aviso.fecha}</small>
-            </div>
-            <p class="mb-1">${aviso.contenido}</p>
-        `;
-        listaAvisos.appendChild(avisoElement);
-    });
-}
-
-// Función para cargar los eventos del calendario
-function cargarEventos(plantelId) {
-    const eventosContainer = document.getElementById('eventos-calendario');
-    eventosContainer.innerHTML = '';
-
-    const plantelData = datosAlumnos[plantelId];
-    if (!plantelData?.eventos?.length) {
-        eventosContainer.innerHTML = `
-            <div class="alert alert-info">
-                No hay eventos programados próximamente
-            </div>
-        `;
-        return;
-    }
-
-    const eventosList = document.createElement('div');
-    eventosList.className = 'list-group';
-
-    plantelData.eventos.forEach(evento => {
-        const eventoElement = document.createElement('a');
-        eventoElement.href = '#';
-        eventoElement.className = 'list-group-item list-group-item-action';
-        eventoElement.innerHTML = `
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">${evento.titulo}</h5>
-                <small>${evento.fecha}</small>
-            </div>
-            <p class="mb-1">${evento.descripcion}</p>
-        `;
-        eventosList.appendChild(eventoElement);
-    });
-
-    eventosContainer.appendChild(eventosList);
-}
-
-// Función para cargar la galería de imágenes
-function cargarGaleria(plantelId) {
-    const galeriaInner = document.getElementById('galeria-inner');
-    const galeriaIndicators = document.getElementById('galeria-indicators');
-    const galeriaTitulo = document.getElementById('galeria-titulo');
-    const galeriaDescripcion = document.getElementById('galeria-descripcion');
-
-    galeriaInner.innerHTML = '';
-    galeriaIndicators.innerHTML = '';
-
-    const galeriaData = datosAlumnos[plantelId]?.galeria;
-    if (!galeriaData?.imagenes?.length) {
-        galeriaInner.innerHTML = `
-            <div class="carousel-item active">
-                <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
-                    <div class="text-center">
-                        <i class="fas fa-camera fa-3x mb-3 text-muted"></i>
-                        <p class="text-muted">No hay imágenes disponibles</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        galeriaTitulo.textContent = "Galería no disponible";
-        galeriaDescripcion.textContent = "";
-        return;
-    }
-
-    galeriaTitulo.textContent = galeriaData.titulo || "Galería Estudiantil";
-    galeriaDescripcion.textContent = galeriaData.descripcion || "";
-
-    galeriaData.imagenes.forEach((imagen, index) => {
-        const indicator = document.createElement('button');
-        indicator.type = 'button';
-        indicator.dataset.bsTarget = '#galeria-alumnos-carousel';
-        indicator.dataset.bsSlideTo = index;
-        indicator.ariaLabel = `Slide ${index + 1}`;
-        if (index === 0) {
-            indicator.className = 'active';
-            indicator.ariaCurrent = 'true';
-        }
-        galeriaIndicators.appendChild(indicator);
-
-        const item = document.createElement('div');
-        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-        item.innerHTML = `
-            <img src="${imagen.url}" class="d-block w-100" alt="${imagen.descripcion}" style="max-height: 400px; object-fit: cover;">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                <p>${imagen.descripcion}</p>
-            </div>
-        `;
-        galeriaInner.appendChild(item);
-    });
-
-    new bootstrap.Carousel(document.getElementById('galeria-alumnos-carousel'));
-}
-
-// Función principal para mostrar los detalles del plantel
 function mostrarPlantel(idPlantel) {
     const plantel = planteles[idPlantel];
-    if (!plantel) {
-        console.error('El plantel especificado no existe.');
-        return;
-    }
+    if (!plantel) return;
 
     // Actualizar información básica
-    document.getElementById('plantel-nombre').textContent = plantel.nombre;
-    document.getElementById('plantel-icon').className = plantel.tipo === 'cecyte' ? 'fas fa-school fa-5x' : 'fas fa-graduation-cap fa-5x';
+    const { nombre, tipo, imagenes, direccion, directores, carreras } = plantel;
+    document.getElementById('plantel-nombre').textContent = nombre;
+    document.getElementById('plantel-tipo-badge-detail').textContent = tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
+    document.getElementById('plantel-tipo-badge-detail').className = tipo === 'cecyte' ? 'badge bg-primary' : 'badge bg-success';
 
-    // Configurar carrusel de imágenes del plantel
-    generarIndicadores(plantel.imagenes.length, '.carousel-indicators', '#plantel-carousel');
-    document.getElementById('carousel-inner').innerHTML = plantel.imagenes.map((img, i) => `
-        <div class="carousel-item ${i === 0 ? 'active' : ''}">
-            <img src="${img}" class="d-block w-100" alt="Imagen ${i + 1}">
-        </div>
-    `).join('');
+    // Configurar componentes
+    setupCarousel(imagenes, '#plantel-carousel', '.carousel-indicators');
+    updateContactInfo(direccion);
+    renderDirectores(directores);
+    renderCarreras(carreras);
+    setupMap(direccion.latitud, direccion.longitud, 'map-container', 'map-link');
 
-    // Actualizar información de contacto
-    const dir = plantel.direccion;
+    // Cargar sección de alumnos
+    cargarAvisos(idPlantel);
+    cargarEventos(idPlantel);
+    cargarGaleria(idPlantel);
+
+    // Mostrar vista de detalle
+    toggleViews(false);
+}
+// ======================
+// FUNCIONES DE INICIALIZACIÓN
+// ======================
+
+function initPlantelesList() {
+    const listaCECyTE = document.getElementById('lista-cecyte');
+    const listaEMSaD = document.getElementById('lista-emsad');
+
+    // Limpiar listas
+    listaCECyTE.innerHTML = '';
+    listaEMSaD.innerHTML = '';
+
+    // Ordenar planteles por nombre
+    const sortedPlanteles = Object.entries(planteles).sort((a, b) =>
+        a[1].nombre.localeCompare(b[1].nombre)
+    );
+
+    sortedPlanteles.forEach(([id, plantel]) => {
+        const listItem = `
+            <div class="list-group-item plantel-list-item" data-plantel="${id}">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 text-truncate">${plantel.nombre}</h5>
+                    <span class="badge ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}">
+                        ${plantel.tipo.toUpperCase()}
+                    </span>
+                </div>
+            </div>
+        `;
+
+        if (plantel.tipo === 'cecyte') {
+            listaCECyTE.insertAdjacentHTML('beforeend', listItem);
+        } else {
+            listaEMSaD.insertAdjacentHTML('beforeend', listItem);
+        }
+    });
+
+    // Agregar event listeners
+    document.querySelectorAll('.plantel-list-item').forEach(item => {
+        item.addEventListener('click', () =>
+            handlePlantelSelection(item.dataset.plantel)
+        );
+    });
+}
+// ======================
+// FUNCIONES AUXILIARES
+// ======================
+
+function setupCarousel(images, carouselId, indicatorsClass) {
+    const carouselInner = document.querySelector(`${carouselId} .carousel-inner`);
+    const indicators = document.querySelector(indicatorsClass);
+
+    carouselInner.innerHTML = '';
+    indicators.innerHTML = '';
+
+    images.forEach((img, index) => {
+        const item = document.createElement('div');
+        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        item.innerHTML = `<img src="${img}" class="d-block w-100" alt="Imagen ${index + 1}">`;
+        carouselInner.appendChild(item);
+
+        const indicator = document.createElement('button');
+        indicator.type = 'button';
+        indicator.dataset.bsTarget = carouselId;
+        indicator.dataset.bsSlideTo = index;
+        indicator.className = index === 0 ? 'active' : '';
+        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+        indicators.appendChild(indicator);
+    });
+
+    new bootstrap.Carousel(document.querySelector(carouselId));
+}
+
+function updateContactInfo(direccion) {
     document.getElementById('plantel-direccion').innerHTML = `
-        ${dir.calle}, ${dir.colonia}<br>
-        ${dir.municipio}, ${dir.estado}<br>
-        C.P. ${dir.cp}
+        ${direccion.calle || ''}, ${direccion.colonia || ''}<br>
+        ${direccion.municipio}, ${direccion.estado}<br>
+        C.P. ${direccion.cp || 'N/A'}
     `;
-    document.getElementById('plantel-telefono').textContent = dir.telefono;
-    document.getElementById('plantel-email').textContent = dir.email;
-    document.getElementById('plantel-horario').textContent = dir.horario;
+    document.getElementById('plantel-telefono').textContent = direccion.telefono || 'No disponible';
+    document.getElementById('plantel-email').textContent = direccion.email || 'No disponible';
+    document.getElementById('plantel-horario').textContent = direccion.horario || 'No disponible';
+}
 
-    // Actualizar directores
-    document.getElementById('directores-container').innerHTML = plantel.directores.map(d => `
+function renderDirectores(directores) {
+    const container = document.getElementById('directores-container');
+    container.innerHTML = directores.map(d => `
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card director-card h-100">
+            <div class="card h-100">
                 <div class="card-body text-center">
-                    <img src="${d.foto}" class="rounded-circle mb-3" width="100" height="100" alt="${d.nombre}">
-                    <h5 class="card-title">${d.nombre}</h5>
-                    ${d.cargo ? `<p class="card-text text-muted">${d.cargo}</p>` : ''}
+                    ${d.foto ? `<img src="${d.foto}" class="rounded-circle mb-3" width="100" height="100" alt="${d.nombre}">` : ''}
+                    <h5 class="card-title">${d.nombre || 'Nombre no disponible'}</h5>
+                    <p class="card-text text-muted">${d.cargo || ''}</p>
                 </div>
             </div>
         </div>
     `).join('');
+}
 
-    // Actualizar carreras
-    document.getElementById('cuerpo-tabla-carreras').innerHTML = plantel.carreras.map(c => `
+function renderCarreras(carreras) {
+    const tbody = document.getElementById('cuerpo-tabla-carreras');
+    tbody.innerHTML = carreras.map(c => `
         <tr>
             <td>${c.nombre}</td>
             <td>${c.duracion}</td>
             <td>${c.modalidad}</td>
         </tr>
     `).join('');
-
-    // Cargar información para alumnos
-    cargarAvisos(idPlantel);
-    cargarEventos(idPlantel);
-    cargarGaleria(idPlantel);
-
-    // Mostrar vista de detalle
-    document.getElementById('planteles-list').style.display = 'none';
-    document.getElementById('plantel-detail').style.display = 'block';
-    window.scrollTo(0, 0);
-
-    // Inicializar carruseles
-    new bootstrap.Carousel(document.getElementById('plantel-carousel'));
-
-// Coordenadas aproximadas (deberías almacenarlas en tu objeto plantel)
-const lat = plantel.direccion.latitud;
-const lon = plantel.direccion.longitud; // Ejemplo para Puebla
-
-const mapContainer = document.getElementById('map-container');
-mapContainer.innerHTML = `
-    <iframe
-        width="100%"
-        height="100%"
-        frameborder="0"
-        scrolling="no"
-        marginheight="0"
-        marginwidth="0"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.01}%2C${lat-0.01}%2C${lon+0.01}%2C${lat+0.01}&amp;layer=mapnik&amp;marker=${lat},${lon}"
-        style="border: none;">
-    </iframe>
-    <br/>
-    <small class="text-center d-block mt-2">
-        <a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=15/${lat}/${lon}" target="_blank">
-            Ver mapa más grande
-        </a>
-    </small>
-`;
-
 }
 
-// Función para volver a la lista de planteles
-function volverALista() {
-    document.getElementById('planteles-list').style.display = 'block';
-    document.getElementById('plantel-detail').style.display = 'none';
+function toggleViews(showList = true) {
+    document.getElementById('planteles-list').style.display = showList ? 'block' : 'none';
+    document.getElementById('plantel-detail').style.display = showList ? 'none' : 'block';
     window.scrollTo(0, 0);
 }
-// Variables para control de colores
-const highlightColors = [
-    {bg: 'rgba(220, 53, 69, 0.3)', border: '#dc3545'}, // Rojo
 
-];
-let currentColorIndex = 0;
+// ======================
+// FUNCIONES DE ALUMNOS
+// ======================
 
-// Inicialización del mapa
+function cargarAvisos(plantelId) {
+    const avisos = datosAlumnos[plantelId]?.avisos || [];
+    const listaAvisos = document.getElementById('lista-avisos');
+    const sinAvisos = document.getElementById('sin-avisos');
+
+    listaAvisos.innerHTML = '';
+    sinAvisos.style.display = avisos.length ? 'none' : 'block';
+
+    avisos.forEach(aviso => {
+        const elemento = document.createElement('a');
+        elemento.className = `list-group-item list-group-item-action ${aviso.importante ? 'list-group-item-warning' : ''}`;
+        elemento.innerHTML = `
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">${aviso.titulo}</h5>
+                <small>${aviso.fecha}</small>
+            </div>
+            <p class="mb-1">${aviso.contenido}</p>
+        `;
+        listaAvisos.appendChild(elemento);
+    });
+}
+
+function cargarEventos(plantelId) {
+    const eventos = datosAlumnos[plantelId]?.eventos || [];
+    const eventosContainer = document.getElementById('eventos-calendario');
+
+    eventosContainer.innerHTML = eventos.length ? '' : `
+        <div class="alert alert-info">
+            No hay eventos programados
+        </div>
+    `;
+
+    eventos.forEach(evento => {
+        const elemento = document.createElement('div');
+        elemento.className = 'list-group-item';
+        elemento.innerHTML = `
+            <h5>${evento.titulo}</h5>
+            <p>${evento.descripcion}</p>
+            <small>${evento.fecha}</small>
+        `;
+        eventosContainer.appendChild(elemento);
+    });
+}
+
+function cargarGaleria(plantelId) {
+    const galeriaData = datosAlumnos[plantelId]?.galeria;
+    const galeriaInner = document.getElementById('galeria-inner');
+    const galeriaIndicators = document.getElementById('galeria-indicators');
+
+    galeriaInner.innerHTML = '';
+    galeriaIndicators.innerHTML = '';
+
+    if (!galeriaData?.imagenes?.length) {
+        galeriaInner.innerHTML = `
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <p class="text-muted">No hay imágenes disponibles</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    galeriaData.imagenes.forEach((imagen, index) => {
+        const item = document.createElement('div');
+        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        item.innerHTML = `
+            <img src="${imagen.url}" class="d-block w-100" alt="${imagen.descripcion}" style="height: 400px; object-fit: cover;">
+            <div class="carousel-caption bg-dark bg-opacity-50">
+                <p>${imagen.descripcion}</p>
+            </div>
+        `;
+        galeriaInner.appendChild(item);
+
+        const indicator = document.createElement('button');
+        indicator.type = 'button';
+        indicator.dataset.bsTarget = '#galeria-alumnos-carousel';
+        indicator.dataset.bsSlideTo = index;
+        indicator.className = index === 0 ? 'active' : '';
+        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+        galeriaIndicators.appendChild(indicator);
+    });
+
+    new bootstrap.Carousel(document.getElementById('galeria-alumnos-carousel'));
+}
+
+// ======================
+// FUNCIONES DEL MAPA
+// ======================
+
+function setupMap(lat, lon, containerId, linkId) {
+    if (!lat || !lon) return;
+
+    const container = document.getElementById(containerId);
+    container.innerHTML = `
+        <iframe
+            width="100%"
+            height="400"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.01}%2C${lat-0.01}%2C${lon+0.01}%2C${lat+0.01}&amp;layer=mapnik&amp;marker=${lat},${lon}"
+            style="border: 1px solid #ccc; border-radius: 8px;"
+        ></iframe>
+        <small>
+            <a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=15/${lat}/${lon}"
+               target="_blank"
+               id="${linkId}"
+            >
+                Ver mapa más grande
+            </a>
+        </small>
+    `;
+}
+
+function resaltarAreaPlantel(area) {
+    const highlight = document.getElementById('plantelHighlight');
+    const [x, y, radius] = area.getAttribute('coords').split(',').map(Number);
+    const color = highlightColors[currentColorIndex];
+
+    highlight.style.cssText = `
+        width: ${radius * 2}px;
+        height: ${radius * 2}px;
+        left: ${x - radius}px;
+        top: ${y - radius}px;
+        background-color: ${color.bg};
+        border: 2px solid ${color.border};
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    `;
+}
+
+function scrollToMapPosition(x, y) {
+    const container = document.querySelector('.map-scroll-container');
+    container.scrollTo({
+        left: x - container.clientWidth / 2,
+        top: y - container.clientHeight / 2,
+        behavior: 'smooth'
+    });
+}
+
+// ======================
+// INICIALIZACIÓN
+// ======================
+
 function initMapInteraction() {
-    const mapImage = document.getElementById('mapImage');
-    const highlightDiv = document.getElementById('plantelHighlight');
+    // Event listeners
+    document.querySelectorAll('.plantel-list-item').forEach(item => {
+        item.addEventListener('click', () =>
+            handlePlantelSelection(item.dataset.plantel)
+        );
+    });
 
-    // Configurar controles
-    document.getElementById('zoomIn').addEventListener('click', () => adjustZoom(0.1));
-    document.getElementById('zoomOut').addEventListener('click', () => adjustZoom(-0.1));
-    document.getElementById('resetZoom').addEventListener('click', resetZoom);
-    document.getElementById('changeColor').addEventListener('click', changeHighlightColor);
+    document.getElementById('mobilePlantelSelector').addEventListener('change', function() {
+        if (this.value) handlePlantelSelection(this.value);
+    });
 
-    // Configurar áreas del mapa
     document.querySelectorAll('area.plantel-area').forEach(area => {
-        area.addEventListener('mouseenter', function() {
-            const [x, y, radius] = this.coords.split(',').map(Number);
-            highlightDiv.style.display = 'block';
-            highlightDiv.style.width = `${radius * 2}px`;
-            highlightDiv.style.height = `${radius * 2}px`;
-            highlightDiv.style.left = `${x}px`;
-            highlightDiv.style.top = `${y}px`;
-
-            // Tooltip
-            const tooltip = document.createElement('div');
-            tooltip.className = 'plantel-tooltip';
-            tooltip.textContent = this.alt;
-            highlightDiv.innerHTML = '';
-            highlightDiv.appendChild(tooltip);
-        });
-
-        area.addEventListener('mouseleave', () => {
-            highlightDiv.style.display = 'none';
-        });
-
-        area.addEventListener('click', function(e) {
+        area.addEventListener('click', (e) => {
             e.preventDefault();
-            const plantelId = this.getAttribute('data-plantel');
-            if (plantelId && planteles[plantelId]) {
-                mostrarPlantel(plantelId);
-            }
+            handlePlantelSelection(area.dataset.plantel, true);
         });
     });
 
-    // Configurar selector móvil
-    const mobileSelector = document.getElementById('mobilePlantelSelector');
-    if (mobileSelector) {
-        mobileSelector.addEventListener('change', function() {
-            if (this.value) {
-                mostrarPlantel(this.value);
-                this.value = '';
-            }
-        });
-    }
-
-    // Centrar el mapa al cargar
-    if (mapImage.complete) {
-        centerMap();
-    } else {
-        mapImage.addEventListener('load', centerMap);
-    }
-}
-
-// Funciones de zoom
-function adjustZoom(amount) {
+    // Centrar mapa
     const mapImage = document.getElementById('mapImage');
-    const currentScale = parseFloat(mapImage.style.transform.replace('scale(', '').replace(')', '')) || 1;
-    const newScale = Math.min(Math.max(currentScale + amount, 0.5), 3);
-
-    mapImage.style.transform = `scale(${newScale})`;
-    updateMapAreas(newScale);
+    if (mapImage.complete) centerMap();
+    else mapImage.addEventListener('load', centerMap);
 }
 
-function resetZoom() {
-    const mapImage = document.getElementById('mapImage');
-    mapImage.style.transform = 'scale(1)';
-    updateMapAreas(1);
-}
-
-function updateMapAreas(scale) {
-    document.querySelectorAll('area.plantel-area').forEach(area => {
-        const originalCoords = area.dataset.originalCoords || area.coords;
-        area.dataset.originalCoords = originalCoords;
-
-        const scaledCoords = originalCoords.split(',').map(coord => {
-            return Math.round(parseInt(coord) * scale);
-        }).join(',');
-
-        area.coords = scaledCoords;
-    });
-}
-
-// Función para centrar el mapa
 function centerMap() {
     const container = document.querySelector('.map-scroll-container');
     const mapImage = document.getElementById('mapImage');
-
-    setTimeout(() => {
-        container.scrollLeft = (mapImage.width - container.clientWidth) / 2;
-        container.scrollTop = (mapImage.height - container.clientHeight) / 2;
-    }, 100);
+    container.scrollLeft = (mapImage.width - container.clientWidth) / 2;
+    container.scrollTop = (mapImage.height - container.clientHeight) / 2;
 }
 
-// Función para cambiar colores
-function changeHighlightColor() {
-    currentColorIndex = (currentColorIndex + 1) % highlightColors.length;
-    const color = highlightColors[currentColorIndex];
-    const highlightDiv = document.getElementById('plantelHighlight');
-
-    highlightDiv.style.backgroundColor = color.bg;
-    highlightDiv.style.borderColor = color.border;
-
-    // Actualizar tooltip si existe
-    const tooltip = highlightDiv.querySelector('.plantel-tooltip');
-    if (tooltip) {
-        tooltip.style.backgroundColor = color.border;
-    }
+function volverALista() {
+    toggleViews(true);
+    document.getElementById('mobilePlantelSelector').value = '';
+    document.getElementById('plantelHighlight').style.display = 'none';
 }
 
-
-// Inicialización cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', function() {
+// Inicializar al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    initPlantelesList(); // Nueva función de inicialización
     initMapInteraction();
 
-    // Asignar eventos a las tarjetas de planteles (si las mantienes)
-    document.querySelectorAll('.plantel-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const id = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-            mostrarPlantel(id);
-        });
+    // Selector móvil
+    document.getElementById('mobilePlantelSelector').addEventListener('change', function() {
+        if (this.value) handlePlantelSelection(this.value);
     });
 
-    // Inicializar tooltips de Bootstrap si los usas
-    if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-    }
+    // Tooltips de Bootstrap
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 });

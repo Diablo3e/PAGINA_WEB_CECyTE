@@ -6,58 +6,54 @@
 @section('title', 'Planteles')
 
 @section('content')
-<div class="container-fluid mt-5">
-    <!-- Vista Principal (Selección de Planteles) -->
+<div class="container mt-5 pt-4">
     <div id="planteles-list">
-        <h1 class="text-center mb-5">Planteles Educativos</h1>
+    <h1 class="text-center mb-4" style= "color: var(--color-vino);">PLANTELES</h1>
 
-        <!-- Controles del mapa -->
-        <div class="map-controls mb-3 text-center">
-            <button id="zoomIn" class="btn btn-outline-primary btn-sm">
-                <i class="fas fa-search-plus"></i> Ampliar
-            </button>
-            <button id="zoomOut" class="btn btn-outline-primary btn-sm mx-2">
-                <i class="fas fa-search-minus"></i> Reducir
-            </button>
-            <button id="resetZoom" class="btn btn-outline-secondary btn-sm">
-                <i class="fas fa-sync-alt"></i> Tamaño original
-            </button>
-            <button id="changeColor" class="btn btn-outline-info btn-sm ms-2">
+        <div class="row">
+            <!-- Columna izquierda - Lista EMSaD -->
+            <div class="col-lg-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                        <h4 class="mb-0 pt-1"><i class="fas fa-school me-2"></i> Planteles EMSaD</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="lista-emsad"></div>
+                    </div>
+                </div>
+            </div>
 
-            </button>
-        </div>
+            <!-- Columna central - Mapa -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                        <h3 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i>MAPA INTERACTIVO</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="map-container position-relative">
+                            <img src="{{ asset('imagenes/planteles.jpg') }}" alt="Mapa de Planteles"
+                                 class="map-image" id="mapImage" usemap="#plantelesMap">
+                            <div class="plantel-highlight" id="plantelHighlight"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Contenedor del mapa con scroll -->
-        <div class="map-scroll-container map-center-container">
-            <!-- Mapa interactivo -->
-            <div class="map-wrapper">
-                <img src="{{ asset('imagenes/planteles.jpg') }}" alt="Mapa de Planteles" class="map-image" id="mapImage" usemap="#plantelesMap">
-
-                <map name="plantelesMap" id="plantelesMap">
-                    <!-- Áreas para cada plantel con coordenadas circulares -->
-                    <area target="" alt="EMSaD La Pahua" title="EMSaD La Pahua" href="#" coords="229,46,18" shape="circle" data-plantel="plantel6" class="plantel-area">
-                    <area target="" alt="EMSaD Ameluca" title="EMSaD Ameluca" href="#" coords="220,74,16" shape="circle" data-plantel="plantel3" class="plantel-area">
-                    <area target="" alt="CECyTE Venustiano Carranza" title="CECyTE Venustiano Carranza" href="#" coords="254,81,16" shape="circle" data-plantel="plantel17" class="plantel-area">
-                    <area target="" alt="CECyTE Xicotepec" title="CECyTE Xicotepec" href="#" coords="217,110,21" shape="circle" data-plantel="plantel18" class="plantel-area">
-                    <area target="" alt="EMSaD Tlaolantongo" title="EMSaD Tlaolantongo" href="#" coords="237,130,16" shape="circle" data-plantel="plantel16" class="plantel-area">
-                    <area target="" alt="EMSaD Santa Elena" title="EMSaD Santa Elena" href="#" coords="237,182,12" shape="circle" data-plantel="plantel9" class="plantel-area">
-                    <area target="" alt="CECyTE Chignahuapan" title="CECyTE Chignahuapan" href="#" coords="184,197,29" shape="circle" data-plantel="plantel2" class="plantel-area">
-                    <area target="" alt="CECyTE Guadalupe Victoria" title="CECyTE Guadalupe Victoria" href="#" coords="306,276,19" shape="circle" data-plantel="plantel10" class="plantel-area">
-                    <area target="" alt="CECyTE Magdalena Acajete" title="CECyTE Magdalena Acajete" href="#" coords="215,315,17" shape="circle" data-plantel="plantel12" class="plantel-area">
-                    <area target="" alt="CECyTE Cholula" title="CECyTE Cholula" href="#" coords="153,327,17" shape="circle" data-plantel="plantel1" class="plantel-area">
-                    <area target="" alt="CECyTE Huejotzingo" title="CECyTE Huejotzingo" href="#" coords="139,304,17" shape="circle" data-plantel="plantel11" class="plantel-area">
-                    <area target="" alt="CECyTE Tecamachalco" title="CECyTE Tecamachalco" href="#" coords="250,356,18" shape="circle" data-plantel="plantel13" class="plantel-area">
-                    <area target="" alt="CECyTE Tlacotepec" title="CECyTE Tlacotepec" href="#" coords="269,390,22" shape="circle" data-plantel="plantel15" class="plantel-area">
-                    <area target="" alt="EMSaD Naranjastitla" title="EMSaD Naranjastitla" href="#" coords="401,426,15" shape="circle" data-plantel="plantel8" class="plantel-area">
-                    <area target="" alt="EMSaD Buena Vista" title="EMSaD Buena Vista" href="#" coords="393,449,12" shape="circle" data-plantel="plantel5" class="plantel-area">
-                    <area target="" alt="EMSaD Boca del Monte" title="EMSaD Boca del Monte" href="#" coords="368,427,16" shape="circle" data-plantel="plantel4" class="plantel-area">
-                    <area target="" alt="EMSaD Mexcaltochintla" title="EMSaD Mexcaltochintla" href="#" coords="334,430,16" shape="circle" data-plantel="plantel7" class="plantel-area">
-                    <area target="" alt="CECyTE Tehuitzingo" title="CECyTE Tehuitzingo" href="#" coords="159,447,26" shape="circle" data-plantel="plantel14" class="plantel-area">
-                </map>
-
-                <div class="plantel-highlight" id="plantelHighlight"></div>
+            <!-- Columna derecha - Lista CECyTE -->
+            <div class="col-lg-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                        <h4 class="mb-0"><i class="fas fa-university me-2"></i> Planteles CECyTE</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="lista-cecyte"></div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        </div>
+    </div>
 
         <!-- Listado alternativo para móviles -->
         <div class="d-block d-md-none mt-4">
@@ -77,7 +73,12 @@
                     'plantel10' => 'Plantel Guadalupe Victoria',
                     'plantel11' => 'Plantel Huejotzingo',
                     'plantel12' => 'Plantel Magdalena',
-                    'plantel13' => 'Plantel Tecamachalco'
+                    'plantel13' => 'Plantel Tecamachalco',
+                    'plantel14' => 'Plantel Tehuitzingo',
+                    'plantel15' => 'Plantel Tlacotepec',
+                    'plantel16' => 'Plantel Tlaolantongo',
+                    'plantel17' => 'Plantel Venustiano Carranza',
+                    'plantel18' => 'Plantel Xicotepec'
                 ] as $id => $nombre)
                 <option value="{{ $id }}">{{ $nombre }}</option>
                 @endforeach
@@ -87,12 +88,10 @@
 
     <!-- Vista de Detalle (Oculto inicialmente) -->
     <div id="plantel-detail" style="display: none;">
-        <h2 id="plantel-nombre" class="text-center mb-4"></h2>
-
-        <div class="text-center mb-4">
-            <i id="plantel-icon" class="fas fa-school fa-5x"></i>
-        </div>
-
+        <h2 id="plantel-nombre" class="text-center mb-4 pt-2"></h2>
+<div class="text-center mb-3"> <!-- Reducido el margen inferior -->
+    <span id="plantel-tipo-badge-detail" class="badge"></span>
+</div>
         <!-- Carrusel de fotos -->
         <div id="plantel-carousel" class="carousel slide carousel-container mb-5" data-bs-ride="carousel">
             <div class="carousel-indicators"></div>
@@ -112,7 +111,7 @@
             <!-- Dirección -->
             <div class="col-md-6 mb-4 mb-md-0">
                 <div class="card h-100">
-                    <div class="card-header text-black py-3">
+                    <div class="card-header text-white py-3">
                         <h4 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Dirección y Contacto</h4>
                     </div>
                     <div class="card-body">
@@ -131,23 +130,13 @@
                         <div class="mt-3 border-top pt-3">
                             <h5 class="mb-3"><i class="fas fa-map-marked-alt me-2"></i> Ubicación en mapa</h5>
                             <div id="map-container" style="height: 400px; width: 100%; border-radius: 8px;">
-                                <iframe
-                                 width="100%"
-                                 height="100%"
-                                 frameborder="0"
-                                 scrolling="no"
-                                 marginheight="0"
-                                 marginwidth="0"
-                                 src="https://www.openstreetmap.org/export/embed.html?bbox=-98.2063%2C19.0414%2C-98.1963%2C19.0514&amp;layer=mapnik&amp;marker=19.0414,-98.2063"
-                                 style="border: none;">
-                                </iframe>
-                                <br/>
-                                <small class="text-center d-block mt-2">
-                                    <a href="https://www.openstreetmap.org/?mlat=19.0414&amp;mlon=-98.2064#map=15/19.0414/-98.2063" target="_blank">
-                                         Ver mapa más grande
-                                        </a>
-                                </small>
+                                <!-- Mapa se cargará dinámicamente -->
                             </div>
+                            <small class="text-center d-block mt-2">
+                                <a id="map-link" href="#" target="_blank">
+                                    Ver mapa más grande
+                                </a>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -156,7 +145,7 @@
             <!-- Directores -->
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
-                    <div class="card-header text-black">
+                    <div class="card-header text-white py-3">
                         <h4 class="mb-0"><i class="fas fa-users-cog me-2"></i>Directores</h4>
                     </div>
                     <div class="card-body">
@@ -168,98 +157,100 @@
 
         <!-- Carreras Disponibles -->
         <div class="accordion mb-5" id="seccionesAcordeon">
-    <!-- Acordeón de Carreras -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarreras">
-                <i class="fas fa-graduation-cap me-2"></i> Carreras Disponibles
-            </button>
-        </h2>
-        <div id="collapseCarreras" class="accordion-collapse collapse show" data-bs-parent="#seccionesAcordeon">
-            <div class="accordion-body p-0">
-                <div class="table-responsive">
-                    <table class="table table-hover tabla-carreras mb-0" id="tabla-carreras">
-                        <thead class="table-dark">
-                            <tr>
-                                <th class="py-3">Nombre de la Carrera</th>
-                                <th class="py-3">Duración</th>
-                                <th class="py-3">Modalidad</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cuerpo-tabla-carreras"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="my-5"></div>
-
-        <!-- Acordeón de Alumnos -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlumnos">
-                <i class="fas fa-users me-2"></i> Área de Alumnos
-            </button>
-        </h2>
-        <div id="collapseAlumnos" class="accordion-collapse collapse" data-bs-parent="#seccionesAcordeon">
-            <div class="accordion-body">
-                <!-- Pestañas para Alumnos -->
-                <ul class="nav nav-tabs mb-4" id="alumnosTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="avisos-tab" data-bs-toggle="tab" data-bs-target="#avisos" type="button" role="tab">
-                            <i class="fas fa-bullhorn me-2"></i>Avisos
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="calendario-tab" data-bs-toggle="tab" data-bs-target="#calendario" type="button" role="tab">
-                            <i class="fas fa-calendar-alt me-2"></i>Calendario
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="galeria-tab" data-bs-toggle="tab" data-bs-target="#galeria" type="button" role="tab">
-                            <i class="fas fa-images me-2"></i>Galería
-                        </button>
-                    </li>
-                </ul>
-
-                <!-- Contenido de las pestañas -->
-                <div class="tab-content" id="alumnosTabsContent">
-                    <!-- Pestaña de Avisos -->
-                    <div class="tab-pane fade show active" id="avisos" role="tabpanel">
-                        <div id="lista-avisos" class="list-group"></div>
-                        <div id="sin-avisos" class="alert alert-info" style="display: none;">
-                            No hay avisos disponibles en este momento.
-                        </div>
-                    </div>
-
-                    <!-- Pestaña de Calendario -->
-                    <div class="tab-pane fade" id="calendario" role="tabpanel">
-                        <div id="eventos-calendario"></div>
-                    </div>
-
-                    <!-- Pestaña de Galería -->
-                    <div class="tab-pane fade" id="galeria" role="tabpanel">
-                        <div class="text-center mb-3">
-                            <h5 id="galeria-titulo"></h5>
-                            <p id="galeria-descripcion" class="text-muted"></p>
-                        </div>
-                        <div id="galeria-alumnos-carousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators" id="galeria-indicators"></div>
-                            <div class="carousel-inner" id="galeria-inner"></div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#galeria-alumnos-carousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Anterior</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#galeria-alumnos-carousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Siguiente</span>
-                            </button>
+            <!-- Acordeón de Carreras -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarreras">
+                        <i class="fas fa-graduation-cap me-2"></i> Carreras Disponibles
+                    </button>
+                </h2>
+                <div id="collapseCarreras" class="accordion-collapse collapse show" data-bs-parent="#seccionesAcordeon">
+                    <div class="accordion-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover tabla-carreras mb-0" id="tabla-carreras">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="py-3">Nombre de la Carrera</th>
+                                        <th class="py-3">Duración</th>
+                                        <th class="py-3">Modalidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpo-tabla-carreras"></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Acordeón de Alumnos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlumnos">
+                        <i class="fas fa-users me-2"></i> Área de Alumnos
+                    </button>
+                </h2>
+                <div id="collapseAlumnos" class="accordion-collapse collapse" data-bs-parent="#seccionesAcordeon">
+                    <div class="accordion-body">
+                        <!-- Pestañas para Alumnos -->
+                        <ul class="nav nav-tabs mb-4" id="alumnosTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="avisos-tab" data-bs-toggle="tab" data-bs-target="#avisos" type="button" role="tab">
+                                    <i class="fas fa-bullhorn me-2"></i>Avisos
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="calendario-tab" data-bs-toggle="tab" data-bs-target="#calendario" type="button" role="tab">
+                                    <i class="fas fa-calendar-alt me-2"></i>Calendario
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="galeria-tab" data-bs-toggle="tab" data-bs-target="#galeria" type="button" role="tab">
+                                    <i class="fas fa-images me-2"></i>Galería
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Contenido de las pestañas -->
+                        <div class="tab-content" id="alumnosTabsContent">
+                            <!-- Pestaña de Avisos -->
+                            <div class="tab-pane fade show active" id="avisos" role="tabpanel">
+                                <div id="lista-avisos" class="list-group"></div>
+                                <div id="sin-avisos" class="alert alert-info" style="display: none;">
+                                    No hay avisos disponibles en este momento.
+                                </div>
+                            </div>
+
+                            <!-- Pestaña de Calendario -->
+                            <div class="tab-pane fade" id="calendario" role="tabpanel">
+                                <div id="eventos-calendario"></div>
+                            </div>
+
+                            <!-- Pestaña de Galería -->
+                            <div class="tab-pane fade" id="galeria" role="tabpanel">
+                                <div class="text-center mb-3">
+                                    <h5 id="galeria-titulo"></h5>
+                                    <p id="galeria-descripcion" class="text-muted"></p>
+                                </div>
+                                <div id="galeria-alumnos-carousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators" id="galeria-indicators"></div>
+                                    <div class="carousel-inner" id="galeria-inner"></div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#galeria-alumnos-carousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Anterior</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#galeria-alumnos-carousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Siguiente</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <button class="btn-inicio mb-4" onclick="volverALista()">
+        <button class="volver-btn" onclick="volverALista()">
             <i class="fas fa-arrow-left me-2"></i> Volver a la lista
         </button>
     </div>
