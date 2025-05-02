@@ -1,18 +1,35 @@
 .program {
     position: relative;
-    width: 200px;/* Controla el tamaño de cada caja */
+    width: 200px;
     overflow: hidden;
 }
+
 .program img {
     width: 100%;
     height: auto;
-    filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(300%);
-    transition: filter 0.3s ease-in-out;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.program:hover img {
-    filter: none;
+/* Imagen gris por defecto arriba */
+.img-default {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
 }
+
+/* Imagen vino debajo */
+.img-hover {
+    z-index: 2;
+}
+
+/* Al pasar el cursor, la gris desaparece */
+.program:hover .img-default {
+    opacity: 1;
+}
+
 
 .grid {
     display: flex;

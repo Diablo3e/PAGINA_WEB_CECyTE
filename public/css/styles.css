@@ -33,23 +33,11 @@ body {
     align-items: flex-start;
     right: 10vh;
     width: 100%;
-    min-height: 100vh;
+    min-height: 15vh;
     position: relative; /* Para que el fondo solo esté en esta parte */
 
 }
-/* Fondo con imagen */
-.background-box {
-    margin-top: 80px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70vh;
-    background-image: url("/imagenes/FotoPortadaWeb.png");
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
+
 
 
 /* MEDIA QUERIES */
