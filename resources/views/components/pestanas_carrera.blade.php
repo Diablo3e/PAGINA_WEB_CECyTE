@@ -1,6 +1,6 @@
 <div class="grid">
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Produccion-de-alimentos') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos-vino.png') }}"
         alt="Produccion-de-alimentos" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos.png') }}"
@@ -45,7 +45,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Produccion-industrial') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial-vino.png') }}"
         alt="Produccion-industrial" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial.png') }}" alt="Produccion-industrial"
@@ -63,7 +63,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Carreras') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Programacion-vino.png') }}" alt="Programacion" class="img-hover">
 
             <img src="{{ asset('imagenes/Pestañas-carrera/Programacion.png') }}" alt="Programacion" class="img-default">
@@ -71,7 +71,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Mantenemiento_Automotriz') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz-vino.png') }}" alt="Mantenimiento-automotriz"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz.png') }}" alt="Mantenimiento-automotriz"
@@ -96,7 +96,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Mantenimento_Industrial') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-industrial-vino.png') }}" alt="Mantenimiento industrial"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-industrial.png') }}" alt="Mantenimiento industrial"
