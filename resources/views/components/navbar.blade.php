@@ -27,6 +27,9 @@
                         Oferta Educativa
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
+                        <li><a class="dropdown-item" href="{{ route('Produccion-de-alimentos') }}">Produccion de alimentos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Produccion-industrial') }}">Produccion de alimentos</a></li>
+
                         <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
                         <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de
                                 Energía</a></li>

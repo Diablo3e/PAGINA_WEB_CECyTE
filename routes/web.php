@@ -67,6 +67,15 @@ Route::get('/Admision', function () {
 Route::get('/Planteles', function () {
     return view('components.mapa-Planteles', ['noFondo' => true]);
 })->name('Planteles');
+
+
+// ✅ RUTA DE CARRERAS
+Route::get('/Produccion-industrial', function () {
+    return view('Produccion-industrial', ['noFondo' => true]);
+})->name('Produccion-industrial');
+Route::get('/Produccion-de-alimentos', function () {
+    return view('Produccion-de-alimentos', ['noFondo' => true]);
+})->name('Produccion-de-alimentos');
 Route::get('/Carerras', function () {
     return view('Carreras', ['noFondo' => true]);
 })->name('Carreras');
