@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4.7949553mm"
+   height="4.794786mm"
+   viewBox="0 0 4.7949553 4.794786"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="icon-Instagram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.9477379"
+     inkscape:cx="8.9847817"
+     inkscape:cy="9.4981977"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2657">
+      <path
+         d="m 2.956,962.236 h 13.592 v 13.592 H 2.956 Z"
+         transform="translate(-6.7608002,-974.96952)"
+         id="path2657" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2659">
+      <path
+         d="M 0,1066.501 H 612 V 0 H 0 Z"
+         transform="translate(-9.7891,-970.49442)"
+         id="path2659" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2661">
+      <path
+         d="M 0,1066.501 H 612 V 0 H 0 Z"
+         transform="translate(-9.7891,-971.99492)"
+         id="path2661" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2663">
+      <path
+         d="M 0,1066.501 H 612 V 0 H 0 Z"
+         transform="translate(-6.6270002,-972.66533)"
+         id="path2663" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-91.810417,-114.82917)">
+    <g
+       id="g2977"
+       transform="matrix(0.26458333,0,0,0.26458333,90.767606,82.841923)">
+      <path
+         id="path2656"
+         d="m 0,0 c -1.606,0 -2.946,-1.34 -2.946,-2.948 v -6.056 c 0,-1.608 1.34,-2.947 2.946,-2.947 h 6.058 c 1.607,0 2.946,1.339 2.946,2.947 v 6.056 C 9.004,-1.34 7.665,0 6.058,0 Z M 6.058,-12.809 H 0 c -2.089,0 -3.805,1.715 -3.805,3.805 v 6.056 c 0,2.09 1.716,3.806 3.805,3.806 h 6.058 c 2.089,0 3.804,-1.716 3.804,-3.806 v -6.056 c 0,-2.09 -1.715,-3.805 -3.804,-3.805"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,9.0144,122.04067)"
+         clip-path="url(#clipPath2657)"
+         sodipodi:nodetypes="ssssssssscsssssssc" />
+      <path
+         id="path2658"
+         d="m 0,0 c -0.83,0 -1.5,-0.67 -1.5,-1.5 0,-0.832 0.67,-1.501 1.5,-1.501 0.832,0 1.501,0.669 1.501,1.501 C 1.501,-0.67 0.832,0 0,0 m 0,-3.858 c -1.286,0 -2.357,1.071 -2.357,2.358 0,1.285 1.071,2.358 2.357,2.358 1.287,0 2.358,-1.073 2.358,-2.358 0,-1.287 -1.071,-2.358 -2.358,-2.358"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,13.052133,128.00747)"
+         clip-path="url(#clipPath2659)" />
+      <path
+         id="path2660"
+         d="m 0,0 c -1.661,0 -3,-1.339 -3,-3.001 0,-1.662 1.339,-3.002 3,-3.002 1.662,0 3.001,1.34 3.001,3.002 C 3.001,-1.339 1.662,0 0,0 m 0,-6.859 c -2.116,0 -3.858,1.741 -3.858,3.858 0,2.117 1.742,3.859 3.858,3.859 2.117,0 3.859,-1.742 3.859,-3.859 0,-2.117 -1.742,-3.858 -3.859,-3.858"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,13.052133,126.0068)"
+         clip-path="url(#clipPath2661)" />
+      <path
+         id="path2662"
+         d="m 0,0 h -0.937 c -0.242,0 -0.429,0.187 -0.429,0.429 0,0.241 0.187,0.428 0.429,0.428 H 0 C 0.241,0.857 0.43,0.67 0.43,0.429 0.43,0.187 0.241,0 0,0"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,8.836,125.11293)"
+         clip-path="url(#clipPath2663)" />
+    </g>
+  </g>
+</svg>

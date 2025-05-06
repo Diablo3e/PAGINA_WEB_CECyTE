@@ -40,7 +40,7 @@ body {
 }
 
 .navbar-cecyte .nav-link {
-    color: #000000 !important;
+    color: #fffefe !important;
     padding: .75rem 1.25rem;
     position: relative;
     font-weight: 500;
@@ -86,7 +86,6 @@ body {
 }
 
 .navbar-cecyte .nav-link.informes {
-    background: #4a1627;
     color: white !important;
     /* Letra blanca */
     padding: 10px 15px;

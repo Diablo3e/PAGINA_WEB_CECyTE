@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-cecyte"
-    style="background: url('{{ asset('imagenes/Barra-Navegacion.jpg') }}') no-repeat center center; background-size: cover;">
+    style="background: url('{{ asset('imagenes/Barra-de-navegacion/barra-de-navegacion-1.png') }}') no-repeat center center; background-size: cover;">
     <div class="container-fluid px-4">
 
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -27,8 +27,10 @@
                         Oferta Educativa
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
-                        <li><a class="dropdown-item" href="{{ route('Produccion-de-alimentos') }}">Produccion de alimentos</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Produccion-industrial') }}">Produccion de alimentos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Produccion-de-alimentos') }}">Produccion de
+                                alimentos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Produccion-industrial') }}">Produccion de
+                                alimentos</a></li>
 
                         <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
                         <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de
@@ -62,8 +64,11 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('Planteles') }}">Planteles</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('convenios') }}">Convenios</a></li>
                 <li class="nav-item">
-                    <a class="nav-link informes" href="#" onclick="mostrarFormulario()">Informes</a>
+                    <a class="nav-link informes" href="#" onclick="mostrarFormulario()">
+                        <img src="imagenes/Barra-de-navegacion/icon-Informacion.svg" alt="Informes" class="icono-informes">
+                    </a>
                 </li>
+
 
             </ul>
 
