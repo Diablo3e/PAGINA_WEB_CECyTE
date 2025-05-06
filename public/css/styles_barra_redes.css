@@ -15,13 +15,17 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: #3B0000; /* Fondo vino */
+    background-color: #3B0000; 
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 26px;
     color: white;
     transition: background 0.3s ease-in-out;
 }
 
 .social-icon:hover {
-    background-color: #b9975b; /* Color dorado al pasar el mouse */
+    background-color: #b9975b; 
+}
+.social-icon img {
+    width: 30px; /* Aumenta el tamaño */
+    height: 30px;
 }
