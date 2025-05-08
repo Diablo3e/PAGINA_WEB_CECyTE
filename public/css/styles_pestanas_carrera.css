@@ -1,3 +1,17 @@
+.oferta-educativa h2 {
+    background: repeating-linear-gradient(
+        45deg,
+        #ccc, /* Color de las rayas */
+        #ccc 5px,
+        #fff 5px,
+        #fff 10px
+    );
+    
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
 .program {
     position: relative;
     width: 200px;

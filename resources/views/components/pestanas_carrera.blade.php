@@ -1,3 +1,7 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+<div class="oferta-educativa">
+    <h2>OFERTA EDUCATIVA</h2>
 <div class="grid">
     <div class="program">
         <a href="{{ route('Produccion-de-alimentos') }}">
@@ -46,7 +50,7 @@
     </div>
     <div class="program">
         <a href="{{ route('Produccion-industrial') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial-vino.png') }}"
+        <img src="{{ asset(path: 'imagenes/Pestañas-carrera/Produccion-industrial-vino.png') }}"
         alt="Produccion-industrial" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial.png') }}" alt="Produccion-industrial"
                 class="img-default">
@@ -107,4 +111,5 @@
 
 
 
+</div>
 </div>
