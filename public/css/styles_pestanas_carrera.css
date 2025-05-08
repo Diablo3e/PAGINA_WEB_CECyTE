@@ -1,3 +1,4 @@
+/* ---------- Estilos generales ---------- */
 .oferta-educativa h2 {
     background: repeating-linear-gradient(
         45deg,
@@ -9,15 +10,26 @@
     
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 55px;
-    margin-bottom: 5px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Contenedor de programas */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Contenedor de cada programa */
 .program {
     position: relative;
     width: 200px;
     overflow: hidden;
 }
 
+/* Imágenes */
 .program img {
     width: 100%;
     height: auto;
@@ -25,7 +37,7 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Imagen gris por defecto arriba */
+/* Imagen gris por defecto */
 .img-default {
     position: absolute;
     top: 0;
@@ -34,45 +46,48 @@
     opacity: 0;
 }
 
-/* Imagen vino debajo */
+/* Imagen de color por defecto */
 .img-hover {
     z-index: 2;
 }
 
-/* Al pasar el cursor, la gris desaparece */
+/* Efecto al pasar el cursor */
 .program:hover .img-default {
     opacity: 1;
 }
 
-
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* ---------- Responsividad ---------- */
+@media (max-width: 1024px) {
+    .oferta-educativa h2 {
+        font-size: 45px; /* Reduce tamaño en pantallas medianas */
+    }
+    
+    .program {
+        width: 180px; /* Ajuste del tamaño de cada programa */
+    }
 }
 
-
 @media (max-width: 768px) {
-    .program img {
-        display: none;
+    .oferta-educativa h2 {
+        font-size: 35px; /* Reduce más en móviles */
     }
 
-    .tabs {
-        display: flex;
-        overflow-x: auto;
-        /* Permite desplazamiento horizontal si es necesario */
-        white-space: nowrap;
-        /* Evita que los elementos se vayan a la siguiente línea */
-        scrollbar-width: none;
-        /* Oculta la barra de desplazamiento en Firefox */
-        -ms-overflow-style: none;
-        /* Oculta la barra de desplazamiento en Internet Explorer */
+    .grid {
+        gap: 15px; /* Reduce espacio entre elementos */
     }
 
-    .tabs::-webkit-scrollbar {
-        display: none;
-        /* Oculta la barra de desplazamiento en Chrome y Edge */
+    .program {
+        width: 150px; /* Ajusta para mejor visualización */
+    }
+}
+
+@media (max-width: 480px) {
+    .oferta-educativa h2 {
+        font-size: 28px;
     }
 
+    .program {
+        width: 100%; /* Hace que cada programa ocupe todo el ancho */
+        max-width: 120px; /* Limita el tamaño en dispositivos ultra pequeños */
+    }
 }

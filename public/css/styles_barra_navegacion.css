@@ -1,9 +1,7 @@
 body {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
-    /* 700 es Bold */
-    font-size: 14px;
-    /* Ajusta el tamaño */
+    font-size: 18px;
 }
 
 /* ---------- variables ---------- */
@@ -22,20 +20,17 @@ body {
 .navbar-cecyte {
     background-size: cover;
     border: none;
-    /* Opcional: si quieres quitar el borde negro */
     text-transform: uppercase;
     letter-spacing: .5px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index:1000;
-    /* Asegura que la barra esté encima de otros elementos */
 }
 
 .navbar-cecyte .navbar-nav {
     display: flex;
     justify-content: center;
-    /* Centra los elementos dentro */
     width: 100%;
 }
 
@@ -46,35 +41,14 @@ body {
     font-weight: 500;
 }
 
-.navbar-cecyte .nav-item:not(:first-child)::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 25%;
-    width: 1px;
-    height: 50%;
-    background: #651c32;
+/* ---------- Flechas ---------- */
+.icono-flecha {
+    transition: transform 0.3s ease;
+    margin-left: 5px;
 }
 
-.navbar-cecyte .nav-link:hover,
-.navbar-cecyte .nav-link:focus {
-    color: var(--dor-osc) !important;
-}
-
-.navbar-cecyte .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;
-    background: var(--dor-osc);
-    transition: .25s;
-}
-
-.navbar-cecyte .nav-link:hover::after,
-.navbar-cecyte .nav-link.active::after {
-    width: 100%;
+.nav-link:hover .icono-flecha {
+    transform: translateY(3px);
 }
 
 /* ---------- dropdown ---------- */
