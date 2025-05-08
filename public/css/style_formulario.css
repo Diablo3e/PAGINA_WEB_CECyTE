@@ -1,85 +1,97 @@
+/* ---------- Contenedor del formulario ---------- */
 #formulario-ventana {
     position: fixed;
-    bottom: 100px;
+    bottom: 80px;
     right: 20px;
     width: 350px;
-    border: 10px;
     padding: 20px;
     display: none;
     transition: all 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 1000;
 }
+
+/* Botón de cierre */
 .cerrar-btn {
     position: absolute;
-    top: 10px;  /* Ajusta la distancia desde arriba */
-    right: 10px; /* Lo coloca en la esquina derecha */
+    top: 10px;
+    right: 10px;
     background: none;
     border: none;
     font-size: 18px;
     cursor: pointer;
     color: var(--pantone-7421c);
 }
-/* Botón de solicitar información flotante */
-.btn-flotante {
-    position: fixed;
-    bottom: 80px; /* Distancia desde la parte inferior */
-    right: 20px;  /* Distancia desde la parte derecha */
-    background-color: #13322b;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 1000; /* Asegura que se quede encima de otros elementos */
-}
-
-.btn-flotante:hover {
-    background-color: #13322b; /* Versión más oscura cuando el mouse pasa por encima */
-    color: black;
-}
-
 /* Contenedor del formulario */
 .form-container {
-    background: rgba(187, 24, 24, 0.5);
+    background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
-
 /* Inputs y selectores */
 select, input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 5px 0;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     border: none;
     border-radius: 5px;
-    color: #333 !important;
+    color: #333;
 }
 
 input::placeholder, select {
     color: rgba(0, 0, 0, 0.7);
 }
 
+/* Organizar inputs en una sola línea en escritorio */
+.form-group.doble {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group.doble input {
+    width: 50%;
+}
+
 /* Botón de envío */
-.submit-btn {
-    background-color: rgba(75, 75, 75, 0.7);
+.btn-puebla {
+    background-color: #e96419ff;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
     font-size: 16px;
+    transition: background 0.3s ease;
 }
 
-.submit-btn:hover {
-    background-color: #333;
+.btn-puebla:hover {
+    background-color: rgb(255, 94, 0);
+}
+.form-container h2 {
+    font-size: 22px; /* Tamaño de la fuente */
+    color: #0b0b0b; /* Guinda intenso */
+}
+
+/* ---------- Responsividad ---------- */
+@media (max-width: 768px) {
+    #formulario-ventana {
+        width: 90%;
+        right: 5%;
+    }
+
+    .form-group.doble {
+        flex-direction: column;
+    }
+
+    .form-group.doble input {
+        width: 100%;
+    }
 }
