@@ -2,7 +2,7 @@
 .container-carrusel {
     display: flex;
     justify-content: center;
-    margin-top: 0;
+    margin-top:0;
     width: 100%;
     max-width: 100%;
     padding: 0; 
@@ -55,7 +55,19 @@
 
 @media (max-width: 768px) {
     .container-carrusel {
-        flex-direction: column; /* Cambia la disposición a columna */
-        align-items: center; /* Centra los elementos */
+        flex-direction: column; 
+        align-items: center;
     }
+    .carrusel {
+        position: absolute;
+
+    }
+    .container-carrusel button {
+        position: absolute; 
+        margin-top: -250px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
 }
