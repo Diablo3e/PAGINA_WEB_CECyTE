@@ -85,18 +85,7 @@ body {
     animation: fade .25s ease-out;
 }
 
-.navbar-cecyte .nav-link.informes {
-    color: white !important;
-    /* Letra blanca */
-    padding: 10px 15px;
-    /* Ajustar tamaño */
-    border-radius: 5px;
-    /* Bordes redondeados (opcional) */
-    font-weight: bold;
-    display: inline-block;
-    /* Asegura que el fondo cubra todo */
-    text-align: center;
-}
+
 
 @keyframes fade {
     from {
@@ -149,21 +138,20 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    background: white;
+    background: #f65628ff;
     border-radius: 20px;
     /* Bordes redondeados */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 5px 15px;
     width: 250px;
-    /* Ajusta el ancho */
 }
 
 .search-input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 16px;
-    padding: 8px;
+    font-size: 12px;
+    padding: 6px;
 }
 
 .search-button {

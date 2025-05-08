@@ -32,12 +32,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(221, 113, 12, 0.8);
     border: none;
     cursor: pointer;
     padding: 10px;
     font-size: 18px;
+    border-radius: 50%; /* Hace que el botón sea completamente redondo */
+    width: 40px; /* Ajusta el tamaño para mantener la forma */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .prev {
     left: 10px;
 }
@@ -46,19 +53,6 @@
     right: 10px;
 }
 
-/* Mapa */
-.container-mapa {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Ajusta según necesites la separación */
-
-}
-
-.mapa-iframe{
-    width: 100%;
-    height: 50vh;
-    border: none;
-}
 @media (max-width: 768px) {
     .container-carrusel {
         flex-direction: column; /* Cambia la disposición a columna */
