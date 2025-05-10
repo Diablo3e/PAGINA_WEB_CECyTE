@@ -1,71 +1,33 @@
 <footer class="footer">
-    <div class="footer-container">
-        <!-- Logo -->
-        <div class="footer-logo">
-            <img src="imagenes/logo_cecyte.png" alt="CECyTE Logo">
-        </div>
-
+    <div class="footer-overlay">
         <div class="footer-content">
-            <!-- Sección de contacto -->
             <div class="footer-section">
-                <h3>Contacto</h3>
-                <p><strong>📞 22 29 62 11 26 ext.101</strong></p>
-                <p>✉ Escríbenos</p>
+                <h3>QUIENES SOMOS</h3>
+                <p>Conócenos</p>
+                <p>Blog</p>
             </div>
-
-            <!-- Enlaces -->
             <div class="footer-section">
-                <h3>Enlaces</h3>
-                <ul>
-                    <li onclick="location.href='{{ route('Admision') }}'">Admisión</li>
-                    <li>Contacto</li>
-                    <li onclick="location.href='{{ route('Carreras') }}'">Carreras</li>
-                    <li onclick="location.href='{{ route('directorio') }}'">Directorio</li>
-
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3></h3>
-                <ul>
+                <h3>MODALIDADES EDUCATIVAS</h3>
+                <p>Presencial</p>
+                <p>Dual</p>
                 <li onclick="location.href='{{ route('Transparencia') }}'">Transparencia</li>
-                <li>
-                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/codigo-de-etica.pdf" target="_blank" rel="noopener noreferrer">Código de Ética</a>
-                    </li>
-                    <li>
-                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/CodigoDeConductaV05.pdf" target="_blank" rel="noopener noreferrer">Código de Conducta</a>
-                    </li>
-                    <li>
-                        <a href="https://portal.cecytepuebla.edu.mx/?_gl=1*1lcw868*_ga*MTE3MzkxMDg0Ny4xNzQ0NjQ3OTky*_ga_N9NT22KNNM*MTc0NTM0Mzk5MC4xMC4xLjE3NDUzNDQ0MjIuMC4wLjA." target="_blank" rel="noopener noreferrer">Portal Dirección General</a>
-                    </li>
-                </ul>
+
             </div>
             <div class="footer-section">
-                <ul>
-                    <li>
-                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/politica-de-igualdad-laboral-no-discriminacion.pdf" target="_blank" rel="noopener noreferrer">Política de Igualdad</a>
-                    </li>
-                    <li>
-                        <a href="https://cecytepuebla.edu.mx/transparencia/igualdad-laboral/politica-de-calidad.pdf" target="_blank" rel="noopener noreferrer">Política de Calidad</a>
-                    </li>
-                    <li>
-                        <a href="https://cecytepuebla.edu.mx/Vinculacion/convenios2024/CONVENIOS2024.pdf" target="_blank" rel="noopener noreferrer">Catálogo de Convenios</a>
-                    </li>
-                    <li onclick="location.href='{{ route('Transparencia') }}'">Podcast</li>
-
-                </ul>
+                <h3>CARRERAS</h3>
+                <p>Producción Industrial de Alimentos</p>
+                <p>Electrónica</p>
+                <p>Tecnologías de la Información y la Comunicación</p>
+                <p>Fuentes Alternas de Energía...</p>
             </div>
+            <div class="footer-section">
+                <h3>ADMISIONES</h3>
+                <p>Proceso de Admisión</p>
+                <p>Requisitos</p>
+                <p>Becas y apoyos económicos</p>
+            </div>
+
         </div>
-    </div>
 
-    <!-- Íconos de información -->
-    <div class="footer-info-icons">
-        <a href="https://consultapublicamx.plataformadetransparencia.org.mx/vut-web/faces/view/consultaPublica.xhtml?idEntidad=MjE=&idSujetoObligado=NDIwNg==#inicio" target="_blank">
-            <img src="https://cecytepuebla.edu.mx/wp-content/uploads/elementor/thumbs/logo-pnt-pjckdpo5vb0iakjov9esqkwc3l3u58mj0gv9ks9t90.png" alt="Información pública">
-        </a>
-        <a href="https://consultapublicamx.plataformadetransparencia.org.mx/vut-web/faces/view/consultaPublica.xhtml?idEntidad=MjE=&idSujetoObligado=NDIwNg==#inicio" target="_blank">
-            <img src="https://cecytepuebla.edu.mx/wp-content/uploads/elementor/thumbs/logo-obligaciones-pjckdkyyx4u2oiqimpdnw4314nr02r3vbtlu6egs44.png" alt="Obligaciones de transparencia">
-        </a>
     </div>
-
 </footer>
