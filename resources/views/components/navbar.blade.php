@@ -72,9 +72,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('planteles.index') }}">Planteles
                     <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
                 </a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('convenios') }}">Convenios
-                    <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                </a></li>
                 <li class="nav-item">
                     <a class="nav-link informes" href="#" onclick="mostrarFormulario()">
                         <img src="imagenes/Barra-de-navegacion/icon-Informacion.svg" alt="Informes" class="icono-informes">
