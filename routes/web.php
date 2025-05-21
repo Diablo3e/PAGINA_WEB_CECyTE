@@ -7,7 +7,6 @@ use App\Models\Nivel;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use App\Http\Controllers\PlantelesController;
-use App\Http\Controllers\PlantelController;
 use App\Http\Controllers\InicioController;
 
 // Ruta para la página principal (index.blade.php)
@@ -64,10 +63,22 @@ Route::get('/convenios', function () {
 Route::get('/Admision', function () {
     return view('Admision', ['noFondo' => true]);
 })->name('Admision');
-Route::get('/Planteles', function () {
-    return view('components.mapa-Planteles', ['noFondo' => true]);
-})->name('Planteles');
 
+Route::get('/planteles/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
+
+
+Route::get('/planteles', function () {
+    $planteles = Plantel::all()->keyBy('id'); // Todos los planteles
+    $emsad_planteles = $planteles->where('tipo', 'emsad');
+    $cecyte_planteles = $planteles->where('tipo', 'cecyte');
+
+    return view('components.mapa-Planteles', [
+        'noFondo' => true,
+        'planteles' => $planteles,
+        'emsad_planteles' => $emsad_planteles,
+        'cecyte_planteles' => $cecyte_planteles
+    ]);
+})->name('planteles.index');
 
 // ✅ RUTA DE CARRERAS
 Route::get('/Produccion-industrial', function () {
