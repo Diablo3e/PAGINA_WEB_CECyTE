@@ -64,8 +64,7 @@ Route::get('/Admision', function () {
     return view('Admision', ['noFondo' => true]);
 })->name('Admision');
 
-Route::get('/planteles/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
-
+Route::get('/planteles/detalle/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
 
 Route::get('/planteles', function () {
     $planteles = Plantel::all()->keyBy('id'); // Todos los planteles

@@ -10,7 +10,7 @@
             <!-- Columna izquierda - Lista EMSaD -->
             <div class="col-lg-3 mb-4">
                 <div class="card h-100">
-                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                    <div class="card-header text-black" style="background-color: var(--color-vino);">
                         <h4 class="mb-0 pt-1"><i class="fas fa-school me-2"></i> Planteles EMSaD</h4>
                     </div>
                     <div class="card-body p-0">
@@ -22,7 +22,7 @@
             <!-- Columna central - Mapa -->
             <div class="col-lg-6 mb-4">
                 <div class="card h-100">
-                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                    <div class="card-header text-black" style="background-color: var(--color-vino);">
                         <h3 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i>MAPA INTERACTIVO</h3>
                     </div>
                     <div class="card-body p-0">
@@ -38,7 +38,7 @@
             <!-- Columna derecha - Lista CECyTE -->
             <div class="col-lg-3 mb-4">
                 <div class="card h-100">
-                    <div class="card-header text-white" style="background-color: var(--color-vino);">
+                    <div class="card-header text-black" style="background-color: var(--color-vino);">
                         <h4 class="mb-0"><i class="fas fa-university me-2"></i> Planteles CECyTE</h4>
                     </div>
                     <div class="card-body p-0">
@@ -62,3 +62,6 @@
 </div>
 
 <script src="{{ asset('js/planteles.js') }}"></script>
+<script>
+    const RUTA_PLANTELES = "{{ route('planteles.detalle', ['id' => ':id']) }}";
+</script>

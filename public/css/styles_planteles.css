@@ -1,236 +1,610 @@
 :root {
-    --color-vino: #6D071A; /* Color principal requerido */
-    --color-fondo: #f8f9fa;
-    --borde-redondeado: 10px;
-    --sombra-suave: 0 4px 6px rgba(0,0,0,0.1);
+    --color-primario: #6D071A;        /* Color institucional vino */
+    --color-secundario: #8D0B28;     /* Variación más clara del vino */
+    --color-acento: #D9A441;         /* Color dorado para acentos */
+    --color-fondo: #f8f9fa;          /* Fondo claro */
+    --color-texto: #333333;          /* Texto principal */
+    --color-texto-claro: #777777;    /* Texto secundario */
+    --sombra-suave: 0 2px 8px rgba(109, 7, 26, 0.1);
     --transicion: all 0.3s ease;
 }
 
-/* Base tipográfica Roboto Condensed Bold */
+/* Tipografía */
 body, html {
-    font-family: 'Roboto Condensed', sans-serif !important;
-    font-weight: 700 !important;
-    margin: 0;
-    padding: 0;
-    background: var(--color-fondo);
-    color: var(--color-vino); /* Color vino como principal */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
 }
-/* styles_planteles.css */
-.card-header {
-    position: relative;
-    z-index: 2; /* Evita superposición con otros elementos */
-}
-
-.map-container {
-    margin-top: 0.5rem; /* Espacio adicional bajo el título del mapa */
-}
-
-#planteles-list h1 {
-    position: relative;
-    top: -10px; /* Ajuste fino de posición */
-}
-/* Componentes principales */
-.titulo-principal {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+/* Estilo para el encabezado del plantel */
+.plantel-header {
+    background: white;
+    padding: 2.5rem 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 5px solid var(--color-primario);
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Lista de planteles - Efecto hover */
-#lista-planteles .plantel-list-item {
-    transition: var(--transicion);
-    border-left: 4px solid transparent;
-    cursor: pointer;
-}
-
-#lista-planteles .plantel-list-item:hover {
-    transform: scale(1.05);
-    border-left-color: var(--color-vino);
-    background: rgba(109, 7, 26, 0.05);
-}
-
-.badge-vino {
-    background: var(--color-vino);
-    color: white;
-    font-family: 'Roboto Condensed', sans-serif;
+/* Título principal */
+.plantel-title {
+    font-size: 2.4rem;
     font-weight: 700;
-    padding: 0.4em 0.8em;
-}
-
-/* Mapa interactivo */
-.map-container {
+    color: var(--color-primario);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem !important;
     position: relative;
-    overflow: visible;
-    border: 3px solid var(--color-vino);
-    border-radius: var(--borde-redondeado);
+    display: inline-block;
 }
 
-#plantelHighlight {
-    transition: var(--transicion);
-    background: rgba(109, 7, 26, 0.15);
-    border: 2px solid var(--color-vino);
-    transform-origin: center;
+.plantel-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--color-acento);
+    margin: 0.8rem auto;
 }
 
-.plantel-tooltip {
-    font-family: 'Roboto Condensed', sans-serif !important;
-    font-weight: 700 !important;
-    background: var(--color-vino) !important;
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 5px;
+/* Contenedor de la misión */
+.plantel-mission {
+    background-color: rgba(109, 7, 26, 0.05);
+    border-left: 4px solid var(--color-primario);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Subtítulo */
+.mission-subtitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Texto de la misión */
+.mission-text {
     font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-texto);
+    margin-bottom: 0;
 }
 
-/* Efectos hover para todos los elementos interactivos */
-[class*="plantel"]:hover {
-    transform: scale(1.03);
-    z-index: 1000;
-}
-
-/* Botones y controles */
-.btn-vino {
-    background: var(--color-vino);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    transition: var(--transicion);
-}
-
-.btn-vino:hover {
-    background: #580913;
-    transform: translateY(-2px);
-}
-
-/* Tarjetas */
-.card {
-    border: 2px solid rgba(109, 7, 26, 0.1);
-    transition: var(--transicion);
-}
-
-.card-header {
-    background: var(--color-vino) !important;
-    color: white !important;
-    font-size: 1.2rem;
-}
-
-/* Tablas */
-.tabla-carreras th {
-    background: var(--color-vino);
-    color: white;
+.mission-text strong {
+    color: var(--color-primario);
     font-weight: 700;
-    text-transform: uppercase;
+}
+
+/* Badge */
+#plantel-tipo-badge {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .map-container {
-        margin-top: 1.5rem;
-        border-width: 2px;
+    .plantel-header {
+        padding: 1.5rem;
     }
 
-    #mobilePlantelSelector {
-        border: 2px solid var(--color-vino);
-        font-family: 'Roboto Condensed', sans-serif;
-        font-weight: 700;
-    }
-}
-/* Estilos para las columnas */
-.plantel-column {
-    min-height: 70vh;
-    border-right: 2px solid #dee2e6;
-}
-
-@media (max-width: 992px) {
-    .plantel-column {
-        border-right: none;
-        border-bottom: 2px solid #dee2e6;
-    }
-}
-
-/* Colores distintivos */
-.emsad-badge {
-    background-color: #520606 !important;
-    color: white;
-}
-
-.cecyte-badge {
-    background-color: #5f0401 !important;
-    color: white;
-}
-/* Ajustes específicos para la tipografía */
-h1, h2, h3, h4, h5, h6,
-.btn, .badge, .form-select,
-.nav-tabs .nav-link {
-    font-family: 'Roboto Condensed', sans-serif !important;
-    font-weight: 700 !important;
-}
-
-/* Efectos de zoom en mapa */
-.map-image {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Iconos con color vino */
-.fa-school, .fa-map-marked-alt, .fa-info-circle {
-    color: var(--color-vino);
-}
-@media (max-width: 768px) {
-    #planteles-list h1 {
+    .plantel-title {
         font-size: 1.8rem;
-        margin-bottom: 1.5rem !important;
     }
 
-    .card-header h4 {
-        padding-top: 0.5rem !important;
+    .mission-subtitle {
+        font-size: 1.3rem;
     }
+
+    .mission-text {
+        font-size: 1rem;
+    }
+}   .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
-.volver-btn {
-    transition: all 0.3s ease-in-out;
+
+/* Estilo para el encabezado */
+.instalaciones-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.instalaciones-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
     position: relative;
-    overflow: hidden;
-    padding: 12px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(110, 23, 1, 0.2);
+    display: inline-block;
 }
 
-.volver-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 10, 0, 0.3);
-    background-color: #640902;
-}
-
-.volver-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
-}
-
-.volver-btn::after {
+.instalaciones-header h1::after {
     content: '';
-    position: absolute;
-    left: -100%;
-    top: 0;
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--color-acento);
+    margin: 0.8rem auto;
+}
+
+.instalaciones-header h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+}
+
+.instalaciones-descripcion {
+    background-color: rgba(109, 7, 26, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primario);
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid de imágenes */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.galeria-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion);
+}
+
+.galeria-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(109, 7, 26, 0.15);
+}
+
+.galeria-item img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    transition: left 0.7s;
+    height: 220px;
+    object-fit: cover;
+    display: block;
 }
 
-.volver-btn:hover::after {
-    left: 100%;
+.galeria-info {
+    padding: 1rem;
+    background: white;
+    text-align: center;
 }
 
-/* Versión móvil */
-@media (max-width: 768px) {
-    .volver-btn {
-        width: 100%;
-        padding: 15px 30px;
-        font-size: 1.1rem;
+.galeria-info p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
+
+@media (max-width: 576px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .instalaciones-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .instalaciones-header h2 {
+        font-size: 1.3rem;
+    }
+}
+.caracteristicas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.caracteristica-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: var(--transicion);
+}
+
+.caracteristica-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(109, 7, 26, 0.1);
+}
+
+.caracteristica-icono {
+    color: var(--color-primario);
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Filtros de galería */
+.galeria-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-filtro {
+    background-color: white;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+/* Galería de imágenes */
+.instalaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .caracteristicas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .instalaciones-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .caracteristicas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Estilos para la sección de instalaciones */
+.instalaciones-header {
+    background-color: rgba(109, 7, 26, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--color-primario);
+}
+
+.instalaciones-header h2 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+.lista-caracteristicas {
+    columns: 2;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.lista-caracteristicas li {
+    margin-bottom: 0.8rem;
+    break-inside: avoid;
+}
+
+.galeria-section {
+    margin-top: 2rem;
+}
+
+.botones-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.btn-filtro {
+    background: white;
+    border: 1px solid var(--color-primario);
+    color: var(--color-primario);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background: var(--color-primario);
+    color: white;
+}
+
+.grid-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.imagen-instalacion {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.imagen-instalacion:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-instalacion img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-imagen {
+    padding: 1rem;
+    background: white;
+}
+
+.badge-categoria {
+    display: inline-block;
+    background: var(--color-primario);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lista-caracteristicas {
+        columns: 1;
+    }
+
+    .grid-imagenes {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+.plantel-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    color: var(--color-primario);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.plantel-header h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    color: var(--color-texto);
+}
+
+/* Tarjetas de sección */
+.section-card {
+    margin-bottom: 2.5rem;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion);
+}
+
+.section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(109, 7, 26, 0.15);
+}
+
+.section-header {
+    background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
+    color: white;
+    padding: 1.2rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Tabla de horarios */
+.horarios-container {
+    padding: 1.5rem;
+}
+
+.horarios-table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+}
+
+.horarios-table td {
+    padding: 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Estilos para los botones de horarios */
+.btn-horario {
+    background-color: var(--color-primario); /* Color vino institucional */
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-horario:hover {
+    background-color: var(--color-secundario); /* Tonos más oscuros al hacer hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+.btn-horario:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .btn-horario {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.85rem;
+        min-width: 80px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+/* Acordeón de carreras */
+.accordion-button {
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    background-color: rgba(109, 7, 26, 0.05);
+    color: var(--color-primario);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(109, 7, 26, 0.1);
+    color: var(--color-primario);
+    box-shadow: none;
+}
+
+.accordion-body {
+    padding: 1.5rem;
+}
+
+/* Sección en construcción */
+.en-construccion {
+    background-color: rgba(109, 7, 26, 0.05);
+    color: var(--color-texto-claro);
+    padding: 2.5rem;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px dashed var(--color-primario);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transicion);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    transform: translateY(-2px);
+}
+
+/* Badge */
+.badge {
+    padding: 0.6em 1.2em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Carrusel */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-primario);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--color-primario);
+    border-radius: 50%;
+    padding: 1.5rem;
+    background-size: 60%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .plantel-header {
+        padding: 1.8rem 1rem;
+    }
+
+    .plantel-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .plantel-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .section-header {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .btn-horario {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Efectos hover */
+[class*="btn"]:hover {
+    box-shadow: 0 4px 8px rgba(109, 7, 26, 0.2);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-card {
+    animation: fadeIn 0.5s ease-out forwards;
 }
