@@ -1,172 +1,100 @@
+@extends('layouts.app')
+
+@section('content')
+
+@push('styles')
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="{{ asset('css/styles_planteles.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+@endpush
 
 <div class="container mt-4">
-    <h2 id="plantel-nombre" class="text-center mb-4 pt-2"></h2>
-    <div class="text-center mb-3">
-        <span id="plantel-tipo-badge-detail" class="badge"></span>
-    </div>
-
-    <!-- Carrusel de fotos -->
-    <div id="plantel-carousel" class="carousel slide carousel-container mb-5" data-bs-ride="carousel">
-        <div class="carousel-indicators"></div>
-        <div class="carousel-inner rounded" id="carousel-inner"></div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#plantel-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#plantel-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <!-- Sección de Información -->
-    <div class="row mb-5">
-        <!-- Dirección -->
-        <div class="col-md-6 mb-4 mb-md-0">
-            <div class="card h-100">
-                <div class="card-header text-white py-3">
-                    <h4 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Dirección y Contacto</h4>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex align-items-start gap-4 mb-4">
-                        <div class="flex-shrink-0 bg-light rounded p-3">
-                            <i class="fas fa-info-circle fa-2x text-primary"></i>
-                        </div>
-                        <div>
-                            <h5 class="mb-3">Información de contacto</h5>
-                            <div id="plantel-direccion" class="mb-3"></div>
-                            <p class="mb-2"><i class="fas fa-phone me-2"></i> <strong>Teléfono:</strong> <span
-                                    id="plantel-telefono"></span></p>
-                            <p class="mb-2"><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> <span
-                                    id="plantel-email"></span></p>
-                            <p class="mb-0"><i class="fas fa-clock me-2"></i> <strong>Horario:</strong> <span
-                                    id="plantel-horario"></span></p>
-                        </div>
-                    </div>
-                    <div class="mt-3 border-top pt-3">
-                        <h5 class="mb-3"><i class="fas fa-map-marked-alt me-2"></i> Ubicación en mapa</h5>
-                        <div id="map-container" style="height: 400px; width: 100%; border-radius: 8px;">
-                            <!-- Mapa se cargará dinámicamente -->
-                        </div>
-                        <small class="text-center d-block mt-2">
-                            <a id="map-link" href="#" target="_blank">
-                                Ver mapa más grande
-                            </a>
-                        </small>
-                    </div>
-                </div>
-            </div>
+    <!-- Encabezado principal estilo CECYTE -->
+    <div class="card-body">
+        <!-- Carrusel de fotos -->
+        <div id="plantel-carousel" class="carousel slide carousel-container mb-3" data-bs-ride="carousel">
+            <div class="carousel-indicators"></div>
+            <div class="carousel-inner rounded" id="carousel-inner"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#plantel-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#plantel-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </div>
 
-        <!-- Directores -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-header text-white py-3">
-                    <h4 class="mb-0"><i class="fas fa-users-cog me-2"></i>Directores</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row" id="directores-container"></div>
-                </div>
+    <div class="plantel-header text-center">
+        <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL CECYTE CHOLULA</h1>
+        <span id="plantel-tipo-badge" class="badge fs-6 bg-primary">
+            CECYTE
+        </span>
+        <div class="plantel-mission">
+            <h2 class="mission-subtitle" id="plantel-lema">FORMACIÓN QUE TRANSFORMA</h2>
+            <p class="mission-text" id="plantel-descripcion">
+                Cargando información del plantel...
+            </p>
+        </div>
+    </div>
+
+    <!-- Sección: Nuestras Instalaciones - Versión Mejorada -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">NUESTRAS INSTALACIONES</h4>
+        </div>
+        <div class="card-body" id="instalaciones-content">
+            <!-- Contenido dinámico se cargará aquí desde JavaScript -->
+            <div class="loading-text">Cargando información de las instalaciones...</div>
+        </div>
+    </div>
+
+    <!-- Sección: Comunidad CECYTE -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">COMUNIDAD CECYTE</h4>
+        </div>
+        <div class="card-body" id="comunidad-content">
+            <div class="loading-text">Cargando información de la comunidad...</div>
+        </div>
+    </div>
+
+    <!-- Sección: Horarios -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">HORARIOS DEL SEMESTRE B</h4>
+        </div>
+        <div class="card-body" id="horarios-container">
+            <p class="text-center mb-3">CICLO ESCOLAR 2024-2025</p>
+            <div class="table-responsive">
+                <table class="table table-borderless text-center">
+                    <tbody>
+                        <!-- Contenido dinámico de horarios -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
-    <!-- Carreras Disponibles -->
-    <div class="accordion mb-5" id="seccionesAcordeon">
-        <!-- Acordeón de Carreras -->
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseCarreras">
-                    <i class="fas fa-graduation-cap me-2"></i> Carreras Disponibles
-                </button>
-            </h2>
-            <div id="collapseCarreras" class="accordion-collapse collapse show" data-bs-parent="#seccionesAcordeon">
-                <div class="accordion-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover tabla-carreras mb-0" id="tabla-carreras">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th class="py-3">Nombre de la Carrera</th>
-                                    <th class="py-3">Duración</th>
-                                    <th class="py-3">Modalidad</th>
-                                </tr>
-                            </thead>
-                            <tbody id="cuerpo-tabla-carreras"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    <!-- Sección: Área Académica -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">ÁREA ACADÉMICA</h4>
         </div>
-
-        <!-- Acordeón de Alumnos -->
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseAlumnos">
-                    <i class="fas fa-users me-2"></i> Área de Alumnos
-                </button>
-            </h2>
-            <div id="collapseAlumnos" class="accordion-collapse collapse" data-bs-parent="#seccionesAcordeon">
-                <div class="accordion-body">
-                    <!-- Pestañas para Alumnos -->
-                    <ul class="nav nav-tabs mb-4" id="alumnosTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="avisos-tab" data-bs-toggle="tab"
-                                data-bs-target="#avisos" type="button" role="tab">
-                                <i class="fas fa-bullhorn me-2"></i>Avisos
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="calendario-tab" data-bs-toggle="tab"
-                                data-bs-target="#calendario" type="button" role="tab">
-                                <i class="fas fa-calendar-alt me-2"></i>Calendario
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="galeria-tab" data-bs-toggle="tab" data-bs-target="#galeria"
-                                type="button" role="tab">
-                                <i class="fas fa-images me-2"></i>Galería
-                            </button>
-                        </li>
-                    </ul>
-
-                    <!-- Contenido de las pestañas -->
-                    <div class="tab-content" id="alumnosTabsContent">
-                        <!-- Pestaña de Avisos -->
-                        <div class="tab-pane fade show active" id="avisos" role="tabpanel">
-                            <div id="lista-avisos" class="list-group"></div>
-                            <div id="sin-avisos" class="alert alert-info" style="display: none;">
-                                No hay avisos disponibles en este momento.
-                            </div>
-                        </div>
-
-                        <!-- Pestaña de Calendario -->
-                        <div class="tab-pane fade" id="calendario" role="tabpanel">
-                            <div id="eventos-calendario"></div>
-                        </div>
-
-                        <!-- Pestaña de Galería -->
-                        <div class="tab-pane fade" id="galeria" role="tabpanel">
-                            <div class="text-center mb-3">
-                                <h5 id="galeria-titulo"></h5>
-                                <p id="galeria-descripcion" class="text-muted"></p>
-                            </div>
-                            <div id="galeria-alumnos-carousel" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators" id="galeria-indicators"></div>
-                                <div class="carousel-inner" id="galeria-inner"></div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#galeria-alumnos-carousel" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Anterior</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#galeria-alumnos-carousel" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Siguiente</span>
-                                </button>
-                            </div>
+        <div class="card-body">
+            <div class="accordion" id="carrerasAcordeon">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarreras">
+                            Carreras Disponibles
+                        </button>
+                    </h2>
+                    <div id="collapseCarreras" class="accordion-collapse collapse show" data-bs-parent="#carrerasAcordeon">
+                        <div class="accordion-body">
+                            <ul id="carreras-list">
+                                <li>Cargando carreras...</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -174,9 +102,45 @@
         </div>
     </div>
 
-    <button class="volver-btn" onclick="window.history.back()">
+    <!-- Sección: Vinculación -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">VINCULACIÓN</h4>
+        </div>
+        <div class="card-body" id="vinculacion-content">
+            <p>Cargando información de vinculación...</p>
+        </div>
+    </div>
+
+    <!-- Sección: Extensión Educativa -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">EXTENSIÓN EDUCATIVA</h4>
+        </div>
+        <div class="card-body" id="extension-content">
+            <p>Cargando información de extensión educativa...</p>
+        </div>
+    </div>
+
+    <!-- Sección en construcción -->
+    <div class="card section-card d-none" id="en-construccion">
+        <div class="section-header">
+            <h4 class="mb-0">EN CONSTRUCCIÓN</h4>
+        </div>
+        <div class="card-body en-construccion">
+            <p>Esta sección está en desarrollo y estará disponible pronto.</p>
+        </div>
+    </div>
+
+    <!-- Botón Volver -->
+    <button class="btn btn-primary mt-4 mb-5" onclick="window.history.back()">
         <i class="fas fa-arrow-left me-2"></i> Volver a la lista
     </button>
 </div>
 
-<script src="{{ asset('js/plantel-detalle.js') }}"></script>
+<script>
+    window.plantelData = @json($plantel);
+</script>
+<script src="{{ asset('js/planteles_detalle.js') }}"></script>
+
+@endsection

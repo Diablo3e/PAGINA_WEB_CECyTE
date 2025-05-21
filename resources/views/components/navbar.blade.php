@@ -69,7 +69,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item"><a class="nav-link" href="{{ route('Planteles') }}">Planteles
+                <li class="nav-item"><a class="nav-link" href="{{ route('planteles.index') }}">Planteles
                     <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
                 </a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('convenios') }}">Convenios
