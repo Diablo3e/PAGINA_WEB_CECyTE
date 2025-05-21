@@ -1,73 +1,64 @@
-html, body {
-    height: 100%;
-}
-
-main {
-    flex: 1; /* Esto empuja el footer hacia abajo */
-}
-
 .footer {
-    background-image: url('/imagenes/FotoPortadaWebABAJO.png');
-    background-size: cover; /* Asegura que el fondo cubra toda el área */
+    background-image: url('../imagenes/FotoPortadaWebABAJO.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding: 60px 20px 180px;
     color: white;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 100px !important;
-    width: 100%;
-    z-index: -1;
+    font-family: sans-serif;
 }
 
-.footer-container {
-    display: flex !important;
-    max-width: 1200px !important;
-    margin: auto !important;
-}
-
-
-.footer-logo img {
-    width: 120px;
+.footer-overlay {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 200px;
-    text-align: left;
-    margin: 0 10px;
+    flex: 1 1 180px;
+    margin: 10px;
 }
 
 .footer-section h3 {
-    font-size: 18px;
+    color: #FF6600;
     margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
+.footer-section p {
+    margin: 4px 0;
+    cursor: pointer;
 }
 
-/* secciones de los textos*/
-.footer-section li a {
-    text-decoration: none; 
-    color: white;
-}
-.footer-section li :hover {
-    color: #ddcba4; 
-    text-decoration: none; 
-}
-.footer-section li {
-    cursor: pointer; 
-    color: white;
+.footer-section.social {
+    display: flex;
+    align-items: start;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
-.footer-section li:hover {
-    color: #ddcba4; 
+.footer-section.social img {
+    width: 24px;
+    height: 24px;
 }
 
+.footer-logos {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logos img {
+    height: 40px;
+    object-fit: contain;
+}
