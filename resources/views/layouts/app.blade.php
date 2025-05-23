@@ -20,9 +20,9 @@
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles_pie_pagina.css') }}" rel="stylesheet">
    <!--pagina estandar y convenio-->
-    <link rel="stylesheet" href="{{ asset('css/style_convenio2.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style_estandar.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/style_directorio.css')}}"> <!--estilo del directorio-->
+    <link rel="stylesheet" href="{{ asset('css/styles_convenios.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles_estandar.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/styles_directorio.css')}}">
 
     <!-- Espacio para estilos adicionales -->
     @stack('styles')

@@ -8,15 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Formulario extends Model
 {
     use HasFactory;
-    protected $table = 'formulario_carreras'; // 🔹 Asegura que Laravel use la tabla correcta
+
+    protected $table = 'formularios';
 
     protected $fillable = [
         'nombre_completo',
         'celular',
         'correo',
-        'modalidad',
-        'nivel',
-        'plantel',
-        'carrera',
+        'plantel_id',
+        'carrera_id',
     ];
 }

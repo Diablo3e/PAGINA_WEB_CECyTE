@@ -12,12 +12,22 @@ class Solicitud extends Model
     protected $table = 'solicitudes';
 
     protected $fillable = [
-        'nivel_id',
         'plantel_id',
         'carrera_id',
         'nombre_completo',
         'celular',
         'correo',
     ];
+public function plantel()
+{
+    return $this->belongsTo(Plantel::class, 'plantel_id');
 }
+
+public function carrera()
+{
+    return $this->belongsTo(Carrera::class, 'carrera_id');
+}
+
+}
+
 

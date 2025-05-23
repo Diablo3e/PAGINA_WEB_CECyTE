@@ -18,21 +18,19 @@
             </div>
 
             <div class="form-group">
-                <select id="plantel" name="plantel" class="form-control">
+                <select id="plantel" name="plantel_id" class="form-control">
                     <option value="">Elige tu plantel</option>
                     @foreach ($planteles as $plantel)
-                        <option value="{{ $plantel->id }}">{{ $plantel->nombre }}</option>
+                        <option value="{{ $plantel->id }}">{{ $plantel->plantel_nombre }}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
-                <select id="carrera" name="carrera" class="form-control">
-                    <option value="">Elige tu carrera</option>
-                    @foreach ($carreras as $carrera)
-                        <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>
-                    @endforeach
-                </select>
+<select id="carreras" name="carrera_id" class="form-control">
+    <option value="">Elige tu carrera</option>
+</select>
+
             </div>
 
             <button type="submit" class="btn btn-puebla">Quiero inscribirme</button>

@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Carrera extends Model
 {
-    use HasFactory;
-    protected $table = 'carreras';
-    protected $fillable = ['carrera_nombre'];
+    public function planteles()
+    {
+        return $this->belongsToMany(Plantel::class, 'plantel_carrera');
+    }
 }
+

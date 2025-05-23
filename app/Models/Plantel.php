@@ -2,22 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Plantel extends Model
 {
-    use HasFactory;
+    // Indicar explícitamente el nombre de la tabla
     protected $table = 'planteles';
-    protected $fillable = ['plantel_nombre', 'modalidad_id', 'nivel_id'];
 
-    public function modalidad()
+    public function carreras()
     {
-        return $this->belongsTo(Modalidad::class, 'modalidad_id');
-    }
-
-    public function nivel()
-    {
-        return $this->belongsTo(Nivel::class, 'nivel_id');
+        return $this->belongsToMany(Carrera::class, 'plantel_carrera');
     }
 }
