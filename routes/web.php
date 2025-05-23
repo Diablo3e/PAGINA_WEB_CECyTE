@@ -2,12 +2,8 @@
 
 use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Modalidad;
-use App\Models\Nivel;
 use App\Models\Plantel;
 use App\Models\Carrera;
-use App\Http\Controllers\PlantelesController;
-use App\Http\Controllers\PlantelController;
 use App\Http\Controllers\InicioController;
 
 // Ruta para la página principal (index.blade.php)
@@ -20,12 +16,10 @@ Route::get('/', function () {
     ];
 
     // Obtener los datos de la base de datos
-    $modalidades = Modalidad::all();
-    $niveles = Nivel::all();
     $planteles = Plantel::all();
     $carreras = Carrera::all();
 
-    return view('index', compact('items', 'modalidades', 'niveles', 'planteles', 'carreras'));
+    return view('index', compact('items', 'planteles', 'carreras'));
 });
 
 // Ruta para la página de bienvenida
@@ -40,10 +34,8 @@ Route::post('/formulario/enviar', [FormularioController::class, 'enviarFormulari
 // ✅ Ruta para obtener datos en formato JSON (opcional para AJAX)
 Route::get('/api/formulario-datos', function () {
     return response()->json([
-        'modalidades' => \DB::table('modalidades')->get(),
-        'niveles' => \DB::table('niveles')->get(),
-        'planteles' => \DB::table('planteles')->get(),
-        'carreras' => \DB::table('carreras')->get(),
+        'planteles' => \App\Models\Plantel::all(['id', 'plantel_nombre as nombre']),
+        'carreras' => \App\Models\Carrera::all(['id', 'nombre']),
     ]);
 });
 
@@ -100,28 +92,27 @@ Route::get('/Proceso-de-Gestión', function () {
 Route::get('/Hoteleria', function () {
     return view('Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
+// ✅ OTRAS RUTAS
 Route::get('/Transparencia', function () {
     return view('Transparencia', ['noFondo' => true]);
 })->name('Transparencia');
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
 })->name('linea_tiempo');
-Route::get('/directorio', function () {
-    return view('directorio', ['noFondo' => true]);
-})->name('directorio');
-Route::get('/bolsa', function () {
-    return view('bolsa', ['noFondo' => true]);
-})->name('bolsa');
+
+
+
+
+
 
 
 
 
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
-
 /*ruta del plantel estandar */
-
 Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');
 /*ruta del directorio */
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
+

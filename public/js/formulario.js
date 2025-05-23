@@ -1,38 +1,28 @@
-function actualizarFormulario() {
-    fetch('/api/formulario-datos')
-        .then(response => response.json())
-        .then(data => {
-            actualizarSelect('modalidad', data.modalidades);
-            actualizarSelect('nivel', data.niveles);
-            actualizarSelect('plantel', data.planteles);
-            actualizarSelect('carreras', data.carreras);
-        })
-        .catch(error => console.error('Error cargando los datos:', error));
-}
-
 function actualizarSelect(id, items) {
     const select = document.getElementById(id);
-    if (!select) return; // Evita errores si el select no existe
+    if (!select) return;
     select.innerHTML = '<option value="">- Seleccionar -</option>';
     items.forEach(item => {
         const option = document.createElement('option');
         option.value = item.id;
-        option.textContent = item.nombre;  // Ajuste importante
+        option.textContent = item.nombre;
         select.appendChild(option);
     });
 }
 
-function mostrarFormulario() {
-    document.getElementById("formulario-ventana").style.display = "block";
-}
+document.addEventListener('DOMContentLoaded', function () {
+    actualizarSelect('plantel', []);
+    actualizarSelect('carrera', []);
 
-function minimizarFormulario() {
-    document.getElementById("formulario-ventana").classList.toggle("minimizado");
-}
-
-function cerrarFormulario() {
-    document.getElementById("formulario-ventana").style.display = "none";
-}
-
-// Cargar datos al iniciar la página
-document.addEventListener('DOMContentLoaded', actualizarFormulario);
+    document.getElementById('plantel').addEventListener('change', function () {
+        const plantelId = this.value;
+        if (!plantelId) {
+            actualizarSelect('carrera', []);
+            return;
+        }
+        fetch(`/planteles/${plantelId}/carreras`)
+            .then(res => res.json())
+            .then(data => actualizarSelect('carrera', data))
+            .catch(() => actualizarSelect('carrera', []));
+    });
+});

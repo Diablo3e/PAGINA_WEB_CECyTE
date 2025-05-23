@@ -3,9 +3,9 @@
 @section('title', 'CECyTE')
 <link href="{{ asset('css/styles_mapa_carrusel.css') }}" rel="stylesheet">
 <link href="{{ asset('css/styles_pestanas_carrera.css') }}" rel="stylesheet">
-<link href="{{ asset('css/styles_pestanas_carrera.css') }}" rel="stylesheet">
 <link href="{{ asset('css/styles_planteles.css') }}" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 
 @section('content')
 
@@ -16,7 +16,7 @@
             <!-- Contenido adicional -->
             <section>
                 <div>
-                    @include('components.formulario', compact('modalidades', 'niveles', 'planteles', 'carreras'))
+                    @include('components.formulario', compact( 'planteles', 'carreras'))
                 </div>
             </section>
 
