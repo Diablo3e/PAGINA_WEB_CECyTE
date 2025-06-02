@@ -50,6 +50,8 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/chatbot.js') }}"></script>
+    <script src="{{ asset('js/main_formulario.js') }}"></script>
+
     <!-- Scripts específicos para planteles -->
     @stack('scripts')
 

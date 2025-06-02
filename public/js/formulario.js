@@ -1,28 +1,27 @@
-function actualizarSelect(id, items) {
-    const select = document.getElementById(id);
-    if (!select) return;
-    select.innerHTML = '<option value="">- Seleccionar -</option>';
-    items.forEach(item => {
-        const option = document.createElement('option');
-        option.value = item.id;
-        option.textContent = item.nombre;
-        select.appendChild(option);
-    });
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    actualizarSelect('plantel', []);
-    actualizarSelect('carrera', []);
-
-    document.getElementById('plantel').addEventListener('change', function () {
+    document.getElementById('planteles').addEventListener('change', function () {
         const plantelId = this.value;
+        const carrerasSelect = document.getElementById('carreras');
+        carrerasSelect.innerHTML = '<option value="">Cargando...</option>';
+
         if (!plantelId) {
-            actualizarSelect('carrera', []);
+            carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';
             return;
         }
+
         fetch(`/planteles/${plantelId}/carreras`)
             .then(res => res.json())
-            .then(data => actualizarSelect('carrera', data))
-            .catch(() => actualizarSelect('carrera', []));
+            .then(data => {
+                carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';
+                data.forEach(carrera => {
+                    const option = document.createElement('option');
+                    option.value = carrera.id;
+                    option.textContent = carrera.nombre;
+                    carrerasSelect.appendChild(option);
+                });
+            })
+            .catch(() => {
+                carrerasSelect.innerHTML = '<option value="">Error al cargar</option>';
+            });
     });
 });

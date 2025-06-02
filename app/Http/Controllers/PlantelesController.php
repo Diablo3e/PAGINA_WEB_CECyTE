@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Plantel;
 use Illuminate\Http\Request;
 
 class PlantelesController extends Controller
