@@ -18,10 +18,10 @@
             </div>
 
             <div class="form-group">
-                <select id="plantel" name="plantel_id" class="form-control">
+                <select id="planteles" name="plantel_id" class="form-control">
                     <option value="">Elige tu plantel</option>
                     @foreach ($planteles as $plantel)
-                        <option value="{{ $plantel->id }}">{{ $plantel->plantel_nombre }}</option>
+                        <option value="{{ $plantel->id }}">{{ $plantel->nombre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -36,4 +36,9 @@
             <button type="submit" class="btn btn-puebla">Quiero inscribirme</button>
         </form>
     </div>
+    
 </div>
+<script>
+    const BASE_URL = "{{ url('') }}"; 
+</script>
+

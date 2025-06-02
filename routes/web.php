@@ -1,6 +1,7 @@
 <?php
-
+use App\Http\Controllers\PlantelesController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
@@ -31,30 +32,25 @@ Route::get('/formulario', [FormularioController::class, 'mostrarFormulario'])->n
 Route::post('/formulario/enviar', [FormularioController::class, 'enviarFormulario'])->name('formulario.enviar');
 
 // ✅ Ruta para obtener datos en formato JSON (opcional para AJAX)
-Route::get('/api/formulario-datos', function () {
-    return response()->json([
-        'planteles' => \App\Models\Plantel::all(['id', 'plantel_nombre as nombre']),
-        'carreras' => \App\Models\Carrera::all(['id', 'nombre']),
-    ]);
+Route::get('/api/planteles', function() {
+    return response()->json(Plantel::select('id', 'nombre')->get());
 });
-
 // ✅ Otras rutas
 Route::get('/mapa', function () {
     return view('components.mapa_carrusel');
 });
-
 Route::get('/carreras', function () {
     return view('components.pestanas_carrera');
 });
 Route::get('/convenios', function () {
     return view('Convenios', ['noFondo' => true]);
 })->name('convenios');
-
-
-
 Route::get('/Admision', function () {
     return view('Admision', ['noFondo' => true]);
 })->name('Admision');
+
+
+
 
 Route::get('/planteles/detalle/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
 
@@ -125,4 +121,8 @@ Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa']
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
+
+
+Route::get('/formulario-datos', [FormularioController::class, 'getFormularioDatos']);
+Route::get('/planteles/{id}/carreras', [FormularioController::class, 'obtenerCarreras']);
 
