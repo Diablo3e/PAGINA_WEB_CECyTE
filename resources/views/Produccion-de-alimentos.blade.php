@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>'Producción indstrial de alimentos'</h1>
+    <h1>Producción industrial de alimentos</h1>
 </header>
 
 <div class="tabs">
@@ -53,83 +53,6 @@
 
 <div id="mapa_curricular" class="tab-pane">
         <h2>Mapa Curricular</h2>
-        <table border="1" cellpadding="10" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Semestre</th>
-              <th>Asignatura 1</th>
-              <th>Asignatura 2</th>
-              <th>Asignatura 3</th>
-              <th>Asignatura 4</th>
-              <th>Asignatura 5</th>
-              <th>Asignatura 6</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1°</td>
-              <td>Álgebra</td>
-              <td>Inglés I</td>
-              <td>Química I</td>
-              <td>Tecnologías de la Información y Com.</td>
-              <td>Lógica</td>
-              <td>Lectura, Expresión Oral y Escrita I</td>
-            </tr>
-            <tr>
-              <td>2°</td>
-              <td>Geometría y Trigonometría</td>
-              <td>Inglés II</td>
-              <td>Química II</td>
-              <td>Lectura, Expresión Oral y Escrita II</td>
-              <td>Módulo I
-              Realiza análisis físicos, químicos y microbiológicos a insumos, productos y áreas de proceso de acuerdo a la normativa vigente.</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3°</td>
-              <td>Geometría Analítica</td>
-              <td>Inglés III</td>
-              <td>Biología</td>
-              <td>Ética</td>
-              <td>Módulo II
-              Procesa alimentos lácteos y sus derivados con calidad e inocuidad</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>4°</td>
-              <td>Cálculo Diferencial</td>
-              <td>Inglés IV</td>
-              <td>Física I</td>
-              <td>Ecología</td>
-              <td>Módulo III
-              Procesa alimentos cárnicos con calidad e inocuidad</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>5°</td>
-              <td>Cálculo Integral</td>
-              <td>Inglés V</td>
-              <td>Física II</td>
-              <td>Ciencia, Tecnología, Sociedad y Valores</td>
-              <td>Módulo IV
-              Procesa alimentos a partir de frutas y hortalizas con calidad e inocuidad</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>6°</td>
-              <td>Probabilidad y Estadística</td>
-              <td>Temas de Filosofía</td>
-              <td>Asignatura propedéutica*</td>
-              <td>Asignatura propedéutica*</td>
-              <td>Módulo V
-              Procesa alimentos a partir de cereales u oleaginosas con calidad e inocuidad</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
 
         <div id="escenarios" class="tab-pane">
