@@ -42,7 +42,7 @@
                         <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
                         <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de
                                 Energía</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Mantenemiento_Automotriz') }}">Mantenimiento
+                        <li><a class="dropdown-item" href="{{ route('Mantenimiento_Automotriz') }}">Mantenimiento
                                 Automotriz</a></li>
                         <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenimiento
                                 Industrial</a></li>
