@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\PlantelesController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
@@ -17,6 +18,7 @@ Route::post('/search', function(Request $request){
     return "Congratulations $texto";
 })->name("busqueda");
 
+Route::get('/search/{query}', [SearchController::class, 'searchCarreras']);
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -92,9 +94,9 @@ Route::get('/Carerras', function () {
 Route::get('/Fuentes_Alternas', function () {
     return view('Fuentes_Alternas', ['noFondo' => true]);
 })->name('Fuentes_Alternas');
-Route::get('/Mantenemiento_Automotriz', function () {
-    return view('Mantenemiento_Automotriz', ['noFondo' => true]);
-})->name('Mantenemiento_Automotriz');
+Route::get('/Mantenimiento_Automotriz', function () {
+    return view('Mantenimiento_Automotriz', ['noFondo' => true]);
+})->name('Mantenimiento_Automotriz');
 Route::get('/Mantenimento_Industrial', function () {
     return view('Mantenimento_Industrial', ['noFondo' => true]);
 })->name('Mantenimento_Industrial');
@@ -110,6 +112,7 @@ Route::get('/Proceso-de-Gestión', function () {
 Route::get('/Hoteleria', function () {
     return view('Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
+
 // ✅ OTRAS RUTAS
 Route::get('/Transparencia', function () {
     return view('Transparencia', ['noFondo' => true]);

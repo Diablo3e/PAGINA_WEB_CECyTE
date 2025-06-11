@@ -75,7 +75,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Mantenemiento_Automotriz') }}">
+        <a href="{{ route('Mantenimiento_Automotriz') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz-vino.png') }}" alt="Mantenimiento-automotriz"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz.png') }}" alt="Mantenimiento-automotriz"
