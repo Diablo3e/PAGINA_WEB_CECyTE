@@ -5,6 +5,18 @@ use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
+use Illuminate\Http\Request;
+
+//Rutas EML
+Route::get('/testing', function() {
+    return view('testing');
+});
+
+Route::post('/search', function(Request $request){
+    $texto = $request->input("searchInput");
+    return "Congratulations $texto";
+})->name("busqueda");
+
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
