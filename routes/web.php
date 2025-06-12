@@ -7,18 +7,28 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+use function PHPUnit\Framework\isNull;
 
 //Rutas EML
 Route::get('/testing', function() {
     return view('testing');
 });
 
+
 Route::post('/search', function(Request $request){
-    $texto = $request->input("searchInput");
-    return "Congratulations $texto";
+    $request->validate([
+        'searchInput' => 'required'
+    ]);
+    $query = $request->input("searchInput");
+    $url = route('search.carreras', ['query' => $query]); 
+    $resultados = Http::get($url);
+    $resultados = $resultados->json();
+    return view('search', compact('resultados'));
 })->name("busqueda");
 
-Route::get('/search/{query}', [SearchController::class, 'searchCarreras']);
+Route::get('/search/{query}', [SearchController::class, 'searchCarreras'])->name('search.carreras');
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
