@@ -92,34 +92,35 @@ Route::get('/planteles', function () {
 })->name('planteles.index');
 
 // ✅ RUTAS DE CARRERAS DE LA PAGINA PRINCIPAL
+//❗LA URL TIENE QUE COINCIDIR EXACTAMENTE CON EL NOMBRE DENTRO DE LA BASE DE DATOS PARA QUE FUNCIONE LA BUSQUEDA, INCLUYENDO ACENTOS, MAYUSCULAS/MINUSCULAS Y REMPLEZAR ESPACIOS POR "-", NO "_"
 Route::get('/Produccion-de-alimentos', function () {
     return view('Produccion-de-alimentos', ['noFondo' => true]);
 })->name('Produccion-de-alimentos');
-Route::get('/Electronica', function () {
+Route::get('/Electrónica', function () {
     return view('Electronica', ['noFondo' => true]);
 })->name('Electronica');
 //Tecnologias de la informacion y comunicacion
-Route::get('/Fuentes_Alternas', function () {
+Route::get('/Fuentes-Alternas-de-Energía', function () {
     return view('Fuentes_Alternas', ['noFondo' => true]);
 })->name('Fuentes_Alternas');
-Route::get('/Hoteleria', function () {
+Route::get('/Servicios-de-Hotelería', function () {
     return view('Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
 Route::get('/Produccion-industrial', function () {
     return view('Produccion-industrial', ['noFondo' => true]);
 })->name('Produccion-industrial');
 //Inteligencia artificial
-Route::get('/Programacion', function () {
+Route::get('/Programación', function () {
     return view('Programacion', ['noFondo' => true]);
 })->name('Programacion');
-Route::get('/Mantenimiento_Automotriz', function () {
+Route::get('/Mantenimiento-automotriz', function () {
     return view('Mantenimiento_Automotriz', ['noFondo' => true]);
 })->name('Mantenimiento_Automotriz');
 //Mecatronica
-Route::get('/Proceso-de-Gestión', function () {
+Route::get('/Procesos-de-Gestión-Administrativa', function () {
     return view('Proceso-de-Gestión', ['noFondo' => true]);
 })->name('Proceso-de-Gestión');
-Route::get('/Mantenimento_Industrial', function () {
+Route::get('/Mantenimiento+-industrial', function () {
     return view('Mantenimento_Industrial', ['noFondo' => true]);
 })->name('Mantenimento_Industrial');
 
