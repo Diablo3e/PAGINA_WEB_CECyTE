@@ -39,7 +39,7 @@
                         <li><a class="dropdown-item" href="{{ route('Produccion-industrial') }}">Produccion de
                                 alimentos</a></li>
 
-                        <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Programacion') }}">Programación</a></li>
                         <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de
                                 Energía</a></li>
                         <li><a class="dropdown-item" href="{{ route('Mantenimiento_Automotriz') }}">Mantenimiento
