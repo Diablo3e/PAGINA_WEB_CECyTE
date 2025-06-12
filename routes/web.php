@@ -81,37 +81,44 @@ Route::get('/planteles', function () {
     ]);
 })->name('planteles.index');
 
-// ✅ RUTA DE CARRERAS
-Route::get('/Produccion-industrial', function () {
-    return view('Produccion-industrial', ['noFondo' => true]);
-})->name('Produccion-industrial');
+// ✅ RUTAS DE CARRERAS DE LA PAGINA PRINCIPAL
 Route::get('/Produccion-de-alimentos', function () {
     return view('Produccion-de-alimentos', ['noFondo' => true]);
 })->name('Produccion-de-alimentos');
-Route::get('/Carerras', function () {
-    return view('Carreras', ['noFondo' => true]);
-})->name('Carreras');
-Route::get('/Fuentes_Alternas', function () {
-    return view('Fuentes_Alternas', ['noFondo' => true]);
-})->name('Fuentes_Alternas');
-Route::get('/Mantenimiento_Automotriz', function () {
-    return view('Mantenimiento_Automotriz', ['noFondo' => true]);
-})->name('Mantenimiento_Automotriz');
-Route::get('/Mantenimento_Industrial', function () {
-    return view('Mantenimento_Industrial', ['noFondo' => true]);
-})->name('Mantenimento_Industrial');
 Route::get('/Electronica', function () {
     return view('Electronica', ['noFondo' => true]);
 })->name('Electronica');
-Route::get('/Mantenimientomotoresdecombustion', function () {
-    return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
-})->name('Mantenimientomotoresdecombustion');
-Route::get('/Proceso-de-Gestión', function () {
-    return view('Proceso-de-Gestión', ['noFondo' => true]);
-})->name('Proceso-de-Gestión');
+//Tecnologias de la informacion y comunicacion
+Route::get('/Fuentes_Alternas', function () {
+    return view('Fuentes_Alternas', ['noFondo' => true]);
+})->name('Fuentes_Alternas');
 Route::get('/Hoteleria', function () {
     return view('Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
+Route::get('/Produccion-industrial', function () {
+    return view('Produccion-industrial', ['noFondo' => true]);
+})->name('Produccion-industrial');
+//Inteligencia artificial
+Route::get('/Programacion', function () {
+    return view('Programacion', ['noFondo' => true]);
+})->name('Programacion');
+Route::get('/Mantenimiento_Automotriz', function () {
+    return view('Mantenimiento_Automotriz', ['noFondo' => true]);
+})->name('Mantenimiento_Automotriz');
+//Mecatronica
+Route::get('/Proceso-de-Gestión', function () {
+    return view('Proceso-de-Gestión', ['noFondo' => true]);
+})->name('Proceso-de-Gestión');
+Route::get('/Mantenimento_Industrial', function () {
+    return view('Mantenimento_Industrial', ['noFondo' => true]);
+})->name('Mantenimento_Industrial');
+
+//No aparece en pagina de inicio
+Route::get('/Mantenimientomotoresdecombustion', function () {
+    return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
+})->name('Mantenimientomotoresdecombustion');
+
+
 
 // ✅ OTRAS RUTAS
 Route::get('/Transparencia', function () {

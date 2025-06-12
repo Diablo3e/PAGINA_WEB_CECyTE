@@ -67,7 +67,7 @@
         </a>
     </div>
     <div class="program">
-        <a href="{{ route('Carreras') }}">
+        <a href="{{ route('Programacion') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Programacion-vino.png') }}" alt="Programacion" class="img-hover">
 
             <img src="{{ asset('imagenes/Pestañas-carrera/Programacion.png') }}" alt="Programacion" class="img-default">
