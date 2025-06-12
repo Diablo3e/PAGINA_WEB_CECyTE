@@ -2,12 +2,18 @@
 @section('title', 'Busqueda')
 <link href="{{ asset('css/styles_resultadosBusqueda.css') }}" rel="stylesheet">
 
+
 @section('content')
-    <div class="resultBox">
+<div class="resultBox">
     
     @if ($resultados !== null && !empty($resultados))
-        @foreach($resultados as $resultado)
-            <a href="#">
+    @foreach($resultados as $resultado)
+        @php
+            $strOriginal = $resultado['nombre'];
+            $url = str_ireplace(" ", "-", $strOriginal); 
+            $url = '/' . $url;
+        @endphp
+            <a href="{{ url($url) }}">
                 <div class="card">
                     <div class="card-body text-start">
                         {{ $resultado['nombre'] }}
