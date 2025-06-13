@@ -19,13 +19,18 @@ Route::get('/testing', function() {
 
 Route::post('/search', function(Request $request){
     $request->validate([
-        'searchInput' => 'required'
+        'searchInput' => 'required|min:1'
     ]);
     $query = $request->input("searchInput");
-    $url = route('search.carreras', ['query' => $query]); 
-    $resultados = Http::get($url);
-    $resultados = $resultados->json();
-    return view('search', compact('resultados'));
+    $query = trim($query);
+    if($query !==  ''){
+        $url = route('search.carreras', ['query' => $query]); 
+        $resultados = Http::get($url);
+        $resultados = $resultados->json();
+        return view('search', compact('resultados'));
+    }else{
+        return view(url()->current());
+    }
 })->name("busqueda");
 
 Route::get('/search/{query}', [SearchController::class, 'searchCarreras'])->name('search.carreras');
@@ -92,35 +97,35 @@ Route::get('/planteles', function () {
 })->name('planteles.index');
 
 // ✅ RUTAS DE CARRERAS DE LA PAGINA PRINCIPAL
-//❗LA URL TIENE QUE COINCIDIR EXACTAMENTE CON EL NOMBRE DENTRO DE LA BASE DE DATOS PARA QUE FUNCIONE LA BUSQUEDA, INCLUYENDO ACENTOS, MAYUSCULAS/MINUSCULAS Y REMPLEZAR ESPACIOS POR "-", NO "_"
-Route::get('/Produccion-de-alimentos', function () {
+//❗❗❗PARA QUE FUNCIONE LA BUSQUEDA LA URL TIENE QUE CONCIDIR CON EL NOMBRE DE LA CARRERA EN LA BASE DE DATOS, TODOS LOS CARACTERES EN MINUSCULAS Y EXCLUYENDO CARACTERES QUE NO EXISTAN EN INGLES (ñ y acentos) ADEMAS DE REMPLAZAR ESPACIOS POR "-" EN LUGAR DE "_"❗❗❗
+Route::get('/produccion-industrial-de-alimentos', function () {
     return view('Produccion-de-alimentos', ['noFondo' => true]);
 })->name('Produccion-de-alimentos');
-Route::get('/Electrónica', function () {
+Route::get('/electronica', function () {
     return view('Electronica', ['noFondo' => true]);
 })->name('Electronica');
 //Tecnologias de la informacion y comunicacion
-Route::get('/Fuentes-Alternas-de-Energía', function () {
+Route::get('/fuentes-alternas-de-energia', function () {
     return view('Fuentes_Alternas', ['noFondo' => true]);
 })->name('Fuentes_Alternas');
-Route::get('/Servicios-de-Hotelería', function () {
+Route::get('/servicios-de-hoteleria', function () {
     return view('Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
-Route::get('/Produccion-industrial', function () {
+Route::get('/produccion-industrial', function () {
     return view('Produccion-industrial', ['noFondo' => true]);
 })->name('Produccion-industrial');
 //Inteligencia artificial
-Route::get('/Programación', function () {
+Route::get('/programacion', function () {
     return view('Programacion', ['noFondo' => true]);
 })->name('Programacion');
-Route::get('/Mantenimiento-automotriz', function () {
+Route::get('/mantenimiento-automotriz', function () {
     return view('Mantenimiento_Automotriz', ['noFondo' => true]);
 })->name('Mantenimiento_Automotriz');
 //Mecatronica
-Route::get('/Procesos-de-Gestión-Administrativa', function () {
+Route::get('/procesos-de-gestion-administrativa', function () {
     return view('Proceso-de-Gestión', ['noFondo' => true]);
 })->name('Proceso-de-Gestión');
-Route::get('/Mantenimiento+-industrial', function () {
+Route::get('/mantenimiento-industrial', function () {
     return view('Mantenimento_Industrial', ['noFondo' => true]);
 })->name('Mantenimento_Industrial');
 

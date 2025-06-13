@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Carrera;
 
 
 class SearchController extends Controller
@@ -18,5 +16,8 @@ class SearchController extends Controller
         return response()->json($resultCarreras);
     }
 
+    public function searchPlanteles($query){
+        
+    }
 
 }
