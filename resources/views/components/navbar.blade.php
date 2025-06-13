@@ -84,7 +84,7 @@
             {{-- Búsqueda --}}
             <form action="{{route('busqueda')}}" method="post" class="search-container">
                 @csrf
-                <input name="searchInput" type="text" placeholder="" class="search-input">
+                <input name="searchInput" type="text" placeholder="" class="search-input" required autocomplete="off">
                 <button class="search-button" type="submit">
                     <img src="{{ asset(path: 'imagenes/Barra-de-navegacion/icon-Lupa.svg') }}" alt="Buscar" width="28" height="28">
                 </button>
