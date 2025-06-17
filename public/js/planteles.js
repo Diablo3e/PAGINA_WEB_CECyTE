@@ -76,7 +76,7 @@ const planteles = {
 
 };
 // Definir la ruta base para los planteles (ajusta esto según tu ruta en Laravel)
-const RUTA_BASE_PLANTELES = window.location.href; // Cambia esto si tu ruta es diferente
+const RUTA_BASE_PLANTELES = `http://localhost/dashboard/PAGINA_WEB_CECyTE/public/` ; // Cambia esto si tu ruta es diferente
 
 ///planteles/detalle/
 
