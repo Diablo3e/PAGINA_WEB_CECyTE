@@ -57,7 +57,7 @@ Route::get('/Admision', function () {
 //Ruta para la barra de busqueda
 Route::post('/search', function(Request $request){
     $request->validate([
-        'searchInput' => 'required|min:1'
+        'searchInput' => 'required|min:1|not_regex:/[^\w\s]+\s*(?=\w*)/'
     ]);
 
     $query = trim($request->input("searchInput"));

@@ -76,14 +76,14 @@ const planteles = {
 
 };
 // Definir la ruta base para los planteles (ajusta esto según tu ruta en Laravel)
-const RUTA_BASE_PLANTELES = `http://localhost/dashboard/PAGINA_WEB_CECyTE/public/` ; // Cambia esto si tu ruta es diferente
+const RUTA_BASE_PLANTELES = `http://localhost/dashboard/PAGINA_WEB_CECyTE/public` ; // Cambia esto si tu ruta es diferente
 
 ///planteles/detalle/
 
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
     // Redirigir a la página de detalle con el ID del plantel
-    window.location.href = `${RUTA_BASE_PLANTELES}planteles/detalle/${plantelId}`;
+    window.location.href = `${RUTA_BASE_PLANTELES}/planteles/detalle/${plantelId}`;
 }
 
 // Función para inicializar la lista de planteles
