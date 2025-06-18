@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="resultBox">
-    @if ($resultados !== null && !empty($resultados))
+    @if (count($resultados) !== 0)
         @foreach($resultados as $resultado)
             <a href="{{ url($resultado->url) }}">
                 <div class="card">

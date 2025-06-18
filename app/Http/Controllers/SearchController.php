@@ -54,13 +54,13 @@ class SearchController extends Controller
     }
 
     public function searchAll($query){
-        
+    //La busqueda tiene como objetivo regresar un array donde cada entrada contenga los elementos "resultado" con el nombre de lo que se encontro y "url" con el url que se tiene que usar para que el elemento generado en search.blade.php redireccione a la pagina correcta. El como se generen estas 2 cosas son personalizadas en cada metodo de arriba, cada uno se dedica a hacer la busqueda en su tabla designada
         $resultCarreras = SearchController::searchCarreras($query);
         $resultPlanteles = SearchController::searchPlanteles($query);
-
         $resultados = $resultCarreras->merge($resultPlanteles);
-
+        
         return view('search', compact('resultados'));
+
     }
 
 }
