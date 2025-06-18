@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        fetch(`/planteles/${plantelId}/carreras`)
+        fetch(route('planteles.carreras', plantelId))
             .then(res => res.json())
             .then(data => {
                 carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';

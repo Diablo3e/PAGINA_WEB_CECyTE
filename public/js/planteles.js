@@ -75,13 +75,11 @@ const planteles = {
     },
 
 };
-// Definir la ruta base para los planteles (ajusta esto según tu ruta en Laravel)
-const RUTA_BASE_PLANTELES = '/planteles/detalle'; // Cambia esto si tu ruta es diferente
 
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
     // Redirigir a la página de detalle con el ID del plantel
-    window.location.href = `${RUTA_BASE_PLANTELES}/${plantelId}`;
+    window.location.href = route('planteles.detalle',plantelId);
 }
 
 // Función para inicializar la lista de planteles
