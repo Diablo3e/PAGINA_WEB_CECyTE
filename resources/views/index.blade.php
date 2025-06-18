@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@routes
 @section('title', 'CECyTE')
 <link href="{{ asset('css/styles_mapa_carrusel.css') }}" rel="stylesheet">
 <link href="{{ asset('css/styles_pestanas_carrera.css') }}" rel="stylesheet">
