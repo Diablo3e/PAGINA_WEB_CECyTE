@@ -3,75 +3,75 @@
 const planteles = {
     plantel1: {
         tipo: "cecyte",
-        nombre: "Plantel Cholula",
+        nombre: "Cholula",
     },
     plantel2: {
         tipo: "cecyte",
-        nombre: "Plantel Chignahuapan",
+        nombre: "Chignahuapan",
     },
     plantel3: {
         tipo: "emsad",
-        nombre: "Plantel EMsaD Ameluca",
+        nombre: "Ameluca",
     },
     plantel4: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Boca del Monte",
+        nombre: "Boca del Monte",
     },
     plantel5: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Buena Vista",
+        nombre: "Buena Vista",
     },
     plantel6: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD La Pahua",
+        nombre: "La Pahua",
     },
     plantel7: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Mexcaltochintla",
+        nombre: "Mexcaltochintla",
     },
     plantel8: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Naranjastitla",
+        nombre: "Naranjastitla",
     },
     plantel9: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Santa Elena",
+        nombre: "Santa Elena",
     },
     plantel10: {
         tipo: "cecyte",
-        nombre: "Plantel Guadalupe Victoria",
+        nombre: "Guadalupe Victoria",
     },
     plantel11: {
         tipo: "cecyte",
-        nombre: "Plantel Huejotzingo",
+        nombre: "Huejotzingo",
     },
     plantel12: {
         tipo: "cecyte",
-        nombre: "Plantel Magdalena",
+        nombre: "Magdalena",
     },
     plantel13: {
         tipo: "cecyte",
-        nombre: "Plantel Tecamachalco",
+        nombre: "Tecamachalco",
     },
     plantel14: {
         tipo: "cecyte",
-        nombre: "Plantel Tehuitzingo",
+        nombre: "Tehuitzingo",
     },
     plantel16: {
         tipo: "emsad",
-        nombre: "Plantel Tlaolantongo",
+        nombre: "Tlaolantongo",
     },
     plantel15: {
         tipo: "cecyte",
-        nombre: "Plantel Tlacotepec",
+        nombre: "Tlacotepec",
     },
     plantel17: {
         tipo: "cecyte",
-        nombre: "Plantel Venustiano Carranza",
+        nombre: "Venustiano Carranza",
     },
     plantel18: {
         tipo: "cecyte",
-        nombre: "Plantel Xicotepec",
+        nombre: "Xicotepec",
     },
 
 };
@@ -79,6 +79,7 @@ const planteles = {
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
     // Redirigir a la página de detalle con el ID del plantel
+    console.log(plantelId);
     window.location.href = route('planteles.detalle',plantelId);
 }
 
@@ -101,12 +102,9 @@ function initPlantelesList() {
 
     sortedPlanteles.forEach(([id, plantel]) => {
         const listItem = `
-            <div class="list-group-item plantel-list-item" data-plantel="${id}">
+            <div class="list-group-item list-group-item-action plantel-list-item" data-plantel="${id}">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="mb-0 text-truncate">${plantel.nombre}</h5>
-                    <span class="badge ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}">
-                        ${plantel.tipo.toUpperCase()}
-                    </span>
                 </div>
             </div>
         `;
