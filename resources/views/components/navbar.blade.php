@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-cecyte"
+<nav class="navbar navbar-expand-xxl navbar-cecyte"
     style="background: url('{{ asset('imagenes/Barra-de-navegacion/barra-de-navegacion-1.png') }}') no-repeat center center; background-size: cover;">
     <div class="container-fluid px-4">
 
@@ -12,7 +12,7 @@
         </button>
 
         <!-- Menú -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end px-5" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" href="{{ url('/') }}">Inicio
                     <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
