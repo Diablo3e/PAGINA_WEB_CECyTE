@@ -51,7 +51,7 @@
             </ul>
         </div>
 
-<div id="mapa_curricular" class="tab-pane">
+<div id="mapa_curricular" class="table-responsive tab-pane">
         <h2>Mapa Curricular</h2>
 
 
