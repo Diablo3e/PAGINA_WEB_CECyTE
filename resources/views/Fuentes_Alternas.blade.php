@@ -51,9 +51,9 @@
             </ul>
         </div>
 
-<div id="mapa_curricular" class="tab-pane">
+<div id="mapa_curricular" class="table-responsive tab-pane">
         <h2>Mapa Curricular</h2>
-        <table border="1" cellpadding="10" cellspacing="0">
+        <table border="1" cellpadding="10" cellspacing="0" class="table table-striped-columns">
           <thead>
             <tr>
               <th>Semestre</th>
@@ -84,7 +84,6 @@
               <td>Módulo I
               Instala, opera y mantiene sistemas domésticos de energía solar térmica</td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td>3°</td>
@@ -94,7 +93,6 @@
               <td>Ética</td>
               <td>Módulo II
               Instala, opera y mantiene sistemas de energía solar fotovoltaica de baja potencia</td>
-              <td></td>
               <td></td>
             </tr>
             <tr>
