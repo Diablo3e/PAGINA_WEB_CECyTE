@@ -1,7 +1,6 @@
-
 <!-- Contenedor del formulario flotante -->
 <div id="formulario-ventana" class="formulario-flotante">
-    
+
     <div class="form-container">
         <h2>Descubre lo que significa ser parte del orgullo CECyTE Puebla</h2>
         <button onclick="cerrarFormulario()" class="cerrar-btn">✖</button>
@@ -21,24 +20,23 @@
                 <select id="planteles" name="plantel_id" class="form-control">
                     <option value="">Elige tu plantel</option>
                     @foreach ($planteles as $plantel)
-                        <option value="{{ $plantel->id }}">{{ $plantel->nombre }}</option>
+                    <option value="{{ $plantel->id }}">{{ $plantel->nombre }}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
-<select id="carreras" name="carrera_id" class="form-control">
-    <option value="">Elige tu carrera</option>
-</select>
+                <select id="carreras" name="carrera_id" class="form-control">
+                    <option value="">Elige tu carrera</option>
+                </select>
 
             </div>
 
             <button type="submit" class="btn btn-puebla">Quiero inscribirme</button>
         </form>
     </div>
-    
+
 </div>
 <script>
-    const BASE_URL = "{{ url('') }}"; 
+    const BASE_URL = "{{ url('') }}";
 </script>
-
