@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer-overlay">
-        <div class="footer-content">
+        <div class="footer-content ms-5 ms-xxl-0">
             <div class="footer-section">
                 <h3>QUIENES SOMOS</h3>
                 <p>Conócenos</p>

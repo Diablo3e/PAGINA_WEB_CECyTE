@@ -51,7 +51,7 @@
 </div>
 
 <!-- Listado alternativo para móviles -->
-<div class="d-block d-md-none mt-4">
+<div class="d-block d-md-none mt-4 ms-5">
     <h3 class="mb-3">Selecciona un plantel:</h3>
     <select class="form-select" id="mobilePlantelSelector">
         <option value="">-- Selecciona --</option>
