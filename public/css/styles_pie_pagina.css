@@ -1,15 +1,17 @@
 .footer {
-    background-image: url('../imagenes/FotoPortadaWebABAJO.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    padding: 60px 20px 180px;
+    min-width: 100vw;
     color: white;
+    /* padding: 60px 20px 180px;
+    color: white; */
     font-family: sans-serif;
 }
 
 .footer-overlay {
-    max-width: 1200px;
+    background-image: url('../imagenes/Footer/FotoPortadaWebABAJO-parte1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -49,16 +51,10 @@
     height: 24px;
 }
 
-.footer-logos {
-    margin-top: 30px;
+.footer-Logos{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-logos img {
-    height: 40px;
-    object-fit: contain;
+    justify-content: center;
+    background-image: url('../imagenes/Footer/FotoPortadaWebABAJO-parte2-limpio.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
