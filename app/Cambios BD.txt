@@ -1,0 +1,1 @@
+Se cambiaron las entradas de la tabla Planteles para que siga el orden de los array encontrados en \public\js\planteles.js, en \Controllers\PlantelesController.php y en \public\js\planteles_detalle.js
