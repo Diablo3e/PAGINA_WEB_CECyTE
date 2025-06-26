@@ -39,10 +39,10 @@
                         <li><a class="dropdown-item" href="{{ route('Produccion-industrial') }}">Produccion de
                                 alimentos</a></li>
 
-                        <li><a class="dropdown-item" href="{{ route('Carreras') }}">Programación</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Programacion') }}">Programación</a></li>
                         <li><a class="dropdown-item" href="{{ route('Fuentes_Alternas') }}">Fuentes Alternas de
                                 Energía</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Mantenemiento_Automotriz') }}">Mantenimiento
+                        <li><a class="dropdown-item" href="{{ route('Mantenimiento_Automotriz') }}">Mantenimiento
                                 Automotriz</a></li>
                         <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenimiento
                                 Industrial</a></li>
@@ -82,13 +82,13 @@
             </ul>
 
             {{-- Búsqueda --}}
-            <div class="search-container">
-                <input type="text" placeholder="" class="search-input">
-                <button class="search-button">
+            <form action="{{route('busqueda')}}" method="post" class="search-container">
+                @csrf
+                <input name="searchInput" type="text" placeholder="" class="search-input" required autocomplete="off">
+                <button class="search-button" type="submit">
                     <img src="{{ asset(path: 'imagenes/Barra-de-navegacion/icon-Lupa.svg') }}" alt="Buscar" width="28" height="28">
-
                 </button>
-            </div>
+            </form>
 
         </div>
     </div>

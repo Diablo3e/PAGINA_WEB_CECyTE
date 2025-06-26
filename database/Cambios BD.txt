@@ -1,0 +1,4 @@
+Se corrigio un error ortografico en "Mexcatochintla", cambiandolo a "Mexcaltochintla" (se agrego una l)
+Se agrego el plantel "Ameluca", que existia en archivos json dentro de scripts de js detallados abajo como "plantel3" pero no en la base de datos
+Se cambiaron las entradas de la tabla Planteles para que siga el orden de los json encontrados en \public\js\planteles.js, en \Controllers\PlantelesController.php y en \public\js\planteles_detalle.js
+Se cambiaron los valores de carreras_id en la tabla plantel_carrera para que las carreras de cada plantel coincidan otra vez con su respectivo plantel
