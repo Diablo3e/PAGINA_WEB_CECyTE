@@ -19,6 +19,14 @@ html, body {
   header h1 {
     margin: 0;
   }
+
+  th{
+    white-space: nowrap;
+  }
+
+  td{
+    min-width: 20ch;
+  }
   
   .tabs {
     width: 80%;
@@ -29,6 +37,7 @@ html, body {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     background-color: #651d32;
     padding: 10px;
     margin: 0;
@@ -57,9 +66,9 @@ html, body {
   
   .tab-pane {
     display: none;
+
   }
   
   .tab-pane.active {
     display: block;
   }
-  

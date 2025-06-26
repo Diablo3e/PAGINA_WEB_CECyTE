@@ -27,7 +27,7 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="map-container position-relative">
-                            <img src="{{ asset('imagenes/planteles.jpg') }}" alt="Mapa de Planteles" class="map-image"
+                            <img src="{{ asset('imagenes/planteles.jpg') }}" alt="Mapa de Planteles" class="map-image img-fluid"
                                 id="mapImage" usemap="#plantelesMap">
                             <div class="plantel-highlight" id="plantelHighlight"></div>
                         </div>
@@ -51,17 +51,20 @@
 </div>
 
 <!-- Listado alternativo para móviles -->
-<div class="d-block d-md-none mt-4">
+<div class="d-block d-md-none mt-4 ms-5">
     <h3 class="mb-3">Selecciona un plantel:</h3>
     <select class="form-select" id="mobilePlantelSelector">
         <option value="">-- Selecciona --</option>
         @foreach($planteles as $id => $plantel)
-        <option value="{{ $id }}">{{ $plantel['nombre'] }}</option>
+            @php
+                $id = $id + 1;
+                $strId = 'plantel'. strval($id);
+            @endphp
+            <option value="{{ $strId }}">{{ $plantel['nombre'] }}</option>
         @endforeach
     </select>
 </div>
 
+@push('scripts')
 <script src="{{ asset('js/planteles.js') }}"></script>
-<script>
-    const RUTA_PLANTELES = "{{ route('planteles.detalle', ['id' => ':id']) }}";
-</script>
+@endpush

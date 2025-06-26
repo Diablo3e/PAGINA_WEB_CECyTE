@@ -1,13 +1,36 @@
-<div class="container-carrusel">
-    <div class="carrusel">
-        <div class="imagenes">
-            <img src="imagenes/FotoPortadaWeb.png" alt="#">
-            <img src="imagenes/FotoPortadaWeb.png" alt="#">
-            <img src="imagenes/Hackathon.png" alt="#">
-            <img src="imagenes/FotoPortadaWeb.png" alt="#">
-            <img src="imagenes/Admision-docente.jpg" alt="#">
-        </div>
-        <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
-        <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
+{{-- Carrousel hecho con Bootstrap --}}
+
+<div id="carruselInicio" class="carousel slide mt-0 mt-sm-5" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+    <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+    <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="2" aria-label="Imagen 3"></button>
+    <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="3" aria-label="Imagen 4"></button>
+    <button type="button" data-bs-target="#carruselInicio" data-bs-slide-to="4" aria-label="Imagen 5"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="imagenes/FotoPortadaWeb.png" class="d-block w-100" alt="..." data-bs-interval="100">
     </div>
+    <div class="carousel-item">
+      <img src="imagenes/FotoPortadaWeb.png" class="d-block w-100" alt="..." data-bs-interval="100">
+    </div>
+    <div class="carousel-item">
+      <img src="imagenes/Hackathon.png" class="d-block w-100" alt="..." data-bs-interval="100">
+    </div>
+    <div class="carousel-item">
+      <img src="imagenes/FotoPortadaWeb.png" class="d-block w-100" alt="..." data-bs-interval="100">
+    </div>
+    <div class="carousel-item">
+      <img src="imagenes/Admision-docente.jpg" class="d-block w-100" alt="..." data-bs-interval="100"   >
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
 </div>
