@@ -1,6 +1,6 @@
 <footer class="footer">
-    <div class="footer-overlay">
-        <div class="footer-content">
+    <div class="footer-overlay pt-5 pb-5">
+        <div class="footer-content ms-5 ms-xxl-0">
             <div class="footer-section">
                 <h3>QUIENES SOMOS</h3>
                 <p>Conócenos</p>
@@ -28,6 +28,8 @@
             </div>
 
         </div>
-
+    </div>
+    <div class="footer-Logos">
+        <img class="img-fluid" src="{{asset('imagenes/Footer/FotoPortadaWebABAJO-parte2-logos.png')}}" alt="">
     </div>
 </footer>

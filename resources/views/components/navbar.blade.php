@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-cecyte"
+<nav class="navbar navbar-expand-xxl navbar-cecyte"
     style="background: url('{{ asset('imagenes/Barra-de-navegacion/barra-de-navegacion-1.png') }}') no-repeat center center; background-size: cover;">
     <div class="container-fluid px-4">
 
@@ -12,19 +12,19 @@
         </button>
 
         <!-- Menú -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="collapse navbar-collapse navbar-nav-scroll justify-content-end px-5" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" href="{{ url('/') }}">Inicio
-                    <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                </a></li>
+                <li class="nav-item"><a class="d-flex flex-nowrap nav-link active" href="{{ url('/') }}">Inicio
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a></li>
 
-                <li class="nav-item"><a class="nav-link" href="{{ route('linea_tiempo') }}">Nosotros
-                    <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                </a></li>
+                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('linea_tiempo') }}">Nosotros
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a></li>
 
-                <li class="nav-item"><a class="nav-link" href="{{ route('Admision') }}">Admisión
-                    <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                </a></li>
+                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('Admision') }}">Admisión
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a></li>
 
                 {{-- Dropdown --}}
                 <li class="nav-item dropdown">
@@ -69,9 +69,9 @@
                     </ul>
                 </li>
 
-                <li class="nav-item"><a class="nav-link" href="{{ route('planteles.index') }}">Planteles
-                    <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                </a></li>
+                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('planteles.index') }}">Planteles
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a></li>
                 <li class="nav-item">
                     <a class="nav-link informes" href="#" onclick="mostrarFormulario()">
                         <img src="imagenes/Barra-de-navegacion/icon-Informacion.svg" alt="Informes" class="icono-informes">
