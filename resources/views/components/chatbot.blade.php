@@ -10,13 +10,13 @@
 
 <body>
     <div id="chat-icon-container">
-        <img src="{{ asset('imagenes/cecilio.png') }}" alt="Abrir Chatbot" id="ocelote-icon">
+        <img src="{{ asset('imagenes/Cecilio.png') }}" alt="Abrir Chatbot" id="ocelote-icon">
     </div>
 
     <div id="chat-container">
         <div id="chatbot">
             <div id="chatbot-header">
-                <img src="{{ asset('imagenes/cecilio.jpg') }}" alt="Chatbot Icono" id="chatbot-img">
+                <img src="{{ asset('imagenes/Cecilio.jpg') }}" alt="Chatbot Icono" id="chatbot-img">
                 <h2>Cecilio</h2>
                 <button class="close-btn" id="close-chatbot"><i class="fas fa-times"></i></button>
             </div>
