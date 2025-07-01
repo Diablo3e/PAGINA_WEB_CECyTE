@@ -5,10 +5,10 @@ const planteles = {
         lema: "FORMACIÓN QUE TRANSFORMA",
         descripcion: "En CECyTE Cholula impulsamos el talento de nuestra comunidad estudiantil con educación de calidad, carreras técnicas innovadoras y un fuerte compromiso con el desarrollo personal y profesional. Aquí, cada estudiante construye su futuro con herramientas reales para el mundo actual. <strong>¡Sé parte de una generación que deja huella!</strong>",
         imagenes: [
-            "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
-            "/imagenes/Plantel_Cholula/CholulaTransformacionPlasticos (1).jpg",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioComputo (1).jpg",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioUsosMultiples (3).jpg",
+            "/imagenes/Plantel_Cholula/CholulaPlantel.JPG",
+            "/imagenes/Plantel_Cholula/CholulaTransformacionPlasticos (1).JPG",
+            "/imagenes/Plantel_Cholula/CholulaLaboratorioComputo (1).JPG",
+            "/imagenes/Plantel_Cholula/CholulaLaboratorioUsosMultiples (3).JPG",
         ],
         instalaciones: {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
@@ -168,7 +168,7 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMSaD Mexcaltochintla",
         imagenes: [
-            "/imagenes/EMSaD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
+            "/imagenes/EMSAD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO DE CÓMPUTO/LABORATORIO DE CÓMPUTO (2).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO UM/LABORATORIO USOS M (1).jpg",
@@ -190,9 +190,9 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMSaD Naranjastitla",
         imagenes: [
-            "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
-            "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
-            "/imagenes/EMSaD NARANJASTITLA/EMSADNARANJASTITLAPLANTEL 1.jpg",
+            "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
+            "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
+            "/imagenes/EMSAD NARANJASTITLA/EMSADNARANJASTITLAPLANTEL 1.jpg",
         ],
         direccion: {
             calle: "",
@@ -364,10 +364,10 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel Tlaolantongo",
         imagenes: [
-            "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.JPG",
-            "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.JPG",
-            "/imagenes/Tlaolantongo/sala de computoTlaolantongo.JPG",
-            "/imagenes/Tlaolantongo/Lab_Usos_Multiples.JPG",
+            "/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
+            "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
+            "/imagenes/Tlaolantongo/sala de computoTlaolantongo.jpg",
+            "/imagenes/Tlaolantongo/Lab_Usos_Multiples.jpg",
         ],
         direccion: {
             calle: "Piv. Guadalupe Victoria",
