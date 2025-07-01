@@ -6,8 +6,9 @@ const planteles = {
         descripcion: "En CECyTE Cholula impulsamos el talento de nuestra comunidad estudiantil con educación de calidad, carreras técnicas innovadoras y un fuerte compromiso con el desarrollo personal y profesional. Aquí, cada estudiante construye su futuro con herramientas reales para el mundo actual. <strong>¡Sé parte de una generación que deja huella!</strong>",
         imagenes: [
             "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
-            "/imagenes/Plantel_Cholula/CholulaPlantel2.jpg",
-            "/imagenes/Plantel_Cholula/CholulaPlantel3.jpg",
+            "/imagenes/Plantel_Cholula/CholulaTransformacionPlasticos (1).jpg",
+            "/imagenes/Plantel_Cholula/CholulaLaboratorioComputo (1).jpg",
+            "/imagenes/Plantel_Cholula/CholulaLaboratorioUsosMultiples (3).jpg",
         ],
         instalaciones: {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
@@ -61,9 +62,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Chignahuapan",
         imagenes: [
-            "/imagenes/Chignahuapan/Chigna13.jpg",
-            "/imagenes/Chignahuapan/Chigna9.jpg",
-            "/imagenes/Chignahuapan/PANO_1.jpg",
+            "/imagenes/Chignahuapan/chigna1.jpg",
+            "/imagenes/Chignahuapan/Chigna6.jpg",
+            "/imagenes/Chignahuapan/Chigna11.jpg",
+            "/imagenes/Chignahuapan/Chigna14.jpg",
         ],
         direccion: {
             calle: "Privada de Manuel Avila Camacho",
@@ -82,8 +84,9 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMsaD Ameluca",
         imagenes: [
-            "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0.jpg",
-            "/imagenes/EMSaD Ameluca/entrada2 ameluca.jpg",
+            "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
+            "/imagenes/EMSaD Ameluca/aula4 ameluca.jpg",
+            "/imagenes/EMSaD Ameluca/biblioteca ameluca edit.jpg",
         ],
         direccion: {
             calle: "16 de Septiembre 3",
@@ -102,9 +105,9 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMSaD Boca del Monte",
         imagenes: [
-            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [_Edificio_].jpg",
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio].jpg",
-            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio_].jpg",
+            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Comp.1].jpg",
+            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Usos Multiples.2].jpg",
         ],
         direccion: {
             calle: "",
@@ -165,9 +168,10 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMSaD Mexcaltochintla",
         imagenes: [
-            "/imagenes/EMSaD MEXCALTOCHINTLA/ENTRADA/ENTRADA (3).jpg",
             "/imagenes/EMSaD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
-            "/imagenes/EMSaD MEXCALTOCHINTLA/ENTRADA/ENTRADA (5).jpg",
+            "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
+            "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO DE CÓMPUTO/LABORATORIO DE CÓMPUTO (2).jpg",
+            "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO UM/LABORATORIO USOS M (1).jpg",
         ],
         direccion: {
             calle: "",
@@ -186,10 +190,9 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel EMSaD Naranjastitla",
         imagenes: [
-            "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 1.jpg",
-            "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 2.jpg",
             "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
-            "/imagenes/EMSaD NARANJASTITLA/EMSADNARANJASTITLAPLANTEL2.MP4",
+            "/imagenes/EMSaD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
+            "/imagenes/EMSaD NARANJASTITLA/EMSADNARANJASTITLAPLANTEL 1.jpg",
         ],
         direccion: {
             calle: "",
@@ -209,8 +212,8 @@ const planteles = {
         nombre: "Plantel EMSaD Santa Elena",
         imagenes: [
             "/imagenes/EMSaD Santa Elena/Entrada a Centro_Santa Elena.jpg",
-            "/imagenes/EMSaD Santa Elena/Espacio de usos multiples_Santa elena.jpg",
             "/imagenes/EMSaD Santa Elena/Salon de clases A_Santa Elena.jpg",
+            "/imagenes/EMSaD Santa Elena/Lab_de_computo_Santa Elena.jpg",
         ],
         direccion: {
             calle: "Av. Principal #123",
@@ -229,9 +232,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Guadalupe Victoria",
         imagenes: [
-            "/imagenes/Guadalupe Victoria/GuadalupeVictori1.jpeg",
-           "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
-            "/imagenes/Guadalupe Victoria/GuadalupeVictoria3.jpeg",
+            "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
+           "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
+           "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples.jpeg",
+            "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples2.jpeg",
         ],
         direccion: {
             calle: "Av. Principal #123",
@@ -250,9 +254,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Huejotzingo",
         imagenes: [
-            "/imagenes/Huejotzingo/DSC01542.jpg",
             "/imagenes/Huejotzingo/ENTRADA.jpeg",
-            "/imagenes/Huejotzingo/ENTRADA1.jpeg",,
+            "/imagenes/Huejotzingo/SALONES.jpeg",
+            "/imagenes/Huejotzingo/WhatsApp Image 2024-08-08 at 1.50.15 PM (1).jpeg",
+            "/imagenes/Huejotzingo/LABORATORIO DE COMPUTO.jpeg",
         ],
         direccion: {
             calle: "Blvd. Huejotzingo Aeropuerto 2152",
@@ -271,8 +276,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Magdalena",
         imagenes: [
-            "/imagenes/Magdalena/Plantel/Actual/plantel.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/plante1.jpg",
+            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_090142141.jpg",
+            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
+            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_092302127.jpg",
+            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_112211794.jpg",
         ],
         direccion: {
             calle: "De la Juarez",
@@ -291,8 +298,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Tecamachalco",
         imagenes: [
-            "/imagenes/Magdalena/Plantel/Actual/plantel.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/plante1.jpg",
+            "/imagenes/TECAMACHALCO/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
         ],
         direccion: {
             calle: "KM. Calle 8 Ote 1",
@@ -312,8 +321,10 @@ const planteles = {
         nombre: "Plantel Tehuitzingo",
         imagenes: [
             "/imagenes/TEHUITZINGO/Entrada_Pricipal_Plantel.png",
-            "/imagenes/TEHUITZINGO/Explanada_Edficio1.png",
-            "/imagenes/TEHUITZINGO/Explanada_Edficio2.png",
+            "/imagenes/TEHUITZINGO/Explanada_Edficio1 y 2_Plantel_2.png",
+            "/imagenes/TEHUITZINGO/Taller_MAIN.png",
+            "/imagenes/TEHUITZINGO/Sala_Computo_B.png",
+            "/imagenes/TEHUITZINGO/Laboratorio_Usos_Multiples_2.png",
         ],
         direccion: {
             calle: "Lazaro Cardenas Primera Seccion",
@@ -328,34 +339,13 @@ const planteles = {
             longitud:-98.2841749262863
         },
     },
-    plantel16: {
-        tipo: "emsad",
-        nombre: "Plantel Tlaolantongo",
-        imagenes: [
-            "/imagenes/Tlaolantongo/TLAOLANTONGO1.JPG",
-            "/imagenes/Tlaolantongo/TLAOLANTONGO2.JPG",
-            "/imagenes/Tlaolantongo/TLAOLANTONGO5.JPG",
-        ],
-        direccion: {
-            calle: "Piv. Guadalupe Victoria",
-            colonia: "Colonia Centro",
-            municipio: "San Pedro Tlaolantongo",
-            estado: "Puebla",
-            cp: "73271",
-            telefono: "(222) 123 4567",
-            email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:20.229396085707762,
-            longitud:-97.80535457468302
-        },
-    },
     plantel15: {
         tipo: "cecyte",
         nombre: "Plantel Tlacotepec",
         imagenes: [
             "/imagenes/Tlacotepec/PLANTEL/IMG_1679.JPG",
-            "/imagenes/Tlacotepec/PLANTEL/IMG_1699.JPG",
-            "/imagenes/Tlacotepec/PLANTEL/IMG_1682.JPG",
+            "/imagenes/Tlacotepec/PLANTEL/IMG_1681.JPG",
+            "/imagenes/Tlacotepec/PLANTEL/IMG_1711.JPG",
         ],
         direccion: {
             calle: "Av. Hidalgo",
@@ -370,13 +360,35 @@ const planteles = {
             longitud:-98.76778905216558
         },
     },
+    plantel16: {
+        tipo: "emsad",
+        nombre: "Plantel Tlaolantongo",
+        imagenes: [
+            "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.JPG",
+            "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.JPG",
+            "/imagenes/Tlaolantongo/sala de computoTlaolantongo.JPG",
+            "/imagenes/Tlaolantongo/Lab_Usos_Multiples.JPG",
+        ],
+        direccion: {
+            calle: "Piv. Guadalupe Victoria",
+            colonia: "Colonia Centro",
+            municipio: "San Pedro Tlaolantongo",
+            estado: "Puebla",
+            cp: "73271",
+            telefono: "(222) 123 4567",
+            email: "contacto@cholula.cecyte.edu.mx",
+            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
+            latitud:20.229396085707762,
+            longitud:-97.80535457468302
+        },
+    },
     plantel17: {
         tipo: "cecyte",
         nombre: "Plantel Venustiano Carranza",
         imagenes: [
-            "/imagenes/VENUSTIANO CARRANZA/imag1.jpeg",
-            "/imagenes/VENUSTIANO CARRANZA/imag2.jpeg",
-            "/imagenes/VENUSTIANO CARRANZA/imag3.jpeg",
+            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
+            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
+            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.08.15.jpeg",
         ],
         direccion: {
             calle: "Calle Flores Magon",
@@ -395,9 +407,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Plantel Xicotepec",
         imagenes: [
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec1.jpg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec5.jpg",
+            "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
+            "/imagenes/XICOTEPEC/Plantel Xicotepec/ComputoXicotepec1.jpeg",
+            "/imagenes/XICOTEPEC/Plantel Xicotepec/TallerXicotepec1.jpe g",
         ],
         direccion: {
             calle: "",

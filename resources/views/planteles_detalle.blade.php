@@ -15,7 +15,7 @@
     <!-- Encabezado principal estilo CECYTE -->
     <div class="card-body">
         <!-- Carrusel de fotos -->
-        <div id="plantel-carousel" class="carousel slide carousel-container mb-3" data-bs-ride="carousel">
+        <div id="plantel-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators"></div>
             <div class="carousel-inner rounded" id="carousel-inner"></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#plantel-carousel" data-bs-slide="prev">
