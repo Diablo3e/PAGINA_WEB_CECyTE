@@ -553,6 +553,15 @@ body, html {
     letter-spacing: 0.5px;
 }
 
+/* Disminuir el tamaño de las imagenes mostradas*/
+.carousel-img{
+    max-width: 81%;   
+    height: auto;     
+    margin: 0 auto;   
+    display: block;   
+    border-radius: 10px;
+}
+
 /* Carrusel */
 .carousel-indicators button {
     width: 12px;
