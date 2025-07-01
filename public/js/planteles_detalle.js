@@ -410,7 +410,7 @@ const planteles = {
             "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/ComputoXicotepec1.jpeg",
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/TallerXicotepec1.jpe g",
+            "/imagenes/XICOTEPEC/Plantel Xicotepec/TallerXicotepec1.jpeg",
         ],
         direccion: {
             calle: "",
@@ -536,7 +536,7 @@ function setupCarousel(images, carouselId, indicatorsClass) {
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `
-            <img src="${imgUrl}" class="d-block w-100" alt="Imagen del plantel"
+            <img src="${imgUrl}" class="carousel-img d-block w-100" alt="Imagen del plantel"
                  style="height: 400px; object-fit: cover;">
         `;
         carouselInner.appendChild(item);
