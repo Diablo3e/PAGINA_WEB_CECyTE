@@ -1,5 +1,8 @@
 @extends('layouts.app')
+
+{{-- Hacer que route() sea una funcion de JS --}}
 @routes
+
 @section('title', 'CECyTE')
 <link href="{{ asset('css/styles_pestanas_carrera.css') }}" rel="stylesheet">
 <link href="{{ asset('css/styles_planteles.css') }}" rel="stylesheet">
