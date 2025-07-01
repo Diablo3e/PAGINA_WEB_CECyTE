@@ -532,7 +532,6 @@ function setupCarousel(images, carouselId, indicatorsClass) {
 
     images.forEach((img, index) => {
         const imgUrl = route('imagenes.get', img);
-        console.log(imgUrl);
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `
