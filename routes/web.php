@@ -138,7 +138,10 @@ Route::get('/linea_tiempo', function () {
 
 
 
-
+//Uso de imagenes en JS
+Route::get('/{imgPath}', function($imgPath) {
+    return asset($imgPath);
+})->name('imagenes.get');
 
 
 
@@ -151,7 +154,6 @@ Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa']
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
-
 
 Route::get('/formulario-datos', [FormularioController::class, 'getFormularioDatos']);
 Route::get('/planteles/{id}/carreras', [FormularioController::class, 'obtenerCarreras'])->name('planteles.carreras');

@@ -518,10 +518,12 @@ function setupCarousel(images, carouselId, indicatorsClass) {
     indicators.innerHTML = '';
 
     images.forEach((img, index) => {
+        const imgUrl = route('imagenes.get', img);
+        console.log(imgUrl);
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `
-            <img src="${img}" class="d-block w-100" alt="Imagen del plantel"
+            <img src="${imgUrl}" class="d-block w-100" alt="Imagen del plantel"
                  style="height: 400px; object-fit: cover;">
         `;
         carouselInner.appendChild(item);
