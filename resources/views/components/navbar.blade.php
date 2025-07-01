@@ -74,7 +74,7 @@
                     </a></li>
                 <li class="nav-item">
                     <a class="nav-link informes" href="#" onclick="mostrarFormulario()">
-                        <img src="imagenes/Barra-de-navegacion/icon-Informacion.svg" alt="Informes" class="icono-informes">
+                        <img src=" {{asset('imagenes/Barra-de-navegacion/icon-Informacion.svg')}}" alt="Informes" class="icono-informes">
                     </a>
                 </li>
 
