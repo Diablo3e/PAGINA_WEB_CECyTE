@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades;
+use Illuminate\View\View;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Plantel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +18,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
+        Facades\View::composer('components.formulario', function (View $view){
+            $plantelesDB = Plantel::all();
+            
+            $view->with([
+                'planteles' => $plantelesDB,
+            ]);
+        });
     }
 }

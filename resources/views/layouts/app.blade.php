@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="{{ asset('css/styles_convenios.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles_estandar.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styles_directorio.css')}}">
-
+    <!-- Funcion para poder usar las rutas de web.php en JavaScript -->
+     @routes
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Espacio para estilos adicionales -->
     @stack('styles')
 </head>
@@ -39,6 +42,13 @@
 
     <!-- Contenido principal con ajuste para barra de navegación fija -->
     <main class="main-content">
+        <div class="row inicio-container">
+        <section>
+            <div>
+                @include('components.formulario')
+            </div>
+        </section>
+    </div>
         @yield('content')
     </main>
 
