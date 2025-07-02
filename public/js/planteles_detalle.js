@@ -148,7 +148,7 @@ const planteles = {
         nombre: "Plantel EMSaD La Pahua",
         imagenes: [
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Plantel_LaPahua.jpeg",
-           "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
+            "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/AulaA_LaPahua.jpeg",
         ],
         direccion: {
@@ -233,8 +233,8 @@ const planteles = {
         nombre: "Plantel Guadalupe Victoria",
         imagenes: [
             "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
-           "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
-           "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples.jpeg",
+            "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
+            "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples.jpeg",
             "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples2.jpeg",
         ],
         direccion: {
@@ -364,7 +364,7 @@ const planteles = {
         tipo: "emsad",
         nombre: "Plantel Tlaolantongo",
         imagenes: [
-            "/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
+            "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
             "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
             "/imagenes/Tlaolantongo/sala de computoTlaolantongo.jpg",
             "/imagenes/Tlaolantongo/Lab_Usos_Multiples.jpg",
