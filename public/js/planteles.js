@@ -79,7 +79,6 @@ const planteles = {
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
     // Redirigir a la página de detalle con el ID del plantel
-    console.log(plantelId);
     window.location.href = route('planteles.detalle',plantelId);
 }
 
