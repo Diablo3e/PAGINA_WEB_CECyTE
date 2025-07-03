@@ -36,9 +36,13 @@ class FormularioController extends Controller
                 'updated_at' => now(),
             ]);
 
-            return redirect()->route('formulario.mostrar')->with('success', 'Formulario enviado correctamente.');
+            return response()->json([
+                'resultado' => 'exito',
+            ]);
         } catch (\Exception $e) {
-            return redirect()->route('formulario.mostrar')->with('error', 'Hubo un problema al guardar el formulario. Intenta de nuevo.');
+            return response()->json([
+                'resultado' => 'error',
+            ]);
         }
     }
 
