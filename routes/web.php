@@ -24,6 +24,7 @@ Route::get('/', function () {
     $planteles = Plantel::all();
     $carreras = Carrera::all();
 
+    //Hasta el momento 01/07/2025 items y carreras no se usan para nada, no se borro por si acaso
     return view('index', compact('items', 'planteles', 'carreras'));
 });
 
