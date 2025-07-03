@@ -88,6 +88,12 @@ input::placeholder, select {
     color: #0b0b0b; /* Guinda intenso */
 }
 
+/* Respuesta de formulario */
+.btnFormularioContainer{
+    display: flex;
+    flex-direction: column;
+}
+
 /* ---------- Responsividad ---------- */
 @media (max-width: 768px) {
     #formulario-ventana {
@@ -103,3 +109,4 @@ input::placeholder, select {
         width: 100%;
     }
 }
+
