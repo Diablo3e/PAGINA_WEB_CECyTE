@@ -10,7 +10,7 @@
                 <h3>MODALIDADES EDUCATIVAS</h3>
                 <p>Presencial</p>
                 <p>Dual</p>
-                <li onclick="location.href='{{ route('Transparencia') }}'">Transparencia</li>
+                <p onclick="location.href='{{ route('Transparencia') }}'">Transparencia</p>
 
             </div>
             <div class="footer-section">
