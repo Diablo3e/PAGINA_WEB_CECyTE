@@ -148,7 +148,7 @@ Route::get('/{imgPath}', function($imgPath) {
 
 
 
-Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel']);
+Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel'])->name('carreras.por.plantel');
 /*ruta del plantel estandar */
 Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');
 /*ruta del directorio */
