@@ -10,15 +10,21 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url: '/carreras/' + plantelId,
+            url: route('carreras.por.plantel', plantelId),
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                var options = '<option value="">Elige tu carrera</option>';
-                $.each(data, function(index, carrera) {
-                    options += '<option value="' + carrera.id + '">' + carrera.nombre + '</option>';
-                });
-                $carreras.html(options);
+                if($.isEmptyObject(data)){
+                    $carreras.html('<option value="">Bachillerato general</option>');
+                    $carreras.prop('disabled', true);
+                }else{
+                    var options = '<option value="">Elige tu carrera</option>';
+                    $.each(data, function(index, carrera) {
+                        options += '<option value="' + carrera.id + '">' + carrera.nombre + '</option>';
+                    });
+                    $carreras.prop('disabled', false);
+                    $carreras.html(options);
+                }
             },
             error: function() {
                 $carreras.html('<option value="">Error al cargar las carreras</option>');
