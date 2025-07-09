@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\infoFormulario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Plantel;
+use Illuminate\Support\Facades\Mail;
 
 class FormularioController extends Controller
 {
@@ -56,21 +58,36 @@ class FormularioController extends Controller
 
         return response()->json($plantel->carreras);
     }
-public function getFormularioDatos()
-{
-    return response()->json([
-        'mensaje' => 'Datos cargados correctamente'
-    ]);
-}
+    public function getFormularioDatos()
+    {
+        return response()->json([
+            'mensaje' => 'Datos cargados correctamente'
+        ]);
+    }
 
-public function obtenerCarreras($id)
-{
-    $carreras = DB::table('plantel_carrera')
-        ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
-        ->where('plantel_carrera.plantel_id', $id)
-        ->select('carreras.id', 'carreras.nombre')
-        ->get();
+    public function obtenerCarreras($id)
+    {
+        $carreras = DB::table('plantel_carrera')
+            ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
+            ->where('plantel_carrera.plantel_id', $id)
+            ->select('carreras.id', 'carreras.nombre')
+            ->get();
 
-    return response()->json($carreras);
-}
+        return response()->json($carreras);
+    }
+
+    public function enviarEmail(Request $emailData){
+        try{
+            $emailData = $emailData->all();
+            Mail::to('ernesto.montano@upaep.mx')->send(new infoFormulario($emailData));
+            return response()->json([
+                'estado' => 'exito',
+            ]);
+        }catch(\Exception $e){
+            return response()->json([
+                'estado' => 'fail',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
 }

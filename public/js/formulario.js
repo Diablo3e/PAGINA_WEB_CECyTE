@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    'Accept': 'application/json'  // Important!
+                    'Accept': 'application/json'
                 },
                 body: infoFormulario
             });
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     userFeedbackElement.innerHTML = htmlOriginal;
                 }, 5000);
+                enviarEmail(infoFormulario);
             } else {
                 userFeedbackElement.innerHTML = htmlOriginal + '<p style="color: red; font-weight:bold;">Error inesperado, envia el formulario nuevamente</p>';
                 limpiarRespuestas();
@@ -77,17 +78,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function limpiarRespuestas() {
-        const textInputs = document.getElementsByClassName("textInput");
-        const selectMenus = document.getElementsByClassName("selectMenu");
-
-        Array.from(textInputs).forEach(input => {
-            input.value = "";
-        });
-
-        Array.from(selectMenus).forEach(selectMenu => {
-            selectMenu.value = "0";
-        });
-
-    }
 });
+
+function limpiarRespuestas() {
+    const textInputs = document.getElementsByClassName("textInput");
+    const selectMenus = document.getElementsByClassName("selectMenu");
+
+    Array.from(textInputs).forEach(input => {
+        input.value = "";
+    });
+
+    Array.from(selectMenus).forEach(selectMenu => {
+        selectMenu.value = "0";
+    });
+
+}
+
+async function enviarEmail(informacion) {
+    const mail = await fetch(route('formulario.enviar.email'), {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Accept': 'application/json'
+        },
+        body: informacion
+    });
+
+    const respuesta = await mail.json();
+
+    if (respuesta.estado === 'exito'){
+        console.log('Correo mandado');
+    }else{
+        console.log('fail: ' + respuesta.error);
+    }
+}
