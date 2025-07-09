@@ -36,6 +36,7 @@ Route::get('/welcome', function () {
 // ✅ Ruta para mostrar el formulario con datos dinámicos (Usando el controlador)
 Route::get('/formulario', [FormularioController::class, 'mostrarFormulario'])->name('formulario.mostrar');
 Route::post('/formulario/enviar', [FormularioController::class, 'enviarFormulario'])->name('formulario.enviar');
+Route::post('/formulario/enviar/email', [FormularioController::class, 'enviarEmail'])->name('formulario.enviar.email');
 
 // ✅ Ruta para obtener datos en formato JSON (opcional para AJAX)
 Route::get('/api/planteles', function() {
