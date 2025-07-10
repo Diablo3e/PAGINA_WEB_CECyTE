@@ -77,17 +77,32 @@ class FormularioController extends Controller
     }
 
     public function enviarEmail(Request $emailData){
-        try{
-            $emailData = $emailData->all();
-            Mail::to('ernesto.montano@upaep.mx')->send(new infoFormulario($emailData));
-            return response()->json([
-                'estado' => 'exito',
-            ]);
-        }catch(\Exception $e){
-            return response()->json([
-                'estado' => 'fail',
-                'error' => $e->getMessage(),
-            ]);
+        $carrera = DB::table('carreras')
+        ->where('id', $emailData->input('carrera_id'))
+        ->select('nombre')
+        ->first();
+
+        $plantel = DB::table('planteles')
+        ->where('id', $emailData->input('plantel_id'))
+        ->select('nombre', 'email')
+        ->first();
+
+        if($carrera) $emailData->merge(['carreraName' => $carrera->nombre]);
+        if($plantel->email){
+            $emailData->merge(['plantelName' => $plantel->nombre]);
+            try{
+                $emailData = $emailData->all();
+                Mail::to($plantel->email)->send(new infoFormulario($emailData));
+                return response()->json([
+                    'estado' => 'exito',
+                ]);
+            }catch(\Exception $e){
+                return response()->json([
+                    'estado' => 'fail',
+                    'error' => $e->getMessage(),
+                ]);
+            }
         }
+
     }
 }

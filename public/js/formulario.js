@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     userFeedbackElement.innerHTML = htmlOriginal;
                 }, 5000);
+                console.log('inicioCorreo');
                 enviarEmail(infoFormulario);
+                console.log('finCorreo');
             } else {
                 userFeedbackElement.innerHTML = htmlOriginal + '<p style="color: red; font-weight:bold;">Error inesperado, envia el formulario nuevamente</p>';
                 limpiarRespuestas();
@@ -94,21 +96,25 @@ function limpiarRespuestas() {
 
 }
 
-async function enviarEmail(informacion) {
-    const mail = await fetch(route('formulario.enviar.email'), {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            'Accept': 'application/json'
-        },
-        body: informacion
-    });
-
-    const respuesta = await mail.json();
-
-    if (respuesta.estado === 'exito'){
-        console.log('Correo mandado');
-    }else{
-        console.log('fail: ' + respuesta.error);
+async function enviarEmail(informacion, numIntentos = 3) {
+    for (let intentos = 0; intentos < numIntentos; intentos++){
+        const mail = await fetch(route('formulario.enviar.email'), {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json'
+            },
+            body: informacion
+        });
+    
+        const respuesta = await mail.json();
+    
+        if (respuesta.estado === 'exito'){
+            console.log('Correo mandado');
+            return;
+        }else{
+            console.log('fail: ' + respuesta.error);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
     }
 }

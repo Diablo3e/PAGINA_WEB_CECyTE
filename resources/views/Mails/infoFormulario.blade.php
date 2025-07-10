@@ -1,5 +1,5 @@
 <p>
-    {{ $emailData['nombre_completo'] }} está interesado en el plantel PLACEHOLDER_PLANTEL, para cursar PLACEHOLDER_CARRERA. <br>
+    {{ $emailData['nombre_completo'] }} está interesado en el plantel {{ $emailData['plantelName'] }} para cursar {{ $emailData['carreraName'] }}. <br>
     Su información de contacto es:
 </p>
 <ul>
