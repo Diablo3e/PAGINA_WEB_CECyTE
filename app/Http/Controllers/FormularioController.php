@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\infoFormulario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Plantel;
+use Illuminate\Support\Facades\Mail;
 
 class FormularioController extends Controller
 {
@@ -56,21 +58,51 @@ class FormularioController extends Controller
 
         return response()->json($plantel->carreras);
     }
-public function getFormularioDatos()
-{
-    return response()->json([
-        'mensaje' => 'Datos cargados correctamente'
-    ]);
-}
+    public function getFormularioDatos()
+    {
+        return response()->json([
+            'mensaje' => 'Datos cargados correctamente'
+        ]);
+    }
 
-public function obtenerCarreras($id)
-{
-    $carreras = DB::table('plantel_carrera')
-        ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
-        ->where('plantel_carrera.plantel_id', $id)
-        ->select('carreras.id', 'carreras.nombre')
-        ->get();
+    public function obtenerCarreras($id)
+    {
+        $carreras = DB::table('plantel_carrera')
+            ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
+            ->where('plantel_carrera.plantel_id', $id)
+            ->select('carreras.id', 'carreras.nombre')
+            ->get();
 
-    return response()->json($carreras);
-}
+        return response()->json($carreras);
+    }
+
+    public function enviarEmail(Request $emailData){
+        $carrera = DB::table('carreras')
+        ->where('id', $emailData->input('carrera_id'))
+        ->select('nombre')
+        ->first();
+
+        $plantel = DB::table('planteles')
+        ->where('id', $emailData->input('plantel_id'))
+        ->select('nombre', 'email')
+        ->first();
+
+        if($carrera) $emailData->merge(['carreraName' => $carrera->nombre]);
+        if($plantel->email){
+            $emailData->merge(['plantelName' => $plantel->nombre]);
+            try{
+                $emailData = $emailData->all();
+                Mail::to($plantel->email)->send(new infoFormulario($emailData));
+                return response()->json([
+                    'estado' => 'exito',
+                ]);
+            }catch(\Exception $e){
+                return response()->json([
+                    'estado' => 'fail',
+                    'error' => $e->getMessage(),
+                ]);
+            }
+        }
+
+    }
 }

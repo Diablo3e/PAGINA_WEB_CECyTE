@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     userFeedbackElement.innerHTML = htmlOriginal;
                 }, 5000);
+                // console.log('inicioCorreo');
+                enviarEmail(infoFormulario);
+                // console.log('finCorreo');
             } else {
                 userFeedbackElement.innerHTML = htmlOriginal + '<p style="color: red; font-weight:bold;">Error inesperado, envia el formulario nuevamente</p>';
                 limpiarRespuestas();
@@ -77,17 +80,41 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function limpiarRespuestas() {
-        const textInputs = document.getElementsByClassName("textInput");
-        const selectMenus = document.getElementsByClassName("selectMenu");
-
-        Array.from(textInputs).forEach(input => {
-            input.value = "";
-        });
-
-        Array.from(selectMenus).forEach(selectMenu => {
-            selectMenu.value = "0";
-        });
-
-    }
 });
+
+function limpiarRespuestas() {
+    const textInputs = document.getElementsByClassName("textInput");
+    const selectMenus = document.getElementsByClassName("selectMenu");
+
+    Array.from(textInputs).forEach(input => {
+        input.value = "";
+    });
+
+    Array.from(selectMenus).forEach(selectMenu => {
+        selectMenu.value = "0";
+    });
+
+}
+
+async function enviarEmail(informacion, numIntentos = 3) {
+    for (let intentos = 0; intentos < numIntentos; intentos++){
+        const mail = await fetch(route('formulario.enviar.email'), {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json'
+            },
+            body: informacion
+        });
+    
+        const respuesta = await mail.json();
+    
+        if (respuesta.estado === 'exito'){
+            // console.log('Correo mandado');
+            return;
+        }else{
+            console.log('fail: ' + respuesta.error);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+}
