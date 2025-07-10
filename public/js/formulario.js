@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    'Accept': 'application/json'  // Important!
+                    'Accept': 'application/json' 
                 },
                 body: infoFormulario
             });
