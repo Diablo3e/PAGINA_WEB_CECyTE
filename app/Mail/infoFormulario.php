@@ -28,8 +28,7 @@ class infoFormulario extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('ernesto.molo27@gmail.com', 'Ernesto Montaño'),
-            subject: 'Test Formulario',
+            subject: 'Formulario de inscripción',
         );
     }
 
