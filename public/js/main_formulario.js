@@ -19,18 +19,17 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                //fixme: el timeout no es ideal, pero cubre la mayoria de los bugs y ya intente todo lo que se me ocurrio sin mucho mas exito 
-                setTimeout(null, 500);
                 if(!$.isEmptyObject(data)){
                     var options = '<option value="">Elige tu carrera</option>';
                     $.each(data, function(index, carrera) {
                         options += '<option value="' + carrera.id + '">' + carrera.nombre + '</option>';
                     });
-                    $carreras.prop('disabled', false);
                     $carreras.html(options);
                 }else{
-                    $carreras.html('<option value="">Bachillerato general</option>');
-                    $carreras.prop('disabled', true);
+                    //Hay un bug que sucede aveces el cual no cambiar correctamente este elemento, por eso el ciclo while
+                    while($carreras.html() !== `<option value="13">Bachillerato general</option>`){
+                        $carreras.html('<option value="13">Bachillerato general</option>');
+                    }
                 }
             },
             error: function() {
