@@ -38,7 +38,7 @@ class infoFormulario extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.infoFormulario',
+            view: 'Mails.infoFormulario',
             with: [
                 'emailData' => $this->mailData,
             ],

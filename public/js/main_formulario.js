@@ -27,9 +27,10 @@ $(document).ready(function () {
                     $carreras.html(options);
                 }else{
                     //Hay un bug que sucede aveces el cual no cambiar correctamente este elemento, por eso el ciclo while
-                    while($carreras.html() !== `<option value="13">Bachillerato general</option>`){
+                    do{
                         $carreras.html('<option value="13">Bachillerato general</option>');
-                    }
+                        setTimeout(null,500);
+                    }while($carreras.html() !== `<option value="13">Bachillerato general</option>`);
                 }
             },
             error: function() {
