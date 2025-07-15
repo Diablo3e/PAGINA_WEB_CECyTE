@@ -48,65 +48,26 @@
         </button>
       </h2>
       <div id="c1" class="accordion-collapse collapse" aria-labelledby="h1">
-        <div class="accordion-body p-0">
-          <ul class="list-group list-group-flush">
-
-            {{-- Submenú: Cuentas públicas --}}
-            <li class="list-group-item p-0">
-              <button class="accordion-button submenu collapsed py-2 px-3" type="button" data-bs-toggle="collapse"
-                data-bs-target="#cuentasAnios" aria-expanded="false" aria-controls="cuentasAnios">
-                CUENTAS PÚBLICAS
-              </button>
-              <div id="cuentasAnios" class="collapse">
-                <select class="form-select yearDropdown">
-                  <option selected>Elige un año</option>
-                  <option value="2019">2019</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                </select>
-              </div>
-            </li>
-
-
-            {{-- Submenú: Ayudas y Subsidios --}}
-            <li class="list-group-item p-0">
-              <button class="accordion-button submenu collapsed py-2 px-3" type="button" data-bs-toggle="collapse"
-                data-bs-target="#ayudasAnios" aria-expanded="false" aria-controls="ayudasAnios">
-                AYUDAS Y SUBSIDIOS
-              </button>
-              <div id="ayudasAnios" class="collapse">
-                <select class="form-select yearDropdown">
-                  <option selected>Elige un año</option>
-                  <option value="2017">2017</option>
-                  <option value="2018">2018</option>
-                  <option value="2019">2019</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                  <option value="2024">2024</option>
-                </select>
-              </div>
-            </li>
-
-
-
-          </ul>
-          {{-- Enlace simple --}}
-          <li class="list-group-item">
-            <button class="accordion-button submenu collapsed py-2 px-3" type="button" data-bs-toggle="collapse"
-              data-bs-target="#programaAnios" aria-expanded="false" aria-controls="programaAnios">
-              Programas Presupuestarios
-            </button>
-            <div id="programaAnios" class="collapse">
-              <select class="form-select yearDropdown">
-                <option selected>Elige un año</option>
-                <option value="2020">2020</option>
-              </select>
-            </div>
-          </li>
+        <div id="presupuesto">
+          <select class="form-select yearDropdown">
+            <option selected>Elige un año</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
         </div>
+        <p><a href="{{ asset('pdfs/samplePdf.pdf') }}">Sample link to sample pdf, i love samples</a></p>
       </div>
     </div>
 
@@ -120,21 +81,23 @@
       </h2>
       <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2">
         <div class="accordion-body">
-          <select class="form-select yearDropdown">
-            <option selected>Elige un año</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </select>
+          <div id="indicadores">
+            <select class="form-select yearDropdown">
+              <option selected>Elige un año</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -148,25 +111,27 @@
       </h2>
       <div id="c4" class="accordion-collapse collapse" aria-labelledby="h4">
         <div class="accordion-body">
-          <select class="form-select yearDropdown">
-            <option selected>Elige una opción</option>
-            <option value="Manual">Manual de Contabilidad Gubernamental  </option>
-            <option value="Indicadores-postura">Indicadorex de Postura Fiscal</option>
-            <option value="Indicadores-resultados">Indicadores de Resultados</option>
-            <option value="Programas">Programas de Proyectos de Inversión</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </select>
+          <div id="infoFinanciera">
+            <select class="form-select yearDropdown">
+              <option selected>Elige una opción</option>
+              <option value="Manual">Manual de Contabilidad Gubernamental </option>
+              <option value="Indicadores-postura">Indicadorex de Postura Fiscal</option>
+              <option value="Indicadores-resultados">Indicadores de Resultados</option>
+              <option value="Programas">Programas de Proyectos de Inversión</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -180,30 +145,33 @@
       </h2>
       <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5">
         <div class="accordion-body">
-          <select class="form-select yearDropdown">
-            <option selected>Elige un año</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </select>
+          <div id="inventarios">
+            <select class="form-select yearDropdown">
+              <option selected>Elige un año</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
         </div>
 
       </div>
     </div>
 
-    </div><!-- /accordion principal -->
+  </div><!-- /accordion principal -->
 
-  </div><!-- /container -->
+</div><!-- /container -->
 @endsection
 
 @push('scripts')
+<script src="{{ asset('js/transparencia.js') }}"></script>
 @endpush

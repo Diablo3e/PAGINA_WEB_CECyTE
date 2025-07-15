@@ -68,7 +68,8 @@ h2 {
 /* contenedor de los años */
 .yearDropdown{
   max-width: 30%;
-  margin: 15px auto;
+  display: flex;
+  justify-content: left;
 }
 
 /* .inner-menu {
