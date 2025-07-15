@@ -48,88 +48,104 @@
         </button>
       </h2>
       <div id="c1" class="accordion-collapse collapse" aria-labelledby="h1">
-        <div id="presupuesto">
-          <select class="form-select yearDropdown">
-            <option selected>Elige un año</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </select>
-        </div>
-        <p><a href="{{ asset('pdfs/samplePdf.pdf') }}">Sample link to sample pdf, i love samples</a></p>
-      </div>
-    </div>
-
-    {{-- ITEM 2 – LDF --}}
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="h2">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2"
-          aria-expanded="false" aria-controls="c2">
-          Indicadores de Desempeño
-        </button>
-      </h2>
-      <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2">
         <div class="accordion-body">
-          <div id="indicadores">
+          <div id="presupuesto">
             <select class="form-select yearDropdown">
-              <option selected>Elige un año</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
+              <option selected>Elige una opcion</option>
+              @foreach ($infoPresupuesto as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
             </select>
           </div>
         </div>
       </div>
     </div>
+
+
     {{-- ITEM 4 – Declaraciones Patrimoniales --}}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="h2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2"
+          aria-expanded="false" aria-controls="c2">
+          Información Financiera Trimestral
+        </button>
+      </h2>
+      <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2">
+        <div class="accordion-body">
+          <div id="infoFinanciera">
+            <select class="form-select yearDropdown">
+              <option selected>Elige una opcion</option>
+              @foreach ($infoFinanciera as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
+            </select>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{-- ITEM 2 – LDF --}}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="h3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3"
+          aria-expanded="false" aria-controls="c3">
+          Indicadores de Desempeño
+        </button>
+      </h2>
+      <div id="c3" class="accordion-collapse collapse" aria-labelledby="h3">
+        <div class="accordion-body">
+          <div id="indicadores">
+            <select class="form-select yearDropdown">
+              <option selected>Elige una opcion</option>
+              @foreach ($desempeno as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
+            </select>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="accordion-item">
       <h2 class="accordion-header" id="h4">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4"
           aria-expanded="false" aria-controls="c4">
-          Información Financiera Trimestral
+          Programas Presupuestarios
         </button>
       </h2>
       <div id="c4" class="accordion-collapse collapse" aria-labelledby="h4">
         <div class="accordion-body">
-          <div id="infoFinanciera">
+          <div id="indicadores">
             <select class="form-select yearDropdown">
-              <option selected>Elige una opción</option>
-              <option value="Manual">Manual de Contabilidad Gubernamental </option>
-              <option value="Indicadores-postura">Indicadorex de Postura Fiscal</option>
-              <option value="Indicadores-resultados">Indicadores de Resultados</option>
-              <option value="Programas">Programas de Proyectos de Inversión</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
+              <option selected>Elige una opcion</option>
+              @foreach ($progPresupuesto as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
+            </select>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="h5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c5"
+          aria-expanded="false" aria-controls="c5">
+          Ayuda y Subsidios
+        </button>
+      </h2>
+      <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5">
+        <div class="accordion-body">
+          <div id="indicadores">
+            <select class="form-select yearDropdown">
+              <option selected>Elige una opcion</option>
+              @foreach ($ayudaSubsidios as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
+            </select>
             </select>
           </div>
         </div>
@@ -138,28 +154,20 @@
 
     {{-- ITEM 5 - PMD 2024 --}}
     <div class="accordion-item">
-      <h2 class="accordion-header" id="h5">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c5"
-          aria-expanded="false" aria-controls="c5">
+      <h2 class="accordion-header" id="h6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c6"
+          aria-expanded="false" aria-controls="c6">
           Inventario </button>
       </h2>
-      <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5">
+      <div id="c6" class="accordion-collapse collapse" aria-labelledby="h6">
         <div class="accordion-body">
           <div id="inventarios">
             <select class="form-select yearDropdown">
-              <option selected>Elige un año</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
+              <option selected>Elige una opcion</option>
+              @foreach ($inventarios as $item)
+                <option value="{{ $item }}">{{$item}}</option>
+              @endforeach
+            </select>
             </select>
           </div>
         </div>

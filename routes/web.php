@@ -3,13 +3,15 @@ use App\Http\Controllers\PlantelesController;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
 
 
-
+//todo: Borrar Test temporal
+Route::get('/subdir', [PdfController::class, 'getSubDirectories']);
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -132,8 +134,18 @@ Route::get('/Mantenimientomotoresdecombustion', function () {
 
 // ✅ OTRAS RUTAS
 Route::get('/Transparencia', function () {
-    return view('Transparencia', ['noFondo' => true]);
+    $PDFS = new PdfController;
+    $infoPresupuesto = $PDFS->getSubDirectories('transparencia','informe presupuestal');
+    $infoFinanciera = $PDFS->getSubDirectories('transparencia', 'informacion financiera');
+    $desempeno = $PDFS->getSubDirectories('transparencia', 'desempeno');
+    $progPresupuesto = $PDFS->getSubDirectories('transparencia', 'programas presupuestarios');
+    $ayudaSubsidios = $PDFS->getSubDirectories('transparencia', 'ayuda subsidios');
+    $inventarios = $PDFS->getSubDirectories('transparencia', 'inventarios');
+
+    return view('Transparencia', compact('infoPresupuesto', 'infoFinanciera', 'desempeno', 'progPresupuesto', 'ayudaSubsidios', 'inventarios'));
 })->name('Transparencia');
+
+
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
 })->name('linea_tiempo');
