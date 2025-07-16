@@ -25,7 +25,25 @@ class PdfController extends Controller
             });
             return $subfolders;
         }else{
-            return null;
+            return [];
+        }
+    }
+
+    public function getArchivos($folder, $Directorio, $subDir){
+        $folder = Str::slug($folder);
+        $Directorio = Str::slug($Directorio);
+        $subDir = Str::slug($subDir);
+        $path = 'pdfs/' . $folder . '/' . $Directorio . '/' . $subDir;
+        if (File::exists($path) || File::isDirectory($path)) {
+            $files = collect(File::files($path))->map(function ($file) use ($path) {
+                return [
+                    'name' => $file->getFilename(),
+                    'url' => asset( $path . '/' . $file->getFilename()),
+                ];
+            });
+            return response()->json($files);
+        }else{
+            return response()->json([]);
         }
     }
 }

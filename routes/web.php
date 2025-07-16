@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 
 //todo: Borrar Test temporal
-Route::get('/subdir', [PdfController::class, 'getSubDirectories']);
+Route::get('/subdir', [PdfController::class, 'getArchivos']);
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -144,7 +144,8 @@ Route::get('/Transparencia', function () {
 
     return view('Transparencia', compact('infoPresupuesto', 'infoFinanciera', 'desempeno', 'progPresupuesto', 'ayudaSubsidios', 'inventarios'));
 })->name('Transparencia');
-
+//Obtener PDFs para transparencia
+Route::post('/Transparencia/pdf/{folder}/{Directorio}/{subDir}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
 
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
