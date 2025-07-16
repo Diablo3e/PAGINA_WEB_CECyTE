@@ -9,10 +9,6 @@ use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
 
-
-//todo: Borrar Test temporal
-Route::get('/subdir', [PdfController::class, 'getArchivos']);
-
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [
