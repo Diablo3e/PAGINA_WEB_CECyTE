@@ -36,8 +36,9 @@ class PdfController extends Controller
         $path = 'pdfs/' . $folder . '/' . $Directorio . '/' . $subDir;
         if (File::exists($path) || File::isDirectory($path)) {
             $files = collect(File::files($path))->map(function ($file) use ($path) {
+                $nombre = str_replace(['_', '-']," ",$file->getFilename());
                 return [
-                    'name' => $file->getFilename(),
+                    'name' => $nombre,
                     'url' => asset( $path . '/' . $file->getFilename()),
                 ];
             });
