@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             presupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                presupuestoDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                presupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             presupuestoDiv.innerHTML += `</ul>`;
         } else {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             infoFinancieraDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                infoFinancieraDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                infoFinancieraDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             infoFinancieraDiv.innerHTML += `</ul>`;
         } else {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             indicadoresDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                indicadoresDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                indicadoresDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             indicadoresDiv.innerHTML += `</ul>`;
         } else {
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             progPresupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                progPresupuestoDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                progPresupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             progPresupuestoDiv.innerHTML += `</ul>`;
         } else {
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             ayudaSubsidiosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                ayudaSubsidiosDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                ayudaSubsidiosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             ayudaSubsidiosDiv.innerHTML += `</ul>`;
         } else {
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             inventariosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                inventariosDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                inventariosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             inventariosDiv.innerHTML += `</ul>`;
         } else {
@@ -105,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-//Ya tienes la funcion que obtiene los pdfs, ahora tienes que conectarlo con el JS
+
+//Coneccion con PdfController para obtener los pdfs
 async function getPdfs(folder, Directorio, subDir) {
     const data = {
         folder: folder,
@@ -129,3 +130,8 @@ async function getPdfs(folder, Directorio, subDir) {
     }
 
 } 
+
+function elementoHtmlGeneral(nombre, url){
+    const htmlString = `<a href=${url} target="_blank" style="color: gray;"><li>${nombre}</li></a>`
+    return htmlString;
+}
