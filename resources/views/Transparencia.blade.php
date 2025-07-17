@@ -47,7 +47,7 @@
           Información Presupuestal
         </button>
       </h2>
-      <div id="c1" class="accordion-collapse collapse" aria-labelledby="h1">
+      <div id="c1" class="accordion-collapse collapse" aria-labelledby="h1" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="presupuestoSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
@@ -70,7 +70,7 @@
           Información Financiera Trimestral
         </button>
       </h2>
-      <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2">
+      <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="infoFinancieraSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
@@ -92,7 +92,7 @@
           Indicadores de Desempeño
         </button>
       </h2>
-      <div id="c3" class="accordion-collapse collapse" aria-labelledby="h3">
+      <div id="c3" class="accordion-collapse collapse" aria-labelledby="h3" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="indicadoresSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
@@ -113,7 +113,7 @@
           Programas Presupuestarios
         </button>
       </h2>
-      <div id="c4" class="accordion-collapse collapse" aria-labelledby="h4">
+      <div id="c4" class="accordion-collapse collapse" aria-labelledby="h4" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="progPresupuestoSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
@@ -134,7 +134,7 @@
           Ayuda y Subsidios
         </button>
       </h2>
-      <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5">
+      <div id="c5" class="accordion-collapse collapse" aria-labelledby="h5" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="ayudaSubsidiosSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
@@ -155,7 +155,7 @@
           aria-expanded="false" aria-controls="c6">
           Inventario </button>
       </h2>
-      <div id="c6" class="accordion-collapse collapse" aria-labelledby="h6">
+      <div id="c6" class="accordion-collapse collapse" aria-labelledby="h6" data-bs-parent="#acordeonTransparencia">
         <div class="accordion-body">
           <select id="inventariosSelect" class="form-select yearDropdown">
             <option selected>Elige una opcion</option>
