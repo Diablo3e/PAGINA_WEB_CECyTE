@@ -24,17 +24,20 @@ $(document).ready(function () {
                     $.each(data, function(index, carrera) {
                         options += '<option value="' + carrera.id + '">' + carrera.nombre + '</option>';
                     });
+                    $carreras.prop('disabled', false);
                     $carreras.html(options);
                 }else{
                     //Hay un bug que sucede aveces el cual no cambiar correctamente este elemento, por eso el ciclo while
                     do{
                         $carreras.html('<option value="13">Bachillerato general</option>');
-                        setTimeout(null,500);
+                        setTimeout(null,1500);
+                        $carreras.prop('disabled', false);
                     }while($carreras.html() !== `<option value="13">Bachillerato general</option>`);
                 }
             },
             error: function() {
                 $carreras.html('<option value="">Error al cargar las carreras</option>');
+                $carreras.prop('disabled', true);
             }
         });
     });

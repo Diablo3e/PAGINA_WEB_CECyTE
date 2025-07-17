@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group">
-                <select id="carreras" name="carrera_id" class="form-control selectMenu">
+                <select id="carreras" name="carrera_id" class="form-control selectMenu" disabled>
                     <option value="0">Elige tu carrera</option>
                 </select>
 

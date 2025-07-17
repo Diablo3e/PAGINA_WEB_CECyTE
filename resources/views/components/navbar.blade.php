@@ -68,8 +68,8 @@
                         <li><a class="dropdown-item" href="{{ route('bolsa') }}">Bolsa de Trabajo</a></li>
                     </ul>
                 </li>
-
-                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('planteles.index') }}">Planteles
+                {{-- El boton de planteles dirige a la seccion de planteles en la pagina principal --}}
+                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ url('/') }}#planteles-list">Planteles
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
                     </a></li>
                 <li class="nav-item">
