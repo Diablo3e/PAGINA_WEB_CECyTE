@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //Elementos del DOM
+    //Elementos del DOM y listener para resetear acordiones si el usuario los cierra
     const presupuestoDiv = document.getElementById("presupuesto");
     const presupuestoSelect = document.getElementById("presupuestoSelect");
+    document.getElementById("c1").addEventListener("hidden.bs.collapse", () => {resetAcordion(presupuestoSelect, presupuestoDiv)});
 
     const infoFinancieraDiv = document.getElementById("infoFinanciera");
     const infoFinancieraSelect = document.getElementById("infoFinancieraSelect");
+    document.getElementById("c2").addEventListener("hidden.bs.collapse", () => {resetAcordion(infoFinancieraSelect, infoFinancieraDiv)});
     
     const indicadoresDiv = document.getElementById("indicadores");
     const indicadoresSelect = document.getElementById("indicadoresSelect");
+    document.getElementById("c3").addEventListener("hidden.bs.collapse", () => {resetAcordion(indicadoresSelect, indicadoresDiv)});
 
     const progPresupuestoDiv = document.getElementById("progPresupuesto");
     const progPresupuestoSelect = document.getElementById("progPresupuestoSelect");
+    document.getElementById("c4").addEventListener("hidden.bs.collapse", () => {resetAcordion(progPresupuestoSelect, progPresupuestoDiv)});
 
     const ayudaSubsidiosDiv = document.getElementById("ayudaSubsidios");
     const ayudaSubsidiosSelect = document.getElementById("ayudaSubsidiosSelect");
+    document.getElementById("c5").addEventListener("hidden.bs.collapse", () => {resetAcordion(ayudaSubsidiosSelect, ayudaSubsidiosDiv)});
 
     const inventariosDiv = document.getElementById("inventarios");
     const inventariosSelect = document.getElementById("inventariosSelect");
+    document.getElementById("c6").addEventListener("hidden.bs.collapse", () => {resetAcordion(inventariosSelect, inventariosDiv)});
 
 
     //Añadir funcion a cada select
@@ -104,6 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
             inventariosDiv.innerHTML = ``;
         }
     });
+
+    //Devolver acordeones a su estado original si se cierran
+
 });
 
 //Coneccion con PdfController para obtener los pdfs
@@ -131,7 +140,14 @@ async function getPdfs(folder, Directorio, subDir) {
 
 } 
 
+//Generalizar elemento html añadido para facilitar cambios
 function elementoHtmlGeneral(nombre, url){
     const htmlString = `<a href=${url} target="_blank" style="color: gray;"><li>${nombre}</li></a>`
     return htmlString;
+}
+
+//Devolver acordeon al estado original
+function resetAcordion(select, PDFsDiv){
+    select.selectedIndex = 0;
+    PDFsDiv.innerHTML = '';
 }
