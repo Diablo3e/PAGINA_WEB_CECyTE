@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //Elementos del DOM
+    //Elementos del DOM y listener para resetear acordiones si el usuario los cierra
     const presupuestoDiv = document.getElementById("presupuesto");
     const presupuestoSelect = document.getElementById("presupuestoSelect");
+    document.getElementById("c1").addEventListener("hidden.bs.collapse", () => {resetAcordion(presupuestoSelect, presupuestoDiv)});
 
     const infoFinancieraDiv = document.getElementById("infoFinanciera");
     const infoFinancieraSelect = document.getElementById("infoFinancieraSelect");
+    document.getElementById("c2").addEventListener("hidden.bs.collapse", () => {resetAcordion(infoFinancieraSelect, infoFinancieraDiv)});
     
     const indicadoresDiv = document.getElementById("indicadores");
     const indicadoresSelect = document.getElementById("indicadoresSelect");
+    document.getElementById("c3").addEventListener("hidden.bs.collapse", () => {resetAcordion(indicadoresSelect, indicadoresDiv)});
 
     const progPresupuestoDiv = document.getElementById("progPresupuesto");
     const progPresupuestoSelect = document.getElementById("progPresupuestoSelect");
+    document.getElementById("c4").addEventListener("hidden.bs.collapse", () => {resetAcordion(progPresupuestoSelect, progPresupuestoDiv)});
 
     const ayudaSubsidiosDiv = document.getElementById("ayudaSubsidios");
     const ayudaSubsidiosSelect = document.getElementById("ayudaSubsidiosSelect");
+    document.getElementById("c5").addEventListener("hidden.bs.collapse", () => {resetAcordion(ayudaSubsidiosSelect, ayudaSubsidiosDiv)});
 
     const inventariosDiv = document.getElementById("inventarios");
     const inventariosSelect = document.getElementById("inventariosSelect");
+    document.getElementById("c6").addEventListener("hidden.bs.collapse", () => {resetAcordion(inventariosSelect, inventariosDiv)});
 
 
     //Añadir funcion a cada select
@@ -27,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             presupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                presupuestoDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                presupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             presupuestoDiv.innerHTML += `</ul>`;
         } else {
@@ -41,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             infoFinancieraDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                infoFinancieraDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                infoFinancieraDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             infoFinancieraDiv.innerHTML += `</ul>`;
         } else {
@@ -55,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             indicadoresDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                indicadoresDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                indicadoresDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             indicadoresDiv.innerHTML += `</ul>`;
         } else {
@@ -69,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             progPresupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                progPresupuestoDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                progPresupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             progPresupuestoDiv.innerHTML += `</ul>`;
         } else {
@@ -83,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             ayudaSubsidiosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                ayudaSubsidiosDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                ayudaSubsidiosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             ayudaSubsidiosDiv.innerHTML += `</ul>`;
         } else {
@@ -97,15 +103,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (archivos) {
             inventariosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
-                inventariosDiv.innerHTML += `<a href=${respuesta.url} target="_blank"><li>${respuesta.name}</li></a>`;
+                inventariosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             inventariosDiv.innerHTML += `</ul>`;
         } else {
             inventariosDiv.innerHTML = ``;
         }
     });
+
+    //Devolver acordeones a su estado original si se cierran
+
 });
-//Ya tienes la funcion que obtiene los pdfs, ahora tienes que conectarlo con el JS
+
+//Coneccion con PdfController para obtener los pdfs
 async function getPdfs(folder, Directorio, subDir) {
     const data = {
         folder: folder,
@@ -129,3 +139,15 @@ async function getPdfs(folder, Directorio, subDir) {
     }
 
 } 
+
+//Generalizar elemento html añadido para facilitar cambios
+function elementoHtmlGeneral(nombre, url){
+    const htmlString = `<a href=${url} target="_blank" style="color: gray;"><li>${nombre}</li></a>`
+    return htmlString;
+}
+
+//Devolver acordeon al estado original
+function resetAcordion(select, PDFsDiv){
+    select.selectedIndex = 0;
+    PDFsDiv.innerHTML = '';
+}
