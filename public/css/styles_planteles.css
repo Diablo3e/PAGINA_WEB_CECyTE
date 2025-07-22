@@ -616,4 +616,5 @@ body, html {
 
 .section-card {
     animation: fadeIn 0.5s ease-out forwards;
+    min-height: fit-content;
 }

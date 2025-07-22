@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Plantel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PlantelesController extends Controller
@@ -23,6 +24,17 @@ class PlantelesController extends Controller
             'plantelId' => $id,
             'plantel' => $planteles[$id]
         ]);
+    }
+
+     public function carrerasDePlantel($id)
+    {
+        $carreras = DB::table('plantel_carrera')
+            ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
+            ->where('plantel_carrera.plantel_id', $id)
+            ->select('carreras.id', 'carreras.nombre')
+            ->get();
+
+        return response()->json($carreras);
     }
 
     private function getPlantelesData()
