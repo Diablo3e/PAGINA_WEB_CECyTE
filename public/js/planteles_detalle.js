@@ -14,14 +14,14 @@ const planteles = {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
             imagenes: [
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
-                    titulo: "Aulas equipadas con tecnología interactiva",
-                    area: "Laboratorio"
+                    url: "/imagenes/Plantel_Cholula/placeholder.png",
+                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    area: "Ejemplo"
                 },
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
-                    titulo: "Aulas equipadas con tecnología interactiva",
-                    area: "Laboratorio"
+                    url: "/imagenes/Plantel_Cholula/placeholder.png",
+                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    area: "Ejemplo2"
                 },
                 // ... más imágenes específicas para Cholula
             ]
@@ -30,8 +30,9 @@ const planteles = {
             descripcion: "Nuestra comunidad educativa se compone de estudiantes, docentes y personal comprometido con la excelencia académica.",
             galeria: [
                 {
-                    url: "/imagenes/Plantel_Cholula/Evento1.jpg",
-                    titulo: "Feria de ciencias 2024",
+                    url: "/imagenes/Plantel_Cholula/placeholder.png",
+                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    //NO SE USA O NO HAZ VISTO EN QUE SE USA
                     fecha: "2024-03-15"
                 },
                 // ... más imágenes de comunidad
@@ -466,9 +467,10 @@ function renderImageGallery(images, containerId, galleryType) {
     let html = `<div class="${galleryType}-grid">`;
 
     images.forEach((img, index) => {
+        const imgUrl = route('imagenes.get', img.url);
         html += `
             <div class="image-wrapper">
-                <img src="${img.url}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
+                <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
                 <div class="image-caption">${img.titulo || ''}</div>
             </div>
         `;
@@ -499,9 +501,10 @@ function renderInstalaciones(instalacionesData, plantelNombre) {
     // Imágenes de la galería
     if (instalacionesData.imagenes && instalacionesData.imagenes.length > 0) {
         instalacionesData.imagenes.forEach(img => {
+            const imgUrl = route ('imagenes.get', img.url);
             html += `
                 <div class="imagen-instalacion" data-categoria="${img.area.toLowerCase()}">
-                    <img src="${img.url}" alt="${img.titulo}">
+                    <img src="${imgUrl}" alt="${img.titulo}">
                     <div class="info-imagen">
                         <p>${img.titulo}</p>
                         <span class="badge-categoria">${img.area}</span>
@@ -519,7 +522,6 @@ function renderInstalaciones(instalacionesData, plantelNombre) {
     `;
 
     container.innerHTML = html;
-    setupFiltrosGaleria();
 }
 
 // Función para configurar el carrusel de imágenes
@@ -630,7 +632,7 @@ function cargarDetallePlantel() {
         `;
     }
 
-    if (plantel.comunidad?.galeria) {
+    if (plantel.comunidad.galeria) {
         renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
@@ -648,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cargarDetallePlantel();
     }
 
-    // Inicializar componentes de Bootstrap
+    // Inicializar componentes de Bootstrap (acordeon)
     [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => {
         new bootstrap.Tooltip(el);
     });
