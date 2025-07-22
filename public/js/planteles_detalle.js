@@ -1,3 +1,12 @@
+import { slugify } from "./slug.js";
+
+//Deteccion de servidor local
+//Los links de area academica/carreras disponibles dependen de donde este el servidor, si es en path local cambia el path local de tu equipo
+const localPath = "/dashboard/PAGINA_WEB_CECyTE/public/";
+let isLocal = false;
+if (window.location.hostname === "localhost") isLocal = true;
+
+
 const planteles = {
     plantel1: {
         tipo: "cecyte",
@@ -15,12 +24,12 @@ const planteles = {
             imagenes: [
                 {
                     url: "/imagenes/Plantel_Cholula/placeholder.png",
-                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
                     area: "Ejemplo"
                 },
                 {
                     url: "/imagenes/Plantel_Cholula/placeholder.png",
-                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
                     area: "Ejemplo2"
                 },
                 // ... más imágenes específicas para Cholula
@@ -140,7 +149,7 @@ const planteles = {
             telefono: "238 249 2787",
             email: "emsadbuenavista@cecytepuebla.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:23.307801553331412,
+            latitud: 23.307801553331412,
             longitud: -103.36590377115472
         },
     },
@@ -161,7 +170,7 @@ const planteles = {
             telefono: "(222) 123 4567",
             email: "cecytepuebla.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:20.61139985261418,
+            latitud: 20.61139985261418,
             longitud: -97.85333130923871
         },
     },
@@ -183,8 +192,8 @@ const planteles = {
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:18.421244385262213,
-            longitud:-97.04543036306796
+            latitud: 18.421244385262213,
+            longitud: -97.04543036306796
         },
     },
     plantel8: {
@@ -204,8 +213,8 @@ const planteles = {
             telefono: "238 104 7266",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:18.35814870458713,
-            longitud:-96.78387390354918
+            latitud: 18.35814870458713,
+            longitud: -96.78387390354918
         },
     },
     plantel9: {
@@ -225,8 +234,8 @@ const planteles = {
             telefono: "233 103 9887",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:19.96964970272612,
-            longitud:-97.77138690167436
+            latitud: 19.96964970272612,
+            longitud: -97.77138690167436
         },
     },
     plantel10: {
@@ -247,8 +256,8 @@ const planteles = {
             telefono: "233 121 1402",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:19.301169465939225,
-            longitud:-97.3658274035342
+            latitud: 19.301169465939225,
+            longitud: -97.3658274035342
         },
     },
     plantel11: {
@@ -269,8 +278,8 @@ const planteles = {
             telefono: "55 4742 2801",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:19.176172818543616,
-            longitud:-98.38995186120725
+            latitud: 19.176172818543616,
+            longitud: -98.38995186120725
         },
     },
     plantel12: {
@@ -291,7 +300,7 @@ const planteles = {
             telefono: "223 275 5989",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:19.04220230830243,
+            latitud: 19.04220230830243,
             longitud: -97.94638553237395
         },
     },
@@ -313,8 +322,8 @@ const planteles = {
             telefono: "249 422 2637",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:18.90222038597174,
-            longitud:-97.74182151703407
+            latitud: 18.90222038597174,
+            longitud: -97.74182151703407
         },
     },
     plantel14: {
@@ -336,8 +345,8 @@ const planteles = {
             telefono: "275 432 6026",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:18.33681249536735,
-            longitud:-98.2841749262863
+            latitud: 18.33681249536735,
+            longitud: -98.2841749262863
         },
     },
     plantel15: {
@@ -357,8 +366,8 @@ const planteles = {
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:18.857791647835953,
-            longitud:-98.76778905216558
+            latitud: 18.857791647835953,
+            longitud: -98.76778905216558
         },
     },
     plantel16: {
@@ -379,8 +388,8 @@ const planteles = {
             telefono: "(222) 123 4567",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:20.229396085707762,
-            longitud:-97.80535457468302
+            latitud: 20.229396085707762,
+            longitud: -97.80535457468302
         },
     },
     plantel17: {
@@ -400,8 +409,8 @@ const planteles = {
             telefono: "746 881 0768",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:20.51117087012702,
-            longitud:-97.66794403439089
+            latitud: 20.51117087012702,
+            longitud: -97.66794403439089
         },
     },
     plantel18: {
@@ -422,8 +431,8 @@ const planteles = {
             telefono: "764 101 0038",
             email: "contacto@cholula.cecyte.edu.mx",
             horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud:20.248852231066234,
-            longitud:-97.95657137653139
+            latitud: 20.248852231066234,
+            longitud: -97.95657137653139
         },
     },
 
@@ -479,6 +488,7 @@ function renderImageGallery(images, containerId, galleryType) {
     html += '</div>';
     container.innerHTML = html;
 }
+
 function renderInstalaciones(instalacionesData, plantelNombre) {
     const container = document.getElementById('instalaciones-content');
     if (!container) return;
@@ -496,12 +506,12 @@ function renderInstalaciones(instalacionesData, plantelNombre) {
         instalacionesData.caracteristicas.forEach(caracteristica => {
             html += `<li>${caracteristica}</li>`;
         });
-       }
+    }
 
     // Imágenes de la galería
     if (instalacionesData.imagenes && instalacionesData.imagenes.length > 0) {
         instalacionesData.imagenes.forEach(img => {
-            const imgUrl = route ('imagenes.get', img.url);
+            const imgUrl = route('imagenes.get', img.url);
             html += `
                 <div class="imagen-instalacion" data-categoria="${img.area.toLowerCase()}">
                     <img src="${imgUrl}" alt="${img.titulo}">
@@ -602,12 +612,42 @@ function renderHorarios(horariosData) {
     horariosContainer.innerHTML = html;
 }
 
+// Cargar carreras ofrecidas en el plantel
+function renderCarreras(id,isLocal) {
+    const carrerasList = document.getElementById("carreras-list");
+    fetch(route('planteles.carreras', id))
+        .then(res => res.json())
+        .then(data => {
+            carrerasList.innerHTML = '';
+            data.forEach(carrera => {
+                let carreraLink = slugify(carrera.nombre);
+                if(isLocal){
+                    carreraLink = window.location.origin+ localPath + carreraLink;
+                }else{
+                    carreraLink = window.location.origin+ "/" + carreraLink;
+                }
+                carrerasList.innerHTML += `
+                <a href="${carreraLink}" style="text-decoration: none;">
+                    <div class="card">
+                        <div class="card-body text-start">
+                            ${carrera.nombre}
+                        </div>
+                    </div>
+                </a>
+                `;
+            });
+        })
+        .catch((e) => {
+            console.error(e);
+            carrerasList.innerHTML = '<p value="">Error al cargar carreras</p>';
+        });
+}
+
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
     const plantelId = pathParts[pathParts.length - 1];
     const plantel = planteles[plantelId];
-
     if (!plantel) {
         window.location.href = '/planteles';
         return;
@@ -632,11 +672,16 @@ function cargarDetallePlantel() {
         `;
     }
 
-    if (plantel.comunidad.galeria) {
+    
+    if (plantel.comunidad?.galeria) {
         renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
     }
+
+    //Cargar carreras
+    const numPlantel = plantelId.replace("plantel",""); 
+    renderCarreras(numPlantel,isLocal);
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
@@ -645,7 +690,7 @@ function cargarDetallePlantel() {
 }
 
 // Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.plantel-header')) {
         cargarDetallePlantel();
     }

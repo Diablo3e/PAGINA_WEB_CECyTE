@@ -142,6 +142,9 @@
 <script>
     window.plantelData = @json($plantel);
 </script>
-<script src="{{ asset('js/planteles_detalle.js') }}"></script>
+
+@push('scripts')
+<script src="{{ asset('js/planteles_detalle.js') }}" type="module"></script>
+@endpush
 
 @endsection
