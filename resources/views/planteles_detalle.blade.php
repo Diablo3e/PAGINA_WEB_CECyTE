@@ -28,6 +28,7 @@
 
     <div class="plantel-header text-center">
         <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL CECYTE CHOLULA</h1>
+        <br>
         <span id="plantel-tipo-badge" class="badge fs-6 bg-primary">
             CECYTE
         </span>
