@@ -9,6 +9,8 @@ use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
 
+
+
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [
@@ -17,11 +19,11 @@ Route::get('/', function () {
         ['name' => 'Carreras', 'url' => url('/carreras')],
         ['name' => 'Contacto', 'url' => url('/contact')],
     ];
-
+    
     // Obtener los datos de la base de datos
     $planteles = Plantel::all();
     $carreras = Carrera::all();
-
+    
     //Hasta el momento 01/07/2025 items y carreras no se usan para nada, no se borro por si acaso
     return view('index', compact('items', 'planteles', 'carreras'));
 });
@@ -59,9 +61,9 @@ Route::post('/search', function(Request $request){
     $request->validate([
         'searchInput' => 'required|min:1|not_regex:/[^\w\s]+\s*(?=\w*)/'
     ]);
-
+    
     $query = trim($request->input("searchInput"));
-
+    
     if ($query !== '') {
         return redirect()->route('search.all', ['query' => $query]);
     } else {
@@ -79,7 +81,7 @@ Route::get('/planteles', function () {
     $planteles = Plantel::all()->keyBy('id'); // Todos los planteles
     $emsad_planteles = $planteles->where('tipo', 'emsad');
     $cecyte_planteles = $planteles->where('tipo', 'cecyte');
-
+    
     return view('components.mapa-Planteles', [
         'noFondo' => true,
         'planteles' => $planteles,
@@ -137,7 +139,7 @@ Route::get('/Transparencia', function () {
     $progPresupuesto = $PDFS->getSubDirectories('transparencia', 'programas presupuestarios');
     $ayudaSubsidios = $PDFS->getSubDirectories('transparencia', 'ayuda subsidios');
     $inventarios = $PDFS->getSubDirectories('transparencia', 'inventarios');
-
+    
     return view('Transparencia', compact('infoPresupuesto', 'infoFinanciera', 'desempeno', 'progPresupuesto', 'ayudaSubsidios', 'inventarios'));
 })->name('Transparencia');
 //Obtener PDFs para transparencia
@@ -150,7 +152,7 @@ Route::get('/linea_tiempo', function () {
 
 
 //Uso de imagenes en JS
-Route::get('/{imgPath}', function($imgPath) {
+Route::get('/imagen/{imgPath}', function($imgPath) {
     return asset($imgPath);
 })->name('imagenes.get');
 
@@ -164,8 +166,12 @@ Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa']
 /*ruta del directorio */
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
-Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
+Route::get('/bolsa', function () {
+    return view('bolsa');
+})->name('bolsa');
+    
+    
 
-Route::get('/formulario-datos', [FormularioController::class, 'getFormularioDatos']);
+    Route::get('/formulario-datos', [FormularioController::class, 'getFormularioDatos']);
 Route::get('/planteles/{id}/carreras', [FormularioController::class, 'obtenerCarreras'])->name('planteles.carreras');
 
