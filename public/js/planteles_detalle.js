@@ -1,7 +1,7 @@
 import { slugify } from "./slug.js";
 
 //Deteccion de servidor local
-//Los links de area academica/carreras disponibles dependen de donde este el servidor, si es en path local cambia el path local de tu equipo
+//Los links de 'area academica'/'carreras disponibles' dependen de donde este el servidor, si es en path local cambia el path local de tu equipo
 const localPath = "/dashboard/PAGINA_WEB_CECyTE/public/";
 let isLocal = false;
 if (window.location.hostname === "localhost") isLocal = true;
@@ -619,23 +619,33 @@ function renderCarreras(id,isLocal) {
         .then(res => res.json())
         .then(data => {
             carrerasList.innerHTML = '';
-            data.forEach(carrera => {
-                let carreraLink = slugify(carrera.nombre);
-                if(isLocal){
-                    carreraLink = window.location.origin+ localPath + carreraLink;
-                }else{
-                    carreraLink = window.location.origin+ "/" + carreraLink;
-                }
+            if(data.length !== 0){
+                data.forEach(carrera => {
+                    let carreraLink = slugify(carrera.nombre);
+                    if(isLocal){
+                        carreraLink = window.location.origin+ localPath + carreraLink;
+                    }else{
+                        carreraLink = window.location.origin+ "/" + carreraLink;
+                    }
+                    carrerasList.innerHTML += `
+                    <a href="${carreraLink}" style="text-decoration: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                ${carrera.nombre}
+                            </div>
+                        </div>
+                    </a>
+                    `;
+                });
+            }else{
                 carrerasList.innerHTML += `
-                <a href="${carreraLink}" style="text-decoration: none;">
                     <div class="card">
-                        <div class="card-body text-start">
-                            ${carrera.nombre}
+                        <div class="card-body">
+                            Bachillerato General
                         </div>
                     </div>
-                </a>
                 `;
-            });
+            }
         })
         .catch((e) => {
             console.error(e);
