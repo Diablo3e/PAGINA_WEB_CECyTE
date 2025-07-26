@@ -6,6 +6,34 @@ const localPath = "/dashboard/PAGINA_WEB_CECyTE/public/";
 let isLocal = false;
 if (window.location.hostname === "localhost") isLocal = true;
 
+//Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
+const usarPlaceholders = true;
+const placeholderData = {
+    instalaciones: {
+        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi saepe laboriosam sequi excepturi quidem libero?",
+        imagenes: [
+            {
+                url: "/imagenes/placeholder.png",
+                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
+                area: "Area1"
+            },
+            {
+                url: "/imagenes/placeholder.png",
+                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
+                area: "Area2"
+            },
+        ]
+    },
+    comunidad: {
+        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui quae autem laboriosam.",
+        galeria: [
+            {
+                url: "/imagenes/placeholder.png",
+                titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            },
+        ]
+    }
+};
 
 const planteles = {
     plantel1: {
@@ -23,14 +51,14 @@ const planteles = {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
             imagenes: [
                 {
-                    url: "/imagenes/Plantel_Cholula/placeholder.png",
-                    titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                    area: "Ejemplo"
+                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    titulo: "Aulas equipadas con tecnología interactiva",
+                    area: "Laboratorio"
                 },
                 {
-                    url: "/imagenes/Plantel_Cholula/placeholder.png",
-                    titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                    area: "Ejemplo2"
+                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    titulo: "Aulas equipadas con tecnología interactiva",
+                    area: "Laboratorio"
                 },
                 // ... más imágenes específicas para Cholula
             ]
@@ -39,8 +67,8 @@ const planteles = {
             descripcion: "Nuestra comunidad educativa se compone de estudiantes, docentes y personal comprometido con la excelencia académica.",
             galeria: [
                 {
-                    url: "/imagenes/Plantel_Cholula/placeholder.png",
-                    titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                    url: "/imagenes/Plantel_Cholula/Evento1.jpg",
+                    titulo: "Feria de ciencias 2024",
                     //NO SE USA O NO HAZ VISTO EN QUE SE USA
                     fecha: "2024-03-15"
                 },
@@ -489,6 +517,7 @@ function renderImageGallery(images, containerId, galleryType) {
     container.innerHTML = html;
 }
 
+//todo: modo de testing
 function renderInstalaciones(instalacionesData, plantelNombre) {
     const container = document.getElementById('instalaciones-content');
     if (!container) return;
@@ -500,6 +529,11 @@ function renderInstalaciones(instalacionesData, plantelNombre) {
             <p>${instalacionesData.descripcion || 'Instalaciones del plantel'}</p>
         </div>
     `;
+
+    // if (usarPlaceholders) {
+    //     console.log('placeholders');
+    //     instalacionesData = placeholderData[instalaciones];
+    // }
 
     // Lista de características
     if (instalacionesData.caracteristicas && instalacionesData.caracteristicas.length > 0) {
@@ -613,19 +647,19 @@ function renderHorarios(horariosData) {
 }
 
 // Cargar carreras ofrecidas en el plantel
-function renderCarreras(id,isLocal) {
+function renderCarreras(id, isLocal) {
     const carrerasList = document.getElementById("carreras-list");
     fetch(route('planteles.carreras', id))
         .then(res => res.json())
         .then(data => {
             carrerasList.innerHTML = '';
-            if(data.length !== 0){
+            if (data.length !== 0) {
                 data.forEach(carrera => {
                     let carreraLink = slugify(carrera.nombre);
-                    if(isLocal){
-                        carreraLink = window.location.origin+ localPath + carreraLink;
-                    }else{
-                        carreraLink = window.location.origin+ "/" + carreraLink;
+                    if (isLocal) {
+                        carreraLink = window.location.origin + localPath + carreraLink;
+                    } else {
+                        carreraLink = window.location.origin + "/" + carreraLink;
                     }
                     carrerasList.innerHTML += `
                     <a href="${carreraLink}" style="text-decoration: none;">
@@ -637,7 +671,7 @@ function renderCarreras(id,isLocal) {
                     </a>
                     `;
                 });
-            }else{
+            } else {
                 carrerasList.innerHTML += `
                     <div class="card">
                         <div class="card-body">
@@ -653,6 +687,7 @@ function renderCarreras(id,isLocal) {
         });
 }
 
+//Todo: funcion test
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -671,7 +706,10 @@ function cargarDetallePlantel() {
     renderHorarios(plantel.horarios);
 
     // Renderizar secciones de imágenes con efectos hover
-    if (plantel.instalaciones) {
+    if(usarPlaceholders){
+        console.log('instalaciones placeholder');
+        renderInstalaciones(placeholderData.instalaciones, plantel.nombre);
+    }else if (plantel.instalaciones) {
         renderInstalaciones(plantel.instalaciones, plantel.nombre);
     } else {
         document.getElementById('instalaciones-content').innerHTML = `
@@ -682,16 +720,18 @@ function cargarDetallePlantel() {
         `;
     }
 
-    
-    if (plantel.comunidad?.galeria) {
+    if(usarPlaceholders){
+        console.log('galeria placeholder');
+        renderImageGallery(placeholderData.comunidad.galeria, 'comunidad-content', 'comunidad');
+    } else if (plantel.comunidad?.galeria) {
         renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
     }
 
     //Cargar carreras
-    const numPlantel = plantelId.replace("plantel",""); 
-    renderCarreras(numPlantel,isLocal);
+    const numPlantel = plantelId.replace("plantel", "");
+    renderCarreras(numPlantel, isLocal);
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
