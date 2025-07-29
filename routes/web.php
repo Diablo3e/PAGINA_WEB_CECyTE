@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
@@ -150,9 +151,26 @@ Route::get('/linea_tiempo', function () {
 
 
 //Uso de imagenes en JS
-Route::get('/{imgPath}', function($imgPath) {
-    return asset($imgPath);
-})->name('imagenes.get');
+Route::get('/img/{imgPath}', function ($imgPath) {
+
+    $path = public_path($imgPath);
+    //Logica dependiendo del ambiente linux(pagina hosting) / windows
+    if (PHP_OS_FAMILY === 'Linux') {
+     $path = str_replace('public', 'public_html', $path);
+    } 
+    $realPath = realpath($path);
+    // Acceso no autorizado
+    if (!$realPath || !Str::startsWith($realPath, public_path())) {
+        abort(403, 'Acceso no autorizado');
+    }
+
+    if (!file_exists($realPath)) {
+        abort(404);
+    }
+
+    return response()->file($realPath);
+})->where('imgPath', '.*')->name('imagenes.get');
+
 
 
 

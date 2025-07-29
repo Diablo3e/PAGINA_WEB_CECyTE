@@ -354,6 +354,7 @@ body, html {
     margin-top: 1rem;
 }
 
+/* todo: modificar para galeria */
 .imagen-instalacion {
     position: relative;
     border-radius: 8px;
@@ -387,6 +388,7 @@ body, html {
     font-size: 0.8rem;
     margin-top: 0.5rem;
 }
+/* fin modificar instalaciones */
 
 /* Responsive */
 @media (max-width: 768px) {
