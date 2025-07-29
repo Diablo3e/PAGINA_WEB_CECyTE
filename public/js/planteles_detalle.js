@@ -35,6 +35,107 @@ const placeholderData = {
     }
 };
 
+const newPlaceholderData = {
+    // instalaciones = galeria
+    comunicados: [
+        {
+            titulo: "Titulo de ejemplo 1",
+            pdf: "ruta/a/el/pdf",//todo: funcion JS para traer pdfs
+        },
+        {
+            titulo: "Titulo de ejemplo 2",
+            pdf: "ruta/a/el/pdf",
+        }
+    ],
+    //comunidad = galeria
+    vinculacion: {
+        ofertasDeEmpleo: [
+            {
+                empleador: "Ejemplo Empresa 1",
+                imagen: "path/hacia/la/imagen",
+            },
+            {
+                empleador: "Ejemplo Empresa 2",
+                imagen: "path/hacia/la/imagen",
+            }
+        ],
+        servicioSocial: [
+            {
+                nombreInstitucion: "Ejemplo Lugar servicio social",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "ejemplo@correo.com",
+                telefono: "+55 123456789",
+                direccion: "Calle inventada 1905"
+            },
+            {
+                nombreInstitucion: "Segundo Ejemplo Lugar servicio social",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "otro.Ejemplo@correo.com",
+                telefono: "+55 987654321",
+                direccion: "Calle inventada 1905"
+            }
+        ],
+        practicasProfesionales: [
+            {
+                nombreInstitucion: "Ejemplo lugar practicas profesionales",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "ejemplo@correo.com",
+                telefono: "+55 123456789",
+                direccion: "Calle de ejemplo 2156"
+            },
+            {
+                nombreInstitucion: "Otro ejemplo lugar practicas profesionales",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "otro.Ejemplo@correo.com",
+                telefono: "+55 987654321",
+                direccion: "Calle de ejemplo 8965"
+            }
+        ],
+        redesSociales: {
+            nombreRed: "https//:linkALared.com",
+            nombreRed2: "https//:linkALared.com",
+        },
+        seguimientoEgresados: [
+            {
+                nombreEgresado: "Juan Perez",
+                carrera:"carreraEjemplo",
+                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+            },
+            {
+                nombreEgresado: "Margarita Perez",
+                carrera:"carreraEjemplo2",
+                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+            }
+        ],
+        sistemaDual: [
+            {
+                // todo: indagar que se supone que va aqui
+                '???' : "ni idea",
+            }
+        ],
+    },
+    extEducativa:{
+         nombreEvento1: "path/al/anuncio/de/la/actividad",
+         nombreEvento2: "path/al/anuncio/de/la/actividad"
+    },
+    controlEscolar: {
+        avisos:[
+            {
+                fecha: "01/01/2025",
+                cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti."
+            },
+            {
+                fecha: "02/02/2025",
+                cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint obcaecati eum delectus neque aut? Molestias, vitae ut dolores quam nihil nostrum quos nisi voluptas minus sit sequi at eos sed, tempora reiciendis beatae doloremque aut fugiat debitis ad aliquam, eveniet labore. Et, nisi. Saepe."
+            },
+        ],
+        horarios:{
+            grupoEjemplo1: "path/a/el/pdf/horario",
+            grupoEjemplo2: "path/a/el/pdf/horario"
+        },
+    }
+};
+
 const planteles = {
     plantel1: {
         tipo: "cecyte",
@@ -601,50 +702,51 @@ function setupCarousel(images, carouselId, indicatorsClass) {
 }
 
 // Función para renderizar los horarios
-function renderHorarios(horariosData) {
-    const horariosContainer = document.getElementById('horarios-container');
-    if (!horariosContainer || !horariosData) return;
+//todo: ver si esto se quita o se queda
+// function renderHorarios(horariosData) {
+//     const horariosContainer = document.getElementById('horarios-container');
+//     if (!horariosContainer || !horariosData) return;
 
-    const grupos = Object.entries(horariosData.grupos);
-    const mitad = Math.ceil(grupos.length / 2);
+//     const grupos = Object.entries(horariosData.grupos);
+//     const mitad = Math.ceil(grupos.length / 2);
 
-    let html = `
-        <p class="text-center mb-3">CICLO ESCOLAR ${horariosData.cicloEscolar}</p>
-        <div class="table-responsive">
-            <table class="table table-borderless text-center">
-                <tbody>
-                    <tr>
-                        ${grupos.slice(0, mitad).map(([grupo, archivo]) => `
-                            <td>
-                                <a href="${archivo}"
-                                   class="btn btn-horario"
-                                   target="_blank"
-                                   download>
-                                    ${grupo}
-                                </a>
-                            </td>
-                        `).join('')}
-                    </tr>
-                    ${mitad < grupos.length ? `
-                    <tr>
-                        ${grupos.slice(mitad).map(([grupo, archivo]) => `
-                            <td>
-                                <a href="${archivo}"
-                                   class="btn btn-horario"
-                                   target="_blank"
-                                   download>
-                                    ${grupo}
-                                </a>
-                            </td>
-                        `).join('')}
-                    </tr>` : ''}
-                </tbody>
-            </table>
-        </div>
-    `;
+//     let html = `
+//         <p class="text-center mb-3">CICLO ESCOLAR ${horariosData.cicloEscolar}</p>
+//         <div class="table-responsive">
+//             <table class="table table-borderless text-center">
+//                 <tbody>
+//                     <tr>
+//                         ${grupos.slice(0, mitad).map(([grupo, archivo]) => `
+//                             <td>
+//                                 <a href="${archivo}"
+//                                    class="btn btn-horario"
+//                                    target="_blank"
+//                                    download>
+//                                     ${grupo}
+//                                 </a>
+//                             </td>
+//                         `).join('')}
+//                     </tr>
+//                     ${mitad < grupos.length ? `
+//                     <tr>
+//                         ${grupos.slice(mitad).map(([grupo, archivo]) => `
+//                             <td>
+//                                 <a href="${archivo}"
+//                                    class="btn btn-horario"
+//                                    target="_blank"
+//                                    download>
+//                                     ${grupo}
+//                                 </a>
+//                             </td>
+//                         `).join('')}
+//                     </tr>` : ''}
+//                 </tbody>
+//             </table>
+//         </div>
+//     `;
 
-    horariosContainer.innerHTML = html;
-}
+//     horariosContainer.innerHTML = html;
+// }
 
 // Cargar carreras ofrecidas en el plantel
 function renderCarreras(id, isLocal) {
@@ -703,7 +805,6 @@ function cargarDetallePlantel() {
 
     // Configurar secciones
     setupCarousel(plantel.imagenes, '#plantel-carousel', '.carousel-indicators');
-    renderHorarios(plantel.horarios);
 
     // Renderizar secciones de imágenes con efectos hover
     if(usarPlaceholders){

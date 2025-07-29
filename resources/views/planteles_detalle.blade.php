@@ -27,7 +27,7 @@
     </div>
 
     <div class="plantel-header text-center">
-        <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL CECYTE CHOLULA</h1>
+        <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL tipo nombrePlantel</h1>
         <br>
         <span id="plantel-tipo-badge" class="badge fs-6 bg-primary">
             CECYTE
@@ -44,6 +44,7 @@
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">NUESTRAS INSTALACIONES</h4>
+            <!-- todo: galeria -->
         </div>
         <div class="card-body" id="instalaciones-content">
             <!-- Contenido dinámico se cargará aquí desde JavaScript -->
@@ -51,37 +52,33 @@
         </div>
     </div>
 
+    <!-- todo: agregar "comunicados oficiales" -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">COMUNICADOS OFICIALES</h4>
+            <!-- todo: galeria -->
+        </div>
+        <div class="card-body" id="comunicados-content">
+            <!-- Contenido dinámico se cargará aquí desde JavaScript -->
+            <div class="loading-text">Cargando comunicados...</div>
+        </div>
+    </div>
+
     <!-- Sección: Comunidad CECYTE -->
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">COMUNIDAD CECYTE</h4>
+            <!-- todo: galeria -->
         </div>
         <div class="card-body" id="comunidad-content">
             <div class="loading-text">Cargando información de la comunidad...</div>
         </div>
     </div>
 
-    <!-- Sección: Horarios -->
-    <div class="card section-card">
-        <div class="section-header">
-            <h4 class="mb-0">HORARIOS DEL SEMESTRE B</h4>
-        </div>
-        <div class="card-body" id="horarios-container">
-            <p class="text-center mb-3">CICLO ESCOLAR 2024-2025</p>
-            <div class="table-responsive">
-                <table class="table table-borderless text-center">
-                    <tbody>
-                        <!-- Contenido dinámico de horarios -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
     <!-- Sección: Área Académica -->
     <div class="card section-card">
         <div class="section-header">
-            <h4 class="mb-0">ÁREA ACADÉMICA</h4>
+            <h4 class="mb-0">OFERTA EDUCATIVA</h4>
         </div>
         <div class="card-body">
             <div class="accordion" id="carrerasAcordeon">
@@ -123,13 +120,13 @@
         </div>
     </div>
 
-    <!-- Sección en construcción -->
-    <div class="card section-card d-none" id="en-construccion">
+    <!-- Seccion: Control escolar -->
+    <div class="card section-card">
         <div class="section-header">
-            <h4 class="mb-0">EN CONSTRUCCIÓN</h4>
+            <h4 class="mb-0">CONTROL ESCOLAR</h4>
         </div>
-        <div class="card-body en-construccion">
-            <p>Esta sección está en desarrollo y estará disponible pronto.</p>
+        <div class="card-body" id="ctrl-escolar-content">
+            <p>Cargando información de control escolar</p>
         </div>
     </div>
 
