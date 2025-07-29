@@ -594,6 +594,7 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
+//todo: modificacion para galeria
 // Función para renderizar imágenes con efectos hover
 function renderImageGallery(images, containerId, galleryType) {
     const container = document.getElementById(containerId);
@@ -618,7 +619,7 @@ function renderImageGallery(images, containerId, galleryType) {
     container.innerHTML = html;
 }
 
-//todo: modo de testing
+//todo: modificacion para galeria
 function renderInstalaciones(instalacionesData, plantelNombre) {
     const container = document.getElementById('instalaciones-content');
     if (!container) return;
@@ -630,11 +631,6 @@ function renderInstalaciones(instalacionesData, plantelNombre) {
             <p>${instalacionesData.descripcion || 'Instalaciones del plantel'}</p>
         </div>
     `;
-
-    // if (usarPlaceholders) {
-    //     console.log('placeholders');
-    //     instalacionesData = placeholderData[instalaciones];
-    // }
 
     // Lista de características
     if (instalacionesData.caracteristicas && instalacionesData.caracteristicas.length > 0) {
@@ -789,7 +785,6 @@ function renderCarreras(id, isLocal) {
         });
 }
 
-//Todo: funcion test
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -808,7 +803,7 @@ function cargarDetallePlantel() {
 
     // Renderizar secciones de imágenes con efectos hover
     if(usarPlaceholders){
-        console.log('instalaciones placeholder');
+        // console.log('instalaciones placeholder');
         renderInstalaciones(placeholderData.instalaciones, plantel.nombre);
     }else if (plantel.instalaciones) {
         renderInstalaciones(plantel.instalaciones, plantel.nombre);
@@ -822,7 +817,7 @@ function cargarDetallePlantel() {
     }
 
     if(usarPlaceholders){
-        console.log('galeria placeholder');
+        // console.log('galeria placeholder');
         renderImageGallery(placeholderData.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else if (plantel.comunidad?.galeria) {
         renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');

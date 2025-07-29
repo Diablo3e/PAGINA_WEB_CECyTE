@@ -10,89 +10,24 @@
 @endpush
 
 <div class="bg-white">
+    <div class="imgDiv ">
+        <img class="mainImg img-fluid" src="./imagenes/Bolsa/main_img.jpg" alt="Bolsa de trabajo">
+    </div>
     
-    <section class="seccion-con-fondo-blanco">
-        <section class="seccion-hero text-center text-white" style="background-image: url('/imagenes/bolsa1.jpg'); min-height: 500px; background-size: cover; background-position: center;"
-
-        >
-        </section>
-    </section>
-    
-    <section class="bolsa-trabajo py-5 text-center">
-        <div class="container">
+    <div class="alinearContenido">
+        <div class="txt-bolsa">
             <h2>Bolsa de trabajo</h2>
             <p>La Dirección de Vinculación es la responsable de generar convenios de colaboración y se encarga de realizar los trámites correspondientes para implementar acciones de cooperación, mediante la celebración de convenios entre el CECYTE Puebla y las diferentes Instituciones.</p>
         </div>
-    </section>
-
-    {{-- Sección nueva con 2 imágenes y botones --}}
-    <section class="seccion-imagenes py-5">
-        <div class="container">
-            <div class="img-container">
-                <div class="img-box">
-                    <img src="{{ asset('imagenes/imagen 1.jpg') }}">
-                    <a href="https://cecytepuebla.edu.mx/Vinculacion/Bolsa/Información_E&E_Propedeutico_centros.pdf" target="_blank">
-                        <button>Haz click aqui</button>
-                    </a>
-                </div>
-                <div class="img-box">
-                    <img src="{{ asset('imagenes/imagen2.jpg') }}">
-                    <a href="https://cecytepuebla.edu.mx/Vinculacion/Bolsa/TELGLO.pdf" target="_blank">
-                        <button>Haz click aqui</button>
-                    </a>
-                </div>
-            </div>
+        
+        <div class="divEmpleos py-3">
+            <ol>
+                <li>Empresa en 👉 <a href="https://www.grupogateway.mx" target="_blank">www.grupogateway.mx</a></li>
+                <li><a href="https://www.occ.com.mx/candidatos/cuenta-nueva/registro/?utm_source=google&utm_medium=cpc&utm_campaign=21095626929&keyword=occ&gad_source=1&gad_campaignid=21095626929&gbraid=0AAAAADQ3s09cxB1vM_xavwkwKiKaP-D2m&gclid=Cj0KCQjws4fEBhD-ARIsACC3d29Oj6hvKoPVEr4GaE-A3X_ZgdRcuh6wOpi22XBckZl8MiCE46YsqR4aAuA-EALw_wcB" target="_blank">OCC empleos</a></li>
+                <li><a href="https://www.empleo.gob.mx/PortalDigital" target="_blank">SNE SERVICIO NACIONAL DE EMPLEO</a></li>
+                <li><a href="https://mx.indeed.com/q-reci%C3%A9n-egresados-para-l-puebla,-pue.-empleos.html?aceid=&gad_source=1&gad_campaignid=18740264862&gbraid=0AAAAADes5imafDRymhnUBKuD3atXWIns9&gclid=Cj0KCQjws4fEBhD-ARIsACC3d29RPpP_iW5Hd3vhzPgGpjMQVnpXV8aORMdJg0VimjkpqAeafoWj9jAaAqcTEALw_wcB&gclsrc=aw.ds&vjk=ca9fc981455db544" target="_blank">INDEED</a></li>
+            </ol>
         </div>
-    </section>
-
-    <section class="galeria-imagenes py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Ofertas de Trabajo</h2>
-            <div class="row">
-                @foreach (range(1, 9) as $i)
-                    <div class="col-md-4 mb-4">
-                        <div class="imagen-hover">
-                            <img src="{{ asset("imagenes/$i.jpg") }}" alt="Oferta {{ $i }}" class="clickable-image">
-
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-</div>
-
-{{-- Modal de imagen grande --}}
-<div id="imageModal" class="custom-modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg">
-</div>
-
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        const close = document.querySelector('.custom-modal .close');
-
-        document.querySelectorAll('.clickable-image').forEach(img => {
-            img.addEventListener('click', function () {
-                modal.style.display = 'block';
-                modalImg.src = this.src;
-            });
-        });
-
-        close.onclick = function () {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-    });
-</script>
-@endpush
-
+    </div>
+    
 @endsection

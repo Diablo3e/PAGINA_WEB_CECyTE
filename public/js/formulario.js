@@ -14,16 +14,30 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(route('planteles.carreras', plantelId))
             .then(res => res.json())
             .then(data => {
-                carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';
-                data.forEach(carrera => {
-                    const option = document.createElement('option');
-                    option.value = carrera.id;
-                    option.textContent = carrera.nombre;
-                    carrerasSelect.appendChild(option);
-                });
+                //En caso de que el usuario aliga la opcion de "Elige tu plantel" otra vez, por alguna razon
+                if(plantelId === "0"){
+                    carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';
+                    carrerasSelect.disabled = true;
+                }else{
+                    //En caso de que el usuario eliga entre un plantel CECyTE / EMSAD
+                    if(data.length != 0){
+                        carrerasSelect.innerHTML = '<option value="">Elige tu carrera</option>';
+                        data.forEach(carrera => {
+                            const option = document.createElement('option');
+                            option.value = carrera.id;
+                            option.textContent = carrera.nombre;
+                            carrerasSelect.appendChild(option);
+                        });
+                        carrerasSelect.disabled = false;
+                    }else{
+                        carrerasSelect.innerHTML = '<option value="13">Bachillerato general</option>';
+                        carrerasSelect.disabled = false;
+                    }
+                }
             })
             .catch(() => {
-                carrerasSelect.innerHTML = '<option value="">Error al cargar</option>';
+                carrerasSelect.innerHTML = '<option value="">Error al cargar, intentelo de nuevo</option>';
+                carrerasSelect.disabled = true;
             });
     });
 
@@ -117,4 +131,12 @@ async function enviarEmail(informacion, numIntentos = 3) {
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
+}
+
+function mostrarFormulario() {
+    document.getElementById('formulario-ventana').style.display = 'block';
+}
+
+function cerrarFormulario() {
+    document.getElementById('formulario-ventana').style.display = 'none';
 }
