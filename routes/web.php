@@ -10,6 +10,8 @@ use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
+
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [
@@ -75,6 +77,8 @@ Route::get('/search/{query}', [SearchController::class, 'searchAll'])->name('sea
 
 //Planteles
 Route::get('/planteles/detalle/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
+//Imagenes para galerias de planteles
+Route::get('/galeria/{plantel}/{tipoDeGaleria}', [PlantelesController::class, 'getImagenesGaleria'])->name('galeria.get');
 
 Route::get('/planteles', function () {
     $planteles = Plantel::all()->keyBy('id'); // Todos los planteles

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Plantel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class PlantelesController extends Controller
 {
@@ -114,5 +116,19 @@ class PlantelesController extends Controller
                 'nombre' => "Plantel Xicotepec",
             ]
         ];
+    }
+
+    public function getImagenesGaleria($plantel, $tipoDeGaleria){
+        $plantel = Str::slug($plantel);
+        $tipoDeGaleria = Str::slug($tipoDeGaleria);
+        $path = 'imagenes/'. $plantel . '/' . $tipoDeGaleria;
+        if (File::exists($path) || File::isDirectory($path)){
+            $imagenes = collect(File::files($path))->map(function($imagen) use ($path){
+                return asset( $path . '/' . $imagen->getFilename());
+            });
+            return response()->json($imagenes);
+        }else{
+            return response()->json([]);
+        }
     }
 }
