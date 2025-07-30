@@ -40,7 +40,7 @@ const newPlaceholderData = {
     comunicados: [
         {
             titulo: "Titulo de ejemplo 1",
-            pdf: "ruta/a/el/pdf",//todo: funcion JS para traer pdfs
+            pdf: "ruta/a/el/pdf",//TODO: funcion JS para traer pdfs
         },
         {
             titulo: "Titulo de ejemplo 2",
@@ -109,7 +109,7 @@ const newPlaceholderData = {
         ],
         sistemaDual: [
             {
-                // todo: indagar que se supone que va aqui
+                // TODO: aqui van banners, segun
                 '???' : "ni idea",
             }
         ],
@@ -136,28 +136,29 @@ const newPlaceholderData = {
     }
 };
 
+//TODO: Cambiar el valor de nombre en todos para que quede solo el nombre y no "Plantel XXX nombre" para que funcione la ruta de imagenes para galeria
 const planteles = {
     plantel1: {
         tipo: "cecyte",
-        nombre: "PLANTEL CECyTE CHOLULA",
+        nombre: "CHOLULA",
         lema: "FORMACIÓN QUE TRANSFORMA",
         descripcion: "En CECyTE Cholula impulsamos el talento de nuestra comunidad estudiantil con educación de calidad, carreras técnicas innovadoras y un fuerte compromiso con el desarrollo personal y profesional. Aquí, cada estudiante construye su futuro con herramientas reales para el mundo actual. <strong>¡Sé parte de una generación que deja huella!</strong>",
         imagenes: [
-            "/imagenes/Plantel_Cholula/CholulaPlantel.JPG",
-            "/imagenes/Plantel_Cholula/CholulaTransformacionPlasticos (1).JPG",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioComputo (1).JPG",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioUsosMultiples (3).JPG",
+            "/imagenes/cholula/instalaciones/CholulaPlantel.JPG",
+            "/imagenes/cholula/instalaciones/CholulaTransformacionPlasticos (1).JPG",
+            "/imagenes/cholula/instalaciones/CholulaLaboratorioComputo (1).JPG",
+            "/imagenes/cholula/instalaciones/CholulaLaboratorioUsosMultiples (3).JPG",
         ],
         instalaciones: {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
             imagenes: [
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    url: "/imagenes/cholula/instalaciones/CholulaPlantel.jpg",
                     titulo: "Aulas equipadas con tecnología interactiva",
                     area: "Laboratorio"
                 },
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    url: "/imagenes/cholula/instalaciones/CholulaPlantel.jpg",
                     titulo: "Aulas equipadas con tecnología interactiva",
                     area: "Laboratorio"
                 },
@@ -168,7 +169,7 @@ const planteles = {
             descripcion: "Nuestra comunidad educativa se compone de estudiantes, docentes y personal comprometido con la excelencia académica.",
             galeria: [
                 {
-                    url: "/imagenes/Plantel_Cholula/Evento1.jpg",
+                    url: "/imagenes/cholula/instalaciones/Evento1.jpg",
                     titulo: "Feria de ciencias 2024",
                     //NO SE USA O NO HAZ VISTO EN QUE SE USA
                     fecha: "2024-03-15"
@@ -180,7 +181,7 @@ const planteles = {
                     nombre: "María González",
                     cargo: "Estudiante de Electrónica",
                     texto: "El ambiente en el plantel es muy bueno para aprender y desarrollarse profesionalmente.",
-                    foto: "/imagenes/Plantel_Cholula/Testimonio1.jpg"
+                    foto: "/imagenes/cholula/instalaciones/Testimonio1.jpg"
                 }
             ]
         },
@@ -199,7 +200,7 @@ const planteles = {
     },
     plantel2: {
         tipo: "cecyte",
-        nombre: "Plantel Chignahuapan",
+        nombre: "Chignahuapan",
         imagenes: [
             "/imagenes/Chignahuapan/chigna1.jpg",
             "/imagenes/Chignahuapan/Chigna6.jpg",
@@ -221,7 +222,7 @@ const planteles = {
     },
     plantel3: {
         tipo: "emsad",
-        nombre: "Plantel EMsaD Ameluca",
+        nombre: "Ameluca",
         imagenes: [
             "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
             "/imagenes/EMSaD Ameluca/aula4 ameluca.jpg",
@@ -242,7 +243,7 @@ const planteles = {
     },
     plantel4: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Boca del Monte",
+        nombre: "Boca del Monte",
         imagenes: [
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio].jpg",
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Comp.1].jpg",
@@ -263,7 +264,7 @@ const planteles = {
     },
     plantel5: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Buena Vista",
+        nombre: "Buena Vista",
         imagenes: [
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092254.jpg",
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092457.jpg",
@@ -284,7 +285,7 @@ const planteles = {
     },
     plantel6: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD La Pahua",
+        nombre: "La Pahua",
         imagenes: [
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Plantel_LaPahua.jpeg",
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
@@ -305,7 +306,7 @@ const planteles = {
     },
     plantel7: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Mexcaltochintla",
+        nombre: "Mexcaltochintla",
         imagenes: [
             "/imagenes/EMSAD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
@@ -327,7 +328,7 @@ const planteles = {
     },
     plantel8: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Naranjastitla",
+        nombre: "Naranjastitla",
         imagenes: [
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
@@ -348,7 +349,7 @@ const planteles = {
     },
     plantel9: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Santa Elena",
+        nombre: "Santa Elena",
         imagenes: [
             "/imagenes/EMSaD Santa Elena/Entrada a Centro_Santa Elena.jpg",
             "/imagenes/EMSaD Santa Elena/Salon de clases A_Santa Elena.jpg",
@@ -369,7 +370,7 @@ const planteles = {
     },
     plantel10: {
         tipo: "cecyte",
-        nombre: "Plantel Guadalupe Victoria",
+        nombre: "Guadalupe Victoria",
         imagenes: [
             "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
             "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
@@ -391,7 +392,7 @@ const planteles = {
     },
     plantel11: {
         tipo: "cecyte",
-        nombre: "Plantel Huejotzingo",
+        nombre: "Huejotzingo",
         imagenes: [
             "/imagenes/Huejotzingo/ENTRADA.jpeg",
             "/imagenes/Huejotzingo/SALONES.jpeg",
@@ -413,7 +414,7 @@ const planteles = {
     },
     plantel12: {
         tipo: "cecyte",
-        nombre: "Plantel Magdalena",
+        nombre: "Magdalena",
         imagenes: [
             "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_090142141.jpg",
             "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
@@ -435,12 +436,12 @@ const planteles = {
     },
     plantel13: {
         tipo: "cecyte",
-        nombre: "Plantel Tecamachalco",
+        nombre: "Tecamachalco",
         imagenes: [
-            "/imagenes/TECAMACHALCO/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/instalaciones/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/instalaciones/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/instalaciones/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/TECAMACHALCO/instalaciones/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
         ],
         direccion: {
             calle: "KM. Calle 8 Ote 1",
@@ -457,7 +458,7 @@ const planteles = {
     },
     plantel14: {
         tipo: "cecyte",
-        nombre: "Plantel Tehuitzingo",
+        nombre: "Tehuitzingo",
         imagenes: [
             "/imagenes/TEHUITZINGO/Entrada_Pricipal_Plantel.png",
             "/imagenes/TEHUITZINGO/Explanada_Edficio1 y 2_Plantel_2.png",
@@ -480,7 +481,7 @@ const planteles = {
     },
     plantel15: {
         tipo: "cecyte",
-        nombre: "Plantel Tlacotepec",
+        nombre: "Tlacotepec",
         imagenes: [
             "/imagenes/Tlacotepec/PLANTEL/IMG_1679.JPG",
             "/imagenes/Tlacotepec/PLANTEL/IMG_1681.JPG",
@@ -501,7 +502,7 @@ const planteles = {
     },
     plantel16: {
         tipo: "emsad",
-        nombre: "Plantel Tlaolantongo",
+        nombre: "Tlaolantongo",
         imagenes: [
             "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
             "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
@@ -523,7 +524,7 @@ const planteles = {
     },
     plantel17: {
         tipo: "cecyte",
-        nombre: "Plantel Venustiano Carranza",
+        nombre: "Venustiano Carranza",
         imagenes: [
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
@@ -544,7 +545,7 @@ const planteles = {
     },
     plantel18: {
         tipo: "cecyte",
-        nombre: "Plantel Xicotepec",
+        nombre: "Xicotepec",
         imagenes: [
             "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
@@ -570,7 +571,7 @@ const planteles = {
 // Función para cargar el encabezado del plantel
 function cargarEncabezadoPlantel(plantel) {
     // Configurar título
-    document.getElementById('plantel-nombre').textContent = plantel.nombre || 'PLANTEL CECyTE';
+    document.getElementById('plantel-nombre').textContent = "Plantel " + plantel.nombre || 'PLANTEL CECyTE';
 
     // Configurar lema
     const lemaElement = document.getElementById('plantel-lema');
@@ -593,8 +594,7 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.textContent = plantel.tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
-
-//todo: modificacion para galeria
+//TODO: modificacion para galeria
 // Función para renderizar imágenes con efectos hover
 function renderImageGallery(images, containerId, galleryType) {
     const container = document.getElementById(containerId);
@@ -619,50 +619,32 @@ function renderImageGallery(images, containerId, galleryType) {
     container.innerHTML = html;
 }
 
-//todo: modificacion para galeria
-function renderInstalaciones(instalacionesData, plantelNombre) {
+
+//TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
+//TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
+function renderInstalaciones(plantel) {
+    console.log(plantel);
+    const data = {
+        plantel: plantel,
+        tipoDeGaleria: 'instalaciones'
+    };
     const container = document.getElementById('instalaciones-content');
+    container.innerHTML = "";
     if (!container) return;
 
-    // Plantilla base con manejo de datos faltantes
-    let html = `
-        <div class="instalaciones-header">
-            <h2>NUESTRAS INSTALACIONES EN ${plantelNombre.toUpperCase()}</h2>
-            <p>${instalacionesData.descripcion || 'Instalaciones del plantel'}</p>
-        </div>
-    `;
-
-    // Lista de características
-    if (instalacionesData.caracteristicas && instalacionesData.caracteristicas.length > 0) {
-        instalacionesData.caracteristicas.forEach(caracteristica => {
-            html += `<li>${caracteristica}</li>`;
+    fetch(route('galeria.get', data))
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            data.forEach(imagenUrl => {
+                container.innerHTML += `
+                <img class="img-fluid" src="${imagenUrl}" alt="imagen instalaciones" >
+                `
+            });
+        })
+        .catch((e) =>{
+            container.innerHTML = `<p>Error al cargar la galeria: ${e}</p>`
         });
-    }
-
-    // Imágenes de la galería
-    if (instalacionesData.imagenes && instalacionesData.imagenes.length > 0) {
-        instalacionesData.imagenes.forEach(img => {
-            const imgUrl = route('imagenes.get', img.url);
-            html += `
-                <div class="imagen-instalacion" data-categoria="${img.area.toLowerCase()}">
-                    <img src="${imgUrl}" alt="${img.titulo}">
-                    <div class="info-imagen">
-                        <p>${img.titulo}</p>
-                        <span class="badge-categoria">${img.area}</span>
-                    </div>
-                </div>
-            `;
-        });
-    } else {
-        html += '<p class="mensaje-vacio">Cargando imágenes de las instalaciones...</p>';
-    }
-
-    html += `
-            </div>
-        </div>
-    `;
-
-    container.innerHTML = html;
 }
 
 // Función para configurar el carrusel de imágenes
@@ -698,7 +680,7 @@ function setupCarousel(images, carouselId, indicatorsClass) {
 }
 
 // Función para renderizar los horarios
-//todo: ver si esto se quita o se queda
+//TODO: ver si esto se quita o se queda
 // function renderHorarios(horariosData) {
 //     const horariosContainer = document.getElementById('horarios-container');
 //     if (!horariosContainer || !horariosData) return;
@@ -801,20 +783,8 @@ function cargarDetallePlantel() {
     // Configurar secciones
     setupCarousel(plantel.imagenes, '#plantel-carousel', '.carousel-indicators');
 
-    // Renderizar secciones de imágenes con efectos hover
-    if(usarPlaceholders){
-        // console.log('instalaciones placeholder');
-        renderInstalaciones(placeholderData.instalaciones, plantel.nombre);
-    }else if (plantel.instalaciones) {
-        renderInstalaciones(plantel.instalaciones, plantel.nombre);
-    } else {
-        document.getElementById('instalaciones-content').innerHTML = `
-            <div class="instalaciones-header">
-                <h2>NUESTRAS INSTALACIONES</h2>
-                <p>Información sobre las instalaciones no disponible actualmente.</p>
-            </div>
-        `;
-    }
+    // Renderizar galeria instalaciones
+    renderInstalaciones(plantel.nombre);
 
     if(usarPlaceholders){
         // console.log('galeria placeholder');
