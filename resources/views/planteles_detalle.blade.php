@@ -11,7 +11,7 @@
 <div class="container mt-4">
     <!-- Encabezado principal estilo CECYTE -->
     <div class="card-body">
-        <!-- Carrusel de fotos -->
+        <!-- Carrusel de fotos inicial -->
         <div id="plantel-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators"></div>
             <div class="carousel-inner rounded" id="carousel-inner"></div>
@@ -60,9 +60,9 @@
         </div>
         <div class="card-body" id="comunicados-content">
             <!-- Contenido dinámico se cargará aquí desde JavaScript -->
-            
-            
-            
+
+
+
 
             <div class="loading-text">Cargando comunicados...</div>
         </div>
@@ -72,10 +72,21 @@
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">COMUNIDAD CECYTE</h4>
-            <!-- TODO: galeria -->
         </div>
         <div class="card-body" id="comunidad-content">
-            <div class="loading-text">Cargando información de la comunidad...</div>
+            <!-- Carrusel de fotos de comunidad -->
+            <div id="comunidad-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner rounded" id="carousel-inner"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#comunidad-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#comunidad-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
 
