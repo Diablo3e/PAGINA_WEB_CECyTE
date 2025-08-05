@@ -9,7 +9,6 @@ if (window.location.hostname === "localhost") isLocal = true;
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
 const usarPlaceholders = true;
 const placeholderData = {
-    // instalaciones = galeria
     comunicados: [
         {
             titulo: "Titulo de ejemplo 1",
@@ -19,6 +18,12 @@ const placeholderData = {
             titulo: "Titulo de ejemplo 2",
             pdf: "/pdfs/placeholder/pdf.pdf",
         }
+    ],
+    comunidad: [
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
     ],
     //comunidad = galeria
     vinculacion: {
@@ -652,9 +657,10 @@ function renderImageGallery(images, containerId, galleryType) {
 
 
 // Función para configurar el carrusel de imágenes
-function setupCarousel(images, carouselId, indicatorsClass) {
-    const carouselInner = document.querySelector(`${carouselId} .carousel-inner`);
-    const indicators = document.querySelector(indicatorsClass);
+function setupCarousel(images, carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const indicators = carousel.querySelector('.carousel-indicators');
 
     carouselInner.innerHTML = '';
     indicators.innerHTML = '';
@@ -677,10 +683,6 @@ function setupCarousel(images, carouselId, indicatorsClass) {
         indicator.setAttribute('aria-label', `Slide ${index + 1}`);
         indicators.appendChild(indicator);
     });
-
-    if (images.length > 0) {
-        new bootstrap.Carousel(document.querySelector(carouselId));
-    }
 }
 
 // Función para renderizar los horarios
@@ -781,24 +783,32 @@ function cargarDetallePlantel() {
         return;
     }
 
+    // Configurar carrusel inicial
+    setupCarousel(plantel.imagenes, 'plantel-carousel');
+    
     // Cargar encabezado
     cargarEncabezadoPlantel(plantel);
 
-    // Configurar secciones
-    setupCarousel(plantel.imagenes, '#plantel-carousel', '.carousel-indicators');
-
     // Renderizar galeria instalaciones
     renderInstalaciones(plantel.nombre);
+
+    //Renderizar comunicados
     renderComunicados(plantel);
-    if (plantel.comunidad?.galeria) {
-        renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
+
+    //Renderizar carrusel de comunidad
+    //TEMP: agregar logica de verdad al if de abajo
+    if (plantel.comunidad?.galeria || usarPlaceholders) {
+        setupCarousel(placeholderData.comunidad, 'comunidad-carousel');
+        // renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
     }
-
-    //Cargar carreras
+    
+    //Cargar carreras / oferta educativa
     const numPlantel = plantelId.replace("plantel", "");
     renderCarreras(numPlantel, isLocal);
+
+    
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
@@ -811,11 +821,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.plantel-header')) {
         cargarDetallePlantel();
     }
-
-    // Inicializar componentes de Bootstrap (acordeon)
-    [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => {
-        new bootstrap.Tooltip(el);
-    });
 });
 
 // Hacer los datos accesibles globalmente
