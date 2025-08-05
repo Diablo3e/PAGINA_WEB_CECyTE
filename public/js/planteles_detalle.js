@@ -1,7 +1,7 @@
 import { slugify } from "./slug.js";
 
 //Deteccion de servidor local
-//Los links de 'area academica'/'carreras disponibles' dependen de donde este el servidor, si es en path local cambia el path local de tu equipo
+//Los links de 'area academica'/'carreras disponibles' dependen de donde este el servidor, si es en path local cambia la variable de abajo al path de tu equipo
 const localPath = "/dashboard/PAGINA_WEB_CECyTE/public/";
 let isLocal = false;
 if (window.location.hostname === "localhost") isLocal = true;
@@ -9,42 +9,15 @@ if (window.location.hostname === "localhost") isLocal = true;
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
 const usarPlaceholders = true;
 const placeholderData = {
-    instalaciones: {
-        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi saepe laboriosam sequi excepturi quidem libero?",
-        imagenes: [
-            {
-                url: "/imagenes/placeholder.png",
-                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                area: "Area1"
-            },
-            {
-                url: "/imagenes/placeholder.png",
-                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                area: "Area2"
-            },
-        ]
-    },
-    comunidad: {
-        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui quae autem laboriosam.",
-        galeria: [
-            {
-                url: "/imagenes/placeholder.png",
-                titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            },
-        ]
-    }
-};
-
-const newPlaceholderData = {
     // instalaciones = galeria
     comunicados: [
         {
             titulo: "Titulo de ejemplo 1",
-            pdf: "ruta/a/el/pdf",//TODO: funcion JS para traer pdfs
+            pdf: "/pdfs/placeholder/pdf.pdf",
         },
         {
             titulo: "Titulo de ejemplo 2",
-            pdf: "ruta/a/el/pdf",
+            pdf: "/pdfs/placeholder/pdf.pdf",
         }
     ],
     //comunidad = galeria
@@ -109,7 +82,7 @@ const newPlaceholderData = {
         ],
         sistemaDual: [
             {
-                // TODO: aqui van banners, segun
+                // TODO: aqui van banners
                 '???' : "ni idea",
             }
         ],
@@ -136,7 +109,7 @@ const newPlaceholderData = {
     }
 };
 
-//TODO: Cambiar el valor de nombre en todos para que quede solo el nombre y no "Plantel XXX nombre" para que funcione la ruta de imagenes para galeria
+
 const planteles = {
     plantel1: {
         tipo: "cecyte",
@@ -594,31 +567,6 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.textContent = plantel.tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
-//TODO: modificacion para galeria
-// Función para renderizar imágenes con efectos hover
-function renderImageGallery(images, containerId, galleryType) {
-    const container = document.getElementById(containerId);
-    if (!container || !images || images.length === 0) {
-        container.innerHTML = '<p class="no-images-message">No hay imágenes disponibles</p>';
-        return;
-    }
-
-    let html = `<div class="${galleryType}-grid">`;
-
-    images.forEach((img, index) => {
-        const imgUrl = route('imagenes.get', img.url);
-        html += `
-            <div class="image-wrapper">
-                <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
-                <div class="image-caption">${img.titulo || ''}</div>
-            </div>
-        `;
-    });
-
-    html += '</div>';
-    container.innerHTML = html;
-}
-
 
 //TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
 //TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
@@ -643,9 +591,65 @@ function renderInstalaciones(plantel) {
             });
         })
         .catch((e) =>{
-            container.innerHTML = `<p>Error al cargar la galeria: ${e}</p>`
+            container.innerHTML = `<p>Error al cargar la galeria</p>`
         });
 }
+
+function renderComunicados(plantel){
+    const container = document.getElementById('comunicados-content');
+    container.innerHTML = ''; 
+    if (usarPlaceholders){
+        plantel = placeholderData;
+    }
+
+    if(plantel.comunicados.length !== 0){
+        plantel.comunicados.forEach(comunicado => {
+            fetch(route('archivo.get', comunicado.pdf))
+                .then(archivoPdf => {
+                    console.log(archivoPdf);
+                    container.innerHTML += `
+                    <div class="card" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${comunicado.titulo}</h5>
+                            <a href="${archivoPdf.url}" class="card-link" target="_blank">Ver comunicado</a>
+                        </div>
+                    </div>
+                    `;
+                })
+                .catch(e =>{
+                    console.error('Error en obtener pdf: ' + e);
+                })
+        });
+    }
+
+}
+
+//TODO: hacer las modificaciones para la nueva galeria
+// Función para renderizar imágenes con efectos hover
+function renderImageGallery(images, containerId, galleryType) {
+    const container = document.getElementById(containerId);
+    if (!container || !images || images.length === 0) {
+        container.innerHTML = '<p class="no-images-message">No hay imágenes disponibles</p>';
+        return;
+    }
+
+    let html = `<div class="${galleryType}-grid">`;
+
+    images.forEach((img, index) => {
+        const imgUrl = route('archivo.get', img.url);
+        html += `
+            <div class="image-wrapper">
+                <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
+                <div class="image-caption">${img.titulo || ''}</div>
+            </div>
+        `;
+    });
+
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+
 
 // Función para configurar el carrusel de imágenes
 function setupCarousel(images, carouselId, indicatorsClass) {
@@ -656,7 +660,7 @@ function setupCarousel(images, carouselId, indicatorsClass) {
     indicators.innerHTML = '';
 
     images.forEach((img, index) => {
-        const imgUrl = route('imagenes.get', img);
+        const imgUrl = route('archivo.get', img);
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `
@@ -785,11 +789,8 @@ function cargarDetallePlantel() {
 
     // Renderizar galeria instalaciones
     renderInstalaciones(plantel.nombre);
-
-    if(usarPlaceholders){
-        // console.log('galeria placeholder');
-        renderImageGallery(placeholderData.comunidad.galeria, 'comunidad-content', 'comunidad');
-    } else if (plantel.comunidad?.galeria) {
+    renderComunicados(plantel);
+    if (plantel.comunidad?.galeria) {
         renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
