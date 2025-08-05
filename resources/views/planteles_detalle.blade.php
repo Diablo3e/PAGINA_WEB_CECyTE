@@ -60,6 +60,10 @@
         </div>
         <div class="card-body" id="comunicados-content">
             <!-- Contenido dinámico se cargará aquí desde JavaScript -->
+            
+            
+            
+
             <div class="loading-text">Cargando comunicados...</div>
         </div>
     </div>
@@ -68,7 +72,7 @@
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">COMUNIDAD CECYTE</h4>
-            <!-- todo: galeria -->
+            <!-- TODO: galeria -->
         </div>
         <div class="card-body" id="comunidad-content">
             <div class="loading-text">Cargando información de la comunidad...</div>

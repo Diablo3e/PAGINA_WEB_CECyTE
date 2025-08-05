@@ -152,7 +152,12 @@ body, html {
     gap: 15px;
 }
 
-
+/* Agregadas con los cambios de detalles planteles del XX-07-2025*/
+#comunicados-content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /* TODO: muchas de estas no se usan, limpiar */
 /* Grid de imágenes */

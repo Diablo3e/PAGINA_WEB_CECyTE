@@ -154,13 +154,13 @@ Route::get('/linea_tiempo', function () {
 
 
 
-//Uso de imagenes en JS
-Route::get('/img/{imgPath}', function ($imgPath) {
+//Uso de archivos publicos en JS
+Route::get('/files/{filePath}', function ($filePath) {
 
-    $path = public_path($imgPath);
+    $path = public_path($filePath);
     //Logica dependiendo del ambiente linux(pagina hosting) / windows
     if (PHP_OS_FAMILY === 'Linux') {
-     $path = str_replace('public', 'public_html', $path);
+        $path = str_replace('public', 'public_html', $path);
     } 
     $realPath = realpath($path);
     // Acceso no autorizado
@@ -173,7 +173,7 @@ Route::get('/img/{imgPath}', function ($imgPath) {
     }
 
     return response()->file($realPath);
-})->where('imgPath', '.*')->name('imagenes.get');
+})->where('filePath', '.*')->name('archivo.get');
 
 
 
