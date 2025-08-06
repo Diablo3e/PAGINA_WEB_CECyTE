@@ -30,11 +30,11 @@ const placeholderData = {
         ofertasDeEmpleo: [
             {
                 empleador: "Ejemplo Empresa 1",
-                imagen: "path/hacia/la/imagen",
+                imagen: "/imagenes/placeholder.png",
             },
             {
                 empleador: "Ejemplo Empresa 2",
-                imagen: "path/hacia/la/imagen",
+                imagen: "/imagenes/placeholder.png",
             }
         ],
         servicioSocial: [
@@ -576,7 +576,6 @@ function cargarEncabezadoPlantel(plantel) {
 //TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
 //TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
 function renderInstalaciones(plantel) {
-    console.log(plantel);
     const data = {
         plantel: plantel,
         tipoDeGaleria: 'instalaciones'
@@ -588,7 +587,6 @@ function renderInstalaciones(plantel) {
     fetch(route('galeria.get', data))
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             data.forEach(imagenUrl => {
                 container.innerHTML += `
                 <img class="img-fluid" src="${imagenUrl}" alt="imagen instalaciones" >
@@ -611,7 +609,6 @@ function renderComunicados(plantel){
         plantel.comunicados.forEach(comunicado => {
             fetch(route('archivo.get', comunicado.pdf))
                 .then(archivoPdf => {
-                    console.log(archivoPdf);
                     container.innerHTML += `
                     <div class="card" style="min-width: 20%; min-height: fit-content">
                         <div class="card-body">
@@ -629,7 +626,7 @@ function renderComunicados(plantel){
 
 }
 
-//TODO: hacer las modificaciones para la nueva galeria
+//TODO: Decidir si se quita o se queda
 // Función para renderizar imágenes con efectos hover
 function renderImageGallery(images, containerId, galleryType) {
     const container = document.getElementById(containerId);
@@ -773,6 +770,48 @@ function renderCarreras(id, isLocal) {
         });
 }
 
+function renderVinculacion(plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+    //Ofertas Laborales
+    const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-flex');
+    //Limpiar el HTML
+    containerOfertasLab.innerHTML = ''; 
+    //Randerizar informacion
+    plantel.vinculacion.ofertasDeEmpleo.forEach( oferta => {
+        fetch(route('archivo.get',oferta.imagen))
+            .then( imagen => {
+                containerOfertasLab.innerHTML += 
+                `
+                <div class="card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${oferta.empleador}</h5>
+                        <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+                    </div>
+                </div>
+                `; 
+            });
+    });
+    
+    //Servicio social
+    const containerServicio = document.getElementById('servicioSocial').querySelector('.card-flex');
+    //Limpiar HTML
+    containerServicio.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.servicioSocial.forEach( opcion => {
+        containerServicio.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                <p>${opcion.descripcion}</p>
+                <p><strong>Correo: </strong> ${opcion.correo}</p>
+                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+            </div>
+        </div>
+        `;
+    });
+}
+
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -808,7 +847,9 @@ function cargarDetallePlantel() {
     const numPlantel = plantelId.replace("plantel", "");
     renderCarreras(numPlantel, isLocal);
 
-    
+    //Cargar apartados de vinculacion
+    renderVinculacion(plantel);
+
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {

@@ -158,6 +158,11 @@ body, html {
     justify-content: center;
     flex-wrap: wrap;
 }
+.card-flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /* TODO: muchas de estas no se usan, limpiar */
 /* Grid de imágenes */
