@@ -60,10 +60,6 @@
         </div>
         <div class="card-body" id="comunicados-content">
             <!-- Contenido dinámico se cargará aquí desde JavaScript -->
-
-
-
-
             <div class="loading-text">Cargando comunicados...</div>
         </div>
     </div>
@@ -121,7 +117,51 @@
             <h4 class="mb-0">VINCULACIÓN</h4>
         </div>
         <div class="card-body" id="vinculacion-content">
-            <p>Cargando información de vinculación...</p>
+            <!-- Oferta Laboral -->
+            <div class="accordion" id="acordionVinculacion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ofertaLaboral" aria-expanded="true" aria-controls="ofertaLaboral">
+                            Ofertas de Empleo
+                        </button>
+                    </h2>
+                    <div id="ofertaLaboral" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Servicio social -->
+            <div class="accordion" id="acordionVinculacion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#servicioSocial" aria-expanded="true" aria-controls="servicioSocial">
+                            Servicio social
+                        </button>
+                    </h2>
+                    <div id="servicioSocial" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+                                <div class="card-body" style="max-width: 50%; min-height: fit-content">
+                                    <div class="card">
+                                        <h5 class="card-title">Institucion</h5>
+                                        <p><strong>Descripcion,</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem perspiciatis, eveniet nihil sunt ut?</p>
+                                        <p><strong>Correo: </strong> ejemplo@correo.com</p>
+                                        <p><strong>Telefono: </strong> 5926568945</p>
+                                        <p><strong>Direección:</strong> 59 oriente 4985</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <p>Cargando información de vinculación...</p> -->
         </div>
     </div>
 
