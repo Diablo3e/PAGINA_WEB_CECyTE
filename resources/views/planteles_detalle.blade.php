@@ -180,17 +180,46 @@
                     <div id="redesSociales" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="card-flex">
-                                <div class="card" style="min-width: fit-content; min-height: fit-content">
-                                    <div class="card-body">
-                                        <h5 class="card-title"> <a href="#" style="text-decoration: none;">Red social</a></h5>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <p>Cargando información de vinculación...</p> -->
+            <!-- Seguimiento de egresados -->
+            <div class="accordion" id="acordionEgresados">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#segEgresados" aria-expanded="true" aria-controls="segEgresados">
+                            Seguimiento de Egresados
+                        </button>
+                    </h2>
+                    <div id="segEgresados" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sistema dual -->
+            <div class="accordion" id="acordionDual">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sistDual" aria-expanded="true" aria-controls="sistDual">
+                            Sistema Dual
+                        </button>
+                    </h2>
+                    <div id="sistDual" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

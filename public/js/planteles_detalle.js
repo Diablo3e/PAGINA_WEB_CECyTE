@@ -86,20 +86,21 @@ const placeholderData = {
         seguimientoEgresados: [
             {
                 nombreEgresado: "Juan Perez",
-                carrera:"carreraEjemplo",
+                carrera:"Carrera1",
                 testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
             },
             {
                 nombreEgresado: "Margarita Perez",
-                carrera:"carreraEjemplo2",
+                carrera:"Carrera2",
                 testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
             }
         ],
         sistemaDual: [
-            {
-                // TODO: aqui van banners
-                '???' : "ni idea",
-            }
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
         ],
     },
     extEducativa:{
@@ -856,7 +857,35 @@ function renderVinculacion(plantel){
     });
 
     // seguimiento de egresados
+    const containerEgresados = document.getElementById('segEgresados').querySelector('.card-flex');
+    //Limpiar HTML
+    containerEgresados.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
+        containerEgresados.innerHTML += `
+           <div class="card" style="max-width: 33%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${egresado.nombreEgresado}</h5>
+                    <h6 class="card-subtitle">${egresado.carrera}</h6>
+                    <p class="card-text">${egresado.testimonio}</p>
+                </div>
+            </div> 
+        `;
+    });
+
     // sistema dual
+    const containerSistDial = document.getElementById('sistDual').querySelector('.card-flex');
+    //Limpiar HTML
+    containerSistDial.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.sistemaDual.forEach( banner => {
+        fetch(route('archivo.get',banner))
+            .then(banner => {
+                containerSistDial.innerHTML += `
+                   <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                `;
+            });
+    });
 }
 
 // Función principal para cargar el detalle del plantel
