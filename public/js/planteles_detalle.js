@@ -1,62 +1,165 @@
 import { slugify } from "./slug.js";
 
 //Deteccion de servidor local
-//Los links de 'area academica'/'carreras disponibles' dependen de donde este el servidor, si es en path local cambia el path local de tu equipo
+//Los links de 'area academica'/'carreras disponibles' dependen de donde este el servidor, si es en path local cambia la variable de abajo al path de tu equipo
 const localPath = "/dashboard/PAGINA_WEB_CECyTE/public/";
 let isLocal = false;
 if (window.location.hostname === "localhost") isLocal = true;
 
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
+//TODO: Revisar que mayus y minus en los links coincidan con los nombres, que si no no funciona el sitio de hosting
 const usarPlaceholders = true;
 const placeholderData = {
-    instalaciones: {
-        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi saepe laboriosam sequi excepturi quidem libero?",
-        imagenes: [
+    comunicados: [
+        {
+            titulo: "Titulo de ejemplo 1",
+            pdf: "/pdfs/placeholder/pdf.pdf",
+        },
+        {
+            titulo: "Titulo de ejemplo 2",
+            pdf: "/pdfs/placeholder/pdf.pdf",
+        }
+    ],
+    comunidad: [
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
+        "/imagenes/placeholder.png",
+    ],
+    //comunidad = galeria
+    vinculacion: {
+        ofertasDeEmpleo: [
             {
-                url: "/imagenes/placeholder.png",
-                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                area: "Area1"
+                empleador: "Ejemplo Empresa 1",
+                imagen: "/imagenes/placeholder.png",
             },
             {
-                url: "/imagenes/placeholder.png",
-                titulo: "Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion ",
-                area: "Area2"
+                empleador: "Ejemplo Empresa 2",
+                imagen: "/imagenes/placeholder.png",
+            }
+        ],
+        servicioSocial: [
+            {
+                nombreInstitucion: "Ejemplo Lugar servicio social",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "ejemplo@correo.com",
+                telefono: "+55 123456789",
+                direccion: "Calle inventada 1905"
             },
-        ]
+            {
+                nombreInstitucion: "Segundo Ejemplo Lugar servicio social",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "otro.Ejemplo@correo.com",
+                telefono: "+55 987654321",
+                direccion: "Calle inventada 1905"
+            }
+        ],
+        practicasProfesionales: [
+            {
+                nombreInstitucion: "Ejemplo lugar practicas profesionales",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "ejemplo@correo.com",
+                telefono: "+55 123456789",
+                direccion: "Calle de ejemplo 2156"
+            },
+            {
+                nombreInstitucion: "Otro ejemplo lugar practicas profesionales",
+                descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti.",
+                correo: "otro.Ejemplo@correo.com",
+                telefono: "+55 987654321",
+                direccion: "Calle de ejemplo 8965"
+            }
+        ],
+        redesSociales: [
+            {
+                nombre: 'instagram',
+                link: 'https://www.instagram.com'
+            },
+            {
+                nombre: 'facebook',
+                link: 'https://www.facebook.com/'
+            },
+            {
+                nombre: 'twitter',
+                link: 'https://x.com'
+            }
+        ],
+        seguimientoEgresados: [
+            {
+                nombreEgresado: "Juan Perez",
+                carrera:"Carrera1",
+                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+            },
+            {
+                nombreEgresado: "Margarita Perez",
+                carrera:"Carrera2",
+                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+            }
+        ],
+        sistemaDual: [
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+            "/imagenes/placeholderBanner.png",
+        ],
     },
-    comunidad: {
-        descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui quae autem laboriosam.",
-        galeria: [
+    extEducativa:[
+        "/imagenes/placeholderBanner.png",
+        "/imagenes/placeholderBanner.png",
+        "/imagenes/placeholderBanner.png",
+    ],
+    controlEscolar: {
+        avisos:[
             {
-                url: "/imagenes/placeholder.png",
-                titulo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                fecha: "01/01/2025",
+                cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti."
             },
-        ]
+            {
+                fecha: "02/02/2025",
+                cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint obcaecati eum delectus neque aut? Molestias, vitae ut dolores quam nihil nostrum quos nisi voluptas minus sit sequi at eos sed, tempora reiciendis beatae doloremque aut fugiat debitis ad aliquam, eveniet labore. Et, nisi. Saepe."
+            },
+        ],
+        horarios:[
+            {
+                grupo: "Ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+            {
+                grupo: "Segundo ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+            {
+                grupo: "Tercer ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+        ],
     }
 };
+
 
 const planteles = {
     plantel1: {
         tipo: "cecyte",
-        nombre: "PLANTEL CECyTE CHOLULA",
+        nombre: "CHOLULA",
         lema: "FORMACIÓN QUE TRANSFORMA",
         descripcion: "En CECyTE Cholula impulsamos el talento de nuestra comunidad estudiantil con educación de calidad, carreras técnicas innovadoras y un fuerte compromiso con el desarrollo personal y profesional. Aquí, cada estudiante construye su futuro con herramientas reales para el mundo actual. <strong>¡Sé parte de una generación que deja huella!</strong>",
         imagenes: [
-            "/imagenes/Plantel_Cholula/CholulaPlantel.JPG",
-            "/imagenes/Plantel_Cholula/CholulaTransformacionPlasticos (1).JPG",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioComputo (1).JPG",
-            "/imagenes/Plantel_Cholula/CholulaLaboratorioUsosMultiples (3).JPG",
+            "/imagenes/cholula/instalaciones/CholulaPlantel.JPG",
+            "/imagenes/cholula/instalaciones/CholulaTransformacionPlasticos (1).JPG",
+            "/imagenes/cholula/instalaciones/CholulaLaboratorioComputo (1).JPG",
+            "/imagenes/cholula/instalaciones/CholulaLaboratorioUsosMultiples (3).JPG",
         ],
         instalaciones: {
             descripcion: "En CECyTE Cholula contamos con infraestructura de vanguardia para educación tecnológica.",
             imagenes: [
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    url: "/imagenes/cholula/instalaciones/CholulaPlantel.jpg",
                     titulo: "Aulas equipadas con tecnología interactiva",
                     area: "Laboratorio"
                 },
                 {
-                    url: "/imagenes/Plantel_Cholula/CholulaPlantel.jpg",
+                    url: "/imagenes/cholula/instalaciones/CholulaPlantel.jpg",
                     titulo: "Aulas equipadas con tecnología interactiva",
                     area: "Laboratorio"
                 },
@@ -67,7 +170,7 @@ const planteles = {
             descripcion: "Nuestra comunidad educativa se compone de estudiantes, docentes y personal comprometido con la excelencia académica.",
             galeria: [
                 {
-                    url: "/imagenes/Plantel_Cholula/Evento1.jpg",
+                    url: "/imagenes/cholula/instalaciones/Evento1.jpg",
                     titulo: "Feria de ciencias 2024",
                     //NO SE USA O NO HAZ VISTO EN QUE SE USA
                     fecha: "2024-03-15"
@@ -79,7 +182,7 @@ const planteles = {
                     nombre: "María González",
                     cargo: "Estudiante de Electrónica",
                     texto: "El ambiente en el plantel es muy bueno para aprender y desarrollarse profesionalmente.",
-                    foto: "/imagenes/Plantel_Cholula/Testimonio1.jpg"
+                    foto: "/imagenes/cholula/instalaciones/Testimonio1.jpg"
                 }
             ]
         },
@@ -98,7 +201,7 @@ const planteles = {
     },
     plantel2: {
         tipo: "cecyte",
-        nombre: "Plantel Chignahuapan",
+        nombre: "Chignahuapan",
         imagenes: [
             "/imagenes/Chignahuapan/chigna1.jpg",
             "/imagenes/Chignahuapan/Chigna6.jpg",
@@ -120,7 +223,7 @@ const planteles = {
     },
     plantel3: {
         tipo: "emsad",
-        nombre: "Plantel EMsaD Ameluca",
+        nombre: "Ameluca",
         imagenes: [
             "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
             "/imagenes/EMSaD Ameluca/aula4 ameluca.jpg",
@@ -141,7 +244,7 @@ const planteles = {
     },
     plantel4: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Boca del Monte",
+        nombre: "Boca del Monte",
         imagenes: [
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio].jpg",
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Comp.1].jpg",
@@ -162,7 +265,7 @@ const planteles = {
     },
     plantel5: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Buena Vista",
+        nombre: "Buena Vista",
         imagenes: [
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092254.jpg",
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092457.jpg",
@@ -183,7 +286,7 @@ const planteles = {
     },
     plantel6: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD La Pahua",
+        nombre: "La Pahua",
         imagenes: [
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Plantel_LaPahua.jpeg",
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
@@ -204,7 +307,7 @@ const planteles = {
     },
     plantel7: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Mexcaltochintla",
+        nombre: "Mexcaltochintla",
         imagenes: [
             "/imagenes/EMSAD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
@@ -226,7 +329,7 @@ const planteles = {
     },
     plantel8: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Naranjastitla",
+        nombre: "Naranjastitla",
         imagenes: [
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
@@ -247,7 +350,7 @@ const planteles = {
     },
     plantel9: {
         tipo: "emsad",
-        nombre: "Plantel EMSaD Santa Elena",
+        nombre: "Santa Elena",
         imagenes: [
             "/imagenes/EMSaD Santa Elena/Entrada a Centro_Santa Elena.jpg",
             "/imagenes/EMSaD Santa Elena/Salon de clases A_Santa Elena.jpg",
@@ -268,7 +371,7 @@ const planteles = {
     },
     plantel10: {
         tipo: "cecyte",
-        nombre: "Plantel Guadalupe Victoria",
+        nombre: "Guadalupe Victoria",
         imagenes: [
             "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
             "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
@@ -290,7 +393,7 @@ const planteles = {
     },
     plantel11: {
         tipo: "cecyte",
-        nombre: "Plantel Huejotzingo",
+        nombre: "Huejotzingo",
         imagenes: [
             "/imagenes/Huejotzingo/ENTRADA.jpeg",
             "/imagenes/Huejotzingo/SALONES.jpeg",
@@ -312,7 +415,7 @@ const planteles = {
     },
     plantel12: {
         tipo: "cecyte",
-        nombre: "Plantel Magdalena",
+        nombre: "Magdalena",
         imagenes: [
             "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_090142141.jpg",
             "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
@@ -334,12 +437,12 @@ const planteles = {
     },
     plantel13: {
         tipo: "cecyte",
-        nombre: "Plantel Tecamachalco",
+        nombre: "Tecamachalco",
         imagenes: [
-            "/imagenes/TECAMACHALCO/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
         ],
         direccion: {
             calle: "KM. Calle 8 Ote 1",
@@ -356,7 +459,7 @@ const planteles = {
     },
     plantel14: {
         tipo: "cecyte",
-        nombre: "Plantel Tehuitzingo",
+        nombre: "Tehuitzingo",
         imagenes: [
             "/imagenes/TEHUITZINGO/Entrada_Pricipal_Plantel.png",
             "/imagenes/TEHUITZINGO/Explanada_Edficio1 y 2_Plantel_2.png",
@@ -379,7 +482,7 @@ const planteles = {
     },
     plantel15: {
         tipo: "cecyte",
-        nombre: "Plantel Tlacotepec",
+        nombre: "Tlacotepec",
         imagenes: [
             "/imagenes/Tlacotepec/PLANTEL/IMG_1679.JPG",
             "/imagenes/Tlacotepec/PLANTEL/IMG_1681.JPG",
@@ -400,7 +503,7 @@ const planteles = {
     },
     plantel16: {
         tipo: "emsad",
-        nombre: "Plantel Tlaolantongo",
+        nombre: "Tlaolantongo",
         imagenes: [
             "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
             "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
@@ -422,7 +525,7 @@ const planteles = {
     },
     plantel17: {
         tipo: "cecyte",
-        nombre: "Plantel Venustiano Carranza",
+        nombre: "Venustiano Carranza",
         imagenes: [
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
@@ -443,7 +546,7 @@ const planteles = {
     },
     plantel18: {
         tipo: "cecyte",
-        nombre: "Plantel Xicotepec",
+        nombre: "Xicotepec",
         imagenes: [
             "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
@@ -469,7 +572,7 @@ const planteles = {
 // Función para cargar el encabezado del plantel
 function cargarEncabezadoPlantel(plantel) {
     // Configurar título
-    document.getElementById('plantel-nombre').textContent = plantel.nombre || 'PLANTEL CECyTE';
+    document.getElementById('plantel-nombre').textContent = "Plantel " + plantel.nombre || 'PLANTEL CECyTE';
 
     // Configurar lema
     const lemaElement = document.getElementById('plantel-lema');
@@ -493,6 +596,60 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
+//TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
+//TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
+function renderInstalaciones(plantel) {
+    const data = {
+        plantel: plantel,
+        tipoDeGaleria: 'instalaciones'
+    };
+    const container = document.getElementById('instalaciones-content');
+    container.innerHTML = "";
+    if (!container) return;
+
+    fetch(route('galeria.get', data))
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(imagenUrl => {
+                container.innerHTML += `
+                <img class="img-fluid" src="${imagenUrl}" alt="imagen instalaciones" >
+                `
+            });
+        })
+        .catch((e) =>{
+            container.innerHTML = `<p>Error al cargar la galeria</p>`
+        });
+}
+
+function renderComunicados(plantel){
+    const container = document.getElementById('comunicados-content');
+    container.innerHTML = ''; 
+    if (usarPlaceholders){
+        plantel = placeholderData;
+    }
+
+    if(plantel.comunicados.length !== 0){
+        plantel.comunicados.forEach(comunicado => {
+            fetch(route('archivo.get', comunicado.pdf))
+                .then(archivoPdf => {
+                    container.innerHTML += `
+                    <div class="card" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${comunicado.titulo}</h5>
+                            <a href="${archivoPdf.url}" class="card-link" target="_blank">Ver comunicado</a>
+                        </div>
+                    </div>
+                    `;
+                })
+                .catch(e =>{
+                    console.error('Error en obtener pdf: ' + e);
+                })
+        });
+    }
+
+}
+
+//TODO: Decidir si se quita o se queda
 // Función para renderizar imágenes con efectos hover
 function renderImageGallery(images, containerId, galleryType) {
     const container = document.getElementById(containerId);
@@ -504,7 +661,7 @@ function renderImageGallery(images, containerId, galleryType) {
     let html = `<div class="${galleryType}-grid">`;
 
     images.forEach((img, index) => {
-        const imgUrl = route('imagenes.get', img.url);
+        const imgUrl = route('archivo.get', img.url);
         html += `
             <div class="image-wrapper">
                 <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
@@ -517,67 +674,19 @@ function renderImageGallery(images, containerId, galleryType) {
     container.innerHTML = html;
 }
 
-//todo: modo de testing
-function renderInstalaciones(instalacionesData, plantelNombre) {
-    const container = document.getElementById('instalaciones-content');
-    if (!container) return;
 
-    // Plantilla base con manejo de datos faltantes
-    let html = `
-        <div class="instalaciones-header">
-            <h2>NUESTRAS INSTALACIONES EN ${plantelNombre.toUpperCase()}</h2>
-            <p>${instalacionesData.descripcion || 'Instalaciones del plantel'}</p>
-        </div>
-    `;
-
-    // if (usarPlaceholders) {
-    //     console.log('placeholders');
-    //     instalacionesData = placeholderData[instalaciones];
-    // }
-
-    // Lista de características
-    if (instalacionesData.caracteristicas && instalacionesData.caracteristicas.length > 0) {
-        instalacionesData.caracteristicas.forEach(caracteristica => {
-            html += `<li>${caracteristica}</li>`;
-        });
-    }
-
-    // Imágenes de la galería
-    if (instalacionesData.imagenes && instalacionesData.imagenes.length > 0) {
-        instalacionesData.imagenes.forEach(img => {
-            const imgUrl = route('imagenes.get', img.url);
-            html += `
-                <div class="imagen-instalacion" data-categoria="${img.area.toLowerCase()}">
-                    <img src="${imgUrl}" alt="${img.titulo}">
-                    <div class="info-imagen">
-                        <p>${img.titulo}</p>
-                        <span class="badge-categoria">${img.area}</span>
-                    </div>
-                </div>
-            `;
-        });
-    } else {
-        html += '<p class="mensaje-vacio">Cargando imágenes de las instalaciones...</p>';
-    }
-
-    html += `
-            </div>
-        </div>
-    `;
-
-    container.innerHTML = html;
-}
 
 // Función para configurar el carrusel de imágenes
-function setupCarousel(images, carouselId, indicatorsClass) {
-    const carouselInner = document.querySelector(`${carouselId} .carousel-inner`);
-    const indicators = document.querySelector(indicatorsClass);
+function setupCarousel(images, carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const indicators = carousel.querySelector('.carousel-indicators');
 
     carouselInner.innerHTML = '';
     indicators.innerHTML = '';
 
     images.forEach((img, index) => {
-        const imgUrl = route('imagenes.get', img);
+        const imgUrl = route('archivo.get', img);
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `
@@ -594,57 +703,54 @@ function setupCarousel(images, carouselId, indicatorsClass) {
         indicator.setAttribute('aria-label', `Slide ${index + 1}`);
         indicators.appendChild(indicator);
     });
-
-    if (images.length > 0) {
-        new bootstrap.Carousel(document.querySelector(carouselId));
-    }
 }
 
 // Función para renderizar los horarios
-function renderHorarios(horariosData) {
-    const horariosContainer = document.getElementById('horarios-container');
-    if (!horariosContainer || !horariosData) return;
+//TODO: ver si esto se quita o se queda
+// function renderHorarios(horariosData) {
+//     const horariosContainer = document.getElementById('horarios-container');
+//     if (!horariosContainer || !horariosData) return;
 
-    const grupos = Object.entries(horariosData.grupos);
-    const mitad = Math.ceil(grupos.length / 2);
+//     const grupos = Object.entries(horariosData.grupos);
+//     const mitad = Math.ceil(grupos.length / 2);
 
-    let html = `
-        <p class="text-center mb-3">CICLO ESCOLAR ${horariosData.cicloEscolar}</p>
-        <div class="table-responsive">
-            <table class="table table-borderless text-center">
-                <tbody>
-                    <tr>
-                        ${grupos.slice(0, mitad).map(([grupo, archivo]) => `
-                            <td>
-                                <a href="${archivo}"
-                                   class="btn btn-horario"
-                                   target="_blank"
-                                   download>
-                                    ${grupo}
-                                </a>
-                            </td>
-                        `).join('')}
-                    </tr>
-                    ${mitad < grupos.length ? `
-                    <tr>
-                        ${grupos.slice(mitad).map(([grupo, archivo]) => `
-                            <td>
-                                <a href="${archivo}"
-                                   class="btn btn-horario"
-                                   target="_blank"
-                                   download>
-                                    ${grupo}
-                                </a>
-                            </td>
-                        `).join('')}
-                    </tr>` : ''}
-                </tbody>
-            </table>
-        </div>
-    `;
+//     let html = `
+//         <p class="text-center mb-3">CICLO ESCOLAR ${horariosData.cicloEscolar}</p>
+//         <div class="table-responsive">
+//             <table class="table table-borderless text-center">
+//                 <tbody>
+//                     <tr>
+//                         ${grupos.slice(0, mitad).map(([grupo, archivo]) => `
+//                             <td>
+//                                 <a href="${archivo}"
+//                                    class="btn btn-horario"
+//                                    target="_blank"
+//                                    download>
+//                                     ${grupo}
+//                                 </a>
+//                             </td>
+//                         `).join('')}
+//                     </tr>
+//                     ${mitad < grupos.length ? `
+//                     <tr>
+//                         ${grupos.slice(mitad).map(([grupo, archivo]) => `
+//                             <td>
+//                                 <a href="${archivo}"
+//                                    class="btn btn-horario"
+//                                    target="_blank"
+//                                    download>
+//                                     ${grupo}
+//                                 </a>
+//                             </td>
+//                         `).join('')}
+//                     </tr>` : ''}
+//                 </tbody>
+//             </table>
+//         </div>
+//     `;
 
-    horariosContainer.innerHTML = html;
-}
+//     horariosContainer.innerHTML = html;
+// }
 
 // Cargar carreras ofrecidas en el plantel
 function renderCarreras(id, isLocal) {
@@ -687,7 +793,168 @@ function renderCarreras(id, isLocal) {
         });
 }
 
-//Todo: funcion test
+function renderVinculacion(plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+    //Ofertas Laborales
+    const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-flex');
+    //Limpiar el HTML
+    containerOfertasLab.innerHTML = ''; 
+    //Randerizar informacion
+    plantel.vinculacion.ofertasDeEmpleo.forEach( oferta => {
+        fetch(route('archivo.get',oferta.imagen))
+            .then( imagen => {
+                containerOfertasLab.innerHTML += 
+                `
+                <div class="card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${oferta.empleador}</h5>
+                        <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+                    </div>
+                </div>
+                `; 
+            });
+    });
+    
+    //Servicio social
+    const containerServicio = document.getElementById('servicioSocial').querySelector('.card-flex');
+    //Limpiar HTML
+    containerServicio.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.servicioSocial.forEach( opcion => {
+        containerServicio.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                <p>${opcion.descripcion}</p>
+                <p><strong>Correo: </strong> ${opcion.correo}</p>
+                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    // Practicas profesionales
+    const containerPracticas = document.getElementById('practicasProfesionales').querySelector('.card-flex');
+    //Limpiar HTML
+    containerPracticas.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.practicasProfesionales.forEach( opcion => {
+        containerPracticas.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                <p>${opcion.descripcion}</p>
+                <p><strong>Correo: </strong> ${opcion.correo}</p>
+                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    // redes sociales
+    const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
+    //Limpiar HTML
+    containerRedes.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.redesSociales.forEach( red => {
+        containerRedes.innerHTML += `
+           <div class="card" style="min-width: fit-content; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
+                </div>
+            </div> 
+        `;
+    });
+
+    // seguimiento de egresados
+    const containerEgresados = document.getElementById('segEgresados').querySelector('.card-flex');
+    //Limpiar HTML
+    containerEgresados.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
+        containerEgresados.innerHTML += `
+           <div class="card" style="max-width: 33%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${egresado.nombreEgresado}</h5>
+                    <h6 class="card-subtitle">${egresado.carrera}</h6>
+                    <p class="card-text">${egresado.testimonio}</p>
+                </div>
+            </div> 
+        `;
+    });
+
+    // sistema dual
+    const containerSistDial = document.getElementById('sistDual').querySelector('.card-flex');
+    //Limpiar HTML
+    containerSistDial.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.sistemaDual.forEach( banner => {
+        fetch(route('archivo.get',banner))
+            .then(banner => {
+                containerSistDial.innerHTML += `
+                   <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                `;
+            });
+    });
+}
+
+function renderExtEducativa(plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+
+    const extensionContainer = document.getElementById('extension-content');
+    //Limpiar HTML
+    extensionContainer.innerHTML = '';
+
+    plantel.extEducativa.forEach( banner => {
+        fetch(route('archivo.get', banner))
+            .then( banner => {
+                extensionContainer.innerHTML += `
+                    <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                `;
+            });
+    });
+}
+
+function renderControlEscolar (plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+
+    // Avisos
+    const containerAvisos = document.getElementById('avisos').querySelector('.card-flex');
+    //Limpiar HTML
+    containerAvisos.innerHTML = '';
+    //Randerizar informacion
+    plantel.controlEscolar.avisos.forEach( aviso => {
+        containerAvisos.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
+                <p class="card-text">${aviso.cuerpo}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    // Horarios
+    const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
+    //Limpiar HTML
+    containerHorarios.innerHTML = '';
+    //Randerizar informacion
+    plantel.controlEscolar.horarios.forEach( horario => {
+        fetch(route('archivo.get', horario.pdf))
+            .then(horarioPdf => {
+                containerHorarios.innerHTML += `
+                <div class="card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${horario.grupo}</h5>
+                        <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+                    </div>
+                </div>
+                `;
+            });
+    });
+}
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -698,40 +965,39 @@ function cargarDetallePlantel() {
         return;
     }
 
+    // Configurar carrusel inicial
+    setupCarousel(plantel.imagenes, 'plantel-carousel');
+    
     // Cargar encabezado
     cargarEncabezadoPlantel(plantel);
 
-    // Configurar secciones
-    setupCarousel(plantel.imagenes, '#plantel-carousel', '.carousel-indicators');
-    renderHorarios(plantel.horarios);
+    // Renderizar galeria instalaciones
+    renderInstalaciones(plantel.nombre);
 
-    // Renderizar secciones de imágenes con efectos hover
-    if(usarPlaceholders){
-        console.log('instalaciones placeholder');
-        renderInstalaciones(placeholderData.instalaciones, plantel.nombre);
-    }else if (plantel.instalaciones) {
-        renderInstalaciones(plantel.instalaciones, plantel.nombre);
-    } else {
-        document.getElementById('instalaciones-content').innerHTML = `
-            <div class="instalaciones-header">
-                <h2>NUESTRAS INSTALACIONES</h2>
-                <p>Información sobre las instalaciones no disponible actualmente.</p>
-            </div>
-        `;
-    }
+    //Renderizar comunicados
+    renderComunicados(plantel);
 
-    if(usarPlaceholders){
-        console.log('galeria placeholder');
-        renderImageGallery(placeholderData.comunidad.galeria, 'comunidad-content', 'comunidad');
-    } else if (plantel.comunidad?.galeria) {
-        renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
+    //Renderizar carrusel de comunidad
+    //TEMP: agregar logica de verdad al if de abajo
+    if (plantel.comunidad?.galeria || usarPlaceholders) {
+        setupCarousel(placeholderData.comunidad, 'comunidad-carousel');
+        // renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
         document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
     }
-
-    //Cargar carreras
+    
+    //Cargar carreras / oferta educativa
     const numPlantel = plantelId.replace("plantel", "");
     renderCarreras(numPlantel, isLocal);
+
+    //Cargar apartados de vinculacion
+    renderVinculacion(plantel);
+
+    //Cargar banners de Ext. Educativa
+    renderExtEducativa(plantel);
+
+    //Cargar Control escolar
+    renderControlEscolar(plantel);
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
@@ -744,11 +1010,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.plantel-header')) {
         cargarDetallePlantel();
     }
-
-    // Inicializar componentes de Bootstrap (acordeon)
-    [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => {
-        new bootstrap.Tooltip(el);
-    });
 });
 
 // Hacer los datos accesibles globalmente

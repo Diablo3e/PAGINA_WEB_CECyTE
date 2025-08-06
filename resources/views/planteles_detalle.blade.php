@@ -11,7 +11,7 @@
 <div class="container mt-4">
     <!-- Encabezado principal estilo CECYTE -->
     <div class="card-body">
-        <!-- Carrusel de fotos -->
+        <!-- Carrusel de fotos inicial -->
         <div id="plantel-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators"></div>
             <div class="carousel-inner rounded" id="carousel-inner"></div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="plantel-header text-center">
-        <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL CECYTE CHOLULA</h1>
+        <h1 class="mb-3 plantel-title" id="plantel-nombre">PLANTEL tipo nombrePlantel</h1>
         <br>
         <span id="plantel-tipo-badge" class="badge fs-6 bg-primary">
             CECYTE
@@ -44,10 +44,23 @@
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">NUESTRAS INSTALACIONES</h4>
+            <!-- todo: galeria -->
         </div>
         <div class="card-body" id="instalaciones-content">
             <!-- Contenido dinámico se cargará aquí desde JavaScript -->
             <div class="loading-text">Cargando información de las instalaciones...</div>
+        </div>
+    </div>
+
+    <!-- todo: agregar "comunicados oficiales" -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">COMUNICADOS OFICIALES</h4>
+            <!-- todo: galeria -->
+        </div>
+        <div class="card-body" id="comunicados-content">
+            <!-- Contenido dinámico se cargará aquí desde JavaScript -->
+            <div class="loading-text">Cargando comunicados...</div>
         </div>
     </div>
 
@@ -57,23 +70,18 @@
             <h4 class="mb-0">COMUNIDAD CECYTE</h4>
         </div>
         <div class="card-body" id="comunidad-content">
-            <div class="loading-text">Cargando información de la comunidad...</div>
-        </div>
-    </div>
-
-    <!-- Sección: Horarios -->
-    <div class="card section-card">
-        <div class="section-header">
-            <h4 class="mb-0">HORARIOS DEL SEMESTRE B</h4>
-        </div>
-        <div class="card-body" id="horarios-container">
-            <p class="text-center mb-3">CICLO ESCOLAR 2024-2025</p>
-            <div class="table-responsive">
-                <table class="table table-borderless text-center">
-                    <tbody>
-                        <!-- Contenido dinámico de horarios -->
-                    </tbody>
-                </table>
+            <!-- Carrusel de fotos de comunidad -->
+            <div id="comunidad-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner rounded" id="carousel-inner"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#comunidad-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#comunidad-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
@@ -81,7 +89,7 @@
     <!-- Sección: Área Académica -->
     <div class="card section-card">
         <div class="section-header">
-            <h4 class="mb-0">ÁREA ACADÉMICA</h4>
+            <h4 class="mb-0">OFERTA EDUCATIVA</h4>
         </div>
         <div class="card-body">
             <div class="accordion" id="carrerasAcordeon">
@@ -109,7 +117,109 @@
             <h4 class="mb-0">VINCULACIÓN</h4>
         </div>
         <div class="card-body" id="vinculacion-content">
-            <p>Cargando información de vinculación...</p>
+            <!-- Oferta Laboral -->
+            <div class="accordion" id="acordionOferta">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ofertaLaboral" aria-expanded="true" aria-controls="ofertaLaboral">
+                            Ofertas de Empleo
+                        </button>
+                    </h2>
+                    <div id="ofertaLaboral" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Servicio social -->
+            <div class="accordion" id="acordionServicio">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#servicioSocial" aria-expanded="true" aria-controls="servicioSocial">
+                            Servicio social
+                        </button>
+                    </h2>
+                    <div id="servicioSocial" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Practicas profesionales -->
+            <div class="accordion" id="acordionPracticas">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#practicasProfesionales" aria-expanded="true" aria-controls="practicasProfesionales">
+                            Prácticas Profesionales
+                        </button>
+                    </h2>
+                    <div id="practicasProfesionales" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Redes sociales -->
+            <div class="accordion" id="acordionRedes">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                            Redes Sociales
+                        </button>
+                    </h2>
+                    <div id="redesSociales" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Seguimiento de egresados -->
+            <div class="accordion" id="acordionEgresados">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#segEgresados" aria-expanded="true" aria-controls="segEgresados">
+                            Seguimiento de Egresados
+                        </button>
+                    </h2>
+                    <div id="segEgresados" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sistema dual -->
+            <div class="accordion" id="acordionDual">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sistDual" aria-expanded="true" aria-controls="sistDual">
+                            Sistema Dual
+                        </button>
+                    </h2>
+                    <div id="sistDual" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -123,13 +233,48 @@
         </div>
     </div>
 
-    <!-- Sección en construcción -->
-    <div class="card section-card d-none" id="en-construccion">
+    <!-- Seccion: Control escolar -->
+    <div class="card section-card">
         <div class="section-header">
-            <h4 class="mb-0">EN CONSTRUCCIÓN</h4>
+            <h4 class="mb-0">CONTROL ESCOLAR</h4>
         </div>
-        <div class="card-body en-construccion">
-            <p>Esta sección está en desarrollo y estará disponible pronto.</p>
+        <div class="card-body" id="ctrl-escolar-content">
+            <!-- Avisos -->
+            <div class="accordion" id="acordionAvisos">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                            Avisos
+                        </button>
+                    </h2>
+                    <div id="avisos" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!-- Horarios   -->
+            <div class="accordion" id="acordionHorarios">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#horarios" aria-expanded="true" aria-controls="horarios">
+                            Horarios
+                        </button>
+                    </h2>
+                    <div id="horarios" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <!-- <p>Cargando información de control escolar</p> -->
         </div>
     </div>
 
