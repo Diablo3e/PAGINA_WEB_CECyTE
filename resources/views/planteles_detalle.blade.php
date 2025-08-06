@@ -239,7 +239,42 @@
             <h4 class="mb-0">CONTROL ESCOLAR</h4>
         </div>
         <div class="card-body" id="ctrl-escolar-content">
-            <p>Cargando información de control escolar</p>
+            <!-- Avisos -->
+            <div class="accordion" id="acordionAvisos">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                            Avisos
+                        </button>
+                    </h2>
+                    <div id="avisos" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!-- Horarios   -->
+            <div class="accordion" id="acordionHorarios">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#horarios" aria-expanded="true" aria-controls="horarios">
+                            Horarios
+                        </button>
+                    </h2>
+                    <div id="horarios" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <!-- <p>Cargando información de control escolar</p> -->
         </div>
     </div>
 

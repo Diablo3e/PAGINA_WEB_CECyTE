@@ -103,10 +103,11 @@ const placeholderData = {
             "/imagenes/placeholderBanner.png",
         ],
     },
-    extEducativa:{
-         nombreEvento1: "path/al/anuncio/de/la/actividad",
-         nombreEvento2: "path/al/anuncio/de/la/actividad"
-    },
+    extEducativa:[
+        "/imagenes/placeholderBanner.png",
+        "/imagenes/placeholderBanner.png",
+        "/imagenes/placeholderBanner.png",
+    ],
     controlEscolar: {
         avisos:[
             {
@@ -118,10 +119,20 @@ const placeholderData = {
                 cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint obcaecati eum delectus neque aut? Molestias, vitae ut dolores quam nihil nostrum quos nisi voluptas minus sit sequi at eos sed, tempora reiciendis beatae doloremque aut fugiat debitis ad aliquam, eveniet labore. Et, nisi. Saepe."
             },
         ],
-        horarios:{
-            grupoEjemplo1: "path/a/el/pdf/horario",
-            grupoEjemplo2: "path/a/el/pdf/horario"
-        },
+        horarios:[
+            {
+                grupo: "Ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+            {
+                grupo: "Segundo ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+            {
+                grupo: "Tercer ejemplo de grupo",
+                pdf: "/pdfs/placeholder/pdf.pdf"
+            },
+        ],
     }
 };
 
@@ -888,6 +899,61 @@ function renderVinculacion(plantel){
     });
 }
 
+function renderExtEducativa(plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+
+    const extensionContainer = document.getElementById('extension-content');
+    //Limpiar HTML
+    extensionContainer.innerHTML = '';
+
+    plantel.extEducativa.forEach( banner => {
+        fetch(route('archivo.get', banner))
+            .then( banner => {
+                extensionContainer.innerHTML += `
+                    <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                `;
+            });
+    });
+}
+
+function renderControlEscolar (plantel){
+    if (usarPlaceholders) plantel = placeholderData;
+
+    // Avisos
+    const containerAvisos = document.getElementById('avisos').querySelector('.card-flex');
+    //Limpiar HTML
+    containerAvisos.innerHTML = '';
+    //Randerizar informacion
+    plantel.controlEscolar.avisos.forEach( aviso => {
+        containerAvisos.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
+                <p class="card-text">${aviso.cuerpo}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    // Horarios
+    const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
+    //Limpiar HTML
+    containerHorarios.innerHTML = '';
+    //Randerizar informacion
+    plantel.controlEscolar.horarios.forEach( horario => {
+        fetch(route('archivo.get', horario.pdf))
+            .then(horarioPdf => {
+                containerHorarios.innerHTML += `
+                <div class="card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${horario.grupo}</h5>
+                        <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+                    </div>
+                </div>
+                `;
+            });
+    });
+}
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -926,6 +992,11 @@ function cargarDetallePlantel() {
     //Cargar apartados de vinculacion
     renderVinculacion(plantel);
 
+    //Cargar banners de Ext. Educativa
+    renderExtEducativa(plantel);
+
+    //Cargar Control escolar
+    renderControlEscolar(plantel);
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
