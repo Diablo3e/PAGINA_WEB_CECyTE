@@ -118,7 +118,7 @@
         </div>
         <div class="card-body" id="vinculacion-content">
             <!-- Oferta Laboral -->
-            <div class="accordion" id="acordionVinculacion">
+            <div class="accordion" id="acordionOferta">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ofertaLaboral" aria-expanded="true" aria-controls="ofertaLaboral">
@@ -135,7 +135,7 @@
                 </div>
             </div>
             <!-- Servicio social -->
-            <div class="accordion" id="acordionVinculacion">
+            <div class="accordion" id="acordionServicio">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#servicioSocial" aria-expanded="true" aria-controls="servicioSocial">
@@ -145,22 +145,51 @@
                     <div id="servicioSocial" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="card-flex">
-                                <div class="card-body" style="max-width: 50%; min-height: fit-content">
-                                    <div class="card">
-                                        <h5 class="card-title">Institucion</h5>
-                                        <p><strong>Descripcion,</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem perspiciatis, eveniet nihil sunt ut?</p>
-                                        <p><strong>Correo: </strong> ejemplo@correo.com</p>
-                                        <p><strong>Telefono: </strong> 5926568945</p>
-                                        <p><strong>Direección:</strong> 59 oriente 4985</p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            <!-- Practicas profesionales -->
+            <div class="accordion" id="acordionPracticas">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#practicasProfesionales" aria-expanded="true" aria-controls="practicasProfesionales">
+                            Prácticas Profesionales
+                        </button>
+                    </h2>
+                    <div id="practicasProfesionales" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Redes sociales -->
+            <div class="accordion" id="acordionRedes">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                            Redes Sociales
+                        </button>
+                    </h2>
+                    <div id="redesSociales" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="card-flex">
+                                <div class="card" style="min-width: fit-content; min-height: fit-content">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> <a href="#" style="text-decoration: none;">Red social</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- <p>Cargando información de vinculación...</p> -->
         </div>
     </div>

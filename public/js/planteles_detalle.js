@@ -69,10 +69,20 @@ const placeholderData = {
                 direccion: "Calle de ejemplo 8965"
             }
         ],
-        redesSociales: {
-            nombreRed: "https//:linkALared.com",
-            nombreRed2: "https//:linkALared.com",
-        },
+        redesSociales: [
+            {
+                nombre: 'instagram',
+                link: 'https://www.instagram.com'
+            },
+            {
+                nombre: 'facebook',
+                link: 'https://www.facebook.com/'
+            },
+            {
+                nombre: 'twitter',
+                link: 'https://x.com'
+            }
+        ],
         seguimientoEgresados: [
             {
                 nombreEgresado: "Juan Perez",
@@ -810,6 +820,43 @@ function renderVinculacion(plantel){
         </div>
         `;
     });
+
+    // Practicas profesionales
+    const containerPracticas = document.getElementById('practicasProfesionales').querySelector('.card-flex');
+    //Limpiar HTML
+    containerPracticas.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.practicasProfesionales.forEach( opcion => {
+        containerPracticas.innerHTML += `
+        <div class="card" style="max-width: 50%; min-height: fit-content">
+            <div class="card-body">
+                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                <p>${opcion.descripcion}</p>
+                <p><strong>Correo: </strong> ${opcion.correo}</p>
+                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    // redes sociales
+    const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
+    //Limpiar HTML
+    containerRedes.innerHTML = '';
+    //Randerizar informacion
+    plantel.vinculacion.redesSociales.forEach( red => {
+        containerRedes.innerHTML += `
+           <div class="card" style="min-width: fit-content; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
+                </div>
+            </div> 
+        `;
+    });
+
+    // seguimiento de egresados
+    // sistema dual
 }
 
 // Función principal para cargar el detalle del plantel
