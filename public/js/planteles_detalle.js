@@ -9,6 +9,20 @@ if (window.location.hostname === "localhost") isLocal = true;
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
 const usarPlaceholders = true;
 const placeholderData = {
+    personal: [
+        {
+            foto: "/imagenes/womanPlaceholder.jpg",
+            puesto: "ejemploPuesto"
+        },
+        {
+            foto: "/imagenes/womanPlaceholder.jpg",
+            puesto: "ejemploPuesto2"
+        },
+        {
+            foto: "/imagenes/manPlaceholder.jpg",
+            puesto: "ejemploPuesto3"
+        },
+    ],
     comunicados: [
         {
             titulo: "Titulo de ejemplo 1",
@@ -620,6 +634,31 @@ function renderInstalaciones(plantel) {
         });
 }
 
+function renderPersonal(plantel){
+    const container = document.getElementById('personal-content').querySelector('.card-flex');
+    container.innerHTML = ''; 
+    if (usarPlaceholders){
+        plantel = placeholderData;
+    }
+
+    plantel.personal.forEach(persona => {
+        fetch(route('archivo.get', persona.foto))
+            .then(imagenPersonal => {
+                container.innerHTML += `
+                <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
+                    <div class="card-body">
+                        <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                        <h5 class="card-title">${persona.puesto}</h5>
+                    </div>
+                </div>
+                `;
+            })
+            .catch(e =>{
+                console.error('Error en obtener foto de personal: ' + e);
+            })
+    });
+}
+
 function renderComunicados(plantel){
     const container = document.getElementById('comunicados-content');
     container.innerHTML = ''; 
@@ -632,7 +671,7 @@ function renderComunicados(plantel){
             fetch(route('archivo.get', comunicado.pdf))
                 .then(archivoPdf => {
                     container.innerHTML += `
-                    <div class="card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
                         <div class="card-body">
                             <h5 class="card-title">${comunicado.titulo}</h5>
                             <a href="${archivoPdf.url}" class="card-link" target="_blank">Ver comunicado</a>
@@ -804,7 +843,7 @@ function renderVinculacion(plantel){
             .then( imagen => {
                 containerOfertasLab.innerHTML += 
                 `
-                <div class="card" style="min-width: 20%; min-height: fit-content">
+                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
                     <div class="card-body">
                         <h5 class="card-title">${oferta.empleador}</h5>
                         <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
@@ -821,7 +860,7 @@ function renderVinculacion(plantel){
     //Randerizar informacion
     plantel.vinculacion.servicioSocial.forEach( opcion => {
         containerServicio.innerHTML += `
-        <div class="card" style="max-width: 50%; min-height: fit-content">
+        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
             <div class="card-body">
                 <h5 class="card-title">${opcion.nombreInstitucion}</h5>
                 <p>${opcion.descripcion}</p>
@@ -840,7 +879,7 @@ function renderVinculacion(plantel){
     //Randerizar informacion
     plantel.vinculacion.practicasProfesionales.forEach( opcion => {
         containerPracticas.innerHTML += `
-        <div class="card" style="max-width: 50%; min-height: fit-content">
+        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
             <div class="card-body">
                 <h5 class="card-title">${opcion.nombreInstitucion}</h5>
                 <p>${opcion.descripcion}</p>
@@ -859,7 +898,7 @@ function renderVinculacion(plantel){
     //Randerizar informacion
     plantel.vinculacion.redesSociales.forEach( red => {
         containerRedes.innerHTML += `
-           <div class="card" style="min-width: fit-content; min-height: fit-content">
+           <div class="card no-hover" style="min-width: fit-content; min-height: fit-content">
                 <div class="card-body">
                     <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
                 </div>
@@ -874,7 +913,7 @@ function renderVinculacion(plantel){
     //Randerizar informacion
     plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
         containerEgresados.innerHTML += `
-           <div class="card" style="max-width: 33%; min-height: fit-content">
+           <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
                 <div class="card-body">
                     <h5 class="card-title">${egresado.nombreEgresado}</h5>
                     <h6 class="card-subtitle">${egresado.carrera}</h6>
@@ -926,7 +965,7 @@ function renderControlEscolar (plantel){
     //Randerizar informacion
     plantel.controlEscolar.avisos.forEach( aviso => {
         containerAvisos.innerHTML += `
-        <div class="card" style="max-width: 50%; min-height: fit-content">
+        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
             <div class="card-body">
                 <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
                 <p class="card-text">${aviso.cuerpo}</p>
@@ -944,7 +983,7 @@ function renderControlEscolar (plantel){
         fetch(route('archivo.get', horario.pdf))
             .then(horarioPdf => {
                 containerHorarios.innerHTML += `
-                <div class="card" style="min-width: 20%; min-height: fit-content">
+                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
                     <div class="card-body">
                         <h5 class="card-title">${horario.grupo}</h5>
                         <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
@@ -972,6 +1011,9 @@ function cargarDetallePlantel() {
 
     // Renderizar galeria instalaciones
     renderInstalaciones(plantel.nombre);
+
+    // Randerizar personal
+    renderPersonal(plantel);
 
     //Renderizar comunicados
     renderComunicados(plantel);
