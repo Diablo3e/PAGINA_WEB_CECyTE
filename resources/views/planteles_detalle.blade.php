@@ -52,7 +52,19 @@
         </div>
     </div>
 
-    <!-- todo: agregar "comunicados oficiales" -->
+    <!-- Sección: Personal -->
+    <div class="card section-card">
+        <div class="section-header">
+            <h4 class="mb-0">EQUIPO RESPONSABLE</h4>
+            <!-- todo: galeria -->
+        </div>
+        <div class="card-body" id="personal-content">
+            <div class="card-flex">
+
+            </div>
+        </div>
+    </div>
+
     <div class="card section-card">
         <div class="section-header">
             <h4 class="mb-0">COMUNICADOS OFICIALES</h4>
@@ -214,7 +226,7 @@
                     <div id="sistDual" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="card-flex">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -255,7 +267,7 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
             <!-- Horarios   -->
             <div class="accordion" id="acordionHorarios">
                 <div class="accordion-item">
@@ -272,7 +284,7 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
 
             <!-- <p>Cargando información de control escolar</p> -->
         </div>
