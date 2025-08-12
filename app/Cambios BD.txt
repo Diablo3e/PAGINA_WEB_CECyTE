@@ -1,3 +1,58 @@
 Se cambiaron las entradas de la tabla Planteles para que siga el orden de los array encontrados en \public\js\planteles.js, en \Controllers\PlantelesController.php y en \public\js\planteles_detalle.js
 Se agrego la columna email en tabla planteles
 Se agrego Bachillerato general a la tabla de Carreras
+
+Añadidas las carreras de:
+    Inteligencia artificial
+    logistica
+    e-commerce
+    gestion e innovacion
+    sistemas de software embebido
+    comercio internacional y aduanas
+    ciberseguridad
+    semicondictores y microelectronica
+Añadido el plantel Cuautempan
+Añadida la columna de activa en planteles_carreras para asegurar que solo carreras activas se muestren en la pagina
+Añadidas las siguientes entradas en planteles_carreras segun lo especificado:
+    activas:
+        Inteligencia Artificial*:
+        Chignahuapan
+        Magdalena
+        Tecamachalco
+        Tlacotepec
+        Cholula
+        Huejotzingo
+
+        Logística*:
+        Chignahuapan
+        Cuautempan
+        Huejotzingo
+        Guadalupe Victoria
+
+        Mantenimiento Automotriz:
+        Xicotepec
+    inactivas:
+        Inteligencia Artificial*:
+        Venustiano Carranza
+
+        E-Commerce
+        Chignahuapan
+        Guadalupe Victoria
+        Tecamachalco
+
+        Gestión e Innovación Turística
+        Chignahuapan
+
+        Sistemas de Software Embebido
+        Guadalupe Victoria
+
+        Comercio Internacional y Aduanas*
+        Huejotzingo
+        Tecamachalco
+
+        Ciberseguridad*
+        Tehuitzingo
+        Xicotepec
+
+        Semiconductores y microelectrónica*
+        Magdalena
