@@ -580,6 +580,16 @@ const planteles = {
             longitud: -97.95657137653139
         },
     },
+    plantel19: {
+        tipo: "cecyte",
+        nombre: "Cuautempan",
+        imagenes: [
+            "/imagenes/placeholder.png",
+            "/imagenes/placeholder.png",
+            "/imagenes/placeholder.png",
+            "/imagenes/placeholder.png",
+        ]
+    },
 
 };
 
@@ -999,6 +1009,7 @@ function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
     const plantelId = pathParts[pathParts.length - 1];
     const plantel = planteles[plantelId];
+    console.log(plantel + "     plantelID  " + plantelId);
     if (!plantel) {
         window.location.href = '/planteles';
         return;

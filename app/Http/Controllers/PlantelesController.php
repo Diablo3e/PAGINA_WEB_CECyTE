@@ -115,6 +115,10 @@ class PlantelesController extends Controller
             'plantel18' => [
                 'tipo' => "cecyte",
                 'nombre' => "Plantel Xicotepec",
+            ],
+            'plantel19' => [
+                'tipo' => "cecyte",
+                'nombre' => "Plantel Cuautempan",
             ]
         ];
     }
