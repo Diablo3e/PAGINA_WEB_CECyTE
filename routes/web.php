@@ -189,5 +189,5 @@ Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name(
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
 
 Route::get('/formulario-datos', [FormularioController::class, 'getFormularioDatos']);
-Route::get('/planteles/{id}/carreras', [FormularioController::class, 'obtenerCarreras'])->name('planteles.carreras');
+Route::get('/planteles/{id}/carreras', [PlantelesController::class, 'carrerasDePlantel'])->name('planteles.carreras');
 

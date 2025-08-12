@@ -70,6 +70,7 @@ class FormularioController extends Controller
         $carreras = DB::table('plantel_carrera')
             ->join('carreras', 'plantel_carrera.carrera_id', '=', 'carreras.id')
             ->where('plantel_carrera.plantel_id', $id)
+            ->where('activa',1)
             ->select('carreras.id', 'carreras.nombre')
             ->get();
 
