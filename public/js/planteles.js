@@ -73,6 +73,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Xicotepec",
     },
+    plantel19: {
+        tipo: "cecyte",
+        nombre: "Cuautempan",
+    },
 
 };
 
