@@ -7,6 +7,7 @@ let isLocal = false;
 if (window.location.hostname === "localhost") isLocal = true;
 
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
+//TODO: Revisar que mayus y minus en los links coincidan con los nombres, que si no no funciona el sitio de hosting
 const usarPlaceholders = true;
 const placeholderData = {
     personal: [
@@ -452,10 +453,10 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Tecamachalco",
         imagenes: [
-            "/imagenes/TECAMACHALCO/instalaciones/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/instalaciones/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/instalaciones/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
-            "/imagenes/TECAMACHALCO/instalaciones/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/TALLER DE PRIN_2 - PLANTEL TECAMACHALCO.jpg",
+            "/imagenes/tecamachalco/instalaciones/TALLER DE PROGRAMACIÓN 2_3- PLANTEL TECAMACHALCO.jpg",
         ],
         direccion: {
             calle: "KM. Calle 8 Ote 1",
@@ -641,22 +642,26 @@ function renderPersonal(plantel){
         plantel = placeholderData;
     }
 
-    plantel.personal.forEach(persona => {
-        fetch(route('archivo.get', persona.foto))
-            .then(imagenPersonal => {
-                container.innerHTML += `
-                <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
-                    <div class="card-body">
-                        <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
-                        <h5 class="card-title">${persona.puesto}</h5>
+    if(plantel.personal.length !== 0){
+        plantel.personal.forEach(persona => {
+            fetch(route('archivo.get', persona.foto))
+                .then(imagenPersonal => {
+                    container.innerHTML += `
+                    <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
+                        <div class="card-body">
+                            <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                            <h5 class="card-title">${persona.puesto}</h5>
+                        </div>
                     </div>
-                </div>
-                `;
-            })
-            .catch(e =>{
-                console.error('Error en obtener foto de personal: ' + e);
-            })
-    });
+                    `;
+                })
+                .catch(e =>{
+                    console.error('Error en obtener foto de personal: ' + e);
+                })
+        });
+    }else{
+        ocultarSeccion(container, ".section-card");
+    }
 }
 
 function renderComunicados(plantel){
@@ -683,6 +688,8 @@ function renderComunicados(plantel){
                     console.error('Error en obtener pdf: ' + e);
                 })
         });
+    }else{
+        ocultarSeccion(container, ".section-card");
     }
 
 }
@@ -715,32 +722,36 @@ function renderImageGallery(images, containerId, galleryType) {
 
 
 // Función para configurar el carrusel de imágenes
+//TODO: modificar esto para desaparecer si no hay nada
 function setupCarousel(images, carouselId) {
     const carousel = document.getElementById(carouselId);
     const carouselInner = carousel.querySelector('.carousel-inner');
     const indicators = carousel.querySelector('.carousel-indicators');
-
     carouselInner.innerHTML = '';
     indicators.innerHTML = '';
 
-    images.forEach((img, index) => {
-        const imgUrl = route('archivo.get', img);
-        const item = document.createElement('div');
-        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-        item.innerHTML = `
-            <img src="${imgUrl}" class="carousel-img d-block w-100" alt="Imagen del plantel"
-                 style="height: 400px; object-fit: cover;">
-        `;
-        carouselInner.appendChild(item);
-
-        const indicator = document.createElement('button');
-        indicator.type = 'button';
-        indicator.dataset.bsTarget = carouselId;
-        indicator.dataset.bsSlideTo = index;
-        indicator.className = index === 0 ? 'active' : '';
-        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
-        indicators.appendChild(indicator);
-    });
+    if (images.length !== 0){
+        images.forEach((img, index) => {
+            const imgUrl = route('archivo.get', img);
+            const item = document.createElement('div');
+            item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+            item.innerHTML = `
+                <img src="${imgUrl}" class="carousel-img d-block w-100" alt="Imagen del plantel"
+                     style="height: 400px; object-fit: cover;">
+            `;
+            carouselInner.appendChild(item);
+    
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.dataset.bsTarget = carouselId;
+            indicator.dataset.bsSlideTo = index;
+            indicator.className = index === 0 ? 'active' : '';
+            indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+            indicators.appendChild(indicator);
+        });
+    }else{
+        ocultarSeccion(carousel, ".section-card");
+    }
 }
 
 // Función para renderizar los horarios
@@ -832,110 +843,143 @@ function renderCarreras(id, isLocal) {
 }
 
 function renderVinculacion(plantel){
+    let hayContenido = false;
     if (usarPlaceholders) plantel = placeholderData;
     //Ofertas Laborales
     const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-flex');
     //Limpiar el HTML
     containerOfertasLab.innerHTML = ''; 
     //Randerizar informacion
-    plantel.vinculacion.ofertasDeEmpleo.forEach( oferta => {
-        fetch(route('archivo.get',oferta.imagen))
-            .then( imagen => {
-                containerOfertasLab.innerHTML += 
-                `
-                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${oferta.empleador}</h5>
-                        <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+    if (plantel.vinculacion.ofertasDeEmpleo.length !== 0){
+        plantel.vinculacion.ofertasDeEmpleo.forEach( oferta => {
+            fetch(route('archivo.get',oferta.imagen))
+                .then( imagen => {
+                    containerOfertasLab.innerHTML += 
+                    `
+                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${oferta.empleador}</h5>
+                            <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+                        </div>
                     </div>
-                </div>
-                `; 
-            });
-    });
+                    `; 
+                });
+        });
+    hayContenido = true;
+    }else{
+        ocultarSeccion(containerOfertasLab, ".accordion");
+    }
     
     //Servicio social
     const containerServicio = document.getElementById('servicioSocial').querySelector('.card-flex');
     //Limpiar HTML
     containerServicio.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.servicioSocial.forEach( opcion => {
-        containerServicio.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
-                <p>${opcion.descripcion}</p>
-                <p><strong>Correo: </strong> ${opcion.correo}</p>
-                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+    if (plantel.vinculacion.servicioSocial.length !== 0){
+        plantel.vinculacion.servicioSocial.forEach( opcion => {
+            containerServicio.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                    <p>${opcion.descripcion}</p>
+                    <p><strong>Correo: </strong> ${opcion.correo}</p>
+                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerServicio, ".accordion");
+    }
 
     // Practicas profesionales
     const containerPracticas = document.getElementById('practicasProfesionales').querySelector('.card-flex');
     //Limpiar HTML
     containerPracticas.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.practicasProfesionales.forEach( opcion => {
-        containerPracticas.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
-                <p>${opcion.descripcion}</p>
-                <p><strong>Correo: </strong> ${opcion.correo}</p>
-                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+    if (plantel.vinculacion.practicasProfesionales.length !== 0){
+        plantel.vinculacion.practicasProfesionales.forEach( opcion => {
+            containerPracticas.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                    <p>${opcion.descripcion}</p>
+                    <p><strong>Correo: </strong> ${opcion.correo}</p>
+                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerPracticas, ".accordion");
+    }
 
     // redes sociales
     const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
     //Limpiar HTML
     containerRedes.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.redesSociales.forEach( red => {
-        containerRedes.innerHTML += `
-           <div class="card no-hover" style="min-width: fit-content; min-height: fit-content">
-                <div class="card-body">
-                    <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
-                </div>
-            </div> 
-        `;
-    });
+    if (plantel.vinculacion.redesSociales.length !== 0){
+        plantel.vinculacion.redesSociales.forEach( red => {
+            containerRedes.innerHTML += `
+               <div class="card no-hover" style="min-width: fit-content; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
+                    </div>
+                </div> 
+            `;
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerRedes, ".accordion");
+    }
 
     // seguimiento de egresados
     const containerEgresados = document.getElementById('segEgresados').querySelector('.card-flex');
     //Limpiar HTML
     containerEgresados.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
-        containerEgresados.innerHTML += `
-           <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
-                <div class="card-body">
-                    <h5 class="card-title">${egresado.nombreEgresado}</h5>
-                    <h6 class="card-subtitle">${egresado.carrera}</h6>
-                    <p class="card-text">${egresado.testimonio}</p>
-                </div>
-            </div> 
-        `;
-    });
+    if (plantel.vinculacion.seguimientoEgresados.length !== 0){
+        plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
+            containerEgresados.innerHTML += `
+               <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${egresado.nombreEgresado}</h5>
+                        <h6 class="card-subtitle">${egresado.carrera}</h6>
+                        <p class="card-text">${egresado.testimonio}</p>
+                    </div>
+                </div> 
+            `;
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerEgresados, ".accordion");
+    }
 
     // sistema dual
     const containerSistDial = document.getElementById('sistDual').querySelector('.card-flex');
     //Limpiar HTML
     containerSistDial.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.sistemaDual.forEach( banner => {
-        fetch(route('archivo.get',banner))
-            .then(banner => {
-                containerSistDial.innerHTML += `
-                   <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                `;
-            });
-    });
+    if (plantel.vinculacion.sistemaDual.length !== 0){
+        plantel.vinculacion.sistemaDual.forEach( banner => {
+            fetch(route('archivo.get',banner))
+                .then(banner => {
+                    containerSistDial.innerHTML += `
+                       <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                    `;
+                });
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerSistDial, ".accordion");
+    }
+
+    if (!hayContenido) ocultarSeccion(document.getElementById("vinculacion-content"), ".section-card");
 }
 
 function renderExtEducativa(plantel){
@@ -945,17 +989,22 @@ function renderExtEducativa(plantel){
     //Limpiar HTML
     extensionContainer.innerHTML = '';
 
-    plantel.extEducativa.forEach( banner => {
-        fetch(route('archivo.get', banner))
-            .then( banner => {
-                extensionContainer.innerHTML += `
-                    <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                `;
-            });
-    });
+    if (plantel.extEducativa.length !== 0){
+        plantel.extEducativa.forEach( banner => {
+            fetch(route('archivo.get', banner))
+                .then( banner => {
+                    extensionContainer.innerHTML += `
+                        <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                    `;
+                });
+        });
+    }else{
+        ocultarSeccion(extensionContainer, ".section-card");
+    }
 }
 
 function renderControlEscolar (plantel){
+    let hayContenido = false;
     if (usarPlaceholders) plantel = placeholderData;
 
     // Avisos
@@ -963,36 +1012,54 @@ function renderControlEscolar (plantel){
     //Limpiar HTML
     containerAvisos.innerHTML = '';
     //Randerizar informacion
-    plantel.controlEscolar.avisos.forEach( aviso => {
-        containerAvisos.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
-                <p class="card-text">${aviso.cuerpo}</p>
+    if (plantel.controlEscolar.avisos.length !== 0){
+        plantel.controlEscolar.avisos.forEach( aviso => {
+            containerAvisos.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
+                    <p class="card-text">${aviso.cuerpo}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerAvisos, ".accordion");
+    }
 
     // Horarios
     const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
     //Limpiar HTML
     containerHorarios.innerHTML = '';
     //Randerizar informacion
-    plantel.controlEscolar.horarios.forEach( horario => {
-        fetch(route('archivo.get', horario.pdf))
-            .then(horarioPdf => {
-                containerHorarios.innerHTML += `
-                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${horario.grupo}</h5>
-                        <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+    if (plantel.controlEscolar.horarios.length !== 0){
+        plantel.controlEscolar.horarios.forEach( horario => {
+            fetch(route('archivo.get', horario.pdf))
+                .then(horarioPdf => {
+                    containerHorarios.innerHTML += `
+                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${horario.grupo}</h5>
+                            <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+                        </div>
                     </div>
-                </div>
-                `;
-            });
-    });
+                    `;
+                });
+        });
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerHorarios, ".accordion");
+    }
+
+    if(!hayContenido) ocultarSeccion(document.getElementById("ctrl-escolar-content"), ".section-card");
 }
+
+function ocultarSeccion(container, claseSeccion){
+    const seccion = container.closest(claseSeccion);
+    seccion.remove();
+}
+
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -1014,17 +1081,15 @@ function cargarDetallePlantel() {
 
     // Randerizar personal
     renderPersonal(plantel);
-
+    
     //Renderizar comunicados
     renderComunicados(plantel);
 
     //Renderizar carrusel de comunidad
-    //TEMP: agregar logica de verdad al if de abajo
-    if (plantel.comunidad?.galeria || usarPlaceholders) {
+    if (usarPlaceholders){
         setupCarousel(placeholderData.comunidad, 'comunidad-carousel');
-        // renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
-    } else {
-        document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
+    }else{
+        setupCarousel(plantel.comunidad, 'comunidad-carousel');
     }
     
     //Cargar carreras / oferta educativa
