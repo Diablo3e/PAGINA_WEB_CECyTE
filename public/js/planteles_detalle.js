@@ -151,7 +151,7 @@ const placeholderData = {
     }
 };
 
-
+//❗❗El nombre de la variable plantel#.nombre debe de coincidir con el nombre de su carpeta de imagenes (el nombre de la carpeta debe de estar en formato slug) para que se pueda randerizar la galeria de instalaciones❗❗
 const planteles = {
     plantel1: {
         tipo: "cecyte",
@@ -440,13 +440,14 @@ const planteles = {
     },
     plantel12: {
         tipo: "cecyte",
-        nombre: "Magdalena",
+        nombre: "Magdalena Acajete",
+        descripcion: "CCT: 21ETC0013X",
         usarPlaceholders: false,
         imagenes: [
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_090142141.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_092302127.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_112211794.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_090142141.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_092302127.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_112211794.jpg",
         ],
         personal: [
             // {
@@ -493,6 +494,18 @@ const planteles = {
                 //     nombre: 'instagram',
                 //     link: 'https://www.instagram.com'
                 // },
+                {
+                    nombre: 'X',
+                    link: 'https://x.com/CECyTEMagdalena?t=HT2fLKUgTt0QMRfcAsB_PQ&s=09',
+                },
+                {
+                    nombre: 'Instagram',
+                    link: 'https://www.instagram.com/cecytemagdalena?igsh=aWw5N2Jxc2E5bHln',
+                },
+                {
+                    nombre: 'Facebook',
+                    link: 'https://www.facebook.com/share/1CBagzfACu/',
+                },
             ],
             seguimientoEgresados: [
                 // {
@@ -690,11 +703,12 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
-//TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
+//TEMP: formatear todas las carpetas de imagenes de planteles a nombres slug para que se pueda conseguir el nombre dinamicamente;
 //TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
 function renderInstalaciones(plantel) {
     const data = {
         plantel: plantel,
+        // tipoDeGaleria se refiere al nombre de la carpeta de la cual va a tomar todas las fotos para mostrarlas
         tipoDeGaleria: 'instalaciones'
     };
     const container = document.getElementById('instalaciones-content');
@@ -774,33 +788,6 @@ function renderComunicados(plantel) {
 
 }
 
-//TODO: Decidir si se quita o se queda
-// Función para renderizar imágenes con efectos hover
-function renderImageGallery(images, containerId, galleryType) {
-    const container = document.getElementById(containerId);
-    if (!container || !images || images.length === 0) {
-        container.innerHTML = '<p class="no-images-message">No hay imágenes disponibles</p>';
-        return;
-    }
-
-    let html = `<div class="${galleryType}-grid">`;
-
-    images.forEach((img, index) => {
-        const imgUrl = route('archivo.get', img.url);
-        html += `
-            <div class="image-wrapper">
-                <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
-                <div class="image-caption">${img.titulo || ''}</div>
-            </div>
-        `;
-    });
-
-    html += '</div>';
-    container.innerHTML = html;
-}
-
-
-
 // Función para configurar el carrusel de imágenes
 //TODO: modificar esto para desaparecer si no hay nada
 function setupCarousel(images, carouselId) {
@@ -834,7 +821,6 @@ function setupCarousel(images, carouselId) {
     }
 }
 
-// Función para renderizar los horarios
 //TODO: ver si esto se quita o se queda
 // function renderHorarios(horariosData) {
 //     const horariosContainer = document.getElementById('horarios-container');
@@ -1006,11 +992,13 @@ function renderVinculacion(plantel) {
     if (plantel.vinculacion.redesSociales.length !== 0) {
         plantel.vinculacion.redesSociales.forEach(red => {
             containerRedes.innerHTML += `
-               <div class="card no-hover" style="min-width: fit-content; min-height: fit-content">
+            <a href="${red.link}" style="text-decoration: none;" target="_blank">
+               <div class="card" style="min-width: 10vw; min-height: fit-content">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
+                        <h5 class="card-title">${red.nombre}</h5>
                     </div>
-                </div> 
+                </div>
+            </a>
             `;
         });
         hayContenido = true;
