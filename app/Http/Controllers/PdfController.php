@@ -8,12 +8,15 @@ use Illuminate\Support\Str;
 
 class PdfController extends Controller
 {
-    public function getSubDirectories($folder, $subDir)
+    public function getSubDirectories($folder, Request $request)
     {
         $folder = Str::slug($folder);
-        $subDir = Str::slug($subDir);
-        $path = 'pdfs/' . $folder . '/' . $subDir;
-
+        $path = 'pdfs/' . $folder;
+        $subDirs = $request->input('subDirs');
+        foreach($subDirs as $subDirectorio){
+            $subDirectorio = Str::slug($subDirectorio);
+            $path = $path . '/' . $subDirectorio;
+        }
         if (File::exists($path) || File::isDirectory($path)) {
             $subDirectorios = File::directories($path);
             $subfolders = collect($subDirectorios)->map(function ($path) {
@@ -23,17 +26,21 @@ class PdfController extends Controller
                 $nombre = ucfirst($nombre);
                 return $nombre;
             });
-            return $subfolders;
+            return response()->json($subfolders);
         }else{
-            return [];
+            return response()->json([]);
         }
     }
 
-    public function getArchivos($folder, $Directorio, $subDir){
+    public function getArchivos($folder,Request $request){
+
         $folder = Str::slug($folder);
-        $Directorio = Str::slug($Directorio);
-        $subDir = Str::slug($subDir);
-        $path = 'pdfs/' . $folder . '/' . $Directorio . '/' . $subDir;
+        $path = 'pdfs/' . $folder;
+        $subDirectorios = $request->input('subDirectorios');
+        foreach($subDirectorios as $subDirectorio){
+            $subDirectorio = Str::slug($subDirectorio);
+            $path = $path . '/' . $subDirectorio;
+        }
         if (File::exists($path) || File::isDirectory($path)) {
             $files = collect(File::files($path))->map(function ($file) use ($path) {
                 $nombre = str_replace(['_', '-']," ",$file->getFilename());
