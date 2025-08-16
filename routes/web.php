@@ -136,17 +136,17 @@ Route::get('/Mantenimientomotoresdecombustion', function () {
 // ✅ OTRAS RUTAS
 Route::get('/Transparencia', function () {
     $PDFS = new PdfController;
-    $infoPresupuesto = $PDFS->getSubDirectories('transparencia','informe presupuestal');
-    $infoFinanciera = $PDFS->getSubDirectories('transparencia', 'informacion financiera');
-    $desempeno = $PDFS->getSubDirectories('transparencia', 'desempeno');
-    $progPresupuesto = $PDFS->getSubDirectories('transparencia', 'programas presupuestarios');
-    $ayudaSubsidios = $PDFS->getSubDirectories('transparencia', 'ayuda subsidios');
-    $inventarios = $PDFS->getSubDirectories('transparencia', 'inventarios');
+    $infoPresupuesto = json_decode($PDFS->getSubDirectories('transparencia',new Request(['subDirs' => ['informe presupuestal']]))->getContent());
+    $infoFinanciera = json_decode($PDFS->getSubDirectories('transparencia', new Request(['subDirs' => ['informacion financiera']]))->getContent());
+    $desempeno = json_decode($PDFS->getSubDirectories('transparencia', new Request(['subDirs' => ['desempeno']]))->getContent());
+    $progPresupuesto = json_decode($PDFS->getSubDirectories('transparencia', new Request(['subDirs' => ['programas presupuestarios']]))->getContent());
+    $ayudaSubsidios = json_decode($PDFS->getSubDirectories('transparencia', new Request(['subDirs' => ['ayuda subsidios']]))->getContent());
+    $inventarios = json_decode($PDFS->getSubDirectories('transparencia', new Request(['subDirs' => ['inventarios']]))->getContent());
 
     return view('Transparencia', compact('infoPresupuesto', 'infoFinanciera', 'desempeno', 'progPresupuesto', 'ayudaSubsidios', 'inventarios'));
 })->name('Transparencia');
 //Obtener PDFs para transparencia
-Route::post('/Transparencia/pdf/{folder}/{Directorio}/{subDir}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
+Route::post('/Transparencia/pdf/{folder}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
 
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);

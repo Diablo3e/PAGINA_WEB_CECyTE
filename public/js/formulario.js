@@ -127,7 +127,7 @@ async function enviarEmail(informacion, numIntentos = 3) {
             // console.log('Correo mandado');
             return;
         }else{
-            console.log('fail: ' + respuesta.error);
+            console.warn('fail: ' + respuesta.error);
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }

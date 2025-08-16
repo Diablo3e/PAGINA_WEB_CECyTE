@@ -1009,7 +1009,7 @@ function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
     const plantelId = pathParts[pathParts.length - 1];
     const plantel = planteles[plantelId];
-    console.log(plantel + "     plantelID  " + plantelId);
+    //console.log(plantel + "     plantelID  " + plantelId);
     if (!plantel) {
         window.location.href = '/planteles';
         return;

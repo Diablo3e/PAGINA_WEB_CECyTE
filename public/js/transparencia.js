@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Informacion Presupuestal
     presupuestoSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "informe presupuestal", eleccion);
+        const archivos = await getPdfs("transparencia", ["informe presupuestal", eleccion]);
         if (archivos) {
             presupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Informacion financiera trimestal
     infoFinancieraSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "informacion financiera", eleccion);
+        const archivos = await getPdfs("transparencia", ["informacion financiera", eleccion]);
         if (archivos) {
             infoFinancieraDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Indicadores de desempeño
     indicadoresSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "desempeno", eleccion);
+        const archivos = await getPdfs("transparencia", ["desempeno", eleccion]);
         if (archivos) {
             indicadoresDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Programas presupuestarios
     progPresupuestoSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "programas presupuestarios", eleccion);
+        const archivos = await getPdfs("transparencia", ["programas presupuestarios", eleccion]);
         if (archivos) {
             progPresupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Ayuda y Subsidios
     ayudaSubsidiosSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "ayuda subsidios", eleccion);
+        const archivos = await getPdfs("transparencia", ["ayuda subsidios", eleccion]);
         if (archivos) {
             ayudaSubsidiosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Inventario
     inventariosSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", "inventarios", eleccion);
+        const archivos = await getPdfs("transparencia", ["inventarios", eleccion]);
         if (archivos) {
             inventariosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -116,28 +116,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Coneccion con PdfController para obtener los pdfs
-async function getPdfs(folder, Directorio, subDir) {
-    const data = {
-        folder: folder,
-        Directorio: Directorio,
-        subDir: subDir
-    };
+async function getPdfs(folder, subDirectorios) {
     try {
-        const peticion = await fetch(route('obtener.pdf',data), {
+        const peticion = await fetch(route('obtener.pdf',folder), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
+            },
+            body: JSON.stringify({subDirectorios})
         });
     
-        if(!peticion.ok) throw new Error ('peticion fallida');
-
+        if(!peticion.ok) throw new Error ('peticion fallida, Numero:' + peticion.status + ' Texto: ' + peticion.statusText);
         return await peticion.json();
     } catch (error) {
         console.error(error);
     }
-
 } 
 
 //Generalizar elemento html añadido para facilitar cambios
