@@ -8,7 +8,6 @@ if (window.location.hostname === "localhost") isLocal = true;
 
 //Variables encargadas de mostrar placeholders en el apartado de instalaciones y comunidad en todos los planteles, cambia el valor a false para mostrar la informacion real de cada plantel
 //TODO: Revisar que mayus y minus en los links coincidan con los nombres, que si no no funciona el sitio de hosting
-const usarPlaceholders = true;
 const placeholderData = {
     personal: [
         {
@@ -101,13 +100,13 @@ const placeholderData = {
         seguimientoEgresados: [
             {
                 nombreEgresado: "Juan Perez",
-                carrera:"Carrera1",
-                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+                carrera: "Carrera1",
+                testimonio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
             },
             {
                 nombreEgresado: "Margarita Perez",
-                carrera:"Carrera2",
-                testimonio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
+                carrera: "Carrera2",
+                testimonio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quo temporibus quis quibusdam! Earum, maiores! Alias enim consequatur at impedit distinctio labore, est nihil soluta explicabo, ea totam dolorem voluptate ullam dolorum modi nisi aliquam?"
             }
         ],
         sistemaDual: [
@@ -118,13 +117,13 @@ const placeholderData = {
             "/imagenes/placeholderBanner.png",
         ],
     },
-    extEducativa:[
+    extEducativa: [
         "/imagenes/placeholderBanner.png",
         "/imagenes/placeholderBanner.png",
         "/imagenes/placeholderBanner.png",
     ],
     controlEscolar: {
-        avisos:[
+        avisos: [
             {
                 fecha: "01/01/2025",
                 cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi repellendus sint et provident voluptatem repellat corporis placeat officia! Deleniti cum sapiente adipisci, nisi cupiditate dolorum dolores reiciendis voluptatem aut reprehenderit illo delectus. At, deleniti."
@@ -134,7 +133,7 @@ const placeholderData = {
                 cuerpo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint obcaecati eum delectus neque aut? Molestias, vitae ut dolores quam nihil nostrum quos nisi voluptas minus sit sequi at eos sed, tempora reiciendis beatae doloremque aut fugiat debitis ad aliquam, eveniet labore. Et, nisi. Saepe."
             },
         ],
-        horarios:[
+        horarios: [
             {
                 grupo: "Ejemplo de grupo",
                 pdf: "/pdfs/placeholder/pdf.pdf"
@@ -151,13 +150,14 @@ const placeholderData = {
     }
 };
 
-
+//❗❗El nombre de la variable plantel#.nombre debe de coincidir con el nombre de su carpeta de imagenes para que se pueda randerizar la galeria de instalaciones, el nombre de la variable puede contener mayus, espacios y acentos pero la carpeta debe de estar nombrada en formato slug❗❗
 const planteles = {
     plantel1: {
         tipo: "cecyte",
         nombre: "CHOLULA",
         lema: "FORMACIÓN QUE TRANSFORMA",
         descripcion: "En CECyTE Cholula impulsamos el talento de nuestra comunidad estudiantil con educación de calidad, carreras técnicas innovadoras y un fuerte compromiso con el desarrollo personal y profesional. Aquí, cada estudiante construye su futuro con herramientas reales para el mundo actual. <strong>¡Sé parte de una generación que deja huella!</strong>",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/cholula/instalaciones/CholulaPlantel.JPG",
             "/imagenes/cholula/instalaciones/CholulaTransformacionPlasticos (1).JPG",
@@ -216,6 +216,7 @@ const planteles = {
     plantel2: {
         tipo: "cecyte",
         nombre: "Chignahuapan",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/Chignahuapan/chigna1.jpg",
             "/imagenes/Chignahuapan/Chigna6.jpg",
@@ -238,6 +239,7 @@ const planteles = {
     plantel3: {
         tipo: "emsad",
         nombre: "Ameluca",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
             "/imagenes/EMSaD Ameluca/aula4 ameluca.jpg",
@@ -259,6 +261,7 @@ const planteles = {
     plantel4: {
         tipo: "emsad",
         nombre: "Boca del Monte",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio].jpg",
             "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Comp.1].jpg",
@@ -280,6 +283,7 @@ const planteles = {
     plantel5: {
         tipo: "emsad",
         nombre: "Buena Vista",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092254.jpg",
             "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092457.jpg",
@@ -301,6 +305,7 @@ const planteles = {
     plantel6: {
         tipo: "emsad",
         nombre: "La Pahua",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Plantel_LaPahua.jpeg",
             "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
@@ -322,6 +327,7 @@ const planteles = {
     plantel7: {
         tipo: "emsad",
         nombre: "Mexcaltochintla",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSAD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
             "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
@@ -344,6 +350,7 @@ const planteles = {
     plantel8: {
         tipo: "emsad",
         nombre: "Naranjastitla",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
             "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
@@ -365,6 +372,7 @@ const planteles = {
     plantel9: {
         tipo: "emsad",
         nombre: "Santa Elena",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/EMSaD Santa Elena/Entrada a Centro_Santa Elena.jpg",
             "/imagenes/EMSaD Santa Elena/Salon de clases A_Santa Elena.jpg",
@@ -386,6 +394,7 @@ const planteles = {
     plantel10: {
         tipo: "cecyte",
         nombre: "Guadalupe Victoria",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
             "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
@@ -408,6 +417,7 @@ const planteles = {
     plantel11: {
         tipo: "cecyte",
         nombre: "Huejotzingo",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/Huejotzingo/ENTRADA.jpeg",
             "/imagenes/Huejotzingo/SALONES.jpeg",
@@ -429,29 +439,106 @@ const planteles = {
     },
     plantel12: {
         tipo: "cecyte",
-        nombre: "Magdalena",
+        nombre: "Magdalena Acajete",
+        descripcion: "CCT: 21ETC0013X",
+        usarPlaceholders: false,
         imagenes: [
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_090142141.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_092302127.jpg",
-            "/imagenes/Magdalena/Plantel/Actual/IMG_20240807_112211794.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_090142141.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_092302127.jpg",
+            "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_112211794.jpg",
         ],
-        direccion: {
-            calle: "De la Juarez",
-            colonia: "La Magdalena Tetela Morelos",
-            municipio: "La Magdalena Tetela Morelos",
-            estado: "Puebla",
-            cp: "75118",
-            telefono: "223 275 5989",
-            email: "contacto@cholula.cecyte.edu.mx",
-            horario: "Lunes a Viernes de 7:00 a 15:00 hrs",
-            latitud: 19.04220230830243,
-            longitud: -97.94638553237395
+        personal: [
+            // {
+            //     foto: "/imagenes/womanPlaceholder.jpg",
+            //     puesto: "ejemploPuesto"
+            // },
+        ],
+        comunicados: [
+            // {
+            //     titulo: "Titulo de ejemplo 1",
+            //     pdf: "/pdfs/placeholder/pdf.pdf",
+            // },
+        ],
+        comunidad: [
+            // "/imagenes/placeholder.png",
+        ],
+        vinculacion: {
+            ofertasDeEmpleo: [
+                // {
+                //     empleador: "Ejemplo Empresa 1",
+                //     imagen: "/imagenes/placeholder.png",
+                // },
+            ],
+            servicioSocial: [
+                // {
+                //     nombreInstitucion: "Ejemplo Lugar servicio social",
+                //     descripcion: "Lorem ipsum",
+                //     correo: "ejemplo@correo.com",
+                //     telefono: "+55 123456789",
+                //     direccion: "Calle inventada 1905"
+                // },
+            ],
+            practicasProfesionales: [
+                // {
+                //     nombreInstitucion: "Ejemplo lugar practicas profesionales",
+                //     descripcion: "Lorem ipsum",
+                //     correo: "ejemplo@correo.com",
+                //     telefono: "+55 123456789",
+                //     direccion: "Calle de ejemplo 2156"
+                // },
+            ],
+            redesSociales: [
+                // {
+                //     nombre: 'instagram',
+                //     link: 'https://www.instagram.com'
+                // },
+                {
+                    nombre: 'X',
+                    link: 'https://x.com/CECyTEMagdalena?t=HT2fLKUgTt0QMRfcAsB_PQ&s=09',
+                },
+                {
+                    nombre: 'Instagram',
+                    link: 'https://www.instagram.com/cecytemagdalena?igsh=aWw5N2Jxc2E5bHln',
+                },
+                {
+                    nombre: 'Facebook',
+                    link: 'https://www.facebook.com/share/1CBagzfACu/',
+                },
+            ],
+            seguimientoEgresados: [
+                // {
+                //     nombreEgresado: "Juan Perez",
+                //     carrera: "Carrera1",
+                //     testimonio: "Lorem ipsum"
+                // },
+            ],
+            sistemaDual: [
+                // "/imagenes/placeholderBanner.png",
+            ],
         },
+        extEducativa: [
+            // "/imagenes/placeholderBanner.png",
+        ],
+        controlEscolar: {
+            avisos: [
+                // {
+                //     fecha: "01/01/2025",
+                //     cuerpo: "Lorem ipsum "
+                // },
+            ],
+            horarios: [
+                // {
+                //     grupo: "Ejemplo de grupo",
+                //     pdf: "/pdfs/placeholder/pdf.pdf"
+                // },
+            ],
+        }
     },
     plantel13: {
         tipo: "cecyte",
         nombre: "Tecamachalco",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/tecamachalco/instalaciones/EXPLANADA PRINCIPAL1 - PLANTEL TECAMACHALCO.jpg",
             "/imagenes/tecamachalco/instalaciones/LABORATORIO DE USOS ULTIPLES_1 - PLANTEL TECAMACHALCO.jpg",
@@ -474,6 +561,7 @@ const planteles = {
     plantel14: {
         tipo: "cecyte",
         nombre: "Tehuitzingo",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/TEHUITZINGO/Entrada_Pricipal_Plantel.png",
             "/imagenes/TEHUITZINGO/Explanada_Edficio1 y 2_Plantel_2.png",
@@ -497,6 +585,7 @@ const planteles = {
     plantel15: {
         tipo: "cecyte",
         nombre: "Tlacotepec",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/Tlacotepec/PLANTEL/IMG_1679.JPG",
             "/imagenes/Tlacotepec/PLANTEL/IMG_1681.JPG",
@@ -518,6 +607,7 @@ const planteles = {
     plantel16: {
         tipo: "emsad",
         nombre: "Tlaolantongo",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
             "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
@@ -540,6 +630,7 @@ const planteles = {
     plantel17: {
         tipo: "cecyte",
         nombre: "Venustiano Carranza",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
             "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
@@ -561,6 +652,7 @@ const planteles = {
     plantel18: {
         tipo: "cecyte",
         nombre: "Xicotepec",
+        usarPlaceholders: true,
         imagenes: [
             "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
             "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
@@ -620,11 +712,12 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
-//TEMP: formatear todas las carpetas de imagenes de planteles para que se pueda conseguir el nombre dinamicamente;
+//TEMP: formatear todas las carpetas de imagenes de planteles a nombres slug para que se pueda conseguir el nombre dinamicamente;
 //TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
 function renderInstalaciones(plantel) {
     const data = {
         plantel: plantel,
+        // tipoDeGaleria se refiere al nombre de la carpeta de la cual va a tomar todas las fotos para mostrarlas
         tipoDeGaleria: 'instalaciones'
     };
     const container = document.getElementById('instalaciones-content');
@@ -640,44 +733,48 @@ function renderInstalaciones(plantel) {
                 `
             });
         })
-        .catch((e) =>{
+        .catch(() => {
             container.innerHTML = `<p>Error al cargar la galeria</p>`
         });
 }
 
-function renderPersonal(plantel){
+function renderPersonal(plantel) {
     const container = document.getElementById('personal-content').querySelector('.card-flex');
-    container.innerHTML = ''; 
-    if (usarPlaceholders){
+    container.innerHTML = '';
+    if (plantel.usarPlaceholders) {
         plantel = placeholderData;
     }
 
-    plantel.personal.forEach(persona => {
-        fetch(route('archivo.get', persona.foto))
-            .then(imagenPersonal => {
-                container.innerHTML += `
-                <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
-                    <div class="card-body">
-                        <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
-                        <h5 class="card-title">${persona.puesto}</h5>
+    if (plantel.personal.length !== 0) {
+        plantel.personal.forEach(persona => {
+            fetch(route('archivo.get', persona.foto))
+                .then(imagenPersonal => {
+                    container.innerHTML += `
+                    <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
+                        <div class="card-body">
+                            <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                            <h5 class="card-title">${persona.puesto}</h5>
+                        </div>
                     </div>
-                </div>
-                `;
-            })
-            .catch(e =>{
-                console.error('Error en obtener foto de personal: ' + e);
-            })
-    });
+                    `;
+                })
+                .catch(e => {
+                    console.error('Error en obtener foto de personal: ' + e);
+                })
+        });
+    } else {
+        ocultarSeccion(container, ".section-card");
+    }
 }
 
-function renderComunicados(plantel){
+function renderComunicados(plantel) {
     const container = document.getElementById('comunicados-content');
-    container.innerHTML = ''; 
-    if (usarPlaceholders){
+    container.innerHTML = '';
+    if (plantel.usarPlaceholders) {
         plantel = placeholderData;
     }
 
-    if(plantel.comunicados.length !== 0){
+    if (plantel.comunicados.length !== 0) {
         plantel.comunicados.forEach(comunicado => {
             fetch(route('archivo.get', comunicado.pdf))
                 .then(archivoPdf => {
@@ -690,71 +787,49 @@ function renderComunicados(plantel){
                     </div>
                     `;
                 })
-                .catch(e =>{
+                .catch(e => {
                     console.error('Error en obtener pdf: ' + e);
                 })
         });
+    } else {
+        ocultarSeccion(container, ".section-card");
     }
 
 }
-
-//TODO: Decidir si se quita o se queda
-// Función para renderizar imágenes con efectos hover
-function renderImageGallery(images, containerId, galleryType) {
-    const container = document.getElementById(containerId);
-    if (!container || !images || images.length === 0) {
-        container.innerHTML = '<p class="no-images-message">No hay imágenes disponibles</p>';
-        return;
-    }
-
-    let html = `<div class="${galleryType}-grid">`;
-
-    images.forEach((img, index) => {
-        const imgUrl = route('archivo.get', img.url);
-        html += `
-            <div class="image-wrapper">
-                <img src="${imgUrl}" alt="${img.titulo || 'Imagen ' + (index + 1)}">
-                <div class="image-caption">${img.titulo || ''}</div>
-            </div>
-        `;
-    });
-
-    html += '</div>';
-    container.innerHTML = html;
-}
-
-
 
 // Función para configurar el carrusel de imágenes
+//TODO: modificar esto para desaparecer si no hay nada
 function setupCarousel(images, carouselId) {
     const carousel = document.getElementById(carouselId);
     const carouselInner = carousel.querySelector('.carousel-inner');
     const indicators = carousel.querySelector('.carousel-indicators');
-
     carouselInner.innerHTML = '';
     indicators.innerHTML = '';
 
-    images.forEach((img, index) => {
-        const imgUrl = route('archivo.get', img);
-        const item = document.createElement('div');
-        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-        item.innerHTML = `
-            <img src="${imgUrl}" class="carousel-img d-block w-100" alt="Imagen del plantel"
-                 style="height: 400px; object-fit: cover;">
-        `;
-        carouselInner.appendChild(item);
+    if (images.length !== 0) {
+        images.forEach((img, index) => {
+            const imgUrl = route('archivo.get', img);
+            const item = document.createElement('div');
+            item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+            item.innerHTML = `
+                <img src="${imgUrl}" class="carousel-img d-block w-100" alt="Imagen del plantel"
+                     style="height: 400px; object-fit: cover;">
+            `;
+            carouselInner.appendChild(item);
 
-        const indicator = document.createElement('button');
-        indicator.type = 'button';
-        indicator.dataset.bsTarget = carouselId;
-        indicator.dataset.bsSlideTo = index;
-        indicator.className = index === 0 ? 'active' : '';
-        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
-        indicators.appendChild(indicator);
-    });
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.dataset.bsTarget = carouselId;
+            indicator.dataset.bsSlideTo = index;
+            indicator.className = index === 0 ? 'active' : '';
+            indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+            indicators.appendChild(indicator);
+        });
+    } else {
+        ocultarSeccion(carousel, ".section-card");
+    }
 }
 
-// Función para renderizar los horarios
 //TODO: ver si esto se quita o se queda
 // function renderHorarios(horariosData) {
 //     const horariosContainer = document.getElementById('horarios-container');
@@ -842,168 +917,226 @@ function renderCarreras(id, isLocal) {
         });
 }
 
-function renderVinculacion(plantel){
-    if (usarPlaceholders) plantel = placeholderData;
+function renderVinculacion(plantel) {
+    let hayContenido = false;
+    if (plantel.usarPlaceholders) plantel = placeholderData;
     //Ofertas Laborales
     const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-flex');
     //Limpiar el HTML
-    containerOfertasLab.innerHTML = ''; 
+    containerOfertasLab.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.ofertasDeEmpleo.forEach( oferta => {
-        fetch(route('archivo.get',oferta.imagen))
-            .then( imagen => {
-                containerOfertasLab.innerHTML += 
-                `
-                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${oferta.empleador}</h5>
-                        <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+    if (plantel.vinculacion.ofertasDeEmpleo.length !== 0) {
+        plantel.vinculacion.ofertasDeEmpleo.forEach(oferta => {
+            fetch(route('archivo.get', oferta.imagen))
+                .then(imagen => {
+                    containerOfertasLab.innerHTML +=
+                        `
+                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${oferta.empleador}</h5>
+                            <img class="img-fluid" src="${imagen.url}" style="max-height: 38vh;" alt="Poster oferta">
+                        </div>
                     </div>
-                </div>
-                `; 
-            });
-    });
-    
+                    `;
+                });
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerOfertasLab, ".accordion");
+    }
+
     //Servicio social
     const containerServicio = document.getElementById('servicioSocial').querySelector('.card-flex');
     //Limpiar HTML
     containerServicio.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.servicioSocial.forEach( opcion => {
-        containerServicio.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
-                <p>${opcion.descripcion}</p>
-                <p><strong>Correo: </strong> ${opcion.correo}</p>
-                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+    if (plantel.vinculacion.servicioSocial.length !== 0) {
+        plantel.vinculacion.servicioSocial.forEach(opcion => {
+            containerServicio.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                    <p>${opcion.descripcion}</p>
+                    <p><strong>Correo: </strong> ${opcion.correo}</p>
+                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerServicio, ".accordion");
+    }
 
     // Practicas profesionales
     const containerPracticas = document.getElementById('practicasProfesionales').querySelector('.card-flex');
     //Limpiar HTML
     containerPracticas.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.practicasProfesionales.forEach( opcion => {
-        containerPracticas.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title">${opcion.nombreInstitucion}</h5>
-                <p>${opcion.descripcion}</p>
-                <p><strong>Correo: </strong> ${opcion.correo}</p>
-                <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                <p><strong>Direección:</strong> ${opcion.direccion}</p>
+    if (plantel.vinculacion.practicasProfesionales.length !== 0) {
+        plantel.vinculacion.practicasProfesionales.forEach(opcion => {
+            containerPracticas.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${opcion.nombreInstitucion}</h5>
+                    <p>${opcion.descripcion}</p>
+                    <p><strong>Correo: </strong> ${opcion.correo}</p>
+                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
+                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerPracticas, ".accordion");
+    }
 
     // redes sociales
     const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
     //Limpiar HTML
     containerRedes.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.redesSociales.forEach( red => {
-        containerRedes.innerHTML += `
-           <div class="card no-hover" style="min-width: fit-content; min-height: fit-content">
-                <div class="card-body">
-                    <h5 class="card-title"> <a href="${red.link}" style="text-decoration: none;" target="_blank">${red.nombre}</a></h5>
+    if (plantel.vinculacion.redesSociales.length !== 0) {
+        plantel.vinculacion.redesSociales.forEach(red => {
+            containerRedes.innerHTML += `
+            <a href="${red.link}" style="text-decoration: none;" target="_blank">
+               <div class="card" style="min-width: 10vw; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${red.nombre}</h5>
+                    </div>
                 </div>
-            </div> 
-        `;
-    });
+            </a>
+            `;
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerRedes, ".accordion");
+    }
 
     // seguimiento de egresados
     const containerEgresados = document.getElementById('segEgresados').querySelector('.card-flex');
     //Limpiar HTML
     containerEgresados.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.seguimientoEgresados.forEach( egresado => {
-        containerEgresados.innerHTML += `
-           <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
-                <div class="card-body">
-                    <h5 class="card-title">${egresado.nombreEgresado}</h5>
-                    <h6 class="card-subtitle">${egresado.carrera}</h6>
-                    <p class="card-text">${egresado.testimonio}</p>
-                </div>
-            </div> 
-        `;
-    });
+    if (plantel.vinculacion.seguimientoEgresados.length !== 0) {
+        plantel.vinculacion.seguimientoEgresados.forEach(egresado => {
+            containerEgresados.innerHTML += `
+               <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${egresado.nombreEgresado}</h5>
+                        <h6 class="card-subtitle">${egresado.carrera}</h6>
+                        <p class="card-text">${egresado.testimonio}</p>
+                    </div>
+                </div> 
+            `;
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerEgresados, ".accordion");
+    }
 
     // sistema dual
     const containerSistDial = document.getElementById('sistDual').querySelector('.card-flex');
     //Limpiar HTML
     containerSistDial.innerHTML = '';
     //Randerizar informacion
-    plantel.vinculacion.sistemaDual.forEach( banner => {
-        fetch(route('archivo.get',banner))
-            .then(banner => {
-                containerSistDial.innerHTML += `
-                   <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                `;
-            });
-    });
+    if (plantel.vinculacion.sistemaDual.length !== 0) {
+        plantel.vinculacion.sistemaDual.forEach(banner => {
+            fetch(route('archivo.get', banner))
+                .then(banner => {
+                    containerSistDial.innerHTML += `
+                       <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                    `;
+                });
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerSistDial, ".accordion");
+    }
+
+    if (!hayContenido) ocultarSeccion(document.getElementById("vinculacion-content"), ".section-card");
 }
 
-function renderExtEducativa(plantel){
-    if (usarPlaceholders) plantel = placeholderData;
+function renderExtEducativa(plantel) {
+    if (plantel.usarPlaceholders) plantel = placeholderData;
 
     const extensionContainer = document.getElementById('extension-content');
     //Limpiar HTML
     extensionContainer.innerHTML = '';
 
-    plantel.extEducativa.forEach( banner => {
-        fetch(route('archivo.get', banner))
-            .then( banner => {
-                extensionContainer.innerHTML += `
-                    <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                `;
-            });
-    });
+    if (plantel.extEducativa.length !== 0) {
+        plantel.extEducativa.forEach(banner => {
+            fetch(route('archivo.get', banner))
+                .then(banner => {
+                    extensionContainer.innerHTML += `
+                        <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
+                    `;
+                });
+        });
+    } else {
+        ocultarSeccion(extensionContainer, ".section-card");
+    }
 }
 
-function renderControlEscolar (plantel){
-    if (usarPlaceholders) plantel = placeholderData;
+function renderControlEscolar(plantel) {
+    let hayContenido = false;
+    if (plantel.usarPlaceholders) plantel = placeholderData;
 
     // Avisos
     const containerAvisos = document.getElementById('avisos').querySelector('.card-flex');
     //Limpiar HTML
     containerAvisos.innerHTML = '';
     //Randerizar informacion
-    plantel.controlEscolar.avisos.forEach( aviso => {
-        containerAvisos.innerHTML += `
-        <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
-            <div class="card-body">
-                <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
-                <p class="card-text">${aviso.cuerpo}</p>
+    if (plantel.controlEscolar.avisos.length !== 0) {
+        plantel.controlEscolar.avisos.forEach(aviso => {
+            containerAvisos.innerHTML += `
+            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Fecha: </strong> ${aviso.fecha}</h5>
+                    <p class="card-text">${aviso.cuerpo}</p>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerAvisos, ".accordion");
+    }
 
     // Horarios
     const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
     //Limpiar HTML
     containerHorarios.innerHTML = '';
     //Randerizar informacion
-    plantel.controlEscolar.horarios.forEach( horario => {
-        fetch(route('archivo.get', horario.pdf))
-            .then(horarioPdf => {
-                containerHorarios.innerHTML += `
-                <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${horario.grupo}</h5>
-                        <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+    if (plantel.controlEscolar.horarios.length !== 0) {
+        plantel.controlEscolar.horarios.forEach(horario => {
+            fetch(route('archivo.get', horario.pdf))
+                .then(horarioPdf => {
+                    containerHorarios.innerHTML += `
+                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
+                        <div class="card-body">
+                            <h5 class="card-title">${horario.grupo}</h5>
+                            <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
+                        </div>
                     </div>
-                </div>
-                `;
-            });
-    });
+                    `;
+                });
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerHorarios, ".accordion");
+    }
+
+    if (!hayContenido) ocultarSeccion(document.getElementById("ctrl-escolar-content"), ".section-card");
 }
+
+function ocultarSeccion(container, claseSeccion) {
+    const seccion = container.closest(claseSeccion);
+    seccion.remove();
+}
+
 // Función principal para cargar el detalle del plantel
 function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
@@ -1017,7 +1150,7 @@ function cargarDetallePlantel() {
 
     // Configurar carrusel inicial
     setupCarousel(plantel.imagenes, 'plantel-carousel');
-    
+
     // Cargar encabezado
     cargarEncabezadoPlantel(plantel);
 
@@ -1031,14 +1164,12 @@ function cargarDetallePlantel() {
     renderComunicados(plantel);
 
     //Renderizar carrusel de comunidad
-    //TEMP: agregar logica de verdad al if de abajo
-    if (plantel.comunidad?.galeria || usarPlaceholders) {
+    if (plantel.usarPlaceholders) {
         setupCarousel(placeholderData.comunidad, 'comunidad-carousel');
-        // renderImageGallery(plantel.comunidad.galeria, 'comunidad-content', 'comunidad');
     } else {
-        document.getElementById('comunidad-content').innerHTML = '<p class="no-images-message">No hay imágenes disponibles de la comunidad</p>';
+        setupCarousel(plantel.comunidad, 'comunidad-carousel');
     }
-    
+
     //Cargar carreras / oferta educativa
     const numPlantel = plantelId.replace("plantel", "");
     renderCarreras(numPlantel, isLocal);
