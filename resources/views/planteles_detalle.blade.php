@@ -34,7 +34,7 @@
         </span>
         <div class="plantel-mission">
             <h2 class="mission-subtitle" id="plantel-lema">FORMACIÓN QUE TRANSFORMA</h2>
-            <p class="mission-text" id="plantel-descripcion">
+            <p class="mission-text" id="plantel-descripcion" style="text-align:center;">
                 Cargando información del plantel...
             </p>
         </div>
@@ -255,7 +255,7 @@
             <div class="accordion" id="acordionAvisos">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#avisos" aria-expanded="true" aria-controls="redesSociales">
                             Avisos
                         </button>
                     </h2>

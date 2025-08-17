@@ -30,6 +30,6 @@
         </div>
     </div>
     <div class="footer-Logos">
-        <img class="img-fluid" src="{{asset('imagenes/Footer/FotoPortadaWebABAJO-parte2-logos.png')}}" alt="">
+        <img class="img-fluid" src="{{asset('imagenes/Footer/FotoPortadaWebABAJO-parte2-logos-transparentes-update2.png')}}" alt="Logos">
     </div>
 </footer>
