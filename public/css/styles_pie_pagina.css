@@ -58,3 +58,9 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.botones-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
