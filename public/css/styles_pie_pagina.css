@@ -58,3 +58,8 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.botones-container{
+    display: flex;
+    gap: 3vw;
+}
