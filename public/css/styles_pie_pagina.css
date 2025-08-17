@@ -61,5 +61,6 @@
 
 .botones-container{
     display: flex;
-    gap: 3vw;
+    flex-wrap: wrap;
+    gap: 5px;
 }

@@ -41,71 +41,61 @@ document.addEventListener("DOMContentLoaded", function () {
     //Informacion financiera trimestal
     infoFinancieraSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["informacion financiera", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["informacion financiera", eleccion], infoFinancieraSelect, infoFinancieraDiv);
         if (archivos) {
             infoFinancieraDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 infoFinancieraDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             infoFinancieraDiv.innerHTML += `</ul>`;
-        } else {
-            infoFinancieraDiv.innerHTML = ``;
         }
     });
     //Indicadores de desempeño
     indicadoresSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["desempeno", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["desempeno", eleccion], indicadoresSelect, indicadoresDiv);
         if (archivos) {
             indicadoresDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 indicadoresDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             indicadoresDiv.innerHTML += `</ul>`;
-        } else {
-            indicadoresDiv.innerHTML = ``;
         }
     });
     //Programas presupuestarios
     progPresupuestoSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["programas presupuestarios", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["programas presupuestarios", eleccion], progPresupuestoSelect, progPresupuestoDiv);
         if (archivos) {
             progPresupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 progPresupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             progPresupuestoDiv.innerHTML += `</ul>`;
-        } else {
-            progPresupuestoDiv.innerHTML = ``;
         }
     });
     //Ayuda y Subsidios
     ayudaSubsidiosSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["ayuda subsidios", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["ayuda subsidios", eleccion], ayudaSubsidiosSelect, ayudaSubsidiosDiv);
         if (archivos) {
             ayudaSubsidiosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 ayudaSubsidiosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             ayudaSubsidiosDiv.innerHTML += `</ul>`;
-        } else {
-            ayudaSubsidiosDiv.innerHTML = ``;
         }
     });
     //Inventario
     inventariosSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["inventarios", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["inventarios", eleccion], inventariosSelect, inventariosDiv);
         if (archivos) {
             inventariosDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 inventariosDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             inventariosDiv.innerHTML += `</ul>`;
-        } else {
-            inventariosDiv.innerHTML = ``;
         }
     });
 
