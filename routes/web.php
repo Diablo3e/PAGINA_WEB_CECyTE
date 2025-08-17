@@ -145,6 +145,8 @@ Route::get('/Transparencia', function () {
 
     return view('Transparencia', compact('infoPresupuesto', 'infoFinanciera', 'desempeno', 'progPresupuesto', 'ayudaSubsidios', 'inventarios'));
 })->name('Transparencia');
+//Obtener subdirectorios (originalmente para las pestañas de transparencia)
+Route::post('/Transparencia/pdf/subdir/{folder}', [PdfController::class, 'getSubDirectories'])->name('obtener.subDirectorios');
 //Obtener PDFs para transparencia
 Route::post('/Transparencia/pdf/{folder}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
 

@@ -2,42 +2,40 @@ document.addEventListener("DOMContentLoaded", function () {
     //Elementos del DOM y listener para resetear acordiones si el usuario los cierra
     const presupuestoDiv = document.getElementById("presupuesto");
     const presupuestoSelect = document.getElementById("presupuestoSelect");
-    document.getElementById("c1").addEventListener("hidden.bs.collapse", () => {resetAcordion(presupuestoSelect, presupuestoDiv)});
+    document.getElementById("c1").addEventListener("hidden.bs.collapse", () => { resetAcordion(presupuestoSelect, presupuestoDiv) });
 
     const infoFinancieraDiv = document.getElementById("infoFinanciera");
     const infoFinancieraSelect = document.getElementById("infoFinancieraSelect");
-    document.getElementById("c2").addEventListener("hidden.bs.collapse", () => {resetAcordion(infoFinancieraSelect, infoFinancieraDiv)});
-    
+    document.getElementById("c2").addEventListener("hidden.bs.collapse", () => { resetAcordion(infoFinancieraSelect, infoFinancieraDiv) });
+
     const indicadoresDiv = document.getElementById("indicadores");
     const indicadoresSelect = document.getElementById("indicadoresSelect");
-    document.getElementById("c3").addEventListener("hidden.bs.collapse", () => {resetAcordion(indicadoresSelect, indicadoresDiv)});
+    document.getElementById("c3").addEventListener("hidden.bs.collapse", () => { resetAcordion(indicadoresSelect, indicadoresDiv) });
 
     const progPresupuestoDiv = document.getElementById("progPresupuesto");
     const progPresupuestoSelect = document.getElementById("progPresupuestoSelect");
-    document.getElementById("c4").addEventListener("hidden.bs.collapse", () => {resetAcordion(progPresupuestoSelect, progPresupuestoDiv)});
+    document.getElementById("c4").addEventListener("hidden.bs.collapse", () => { resetAcordion(progPresupuestoSelect, progPresupuestoDiv) });
 
     const ayudaSubsidiosDiv = document.getElementById("ayudaSubsidios");
     const ayudaSubsidiosSelect = document.getElementById("ayudaSubsidiosSelect");
-    document.getElementById("c5").addEventListener("hidden.bs.collapse", () => {resetAcordion(ayudaSubsidiosSelect, ayudaSubsidiosDiv)});
+    document.getElementById("c5").addEventListener("hidden.bs.collapse", () => { resetAcordion(ayudaSubsidiosSelect, ayudaSubsidiosDiv) });
 
     const inventariosDiv = document.getElementById("inventarios");
     const inventariosSelect = document.getElementById("inventariosSelect");
-    document.getElementById("c6").addEventListener("hidden.bs.collapse", () => {resetAcordion(inventariosSelect, inventariosDiv)});
+    document.getElementById("c6").addEventListener("hidden.bs.collapse", () => { resetAcordion(inventariosSelect, inventariosDiv) });
 
 
     //Añadir funcion a cada select
     //Informacion Presupuestal
     presupuestoSelect.addEventListener("change", async function () {
         const eleccion = this.value;
-        const archivos = await getPdfs("transparencia", ["informe presupuestal", eleccion]);
+        const archivos = await buscarPestanas("transparencia", ["informe presupuestal", eleccion], presupuestoSelect, presupuestoDiv);
         if (archivos) {
             presupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
                 presupuestoDiv.innerHTML += elementoHtmlGeneral(respuesta.name, respuesta.url);
             });
             presupuestoDiv.innerHTML += `</ul>`;
-        } else {
-            presupuestoDiv.innerHTML = ``;
         }
     });
     //Informacion financiera trimestal
@@ -115,33 +113,86 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//Coneccion con PdfController para obtener los pdfs
-async function getPdfs(folder, subDirectorios) {
+//Comprobar si son necesarias las pestañas
+// div, directorios
+async function buscarPestanas(folder, subDirs, select, div) {
+    //Comprobar si hay subDirectorios
     try {
-        const peticion = await fetch(route('obtener.pdf',folder), {
+        const peticion = await fetch(route('obtener.subDirectorios', folder), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({subDirectorios})
+            body: JSON.stringify({ subDirs })
         });
-    
-        if(!peticion.ok) throw new Error ('peticion fallida, Numero:' + peticion.status + ' Texto: ' + peticion.statusText);
+
+        if (!peticion.ok) throw new Error('peticion fallida, Numero:' + peticion.status + ' Texto: ' + peticion.statusText);
+        const data = await peticion.json();
+        if (data.length !== 0) {
+            div.innerHTML = '';
+            const buttonDiv = document.createElement("div");
+            const documentosDiv = document.createElement("div");
+            buttonDiv.classList.add("botones-container");
+            documentosDiv.id = "documentos-pestana";
+            div.appendChild(buttonDiv);
+            div.appendChild(documentosDiv);
+            data.forEach(pestana => {
+                const button = document.createElement("button");
+                button.textContent = pestana;
+                button.value = pestana;
+                button.onclick = function () {
+                    busquedaBoton(subDirs[0], select, pestana);
+                }
+                buttonDiv.appendChild(button);
+            });
+            return null;
+        } else {
+            return getPdfs(folder, subDirs);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function busquedaBoton(seccion, select, valorBtn) {
+    const containerDocumentos = document.getElementById('documentos-pestana');
+    containerDocumentos.innerHTML = '';
+    const pdfs = await getPdfs('transparencia', [seccion, select.value, valorBtn]);
+    containerDocumentos.innerHTML = `<ul>`;
+    pdfs.forEach( archivo => {
+        containerDocumentos.innerHTML += elementoHtmlGeneral(archivo.name, archivo.url);
+    });
+    containerDocumentos.innerHTML += `</ul>`;
+}
+
+//Coneccion con PdfController para obtener los pdfs
+async function getPdfs(folder, subDirectorios) {
+    try {
+        const peticion = await fetch(route('obtener.pdf', folder), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ subDirectorios })
+        });
+
+        if (!peticion.ok) throw new Error('peticion fallida, Numero:' + peticion.status + ' Texto: ' + peticion.statusText);
         return await peticion.json();
     } catch (error) {
         console.error(error);
     }
-} 
+}
 
 //Generalizar elemento html añadido para facilitar cambios
-function elementoHtmlGeneral(nombre, url){
+function elementoHtmlGeneral(nombre, url) {
     const htmlString = `<a href=${url} target="_blank" style="color: gray;"><li>${nombre}</li></a>`
     return htmlString;
 }
 
 //Devolver acordeon al estado original
-function resetAcordion(select, PDFsDiv){
+function resetAcordion(select, PDFsDiv) {
     select.selectedIndex = 0;
     PDFsDiv.innerHTML = '';
 }

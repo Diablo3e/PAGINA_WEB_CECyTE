@@ -79,6 +79,11 @@
             @endforeach
           </select>
           <div id="infoFinanciera">
+            <div>
+              <button>Button</button>
+              <button>Button</button>
+              <button>Button</button>
+            </div>
           </div>
         </div>
       </div>
