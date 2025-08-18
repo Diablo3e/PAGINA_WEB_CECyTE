@@ -218,10 +218,10 @@ const planteles = {
         nombre: "Chignahuapan",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/Chignahuapan/chigna1.jpg",
-            "/imagenes/Chignahuapan/Chigna6.jpg",
-            "/imagenes/Chignahuapan/Chigna11.jpg",
-            "/imagenes/Chignahuapan/Chigna14.jpg",
+            "/imagenes/chignahuapan/instalaciones/chigna1.jpg",
+            "/imagenes/chignahuapan/instalaciones//Chigna6.jpg",
+            "/imagenes/chignahuapan/instalaciones//Chigna11.jpg",
+            "/imagenes/chignahuapan/instalaciones//Chigna14.jpg",
         ],
         direccion: {
             calle: "Privada de Manuel Avila Camacho",
@@ -241,9 +241,9 @@ const planteles = {
         nombre: "Ameluca",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSaD Ameluca/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
-            "/imagenes/EMSaD Ameluca/aula4 ameluca.jpg",
-            "/imagenes/EMSaD Ameluca/biblioteca ameluca edit.jpg",
+            "/imagenes/ameluca/instalaciones/ENTRADA PRINCIPAL AMELUCA0 edit.jpg",
+            "/imagenes/ameluca/instalaciones/aula4 ameluca.jpg",
+            "/imagenes/ameluca/instalaciones/biblioteca ameluca edit.jpg",
         ],
         direccion: {
             calle: "16 de Septiembre 3",
@@ -263,9 +263,9 @@ const planteles = {
         nombre: "Boca del Monte",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Edificio].jpg",
-            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Comp.1].jpg",
-            "/imagenes/EMSaD Boca del monte/EMSaD Boca del Monte [Lab.Usos Multiples.2].jpg",
+            "/imagenes/boca-del-monte/instalaciones/EMSaD Boca del Monte [Edificio].jpg",
+            "/imagenes/boca-del-monte/instalaciones/EMSaD Boca del Monte [Lab.Comp.1].jpg",
+            "/imagenes/boca-del-monte/instalaciones/EMSaD Boca del Monte [Lab.Usos Multiples.2].jpg",
         ],
         direccion: {
             calle: "",
@@ -285,9 +285,9 @@ const planteles = {
         nombre: "Buena Vista",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092254.jpg",
-            "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092457.jpg",
-            "/imagenes/EMSaD_BUENA_VISTA/FOTOS PLANTEL/20220907_092628.jpg",
+            "/imagenes/buena-vista/instalaciones/20220907_092254.jpg",
+            "/imagenes/buena-vista/instalaciones/20220907_092457.jpg",
+            "/imagenes/buena-vista/instalaciones/20220907_092628.jpg",
         ],
         direccion: {
             calle: "Av. Principal #123",
@@ -307,9 +307,9 @@ const planteles = {
         nombre: "La Pahua",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSaD LA PAHUA/FOTOS 365/Plantel_LaPahua.jpeg",
-            "/imagenes/EMSaD LA PAHUA/FOTOS 365/Aulas_LAPahua.jpeg",
-            "/imagenes/EMSaD LA PAHUA/FOTOS 365/AulaA_LaPahua.jpeg",
+            "/imagenes/la-pahua/instalaciones/Plantel_LaPahua.jpeg",
+            "/imagenes/la-pahua/instalaciones/Aulas_LAPahua.jpeg",
+            "/imagenes/la-pahua/instalaciones/AulaA_LaPahua.jpeg",
         ],
         direccion: {
             calle: "Av. 20 de Noviembre",
@@ -329,10 +329,10 @@ const planteles = {
         nombre: "Mexcaltochintla",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSAD MEXCALTOCHINTLA/ENTRADA/ENTRADA (4).jpg",
-            "/imagenes/EMSAD MEXCALTOCHINTLA/AULA 1/AULA 1 (2).jpg",
-            "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO DE CÓMPUTO/LABORATORIO DE CÓMPUTO (2).jpg",
-            "/imagenes/EMSAD MEXCALTOCHINTLA/LABORATORIO UM/LABORATORIO USOS M (1).jpg",
+            "/imagenes/mexcaltochintla/ENTRADA/ENTRADA (4).jpg",
+            "/imagenes/mexcaltochintla/AULA 1/AULA 1 (2).jpg",
+            "/imagenes/mexcaltochintla/LABORATORIO DE CÓMPUTO/LABORATORIO DE CÓMPUTO (2).jpg",
+            "/imagenes/mexcaltochintla/LABORATORIO UM/LABORATORIO USOS M (1).jpg",
         ],
         direccion: {
             calle: "",
@@ -352,9 +352,9 @@ const planteles = {
         nombre: "Naranjastitla",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitla(Techumbre) 3.jpg",
-            "/imagenes/EMSAD NARANJASTITLA/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
-            "/imagenes/EMSAD NARANJASTITLA/EMSADNARANJASTITLAPLANTEL 1.jpg",
+            "/imagenes/naranjastitla/instalaciones/EMSaDNaranjastitla(Techumbre) 3.jpg",
+            "/imagenes/naranjastitla/instalaciones/EMSaDNaranjastitlaLabCómputo4 edit.jpg",
+            "/imagenes/naranjastitla/instalaciones/EMSADNARANJASTITLAPLANTEL 1.jpg",
         ],
         direccion: {
             calle: "",
@@ -374,9 +374,9 @@ const planteles = {
         nombre: "Santa Elena",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/EMSaD Santa Elena/Entrada a Centro_Santa Elena.jpg",
-            "/imagenes/EMSaD Santa Elena/Salon de clases A_Santa Elena.jpg",
-            "/imagenes/EMSaD Santa Elena/Lab_de_computo_Santa Elena.jpg",
+            "/imagenes/santa-elena/instalaciones/Entrada a Centro_Santa Elena.jpg",
+            "/imagenes/santa-elena/instalaciones/Salon de clases A_Santa Elena.jpg",
+            "/imagenes/santa-elena/instalaciones/Lab_de_computo_Santa Elena.jpg",
         ],
         direccion: {
             calle: "Av. Principal #123",
@@ -396,10 +396,10 @@ const planteles = {
         nombre: "Guadalupe Victoria",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/Guadalupe Victoria/GuadalupeVictoria2.jpeg",
-            "/imagenes/Guadalupe Victoria/GuadalupeVictoriacomedores.jpeg",
-            "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples.jpeg",
-            "/imagenes/Guadalupe Victoria/GuadalupeVictorialaboratoriodeusosmultiples2.jpeg",
+            "/imagenes/guadalupe-victoria/instalaciones/GuadalupeVictoria2.jpeg",
+            "/imagenes/guadalupe-victoria/instalaciones/GuadalupeVictoriacomedores.jpeg",
+            "/imagenes/guadalupe-victoria/instalaciones/GuadalupeVictorialaboratoriodeusosmultiples.jpeg",
+            "/imagenes/guadalupe-victoria/instalaciones/GuadalupeVictorialaboratoriodeusosmultiples2.jpeg",
         ],
         direccion: {
             calle: "Av. Principal #123",
@@ -419,10 +419,10 @@ const planteles = {
         nombre: "Huejotzingo",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/Huejotzingo/ENTRADA.jpeg",
-            "/imagenes/Huejotzingo/SALONES.jpeg",
-            "/imagenes/Huejotzingo/WhatsApp Image 2024-08-08 at 1.50.15 PM (1).jpeg",
-            "/imagenes/Huejotzingo/LABORATORIO DE COMPUTO.jpeg",
+            "/imagenes/huejotzingo/instalaciones/ENTRADA.jpeg",
+            "/imagenes/huejotzingo/instalaciones/SALONES.jpeg",
+            "/imagenes/huejotzingo/instalaciones/WhatsApp Image 2024-08-08 at 1.50.15 PM (1).jpeg",
+            "/imagenes/huejotzingo/instalaciones/LABORATORIO DE COMPUTO.jpeg",
         ],
         direccion: {
             calle: "Blvd. Huejotzingo Aeropuerto 2152",
@@ -563,11 +563,11 @@ const planteles = {
         nombre: "Tehuitzingo",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/TEHUITZINGO/Entrada_Pricipal_Plantel.png",
-            "/imagenes/TEHUITZINGO/Explanada_Edficio1 y 2_Plantel_2.png",
-            "/imagenes/TEHUITZINGO/Taller_MAIN.png",
-            "/imagenes/TEHUITZINGO/Sala_Computo_B.png",
-            "/imagenes/TEHUITZINGO/Laboratorio_Usos_Multiples_2.png",
+            "/imagenes/tehuitzingo/instalaciones/Entrada_Pricipal_Plantel.png",
+            "/imagenes/tehuitzingo/instalaciones/Explanada_Edficio1 y 2_Plantel_2.png",
+            "/imagenes/tehuitzingo/instalaciones/Taller_MAIN.png",
+            "/imagenes/tehuitzingo/instalaciones/Sala_Computo_B.png",
+            "/imagenes/tehuitzingo/instalaciones/Laboratorio_Usos_Multiples_2.png",
         ],
         direccion: {
             calle: "Lazaro Cardenas Primera Seccion",
@@ -587,9 +587,9 @@ const planteles = {
         nombre: "Tlacotepec",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/Tlacotepec/PLANTEL/IMG_1679.JPG",
-            "/imagenes/Tlacotepec/PLANTEL/IMG_1681.JPG",
-            "/imagenes/Tlacotepec/PLANTEL/IMG_1711.JPG",
+            "/imagenes/tlacotepec/instalaciones/IMG_1679.JPG",
+            "/imagenes/tlacotepec/instalaciones/IMG_1681.JPG",
+            "/imagenes/tlacotepec/instalaciones/IMG_1711.JPG",
         ],
         direccion: {
             calle: "Av. Hidalgo",
@@ -609,10 +609,10 @@ const planteles = {
         nombre: "Tlaolantongo",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/Tlaolantongo/EMSAD_Tlaolantongo.jpg",
-            "/imagenes/Tlaolantongo/Aula1_Tlaolantongo.jpg",
-            "/imagenes/Tlaolantongo/sala de computoTlaolantongo.jpg",
-            "/imagenes/Tlaolantongo/Lab_Usos_Multiples.jpg",
+            "/imagenes/tlaolantongo/instalaciones/EMSAD_Tlaolantongo.jpg",
+            "/imagenes/tlaolantongo/instalaciones/Aula1_Tlaolantongo.jpg",
+            "/imagenes/tlaolantongo/instalaciones/sala de computoTlaolantongo.jpg",
+            "/imagenes/tlaolantongo/instalaciones/Lab_Usos_Multiples.jpg",
         ],
         direccion: {
             calle: "Piv. Guadalupe Victoria",
@@ -632,9 +632,9 @@ const planteles = {
         nombre: "Venustiano Carranza",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
-            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
-            "/imagenes/VENUSTIANO CARRANZA/WhatsApp Image 2024-08-20 at 08.08.15.jpeg",
+            "/imagenes/venustiano-carranza/instalaciones/WhatsApp Image 2024-08-20 at 08.07.30.jpeg",
+            "/imagenes/venustiano-carranza/instalaciones/WhatsApp Image 2024-08-20 at 08.09.25 (1).jpeg",
+            "/imagenes/venustiano-carranza/instalaciones/WhatsApp Image 2024-08-20 at 08.08.15.jpeg",
         ],
         direccion: {
             calle: "Calle Flores Magon",
@@ -654,10 +654,10 @@ const planteles = {
         nombre: "Xicotepec",
         usarPlaceholders: true,
         imagenes: [
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/Plantel Xicotepec2.jpg",
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/LaboratorioXicotepec.jpeg",
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/ComputoXicotepec1.jpeg",
-            "/imagenes/XICOTEPEC/Plantel Xicotepec/TallerXicotepec1.jpeg",
+            "/imagenes/xicotepec/instalaciones/Plantel Xicotepec2.jpg",
+            "/imagenes/xicotepec/instalaciones/LaboratorioXicotepec.jpeg",
+            "/imagenes/xicotepec/instalaciones/ComputoXicotepec1.jpeg",
+            "/imagenes/xicotepec/instalaciones/TallerXicotepec1.jpeg",
         ],
         direccion: {
             calle: "",

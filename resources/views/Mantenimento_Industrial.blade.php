@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>'Mantenimiento industrial'</h1>
+    <h1>Mantenimiento industrial</h1>
 </header>
 
 <div class="tabs">

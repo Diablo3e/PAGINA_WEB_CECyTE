@@ -8,7 +8,7 @@
 
 @section('content')
 <header>
-    <h1>'Mantenimiento de Motores de Combustión Interna'</h1>
+    <h1>Mantenimiento de Motores de Combustión Interna</h1>
 </header>
 
 <div class="tabs">

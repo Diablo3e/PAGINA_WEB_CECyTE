@@ -7,7 +7,7 @@
 
 @section('content')
 <header>
-    <h1>'Procesos de gestión administrativa</h1>
+    <h1>Procesos de gestión administrativa</h1>
 </header>
 
 <div class="tabs">
