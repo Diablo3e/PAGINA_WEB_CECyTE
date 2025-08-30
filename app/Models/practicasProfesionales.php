@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class practicasProfesionales extends Model
+{
+    protected $fillable = [
+        'plantel_id',
+        'institucion',
+        'descripcion',
+        'correo',
+        'telefono',
+        'direccion',
+    ];
+
+    //Claves foraneas
+    public function plantel()
+    {
+        return $this->belongsTo(Plantel::class, 'plantel_id');
+    }
+}
