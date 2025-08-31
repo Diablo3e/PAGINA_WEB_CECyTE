@@ -1,11 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Plantel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+
+//Controladores de las secciones de planteles detalles
+use App\Http\Controllers\plantelesDetalles\AvisoController;
+use App\Http\Controllers\plantelesDetalles\CarruselController;
+use App\Http\Controllers\plantelesDetalles\ComunicadoController;
+use App\Http\Controllers\plantelesDetalles\ComunidadController;
+use App\Http\Controllers\plantelesDetalles\EncabezadoController;
+use App\Http\Controllers\plantelesDetalles\HorarioController;
+use App\Http\Controllers\plantelesDetalles\OfertasEmpleoController;
+use App\Http\Controllers\plantelesDetalles\PersonalController;
+use App\Http\Controllers\plantelesDetalles\PracticasProfesionalesController;
+use App\Http\Controllers\plantelesDetalles\RedesSocialesController;
+use App\Http\Controllers\plantelesDetalles\SeguimientoEgresadosController;
+use App\Http\Controllers\plantelesDetalles\ServicioSocialController;
+use App\Http\Controllers\plantelesDetalles\SistemaDualController;
+
 
 class PlantelesController extends Controller
 {
@@ -132,5 +149,46 @@ class PlantelesController extends Controller
         }else{
             return response()->json([]);
         }
+    }
+
+    public function getDetallesPlanteles($plantelId){
+        //Controladores
+        $encabezados = new EncabezadoController();
+        $carrusel = new CarruselController();
+        $personal = new PersonalController();
+        $comunicados = new ComunicadoController();
+        $comunidad = new ComunidadController();
+        $ofertasEmpleo = new OfertasEmpleoController();
+        $servicioSocial = new ServicioSocialController();
+        $practicasProfesionales = new PracticasProfesionalesController();
+        $redesSociales = new RedesSocialesController();
+        $seguimientoEgresados = new SeguimientoEgresadosController();
+        $sistemaDual = new SistemaDualController();
+        $avisos = new AvisoController();
+        $horarios = new HorarioController();
+
+        $data = [
+            'encabezado' => $encabezados->getEncabezadoPorPlantel($plantelId),
+            'imagenes' => collect($carrusel->getImagenesCarruselPorPlantel($plantelId))->pluck('imagenes')->all(),
+            'personal' => $personal->getPersonalPorPlantel($plantelId),
+            'comunicados' =>$comunicados->getComunicadosPorPlantel($plantelId),
+            'comunidad' => collect($comunidad->getComunidadPorPlantel($plantelId))->pluck('imagen')->all(),
+            'vinculacion' => [
+                'ofertasDeEmpleo' => $ofertasEmpleo->getOfertasEmpleoPorPlantel($plantelId),
+                'servicioSocial' => $servicioSocial->getServicioSocialPorPlantel($plantelId),
+                'practicasProfesionales' => $practicasProfesionales->getPracticasProfesionalesPorPlantel($plantelId),
+                'redesSociales' => $redesSociales->getRedesSocialesPorPlantel($plantelId),
+                'seguimientoEgresados' => $seguimientoEgresados->getSeguimientoEgresadosPorPlantel($plantelId),
+                'sistemaDual' => collect($sistemaDual->getSistemaDualPorPlantel($plantelId))->pluck('banner')->all(),
+            ],
+            'controlEscolar' => [
+                'avisos' => $avisos->getAvisosPorPlantel($plantelId),
+                'horarios' => $horarios->getHorarioPorPlantel($plantelId)
+            ],
+        ];
+
+        $arrayFinal = array_merge($data);
+
+        return response()->json($arrayFinal);
     }
 }

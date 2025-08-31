@@ -12,6 +12,8 @@ use Illuminate\Support\Str;
 
 
 
+
+Route::get('/testing/{plantelId}', [PlantelesController::class, 'getDetallesPlanteles']);
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [

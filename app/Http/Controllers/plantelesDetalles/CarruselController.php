@@ -10,7 +10,7 @@ class CarruselController extends Controller
 {
     public function getImagenesCarruselPorPlantel($plantelId):array {
         return carrusel::where('plantel_id',$plantelId)
-        ->select('imagen')
+        ->select('imagenes')
         ->get()
         ->toArray();
     }
