@@ -39,7 +39,6 @@ class CarruselResource extends Resource
                     ->disk('public')
                     ->acceptedFileTypes(['image/png', 'image/jpeg', 'image/webp'])
                     ->required(),
-                TextInput::make('nombre')->required(),
             ]);
     }
 
@@ -48,7 +47,6 @@ class CarruselResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                TextColumn::make('nombre'),
                 ImageColumn::make('imagenes')->disk('public'),
             ]);
     }

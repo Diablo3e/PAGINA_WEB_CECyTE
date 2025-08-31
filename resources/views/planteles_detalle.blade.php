@@ -296,10 +296,6 @@
     </button>
 </div>
 
-<script>
-    window.plantelData = @json($plantel);
-</script>
-
 @push('scripts')
 <script src="{{ asset('js/planteles_detalle.js') }}" type="module"></script>
 @endpush

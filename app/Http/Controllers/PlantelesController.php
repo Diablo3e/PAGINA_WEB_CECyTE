@@ -22,10 +22,7 @@ class PlantelesController extends Controller
             abort(404);
         }
 
-        return view('planteles_detalle', [
-            'plantelId' => $id,
-            'plantel' => $planteles[$id]
-        ]);
+        return view('planteles_detalle');
     }
 
      public function carrerasDePlantel($id)

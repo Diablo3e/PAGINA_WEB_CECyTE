@@ -10,7 +10,6 @@ class carrusel extends Model
     protected $fillable = [
         'plantel_id',
         'imagenes',
-        'nombre',
     ];
 
     //Clave foranea
