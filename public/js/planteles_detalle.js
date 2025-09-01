@@ -438,10 +438,13 @@ const planteles = {
         },
     },
     plantel12: {
-        tipo: "cecyte",
-        nombre: "Magdalena Acajete",
-        descripcion: "CCT: 21ETC0013X",
-        usarPlaceholders: false,
+        encabezado: [
+            {
+                tipo: "cecyte",
+                nombre: "Magdalena Acajete",
+                descripcion: "CCT: 21ETC0013X",
+            },
+        ],
         imagenes: [
             "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_090142141.jpg",
             "/imagenes/magdalena-acajete/Plantel/Actual/IMG_20240807_091750126_HDR.jpg",
@@ -688,7 +691,7 @@ const planteles = {
 // Función para cargar el encabezado del plantel
 function cargarEncabezadoPlantel(plantel) {
     // Configurar título
-    document.getElementById('plantel-nombre').textContent = "Plantel " + plantel.nombre || 'PLANTEL CECyTE';
+    document.getElementById('plantel-nombre').textContent = "Plantel " + plantel.encabezado[0].nombre || 'PLANTEL CECyTE';
 
     // Configurar lema
     const lemaElement = document.getElementById('plantel-lema');
@@ -700,20 +703,18 @@ function cargarEncabezadoPlantel(plantel) {
 
     // Configurar descripción
     const descripcionElement = document.getElementById('plantel-descripcion');
-    if (plantel.descripcion) {
-        descripcionElement.innerHTML = plantel.descripcion;
+    if (plantel.encabezado[0].descripcion) {
+        descripcionElement.innerHTML = plantel.encabezado[0].descripcion;
     } else {
         descripcionElement.innerHTML = '<em>Información general no disponible</em>';
     }
 
     // Configurar badge de tipo
     const badgeElement = document.getElementById('plantel-tipo-badge');
-    badgeElement.textContent = plantel.tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
-    badgeElement.className = `badge fs-6 ${plantel.tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
+    badgeElement.textContent = plantel.encabezado[0].tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
+    badgeElement.className = `badge fs-6 ${plantel.encabezado[0].tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
-//TEMP: formatear todas las carpetas de imagenes de planteles a nombres slug para que se pueda conseguir el nombre dinamicamente;
-//TODO: Para que esto funcione cada carpeta de imagenes de planteles tiene que tener un subDir llamado "instalaciones", ademas del formato SLUG en la carpeta principal
 function renderInstalaciones(plantel) {
     const data = {
         plantel: plantel,
@@ -747,7 +748,7 @@ function renderPersonal(plantel) {
 
     if (plantel.personal.length !== 0) {
         plantel.personal.forEach(persona => {
-            fetch(route('archivo.get', persona.foto))
+            fetch(route('publicStorage.get', persona.foto))
                 .then(imagenPersonal => {
                     container.innerHTML += `
                     <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
@@ -776,7 +777,7 @@ function renderComunicados(plantel) {
 
     if (plantel.comunicados.length !== 0) {
         plantel.comunicados.forEach(comunicado => {
-            fetch(route('archivo.get', comunicado.pdf))
+            fetch(route('publicStorage.get', comunicado.pdf))
                 .then(archivoPdf => {
                     container.innerHTML += `
                     <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
@@ -808,7 +809,7 @@ function setupCarousel(images, carouselId) {
 
     if (images.length !== 0) {
         images.forEach((img, index) => {
-            const imgUrl = route('archivo.get', img);
+            const imgUrl = route('publicStorage.get', img);
             const item = document.createElement('div');
             item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
             item.innerHTML = `
@@ -829,52 +830,6 @@ function setupCarousel(images, carouselId) {
         ocultarSeccion(carousel, ".section-card");
     }
 }
-
-//TODO: ver si esto se quita o se queda
-// function renderHorarios(horariosData) {
-//     const horariosContainer = document.getElementById('horarios-container');
-//     if (!horariosContainer || !horariosData) return;
-
-//     const grupos = Object.entries(horariosData.grupos);
-//     const mitad = Math.ceil(grupos.length / 2);
-
-//     let html = `
-//         <p class="text-center mb-3">CICLO ESCOLAR ${horariosData.cicloEscolar}</p>
-//         <div class="table-responsive">
-//             <table class="table table-borderless text-center">
-//                 <tbody>
-//                     <tr>
-//                         ${grupos.slice(0, mitad).map(([grupo, archivo]) => `
-//                             <td>
-//                                 <a href="${archivo}"
-//                                    class="btn btn-horario"
-//                                    target="_blank"
-//                                    download>
-//                                     ${grupo}
-//                                 </a>
-//                             </td>
-//                         `).join('')}
-//                     </tr>
-//                     ${mitad < grupos.length ? `
-//                     <tr>
-//                         ${grupos.slice(mitad).map(([grupo, archivo]) => `
-//                             <td>
-//                                 <a href="${archivo}"
-//                                    class="btn btn-horario"
-//                                    target="_blank"
-//                                    download>
-//                                     ${grupo}
-//                                 </a>
-//                             </td>
-//                         `).join('')}
-//                     </tr>` : ''}
-//                 </tbody>
-//             </table>
-//         </div>
-//     `;
-
-//     horariosContainer.innerHTML = html;
-// }
 
 // Cargar carreras ofrecidas en el plantel
 function renderCarreras(id, isLocal) {
@@ -927,7 +882,7 @@ function renderVinculacion(plantel) {
     //Randerizar informacion
     if (plantel.vinculacion.ofertasDeEmpleo.length !== 0) {
         plantel.vinculacion.ofertasDeEmpleo.forEach(oferta => {
-            fetch(route('archivo.get', oferta.imagen))
+            fetch(route('publicStorage.get', oferta.imagen))
                 .then(imagen => {
                     containerOfertasLab.innerHTML +=
                         `
@@ -1044,7 +999,7 @@ function renderVinculacion(plantel) {
     //Randerizar informacion
     if (plantel.vinculacion.sistemaDual.length !== 0) {
         plantel.vinculacion.sistemaDual.forEach(banner => {
-            fetch(route('archivo.get', banner))
+            fetch(route('publicStorage.get', banner))
                 .then(banner => {
                     containerSistDial.innerHTML += `
                        <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
@@ -1081,6 +1036,7 @@ function renderExtEducativa(plantel) {
 }
 
 function renderControlEscolar(plantel) {
+    console.log(plantel);
     let hayContenido = false;
     if (plantel.usarPlaceholders) plantel = placeholderData;
 
@@ -1138,11 +1094,19 @@ function ocultarSeccion(container, claseSeccion) {
 }
 
 // Función principal para cargar el detalle del plantel
-function cargarDetallePlantel() {
+async function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
     const plantelId = pathParts[pathParts.length - 1];
-    const plantel = planteles[plantelId];
-    //console.log(plantel + "     plantelID  " + plantelId);
+    const Id = parseInt(plantelId.replace('plantel', ''));
+    const response = await fetch(route('plantelData.get', { plantelId: Id }), {
+        method: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        }
+    });
+
+    const plantel = await response.json();
+
     if (!plantel) {
         window.location.href = '/planteles';
         return;
@@ -1155,7 +1119,7 @@ function cargarDetallePlantel() {
     cargarEncabezadoPlantel(plantel);
 
     // Renderizar galeria instalaciones
-    renderInstalaciones(plantel.nombre);
+    renderInstalaciones(plantel.encabezado[0].nombre);
 
     // Randerizar personal
     renderPersonal(plantel);

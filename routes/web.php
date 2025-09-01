@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Plantel;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
 
-
-Route::get('/testing/{plantelId}', [PlantelesController::class, 'getDetallesPlanteles']);
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [
@@ -79,6 +78,8 @@ Route::get('/search/{query}', [SearchController::class, 'searchAll'])->name('sea
 
 //Planteles
 Route::get('/planteles/detalle/{id}', [PlantelesController::class, 'detalle'])->name('planteles.detalle');
+//Datos de planteles de la Base de Datos
+Route::get('/plantelData/{plantelId}', [PlantelesController::class, 'getDetallesPlanteles'])->name('plantelData.get');
 //Imagenes para galerias de planteles
 Route::get('/galeria/{plantel}/{tipoDeGaleria}', [PlantelesController::class, 'getImagenesGaleria'])->name('galeria.get');
 
@@ -178,6 +179,15 @@ Route::get('/files/{filePath}', function ($filePath) {
 
     return response()->file($realPath);
 })->where('filePath', '.*')->name('archivo.get');
+
+//Uso de archivos que se encuentran en storage/app/public
+Route::get('/publicStorage/{filePath}', function ($filePath) {
+    if (!Storage::disk('public')->exists($filePath)) {
+        abort(404);
+    }
+
+    return response()->file(Storage::disk('public')->path($filePath));
+})->where('filePath', '.*')->name('publicStorage.get');
 
 
 
