@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Filament\Resources\Horarios;
+
+use App\Filament\Resources\Horarios\Pages\CreateHorario;
+use App\Filament\Resources\Horarios\Pages\EditHorario;
+use App\Filament\Resources\Horarios\Pages\ListHorarios;
+use App\Filament\Resources\Horarios\Schemas\HorarioForm;
+use App\Filament\Resources\Horarios\Tables\HorariosTable;
+use App\Models\Horario;
+use BackedEnum;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+class HorarioResource extends Resource
+{
+    protected static ?string $model = Horario::class;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDays;
+
+    public static function form(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Select::make('plantel_id')
+                    ->relationship('plantel','nombre')
+                    ->required(),
+                TextInput::make('grupo')->required(),
+                FileUpload::make('pdf')
+                    ->directory('pdfHorarios')
+                    ->visibility('public')
+                    ->disk('public')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->maxSize(20480)
+                    ->required()
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('plantel.nombre'),
+                TextColumn::make('grupo'),
+                IconColumn::make('pdf') // Adjust to your DB column name
+                    ->label('Documento')
+                    ->icon('heroicon-s-document')
+                    ->url(fn ($record) => $record->pdf ? asset('storage/' . $record->pdf) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('abrir el pdf')
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListHorarios::route('/'),
+            'create' => CreateHorario::route('/create'),
+            'edit' => EditHorario::route('/{record}/edit'),
+        ];
+    }
+}

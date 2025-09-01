@@ -57,11 +57,11 @@ const planteles = {
         tipo: "cecyte",
         nombre: "Tehuitzingo",
     },
-    plantel16: {
+    plantel15: {
         tipo: "emsad",
         nombre: "Tlaolantongo",
     },
-    plantel15: {
+    plantel16: {
         tipo: "cecyte",
         nombre: "Tlacotepec",
     },
