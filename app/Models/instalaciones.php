@@ -17,11 +17,23 @@ class instalaciones extends Model
         return $this->belongsTo(Plantel::class, 'plantel_id');
     }
 
-    //Borrar archivos junto con los registros
     protected static function booted(){
+        
+        //Borrar archivos junto con los registros
         static::deleting(function ($imgInstalacion){
             if($imgInstalacion->imagen && Storage::disk('public')->exists($imgInstalacion->imagen)){
                 Storage::disk('public')->delete($imgInstalacion->imagen);
+            }
+        });
+
+        // Borrar el anterior archivo si se edita el registro
+        static::updating(function ($imgInstalacion) {
+            if ($imgInstalacion->isDirty('imagen')) {
+                $originalImage = $imgInstalacion->getOriginal('imagen');
+
+                if ($originalImage && Storage::disk('public')->exists($originalImage)) {
+                    Storage::disk('public')->delete($originalImage);
+                }
             }
         });
     }

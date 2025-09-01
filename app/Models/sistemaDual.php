@@ -20,11 +20,23 @@ class sistemaDual extends Model
         return $this->belongsTo(Plantel::class, 'plantel_id');
     }
 
-    //Borrar banner junto con registros
     protected static function booted(){
+        
+        //Borrar banner junto con registros
         static::deleting(function ($entrada){
             if($entrada->banner && Storage::disk('public')->exists($entrada->banner)){
                 Storage::disk('public')->delete($entrada->banner);
+            }
+        });
+
+        // Borrar el anterior archivo si se edita el registro
+        static::updating(function ($entrada) {
+            if ($entrada->isDirty('banner')) {
+                $originalImage = $entrada->getOriginal('banner');
+
+                if ($originalImage && Storage::disk('public')->exists($originalImage)) {
+                    Storage::disk('public')->delete($originalImage);
+                }
             }
         });
     }

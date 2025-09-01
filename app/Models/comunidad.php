@@ -19,11 +19,23 @@ class comunidad extends Model
         return $this->belongsTo(Plantel::class, 'plantel_id');
     }
 
-    //Borrar archivos junto con los registros
     protected static function booted(){
+        
+        //Borrar archivos junto con los registros
         static::deleting(function ($entrada){
             if($entrada->imagen && Storage::disk('public')->exists($entrada->imagen)){
                 Storage::disk('public')->delete($entrada->imagen);
+            }
+        });
+
+        // Borrar el anterior archivo si se edita el registro
+        static::updating(function ($entrada) {
+            if ($entrada->isDirty('imagen')) {
+                $originalImage = $entrada->getOriginal('imagen');
+
+                if ($originalImage && Storage::disk('public')->exists($originalImage)) {
+                    Storage::disk('public')->delete($originalImage);
+                }
             }
         });
     }
