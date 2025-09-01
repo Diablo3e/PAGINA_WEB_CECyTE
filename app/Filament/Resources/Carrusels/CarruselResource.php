@@ -38,6 +38,7 @@ class CarruselResource extends Resource
                     ->visibility('public')
                     ->disk('public')
                     ->acceptedFileTypes(['image/png', 'image/jpeg', 'image/webp'])
+                    ->maxSize(20480)
                     ->required(),
             ]);
     }

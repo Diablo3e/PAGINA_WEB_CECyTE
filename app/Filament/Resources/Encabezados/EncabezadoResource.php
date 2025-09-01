@@ -38,8 +38,7 @@ class EncabezadoResource extends Resource
                         'emsad' => 'EMSAD',
                     ])->required(),
                 Textarea::make('descripcion')
-                    ->rows(8)
-                    ->required(),
+                    ->rows(8),
             ]);
     }
 

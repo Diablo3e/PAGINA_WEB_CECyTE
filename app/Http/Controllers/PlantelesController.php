@@ -117,12 +117,12 @@ class PlantelesController extends Controller
 
             ],
             'plantel15' => [
-                'tipo' => "cecyte",
-                'nombre' => "Plantel Tlacotepec",
-            ],
-            'plantel16' => [
                 'tipo' => "emsad",
                 'nombre' => "Plantel Tlaolantongo",
+            ],
+            'plantel16' => [
+                'tipo' => "cecyte",
+                'nombre' => "Plantel Tlacotepec",
             ],
             'plantel17' => [
                 'tipo' => "cecyte",

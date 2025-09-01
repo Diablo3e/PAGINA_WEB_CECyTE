@@ -31,13 +31,14 @@ class InstalacionesResource extends Resource
         return $schema
             ->components([
                 Select::make('plantel_id')
-                    ->relationship('plantel','nombre')
+                    ->relationship('plantel', 'nombre')
                     ->required(),
                 FileUpload::make('imagen')
                     ->directory('ImgInstalaciones')
                     ->visibility('public')
                     ->disk('public')
                     ->acceptedFileTypes(['image/png', 'image/webp', 'image/jpeg'])
+                    ->maxSize(20480)
                     ->required(),
             ]);
     }
@@ -65,6 +66,13 @@ class InstalacionesResource extends Resource
             'index' => ListInstalaciones::route('/'),
             'create' => CreateInstalaciones::route('/create'),
             'edit' => EditInstalaciones::route('/{record}/edit'),
+        ];
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'data.imagen' => 'max:25600',
         ];
     }
 }

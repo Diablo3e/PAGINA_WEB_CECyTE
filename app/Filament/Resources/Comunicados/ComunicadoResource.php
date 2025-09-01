@@ -38,6 +38,7 @@ class ComunicadoResource extends Resource
                     ->visibility('public')
                     ->disk('public')
                     ->acceptedFileTypes(['application/pdf'])
+                    ->maxSize(20480)
                     ->required()
             ]);
     }

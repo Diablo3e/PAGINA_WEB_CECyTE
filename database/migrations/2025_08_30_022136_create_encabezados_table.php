@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('plantel_id'); 
             $table->string('nombre');
             $table->string('tipo');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles')->onDelete('cascade');

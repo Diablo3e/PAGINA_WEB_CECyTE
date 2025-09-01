@@ -40,6 +40,7 @@ class OfertasEmpleoResource extends Resource
                     ->visibility('public')
                     ->disk('public')
                     ->acceptedFileTypes(['image/png', 'image/webp', 'image/jpeg'])
+                    ->maxSize(20480)
                     ->required(),
             ]);
     }
