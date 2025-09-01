@@ -1023,7 +1023,7 @@ function renderExtEducativa(plantel) {
 
     if (plantel.extEducativa.length !== 0) {
         plantel.extEducativa.forEach(banner => {
-            fetch(route('archivo.get', banner))
+            fetch(route('publicStorage.get', banner))
                 .then(banner => {
                     extensionContainer.innerHTML += `
                         <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
@@ -1068,7 +1068,7 @@ function renderControlEscolar(plantel) {
     //Randerizar informacion
     if (plantel.controlEscolar.horarios.length !== 0) {
         plantel.controlEscolar.horarios.forEach(horario => {
-            fetch(route('archivo.get', horario.pdf))
+            fetch(route('publicStorage.get', horario.pdf))
                 .then(horarioPdf => {
                     containerHorarios.innerHTML += `
                     <div class="card no-hover" style="min-width: 20%; min-height: fit-content">

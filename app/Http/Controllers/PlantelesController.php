@@ -14,6 +14,7 @@ use App\Http\Controllers\plantelesDetalles\CarruselController;
 use App\Http\Controllers\plantelesDetalles\ComunicadoController;
 use App\Http\Controllers\plantelesDetalles\ComunidadController;
 use App\Http\Controllers\plantelesDetalles\EncabezadoController;
+use App\Http\Controllers\plantelesDetalles\ExtensionEducativaController;
 use App\Http\Controllers\plantelesDetalles\HorarioController;
 use App\Http\Controllers\plantelesDetalles\OfertasEmpleoController;
 use App\Http\Controllers\plantelesDetalles\PersonalController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\plantelesDetalles\RedesSocialesController;
 use App\Http\Controllers\plantelesDetalles\SeguimientoEgresadosController;
 use App\Http\Controllers\plantelesDetalles\ServicioSocialController;
 use App\Http\Controllers\plantelesDetalles\SistemaDualController;
-
+use App\Models\extensionEducativa;
 
 class PlantelesController extends Controller
 {
@@ -164,6 +165,7 @@ class PlantelesController extends Controller
         $redesSociales = new RedesSocialesController();
         $seguimientoEgresados = new SeguimientoEgresadosController();
         $sistemaDual = new SistemaDualController();
+        $extensionEducativa = new ExtensionEducativaController();
         $avisos = new AvisoController();
         $horarios = new HorarioController();
 
@@ -181,6 +183,7 @@ class PlantelesController extends Controller
                 'seguimientoEgresados' => $seguimientoEgresados->getSeguimientoEgresadosPorPlantel($plantelId),
                 'sistemaDual' => collect($sistemaDual->getSistemaDualPorPlantel($plantelId))->pluck('banner')->all(),
             ],
+            'extEducativa' => collect($extensionEducativa->getExtensionEducativaPorPlantel($plantelId))->pluck('imagen')->all(),
             'controlEscolar' => [
                 'avisos' => $avisos->getAvisosPorPlantel($plantelId),
                 'horarios' => $horarios->getHorarioPorPlantel($plantelId)
