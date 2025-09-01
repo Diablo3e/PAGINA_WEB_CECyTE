@@ -16,6 +16,7 @@ use App\Http\Controllers\plantelesDetalles\ComunidadController;
 use App\Http\Controllers\plantelesDetalles\EncabezadoController;
 use App\Http\Controllers\plantelesDetalles\ExtensionEducativaController;
 use App\Http\Controllers\plantelesDetalles\HorarioController;
+use App\Http\Controllers\plantelesDetalles\InstalacionesController;
 use App\Http\Controllers\plantelesDetalles\OfertasEmpleoController;
 use App\Http\Controllers\plantelesDetalles\PersonalController;
 use App\Http\Controllers\plantelesDetalles\PracticasProfesionalesController;
@@ -155,6 +156,7 @@ class PlantelesController extends Controller
     public function getDetallesPlanteles($plantelId){
         //Controladores
         $encabezados = new EncabezadoController();
+        $instalaciones = new InstalacionesController();
         $carrusel = new CarruselController();
         $personal = new PersonalController();
         $comunicados = new ComunicadoController();
@@ -172,6 +174,7 @@ class PlantelesController extends Controller
         $data = [
             'encabezado' => $encabezados->getEncabezadoPorPlantel($plantelId),
             'imagenes' => collect($carrusel->getImagenesCarruselPorPlantel($plantelId))->pluck('imagenes')->all(),
+            'instalaciones' => collect($instalaciones->getInstalacionesPorPlantel($plantelId))->pluck('imagen')->all(),
             'personal' => $personal->getPersonalPorPlantel($plantelId),
             'comunicados' =>$comunicados->getComunicadosPorPlantel($plantelId),
             'comunidad' => collect($comunidad->getComunidadPorPlantel($plantelId))->pluck('imagen')->all(),

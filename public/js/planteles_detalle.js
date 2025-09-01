@@ -715,28 +715,20 @@ function cargarEncabezadoPlantel(plantel) {
     badgeElement.className = `badge fs-6 ${plantel.encabezado[0].tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
 }
 
-function renderInstalaciones(plantel) {
-    const data = {
-        plantel: plantel,
-        // tipoDeGaleria se refiere al nombre de la carpeta de la cual va a tomar todas las fotos para mostrarlas
-        tipoDeGaleria: 'instalaciones'
-    };
+function renderInstalaciones(imagenes) {
+
     const container = document.getElementById('instalaciones-content');
     container.innerHTML = "";
     if (!container) return;
-
-    fetch(route('galeria.get', data))
-        .then(res => res.json())
-        .then(data => {
-            data.forEach(imagenUrl => {
+    imagenes.forEach(imagenPath => {
+        fetch(route('publicStorage.get', imagenPath))
+            .then(imagen => {
+                const img = imagen.url;
                 container.innerHTML += `
-                <img class="img-fluid" src="${imagenUrl}" alt="imagen instalaciones" >
-                `
+                        <img class="img-fluid" src="${img}" alt="imagen instalaciones" >
+                        `
             });
-        })
-        .catch(() => {
-            container.innerHTML = `<p>Error al cargar la galeria</p>`
-        });
+    });
 }
 
 function renderPersonal(plantel) {
@@ -1036,7 +1028,6 @@ function renderExtEducativa(plantel) {
 }
 
 function renderControlEscolar(plantel) {
-    console.log(plantel);
     let hayContenido = false;
     if (plantel.usarPlaceholders) plantel = placeholderData;
 
@@ -1119,7 +1110,7 @@ async function cargarDetallePlantel() {
     cargarEncabezadoPlantel(plantel);
 
     // Renderizar galeria instalaciones
-    renderInstalaciones(plantel.encabezado[0].nombre);
+    renderInstalaciones(plantel.instalaciones);
 
     // Randerizar personal
     renderPersonal(plantel);
