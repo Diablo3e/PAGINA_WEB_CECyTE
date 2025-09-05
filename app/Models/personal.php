@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class personal extends Model
+class Personal extends Model
 {
     protected $table = 'personal'; 
 

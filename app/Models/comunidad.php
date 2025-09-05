@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class comunidad extends Model
+class Comunidad extends Model
 {
     protected $table = 'comunidad'; 
 

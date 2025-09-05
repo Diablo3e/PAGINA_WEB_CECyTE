@@ -1,5 +1,10 @@
 <?php
 
+//Funcion para cambiar el public path en base de si es local o hosting
+$publicPath = is_dir(base_path('public')) 
+? base_path('public/storage') 
+: base_path('public_html/storage');
+
 return [
 
     /*
@@ -73,8 +78,10 @@ return [
     |
     */
 
-    'links' => [
-        public_path('storage') => storage_path('app/public'),
-    ],
+    
 
+
+    'links' => [
+        $publicPath => storage_path('app/public'),
+    ],
 ];

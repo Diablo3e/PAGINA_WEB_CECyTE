@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class extensionEducativa extends Model
+class ExtensionEducativa extends Model
 {
     protected $table = 'extension_educativa'; 
 

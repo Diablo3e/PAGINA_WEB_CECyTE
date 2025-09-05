@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class ofertasEmpleo extends Model
+class OfertasEmpleo extends Model
 {
     protected $table = 'ofertas_empleo';
 
