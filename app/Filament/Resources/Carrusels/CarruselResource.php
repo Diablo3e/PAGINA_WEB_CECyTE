@@ -74,7 +74,6 @@ class CarruselResource extends Resource
     }
 
     //Metodo para limitar el resultado de la query al enseñar entradas en la BD
-
     public static function getEloquentQuery(): Builder
     {
         $user = Auth::user();

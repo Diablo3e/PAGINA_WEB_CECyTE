@@ -17,6 +17,8 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class PracticasProfesionalesResource extends Resource
 {
@@ -29,8 +31,9 @@ class PracticasProfesionalesResource extends Resource
         return $schema
             ->components([
                 Select::make('plantel_id')
-                    ->relationship('plantel', 'nombre')
-                    ->required(),
+                    ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                    ->required()
+                    ->label('Plantel'),
                 TextInput::make('institucion')->required(),
                 Textarea::make('descripcion')
                     ->rows(8)
@@ -72,5 +75,18 @@ class PracticasProfesionalesResource extends Resource
             'create' => CreatePracticasProfesionales::route('/create'),
             'edit' => EditPracticasProfesionales::route('/{record}/edit'),
         ];
+    }
+
+    //Metodo para limitar el resultado de la query al enseñar entradas en la BD
+    public static function getEloquentQuery(): Builder
+    {
+        $user = Auth::user();
+
+        // Get the plantel IDs the user is associated with
+        $plantelIds = $user->plantel->pluck('id')->toArray();
+
+        // Return only Carruseles associated with those planteles
+        return parent::getEloquentQuery()
+            ->whereIn('plantel_id', $plantelIds);
     }
 }
