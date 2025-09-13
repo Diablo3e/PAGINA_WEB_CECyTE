@@ -7,11 +7,14 @@ use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
 use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Tables\UsersTable;
+use App\Models\Plantel;
 use App\Models\User;
 use BackedEnum;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+use Filament\Support\Enums\GridDirection;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -32,7 +35,14 @@ class UserResource extends Resource
             ->components([
                 TextInput::make('name')->required(),
                 TextInput::make('email')->required(),
-                TextInput::make('password')->required(),
+                TextInput::make('password')
+                    ->required(fn (string $context) => $context === 'create')
+                    ->dehydrated(fn ($state) => filled($state)),
+                CheckboxList::make('plantel')
+                    ->label('Permisos de planteles')
+                    ->gridDirection(GridDirection::Row)
+                    ->columns(3)
+                    ->relationship('plantel','nombre'),
             ]);
     }
 
@@ -42,7 +52,6 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('email'),
-
             ]);
     }
 

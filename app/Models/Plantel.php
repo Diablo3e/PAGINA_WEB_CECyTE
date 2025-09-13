@@ -12,4 +12,9 @@ class Plantel extends Model
     {
         return $this->belongsToMany(Carrera::class, 'plantel_carrera');
     }
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'relationship_user_planteles');
+    }
 }

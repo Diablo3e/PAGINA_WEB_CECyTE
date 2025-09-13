@@ -8,6 +8,7 @@ use App\Filament\Resources\Carrusels\Pages\ListCarrusels;
 use App\Filament\Resources\Carrusels\Schemas\CarruselForm;
 use App\Filament\Resources\Carrusels\Tables\CarruselsTable;
 use App\Models\Carrusel;
+use App\Models\User;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -18,6 +19,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class CarruselResource extends Resource
 {
@@ -32,7 +35,9 @@ class CarruselResource extends Resource
         return $schema
             ->components([
                 Select::make('plantel_id')
-                    ->relationship('plantel', 'nombre')->required(),
+                    ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                    ->required()
+                    ->label('Plantel'),
                 FileUpload::make('imagenes')
                     ->directory('ImgCarrusel')
                     ->visibility('public')
@@ -67,6 +72,21 @@ class CarruselResource extends Resource
             'edit' => EditCarrusel::route('/{record}/edit'),
         ];
     }
+
+    //Metodo para limitar el resultado de la query al enseñar entradas en la BD
+
+    public static function getEloquentQuery(): Builder
+    {
+        $user = Auth::user();
+
+        // Get the plantel IDs the user is associated with
+        $plantelIds = $user->plantel->pluck('id')->toArray();
+
+        // Return only Carruseles associated with those planteles
+        return parent::getEloquentQuery()
+            ->whereIn('plantel_id', $plantelIds);
+    }
+
 
     public static function getPluralLabel(): string
     {

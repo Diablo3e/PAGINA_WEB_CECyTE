@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function plantel(){
+        return $this->belongsToMany(Plantel::class, 'relationship_user_planteles');
+    }
+
+    //TODO: Permisos avanzados de usuarios
+    //Permiso global para todos los usuarios
+    public function canAccessPanel(Panel $panel): bool{
+        return true;
+    }
 }
