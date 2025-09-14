@@ -12,12 +12,15 @@ use App\Models\User;
 use BackedEnum;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\GridDirection;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends Resource
 {
@@ -36,13 +39,16 @@ class UserResource extends Resource
                 TextInput::make('name')->required(),
                 TextInput::make('email')->required(),
                 TextInput::make('password')
-                    ->required(fn (string $context) => $context === 'create')
-                    ->dehydrated(fn ($state) => filled($state)),
+                    ->required(fn(string $context) => $context === 'create')
+                    ->dehydrated(fn($state) => filled($state)),
+                Toggle::make('admin')
+                    ->label('Es administrador'),
                 CheckboxList::make('plantel')
                     ->label('Permisos de planteles')
                     ->gridDirection(GridDirection::Row)
                     ->columns(3)
-                    ->relationship('plantel','nombre'),
+                    ->relationship('plantel', 'nombre')
+                    ->bulkToggleable(),
             ]);
     }
 
@@ -50,8 +56,10 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')->label('nombre'),
                 TextColumn::make('email'),
+                CheckboxColumn::make('admin')->label('Es administrador'),
+                TextColumn::make('plantel.nombre')->label('Puede modificar')->listWithLineBreaks()->badge(),
             ]);
     }
 
@@ -69,5 +77,17 @@ class UserResource extends Resource
             'create' => CreateUser::route('/create'),
             'edit' => EditUser::route('/{record}/edit'),
         ];
+    }
+
+    //Solo mostrar el panel para usuarios con permisos de admin
+    public static function shouldRegisterNavigation(): bool
+    {
+        return Auth::user()?->admin ?? false;
+    }
+
+    //Bloquear el acceso por url a usuarios sin el boolean administrador
+    public static function canAccess(): bool
+    {
+        return Auth::user()?->admin ?? false;
     }
 }
