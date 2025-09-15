@@ -24,6 +24,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'admin',
     ];
 
     /**
@@ -47,6 +48,10 @@ class User extends Authenticatable implements FilamentUser
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function plantel(){
+        return $this->belongsToMany(Plantel::class, 'relationship_user_planteles');
     }
 
     //TODO: Permisos avanzados de usuarios
