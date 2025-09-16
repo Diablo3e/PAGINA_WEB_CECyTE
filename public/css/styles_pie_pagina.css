@@ -64,3 +64,24 @@
     flex-wrap: wrap;
     gap: 5px;
 }
+
+.link-style{
+    text-decoration: none; 
+    color: #ffffff;
+}
+
+.link-style:hover{
+    filter: brightness(80%);
+}
+
+.svgDiv{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.enlacesDiv{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10%;
+}

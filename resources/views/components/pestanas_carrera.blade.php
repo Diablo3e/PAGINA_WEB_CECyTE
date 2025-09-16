@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 
-<div class="oferta-educativa">
+<div id="ofertaEdu" class="oferta-educativa">
     <h2>OFERTA EDUCATIVA</h2>
 <div class="grid">
     <div class="program">
