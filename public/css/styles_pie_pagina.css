@@ -59,16 +59,16 @@
     background-repeat: no-repeat;
 }
 
-.botones-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.link-style{
+.link-style {
     text-decoration: none; 
     color: #ffffff;
+    display: block; 
+    padding: 8px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal;
 }
+
 
 .link-style:hover{
     filter: brightness(80%);
@@ -80,8 +80,18 @@
     gap: 5px;
 }
 
+.contactoDiv{
+    max-width: 35%;
+}
+
+@media (max-width: 528px){
+    .contactoDiv{
+        max-width: none;
+    }
+}
+
 .enlacesDiv{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 10%;
+    gap: 12px;
 }

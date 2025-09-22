@@ -1,7 +1,7 @@
 <footer class="footer">
-    <div class="footer-overlay pt-5 pb-5">
-        <div class="footer-content ms-5 ms-xxl-0">
-            <div class="footer-section" style="max-width: 35vw">
+    <div class="footer-overlay pt-5 pb-5" style="min-height: fit-content;">
+        <div class="footer-content ms-5 ms-xxl-0" >
+            <div class="footer-section contactoDiv">
                 <h3>CONTACTO</h3>
                 <a class="link-style" href="tel:+552229621126;ext=101">
                     <div class="svgDiv">
@@ -36,11 +36,20 @@
                 <h3>ENLACES</h3>
                 <div class="enlacesDiv">
 
-                    <a class="link-style" href="{{ route('Transparencia') }}"><p>Transparencia</p></a>
-                    <a class="link-style" href="{{ route('linea_tiempo') }}"><p>Nosotros</p></a>
-                    <a class="link-style" href="{{ url('/') }}#ofertaEdu"><p>Oferta Educativa</p></a>
-                    <a class="link-style" href="{{ route('Admision') }}"><p>Admisión</p></a>
-                    <a class="link-style" href="{{ url('/') }}#planteles-list"><p>Planteles</p></a>
+                    <a class="link-style" href="{{ route('Transparencia') }}">Transparencia</a>
+                    <a class="link-style" href="{{ route('linea_tiempo') }}">Nosotros</a>
+                    <a class="link-style" href="{{ url('/') }}#ofertaEdu">Carreras</a>
+                    <a class="link-style" href="#">Directorio</a>
+                    <a class="link-style" href="#">Código de Ética</a>
+                    <a class="link-style" href="#">Código de Conducta</a>
+                    <a class="link-style" href="#">Portal Dirección General</a>
+                    <a class="link-style" href="#">Convenio Marco</a>
+                    <a class="link-style" href="#">Política de Igualdad</a>
+                    <a class="link-style" href="#">Política de Calidad</a>
+                    <a class="link-style" href="#">Catálogo de Convenios</a>
+                    <a class="link-style" href="#">Podcast</a>
+                    <a class="link-style" href="#">Programa Presupuestario U006</a>
+                    <a class="link-style" href="#">Declaración</a>
     
                 </div>
 
