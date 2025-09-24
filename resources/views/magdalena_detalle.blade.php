@@ -21,19 +21,19 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item  active">
-                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081606.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081606.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_084534.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080832.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250704_121402.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250704_121402.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/IMG_1402.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100" style="height: 400px; object-fit: cover;">
+                    <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090440.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carruselMagdalena" data-bs-slide="prev">
@@ -91,22 +91,7 @@
                 <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" alt="imagen instalaciones">
                 <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090940.jpg') }}" alt="imagen instalaciones">
                 <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090957.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_091426.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_101033.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_101109.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_101224.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_101308.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083103.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083303.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083644.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083651.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083837.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_083933.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_084307.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_084352.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_084534.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_085151.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_085300.jpg') }}" alt="imagen instalaciones">
+
 
             </div>
         </div>
@@ -215,8 +200,36 @@
             <div class="card-body" id="comunidad-content">
                 <!-- Carrusel de fotos de comunidad -->
                 <div id="comunidad-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
-                    <div class="carousel-indicators"></div>
-                    <div class="carousel-inner rounded" id="carousel-inner"></div>
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="1" class aria-current="true" aria-label="Imagen 2"></button>
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="2" class aria-current="true" aria-label="Imagen 3"></button>
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="3" class aria-current="true" aria-label="Imagen 4"></button>
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="4" class aria-current="true" aria-label="Imagen 5"></button>
+                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="5" class aria-current="true" aria-label="Imagen 6"></button>
+                    </div>
+                    <div class="carousel-inner rounded" id="carousel-inner">
+
+                        <div class="carousel-item  active">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250703_084534.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_1402.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_20240627_092130.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250702_101033.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/Concurso estatal escoltas de bandera nacional 2025.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG-20250531-WA0068.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                        </div>
+
+                    </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#comunidad-carousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -248,7 +261,8 @@
                         <div id="collapseCarreras" class="accordion-collapse collapse show"
                             data-bs-parent="#carrerasAcordeon">
                             <div class="accordion-body">
-                                <ul id="carreras-list">
+                                <div id="carreras-list" class="card-columns">
+                                    
                                     <a href="{{ route('Proceso-de-Gestión') }}" style="text-decoration: none;">
                                         <div class="card">
                                             <div class="card-body">
@@ -288,7 +302,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -610,7 +624,14 @@
                         <div id="planesEstudio" class="accordion-collapse collapse show">
                             <div class="accordion-body">
                                 <div class="card-flex">
-
+                                    <select id="filterSelectPlanEstudio">
+                                        <option value="all">Mostrar todos</option>
+                                        <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
+                                        <option value="Mecatronica">Mecatrónica</option>
+                                        <option value="Programación">Programación</option>
+                                        <option value="Inteligencia artificial">Inteligencia artificial</option>
+                                        <option value="Gestion Administrativa">Gestion Administrativa</option>
+                                    </select>
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
                                             <h5 class="card-title">Mantenimiento Automotriz</h5>
@@ -620,7 +641,7 @@
 
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">Mecatronica</h5>
+                                            <h5 class="card-title">Mecatrónica</h5>
                                             <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mecatronica.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
                                         </div>
                                     </div>
@@ -663,148 +684,156 @@
                         </h2>
                         <div id="horarios" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <div class="card-flex columns">
-
+                                <div class="card-flex">
+                                    <select id="filterSelectHorario">
+                                        <option value="all">Mostrar todos</option>
+                                        <option value="Tronco común">Tronco común</option>
+                                        <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
+                                        <option value="Mecatronica">Mecatrónica</option>
+                                        <option value="Procesos de gestión administrativa">Procesos de gestión administrativa</option>
+                                        <option value="Inteligencia artificial">Inteligencia artificial</option>
+                                        <option value="Programación">Programación</option>
+                                    </select>
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1A</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/01-1-1A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1B</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1B</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/02-1-1B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
 
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1C</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1C</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/03-1-1C.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
 
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1D</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1D</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/04-1-1D.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1E</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1E</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/05-1-1E.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
 
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">1F</h5>
-                                            <h5 class="card-subtitle">Tronco común</h5>
+                                            <h5 class="card-title">Tronco común</h5>
+                                            <h5 class="card-subtitle">1F</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/06-1-1F.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3A</h5>
-                                            <h5 class="card-subtitle">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-subtitle">3A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/07-3-MAUT 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3B</h5>
-                                            <h5 class="card-subtitle">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-subtitle">3B</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/08-3-MAUT 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3A</h5>
-                                            <h5 class="card-subtitle">Mecatrónica</h5>
+                                            <h5 class="card-title">Mecatrónica</h5>
+                                            <h5 class="card-subtitle">3A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3B</h5>
-                                            <h5 class="card-subtitle">Mecatrónica</h5>
+                                            <h5 class="card-title">Mecatrónica</h5>
+                                            <h5 class="card-subtitle">3B</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3A</h5>
-                                            <h5 class="card-subtitle">Procesos de gestión administrativa</h5>
+                                            <h5 class="card-title">Procesos de gestión administrativa</h5>
+                                            <h5 class="card-subtitle">3A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/11-3-PGEA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">3A</h5>
-                                            <h5 class="card-subtitle">Inteligencia artificial</h5>
+                                            <h5 class="card-title">Inteligencia artificial</h5>
+                                            <h5 class="card-subtitle">3A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/12-3-IA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5A</h5>
-                                            <h5 class="card-subtitle">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-subtitle">5A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/13-5-MAUT 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5B</h5>
-                                            <h5 class="card-subtitle">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                            <h5 class="card-subtitle">5B</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/14-5-MAUT 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5A</h5>
-                                            <h5 class="card-subtitle">Mecatrónica</h5>
+                                            <h5 class="card-title">Mecatrónica</h5>
+                                            <h5 class="card-subtitle">5A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/15-5-MECA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div>
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5B</h5>
-                                            <h5 class="card-subtitle">Mecatrónica</h5>
+                                            <h5 class="card-title">Mecatrónica</h5>
+                                            <h5 class="card-subtitle">5B</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/16-5-MECA 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div> 
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5A</h5>
-                                            <h5 class="card-subtitle">Procesos de gestión administrativa</h5>
+                                            <h5 class="card-title">Procesos de gestión administrativa</h5>
+                                            <h5 class="card-subtitle">5A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/17-5-PGEA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div> 
                                     
                                     <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                                         <div class="card-body">
-                                            <h5 class="card-title">5A</h5>
-                                            <h5 class="card-subtitle">Programación</h5>
+                                            <h5 class="card-title">Programación</h5>
+                                            <h5 class="card-subtitle">5A</h5>
                                             <a href="{{ asset('storage/demoMagdalena/horarios/18-5-PROG 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                         </div>
                                     </div> 
@@ -825,4 +854,8 @@
             <i class="fas fa-arrow-left me-2"></i> Volver a la lista
         </button>
     </div>
+@push('scripts')
+    <script src= "{{ asset('js/demoMagdalena.js') }}" type="module"></script>
+@endpush
+
 @endsection

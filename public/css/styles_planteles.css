@@ -164,6 +164,11 @@ body, html {
     flex-wrap: wrap;
     gap: 15px;
 }
+.card-columns{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 50% 50%;
+}
 
 /* TODO: muchas de estas no se usan, limpiar */
 /* Grid de imágenes */
@@ -626,6 +631,21 @@ body, html {
         width: 50vw;
     }
 }
+@media (max-width: 635px){
+    
+    .card-columns{
+        grid-template-columns: 100%;
+        max-width: 100%;
+    }
+}
+@media (max-width: 401px){
+    .card-columns{
+        font-size: 11.5px;
+    }
+    .card-columns h5{
+        font-size: 11.5px;
+    }
+}
 
 @media (max-width: 468px) {
     .responsive-card{
@@ -651,11 +671,4 @@ body, html {
 .section-card {
     animation: fadeIn 0.5s ease-out forwards;
     min-height: fit-content;
-}
-
-
-.columns {
-    column-count: 3;       
-    column-gap: 20px;      
-    column-rule: 1px solid #ccc; 
 }
