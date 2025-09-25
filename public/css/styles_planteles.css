@@ -631,16 +631,13 @@ body, html {
 
 .social-card{
     width: 220px;
+    background-color: #3B0000;
 }
 
 .personnel-card{
     width: 270px;
     /* TODO: Encontrar una mejor manera de manejar altura */
     height: 351px;
-}
-
-.social-div{
-    color: black;
 }
 
 .socialDimentions{

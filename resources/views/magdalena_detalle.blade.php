@@ -1,4 +1,4 @@
-{{-- TEMP: Demo plantel magdalena --}}
+{{-- ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗TEMP: Demo plantel magdalena ❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗--}}
 
 @extends('layouts.app')
 
@@ -59,48 +59,75 @@
                 </p>
             </div>
         </div>
+        
+        {{-- El modal es lo que permite expandir imagenes cuando se les da click en la seccion de instalaciones --}}
+        <div id="imagenesModal" class="modal fade" tabindex="-1" aria-labelledby="expandirImagenModal" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Sección: Nuestras Instalaciones - Versión Mejorada -->
         <div class="accordion" id="acordionSeccionInstalaciones">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#seccionInstalaciones" aria-expanded="true" aria-controls="seccionInstalaciones">
-                        <h4 class="center-accordion-text">
-                            NUESTRAS INSTALACIONES
-                        </h4>
-                    </button>
-                </h2>
-                <div id="seccionInstalaciones" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        
-                        <div class="card section-card">
-                            <div class="card-body" id="instalaciones-content">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080316.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080801.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080832.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080847.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080912.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081347.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081438.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081606.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082519.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082537.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083202.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083233.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083255.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083315.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083436.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083712.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_085120.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090440.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090557.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090741.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090756.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090809.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090940.jpg') }}" alt="imagen instalaciones">
-                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090957.jpg') }}" alt="imagen instalaciones">
+                    data-bs-target="#seccionInstalaciones" aria-expanded="true" aria-controls="seccionInstalaciones">
+                    <h4 class="center-accordion-text">
+                        NUESTRAS INSTALACIONES
+                    </h4>
+                </button>
+            </h2>
+            <div id="seccionInstalaciones" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    
+                    <div class="card section-card">
+                        <div class="card-body" id="instalaciones-content">
+                            
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080832.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080912.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081347.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082537.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083315.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_085120.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090741.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_101308.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_102448.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250703_143344.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250704_121343.jpg') }}" alt="imagen instalaciones">
+                                </a>
+                                <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                                    <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083255.jpg') }}" alt="imagen instalaciones">
+                                </a>
+
                 
                             </div>
                         </div>
@@ -594,30 +621,24 @@
                 
                                                 <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
                                                     <a href="https://x.com/CECyTEMagdalena?t=HT2fLKUgTt0QMRfcAsB_PQ" style="text-decoration: none;" target="_blank">
-                                                        <div class="card-body social-div">
-                                                            <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-                                                                <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
-                                                            </svg>
+                                                        <div class="card-body">                    
+                                                            <img src="{{ asset ('/imagenes/Barra-redes-sociales/icon-X.svg') }}" alt="X" style="width:100%;">
                                                         </div>
                                                     </a>
                                                 </div>
                                                 
                                                 <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
-                                                    <a href="https://www.instagram.com/cecytemagdalena/#" style="text-decoration: none;" target="_blank">
-                                                        <div class="card-body social-div">
-                                                            <svg fill="currentColor" stroke="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M20.445 5h-8.891A6.559 6.559 0 0 0 5 11.554v8.891A6.559 6.559 0 0 0 11.554 27h8.891a6.56 6.56 0 0 0 6.554-6.555v-8.891A6.557 6.557 0 0 0 20.445 5zm4.342 15.445a4.343 4.343 0 0 1-4.342 4.342h-8.891a4.341 4.341 0 0 1-4.341-4.342v-8.891a4.34 4.34 0 0 1 4.341-4.341h8.891a4.342 4.342 0 0 1 4.341 4.341l.001 8.891z"/><path d="M16 10.312c-3.138 0-5.688 2.551-5.688 5.688s2.551 5.688 5.688 5.688 5.688-2.551 5.688-5.688-2.55-5.688-5.688-5.688zm0 9.163a3.475 3.475 0 1 1-.001-6.95 3.475 3.475 0 0 1 .001 6.95zM21.7 8.991a1.363 1.363 0 1 1-1.364 1.364c0-.752.51-1.364 1.364-1.364z"/>
-                                                            </svg>
+                                                    <a href="https://www.instagram.com/cecyteodalena/#" style="text-decoration: none;" target="_blank">
+                                                        <div class="card-body">
+                                                            <img src="{{ asset ('/imagenes/Barra-redes-sociales/icon-Instagram.svg') }}"alt="Instagram" style="width:100%;">
                                                         </div>
                                                     </a>
                                                 </div>
                                                 
                                                 <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
                                                     <a href="https://www.facebook.com/cecytemagdalena.bachillerato?rdid=F5hzy3QYF54cDVio&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CBagzfACu%2F#" style="text-decoration: none;" target="_blank">
-                                                        <div class="card-body social-div">
-                                                            <svg fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"/>
-                                                            </svg>
+                                                        <div class="card-body">
+                                                            <img src="{{ asset ( '/imagenes/Barra-redes-sociales/icon-Facebook.svg') }}"alt="Facebook" style="width:100%;">
                                                         </div>
                                                     </a>
                                                 </div>
@@ -766,42 +787,42 @@
                                         <div class="accordion-body">
                                             <div class="card-flex">
                                                 <select id="filterSelectPlanEstudio">
-                                                    <option value="all">Mostrar todos</option>
+                                                    <option value="0">Selecciona una opción</option>
                                                     <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
                                                     <option value="Mecatronica">Mecatrónica</option>
                                                     <option value="Programación">Programación</option>
                                                     <option value="Inteligencia artificial">Inteligencia artificial</option>
                                                     <option value="Gestion Administrativa">Gestion Administrativa</option>
                                                 </select>
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mantenimiento Automotriz</h5>
                                                         <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mantenimiento Automotriz.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mecatronica.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Programación</h5>
                                                         <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Programacion.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Inteligencia Artificial</h5>
                                                         <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 09082023 Inteligencia Artificial.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Gestion Administrativa</h5>
                                                         <a href="{{ asset('storage/demoMagdalena/planesEstudio/Octubre 2013 Procesos de Gestion Administrativa.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
@@ -827,7 +848,7 @@
                                         <div class="accordion-body">
                                             <div class="card-flex">
                                                 <select id="filterSelectHorario">
-                                                    <option value="all">Mostrar todos</option>
+                                                    <option value="0">Selecciona una opción</option>
                                                     <option value="Tronco común">Tronco común</option>
                                                     <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
                                                     <option value="Mecatronica">Mecatrónica</option>
@@ -835,7 +856,7 @@
                                                     <option value="Inteligencia artificial">Inteligencia artificial</option>
                                                     <option value="Programación">Programación</option>
                                                 </select>
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1A</h5>
@@ -843,7 +864,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1B</h5>
@@ -851,7 +872,7 @@
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1C</h5>
@@ -859,7 +880,7 @@
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1D</h5>
@@ -867,7 +888,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1E</h5>
@@ -875,7 +896,7 @@
                                                     </div>
                                                 </div>
                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Tronco común</h5>
                                                         <h5 class="card-subtitle">1F</h5>
@@ -883,7 +904,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mantenimiento Automotriz</h5>
                                                         <h5 class="card-subtitle">3A</h5>
@@ -891,7 +912,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mantenimiento Automotriz</h5>
                                                         <h5 class="card-subtitle">3B</h5>
@@ -899,7 +920,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <h5 class="card-subtitle">3A</h5>
@@ -907,7 +928,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <h5 class="card-subtitle">3B</h5>
@@ -915,7 +936,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Procesos de gestión administrativa</h5>
                                                         <h5 class="card-subtitle">3A</h5>
@@ -923,7 +944,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Inteligencia artificial</h5>
                                                         <h5 class="card-subtitle">3A</h5>
@@ -931,7 +952,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mantenimiento Automotriz</h5>
                                                         <h5 class="card-subtitle">5A</h5>
@@ -939,7 +960,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mantenimiento Automotriz</h5>
                                                         <h5 class="card-subtitle">5B</h5>
@@ -947,7 +968,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <h5 class="card-subtitle">5A</h5>
@@ -955,7 +976,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <h5 class="card-subtitle">5B</h5>
@@ -963,7 +984,7 @@
                                                     </div>
                                                 </div> 
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Procesos de gestión administrativa</h5>
                                                         <h5 class="card-subtitle">5A</h5>
@@ -971,7 +992,7 @@
                                                     </div>
                                                 </div> 
                                                 
-                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Programación</h5>
                                                         <h5 class="card-subtitle">5A</h5>
