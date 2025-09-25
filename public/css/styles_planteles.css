@@ -164,10 +164,16 @@ body, html {
     flex-wrap: wrap;
     gap: 15px;
 }
-.card-columns{
+.card-two-columns{
     display: grid;
     max-width: 100%;
     grid-template-columns: 50% 50%;
+}
+
+.card-auto-columns{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 /* TODO: muchas de estas no se usan, limpiar */
@@ -633,16 +639,16 @@ body, html {
 }
 @media (max-width: 635px){
     
-    .card-columns{
+    .card-two-columns{
         grid-template-columns: 100%;
         max-width: 100%;
     }
 }
 @media (max-width: 401px){
-    .card-columns{
+    .card-two-columns{
         font-size: 11.5px;
     }
-    .card-columns h5{
+    .card-two-columns h5{
         font-size: 11.5px;
     }
 }

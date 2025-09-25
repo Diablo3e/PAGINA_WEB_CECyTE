@@ -110,7 +110,7 @@
                                 Ubicaciones
                             </button>
                         </h2>
-                        <div id="ubicaciones" class="accordion-collapse collapse show">
+                        <div id="ubicaciones" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -135,7 +135,7 @@
                                 Croquis
                             </button>
                         </h2>
-                        <div id="croquis" class="accordion-collapse collapse show">
+                        <div id="croquis" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -258,10 +258,10 @@
                                 Carreras Disponibles
                             </button>
                         </h2>
-                        <div id="collapseCarreras" class="accordion-collapse collapse show"
+                        <div id="collapseCarreras" class="accordion-collapse collapse"
                             data-bs-parent="#carrerasAcordeon">
                             <div class="accordion-body">
-                                <div id="carreras-list" class="card-columns">
+                                <div id="carreras-list" class="card-two-columns">
                                     
                                     <a href="{{ route('Proceso-de-Gestión') }}" style="text-decoration: none;">
                                         <div class="card">
@@ -325,7 +325,7 @@
                                 Ofertas de Empleo
                             </button>
                         </h2>
-                        <div id="ofertaLaboral" class="accordion-collapse collapse show">
+                        <div id="ofertaLaboral" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -344,7 +344,7 @@
                                 Servicio social
                             </button>
                         </h2>
-                        <div id="servicioSocial" class="accordion-collapse collapse show">
+                        <div id="servicioSocial" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -413,7 +413,7 @@
                                 Prácticas Profesionales
                             </button>
                         </h2>
-                        <div id="practicasProfesionales" class="accordion-collapse collapse show">
+                        <div id="practicasProfesionales" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -480,7 +480,7 @@
                                 Redes Sociales
                             </button>
                         </h2>
-                        <div id="redesSociales" class="accordion-collapse collapse show">
+                        <div id="redesSociales" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -522,7 +522,7 @@
                                 Seguimiento de Egresados
                             </button>
                         </h2>
-                        <div id="segEgresados" class="accordion-collapse collapse show">
+                        <div id="segEgresados" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -540,7 +540,7 @@
                                 Sistema Dual
                             </button>
                         </h2>
-                        <div id="sistDual" class="accordion-collapse collapse show">
+                        <div id="sistDual" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
 
@@ -601,7 +601,7 @@
                                 Avisos
                             </button>
                         </h2>
-                        <div id="avisos" class="accordion-collapse collapse show">
+                        <div id="avisos" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
                                     
@@ -621,7 +621,7 @@
                                 Planes de estudio
                             </button>
                         </h2>
-                        <div id="planesEstudio" class="accordion-collapse collapse show">
+                        <div id="planesEstudio" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
                                     <select id="filterSelectPlanEstudio">
@@ -682,7 +682,7 @@
                                 Horarios
                             </button>
                         </h2>
-                        <div id="horarios" class="accordion-collapse collapse show">
+                        <div id="horarios" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <div class="card-flex">
                                     <select id="filterSelectHorario">
