@@ -9,6 +9,7 @@
     --transicion: all 0.3s ease;
 }
 
+
 /* Tipografía */
 body, html {
     font-family: 'Montserrat', sans-serif;
@@ -451,14 +452,31 @@ body, html {
     box-shadow: 0 5px 15px rgba(109, 7, 26, 0.15);
 }
 
-.section-header {
+.section-header{
     background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
-    color: white;
+    color: white !important;
     padding: 1.2rem 1.5rem;
     font-weight: 700;
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.accordion-section{
+    background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
+    color: white !important;
+    background-color: transparent !important;
+    padding: 1.2rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-items: center;
+}
+
+.center-accordion-text{
+    width: 100%;
+    text-align: center;
 }
 
 /* Tabla de horarios */
@@ -523,18 +541,20 @@ body, html {
     }
 }
 /* Acordeón de carreras */
-.accordion-button {
+.normal-accordion {
     font-weight: 600;
     padding: 1.2rem 1.5rem;
     background-color: rgba(109, 7, 26, 0.05);
     color: var(--color-primario);
 }
 
-.accordion-button:not(.collapsed) {
+.normal-accordion:not(.collapsed) {
     background-color: rgba(109, 7, 26, 0.1);
     color: var(--color-primario);
     box-shadow: none;
 }
+
+
 
 .accordion-body {
     padding: 1.5rem;
@@ -609,6 +629,24 @@ body, html {
     width: 302px;
 }
 
+.social-card{
+    width: 220px;
+}
+
+.personnel-card{
+    width: 270px;
+    /* TODO: Encontrar una mejor manera de manejar altura */
+    height: 351px;
+}
+
+.social-div{
+    color: black;
+}
+
+.socialDimentions{
+    min-width: 100%;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .plantel-header {
@@ -624,6 +662,11 @@ body, html {
     }
 
     .section-header {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .accordion-section {
         font-size: 1.1rem;
         padding: 1rem;
     }

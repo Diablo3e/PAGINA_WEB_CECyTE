@@ -61,793 +61,940 @@
         </div>
 
         <!-- Sección: Nuestras Instalaciones - Versión Mejorada -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">NUESTRAS INSTALACIONES</h4>
-            </div>
-            <div class="card-body" id="instalaciones-content">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080316.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080801.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080832.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080847.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080912.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081347.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081438.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081606.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082519.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082537.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083202.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083233.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083255.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083315.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083436.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083712.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_085120.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090440.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090557.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090741.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090756.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090809.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090940.jpg') }}" alt="imagen instalaciones">
-                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090957.jpg') }}" alt="imagen instalaciones">
-
-
+        <div class="accordion" id="acordionSeccionInstalaciones">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionInstalaciones" aria-expanded="true" aria-controls="seccionInstalaciones">
+                        <h4 class="center-accordion-text">
+                            NUESTRAS INSTALACIONES
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionInstalaciones" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card section-card">
+                            <div class="card-body" id="instalaciones-content">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080316.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080801.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080832.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080847.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_080912.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081347.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081438.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_081606.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082519.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_082537.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083202.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083233.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083255.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083315.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083436.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_083712.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_085120.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090440.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090557.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090741.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090756.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090809.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090935.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090940.jpg') }}" alt="imagen instalaciones">
+                                <img class="img-fluid" src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090957.jpg') }}" alt="imagen instalaciones">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">Mapas</h4>
-            </div>
-            <div class="card-body" id="personal-content">
-                
-                <div class="accordion" id="acordionUbicaciones">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#ubicaciones" aria-expanded="true" aria-controls="ubicaciones">
-                                Ubicaciones
-                            </button>
-                        </h2>
-                        <div id="ubicaciones" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Plantel Magdalena</h5>
-                                            <a href="https://maps.app.goo.gl/Va3PNjwS49ogifiw9" class="card-link" target="_blank">Ver ubicación</a>
+        <div class="accordion" id="acordionSeccionMapas">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section mb-0 collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionMapas" aria-expanded="true" aria-controls="seccionMapas">
+                        <h4 class="center-accordion-text">
+                            Mapas
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionMapas" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="personal-content">
+                            
+                            <div class="accordion" id="acordionUbicaciones">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#ubicaciones" aria-expanded="true" aria-controls="ubicaciones">
+                                            Ubicaciones
+                                        </button>
+                                    </h2>
+                                    <div id="ubicaciones" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+            
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Plantel Magdalena</h5>
+                                                        <a href="https://maps.app.goo.gl/Va3PNjwS49ogifiw9" class="card-link" target="_blank">Ver ubicación</a>
+                                                    </div>
+                                                </div>
+            
+                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion" id="acordionCroquis">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#croquis" aria-expanded="true" aria-controls="croquis">
-                                Croquis
-                            </button>
-                        </h2>
-                        <div id="croquis" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Croquis 2025 plantel magdalena</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/mapa/Croquis 2025 Plantel Magdalena Semestra A.pdf') }}" class="card-link" target="_blank">Ver croquis</a>
+                            
+                            <div class="accordion" id="acordionCroquis">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#croquis" aria-expanded="true" aria-controls="croquis">
+                                            Croquis
+                                        </button>
+                                    </h2>
+                                    <div id="croquis" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+            
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Croquis 2025 plantel magdalena</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/mapa/Croquis 2025 Plantel Magdalena Semestra A.pdf') }}" class="card-link" target="_blank">Ver croquis</a>
+                                                    </div>
+                                                </div>
+            
+                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
+                            </div>        
                         </div>
+
                     </div>
                 </div>
-
-                    
-
-                    
-
-                    
             </div>
         </div>
 
         <!-- Sección: Personal -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">EQUIPO RESPONSABLE</h4>
-                <!-- todo: galeria -->
-            </div>
-            <div class="card-body" id="personal-content">
-                <div class="card-flex">
+        <div class="accordion" id="acordionSeccionPersonal">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionPersonal" aria-expanded="true" aria-controls="seccionPersonal">
+                        <h4 class="center-accordion-text">
+                            Equipo responsable
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionPersonal" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="personal-content">
+                            <div class="card-flex">
 
-                </div>
-            </div>
-        </div>
+                                <div class="card no-hover personnel-card">
+                                    <div class="card-body">
+                                        <img src="{{ asset('storage/demoMagdalena/ImgPersonal/Placeholder.png') }}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                                        <h5 class="card-title mb-3">Jane doe</h5>
+                                        <h5 class="card-subtitle">Encargada del despacho de la dirección del plantel</h5>
+                                    </div>
+                                </div>
+                                
+                                <div class="card no-hover  personnel-card">
+                                    <div class="card-body">
+                                        <img src="{{ asset('storage/demoMagdalena/ImgPersonal/Placeholder.png') }}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                                        <h5 class="card-title mb-3">Jane Doe</h5>
+                                        <h5 class="card-subtitle">Coordinación Académica</h5>
+                                    </div>
+                                </div>
+                                <div class="card no-hover  personnel-card">
+                                    <div class="card-body">
+                                        <img src="{{ asset('storage/demoMagdalena/ImgPersonal/Placeholder.png') }}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
+                                        <h5 class="card-title mb-3">John Doe</h5>
+                                        <h5 class="card-subtitle">Control Escolar</h5>
+                                    </div>
+                                </div>
 
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">COMUNICADOS OFICIALES</h4>
-                <!-- todo: galeria -->
-            </div>
-            <div class="card-body" id="comunicados-content">
-                <div class="card-flex">
-
-                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                        <div class="card-body">
-                            <h5 class="card-title">Ejercicio fiscal</h5>
-                            <a href="{{ asset('storage/demoMagdalena/filesComunicados/Ejercicio Fiscal.jpg') }}" class="card-link" target="_blank">Ver comunicado</a>
+                            </div>
                         </div>
+                     
                     </div>
-
                 </div>
             </div>
         </div>
+
+        <!-- Sección: Comunicados -->
+        <div class="accordion" id="acordionSeccionComunicados">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionComunicados" aria-expanded="true" aria-controls="seccionComunicados">
+                        <h4 class="center-accordion-text">
+                            comunicados oficiales
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionComunicados" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="comunicados-content">
+                            <div class="card-flex">
+                
+                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ejercicio fiscal</h5>
+                                        <a href="{{ asset('storage/demoMagdalena/filesComunicados/Ejercicio Fiscal.jpg') }}" class="card-link" target="_blank">Ver comunicado</a>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
 
         <!-- Sección: Comunidad CECYTE -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">COMUNIDAD CECYTE</h4>
-            </div>
-            <div class="card-body" id="comunidad-content">
-                <!-- Carrusel de fotos de comunidad -->
-                <div id="comunidad-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="1" class aria-current="true" aria-label="Imagen 2"></button>
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="2" class aria-current="true" aria-label="Imagen 3"></button>
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="3" class aria-current="true" aria-label="Imagen 4"></button>
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="4" class aria-current="true" aria-label="Imagen 5"></button>
-                        <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="5" class aria-current="true" aria-label="Imagen 6"></button>
-                    </div>
-                    <div class="carousel-inner rounded" id="carousel-inner">
-
-                        <div class="carousel-item  active">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250703_084534.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_1402.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_20240627_092130.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250702_101033.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/Concurso estatal escoltas de bandera nacional 2025.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG-20250531-WA0068.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
-                        </div>
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#comunidad-carousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+        <div class="accordion" id="acordionSeccionComunidad">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionComunidad" aria-expanded="true" aria-controls="seccionComunidad">
+                        <h4 class="center-accordion-text">
+                            comunidad cecyte
+                        </h4>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#comunidad-carousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                </h2>
+                <div id="seccionComunidad" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="comunidad-content">
+                            <!-- Carrusel de fotos de comunidad -->
+                            <div id="comunidad-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="1" class aria-current="true" aria-label="Imagen 2"></button>
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="2" class aria-current="true" aria-label="Imagen 3"></button>
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="3" class aria-current="true" aria-label="Imagen 4"></button>
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="4" class aria-current="true" aria-label="Imagen 5"></button>
+                                    <button type="button" data-bs-target="#comunidad-carousel" data-bs-slide-to="5" class aria-current="true" aria-label="Imagen 6"></button>
+                                </div>
+                                <div class="carousel-inner rounded" id="carousel-inner">
+                
+                                    <div class="carousel-item  active">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250703_084534.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_1402.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG_20240627_092130.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/20250702_101033.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/Concurso estatal escoltas de bandera nacional 2025.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ asset('storage/demoMagdalena/fotosComunidad/IMG-20250531-WA0068.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
+                                    </div>
+                
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#comunidad-carousel"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#comunidad-carousel"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Sección: Área Académica -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">OFERTA EDUCATIVA</h4>
-            </div>
-            <div class="card-body">
-                <div class="accordion" id="carrerasAcordeon">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseCarreras">
-                                Carreras Disponibles
-                            </button>
-                        </h2>
-                        <div id="collapseCarreras" class="accordion-collapse collapse"
-                            data-bs-parent="#carrerasAcordeon">
-                            <div class="accordion-body">
-                                <div id="carreras-list" class="card-two-columns">
-                                    
-                                    <a href="{{ route('Proceso-de-Gestión') }}" style="text-decoration: none;">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Procesos de Gestión Administrativa
+        <div class="accordion" id="acordionSeccionOfertaEducativa">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionOfertaEducativa" aria-expanded="true" aria-controls="seccionOfertaEducativa">
+                        <h4 class="center-accordion-text">
+                            oferta educativa
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionOfertaEducativa" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body">
+                            <div class="accordion" id="carrerasAcordeon">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseCarreras">
+                                            Carreras Disponibles
+                                        </button>
+                                    </h2>
+                                    <div id="collapseCarreras" class="accordion-collapse collapse"
+                                        data-bs-parent="#carrerasAcordeon">
+                                        <div class="accordion-body">
+                                            <div id="carreras-list" class="card-two-columns">
+                                                
+                                                <a href="{{ route('Proceso-de-Gestión') }}" style="text-decoration: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            Procesos de Gestión Administrativa
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="{{ route('Programacion') }}" style="text-decoration: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            Programación
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="{{ route('Mantenimiento_Automotriz') }}" style="text-decoration: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            Mantenimiento Automotriz
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="{{ route('Electronica') }}" style="text-decoration: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            Mecatrónica
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="{{ route('Electronica') }}" style="text-decoration: none;">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            Inteligencia artificial
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
-                                    </a>
-                                    
-                                    <a href="{{ route('Programacion') }}" style="text-decoration: none;">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Programación
-                                            </div>
-                                        </div>
-                                    </a>
-                                    
-                                    <a href="{{ route('Mantenimiento_Automotriz') }}" style="text-decoration: none;">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Mantenimiento Automotriz
-                                            </div>
-                                        </div>
-                                    </a>
-                                    
-                                    <a href="{{ route('Electronica') }}" style="text-decoration: none;">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Mecatrónica
-                                            </div>
-                                        </div>
-                                    </a>
-                                    
-                                    <a href="{{ route('Electronica') }}" style="text-decoration: none;">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                Inteligencia artificial
-                                            </div>
-                                        </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Sección: Vinculación -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">VINCULACIÓN</h4>
-            </div>
-            <div class="card-body" id="vinculacion-content">
-                <!-- Oferta Laboral -->
-                <div class="accordion" id="acordionOferta">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#ofertaLaboral" aria-expanded="true" aria-controls="ofertaLaboral">
-                                Ofertas de Empleo
-                            </button>
-                        </h2>
-                        <div id="ofertaLaboral" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Servicio social -->
-                <div class="accordion" id="acordionServicio">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#servicioSocial" aria-expanded="true" aria-controls="servicioSocial">
-                                Servicio social
-                            </button>
-                        </h2>
-                        <div id="servicioSocial" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Solicitud practicas servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/1. SOLICITUD DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Carta compromiso de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/2. CARTA COMPROMISO DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Oficio de presentación de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/3. OFICIO DE PRESENTACION DE SERVICIO SOCIAL SlmS.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Oficio de aceptación de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/4. OFICIO DE ACEPTACION DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Reporte bimestral de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/5. REPORTE BIMESTRAL DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Reporte final de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/6. REPORTE FINAL DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Constancia de terminación de servicio social</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/servicioSocial/7. CONSTANCIA DE TERMINACIÓN DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Practicas profesionales -->
-                <div class="accordion" id="acordionPracticas">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#practicasProfesionales" aria-expanded="true"
-                                aria-controls="practicasProfesionales">
-                                Prácticas Profesionales
-                            </button>
-                        </h2>
-                        <div id="practicasProfesionales" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Solicitud practicas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/1. SOLICITUD DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Carta compromiso de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/2. CARTA COMPROMISO DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Oficio de presentacion de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/3. OFICIO DE PRESENTACION DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Oficio de aceptacion de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/4. OFICIO DE ACEPTACION DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Reporte bimestral de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/5. REPORTE BIMESTRAL DE PRACTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Reporte final de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/6. REPORTE FINAL DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Constancia de terminacion de prácticas profesionales</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/7. CONSTANCIA DE TERMINACIÓN DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Redes sociales -->
-                <div class="accordion" id="acordionRedes">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
-                                Redes Sociales
-                            </button>
-                        </h2>
-                        <div id="redesSociales" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card" style="min-width: 10vw; min-height: fit-content">
-                                        <a href="https://x.com/CECyTEMagdalena?t=HT2fLKUgTt0QMRfcAsB_PQ" style="text-decoration: none;" target="_blank">
-                                            <div class="card-body">
-                                                <h5 class="card-title">X</h5>
+        <div class="accordion" id="acordionSeccionVinculacion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionVinculacion" aria-expanded="true" aria-controls="seccionVinculacion">
+                        <h4 class="center-accordion-text">
+                            vinculación
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionVinculacion" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="vinculacion-content">
+                            <!-- Oferta Laboral -->
+                            <div class="accordion" id="acordionOferta">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#ofertaLaboral" aria-expanded="true" aria-controls="ofertaLaboral">
+                                            Ofertas de Empleo
+                                        </button>
+                                    </h2>
+                                    <div id="ofertaLaboral" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
                                             </div>
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="card" style="min-width: 10vw; min-height: fit-content">
-                                        <a href="https://www.instagram.com/cecytemagdalena/#" style="text-decoration: none;" target="_blank">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Instagram</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="card" style="min-width: 10vw; min-height: fit-content">
-                                        <a href="https://www.facebook.com/cecytemagdalena.bachillerato?rdid=F5hzy3QYF54cDVio&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CBagzfACu%2F#" style="text-decoration: none;" target="_blank">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Facebook</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Seguimiento de egresados -->
-                <div class="accordion" id="acordionEgresados">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#segEgresados" aria-expanded="true" aria-controls="segEgresados">
-                                Seguimiento de Egresados
-                            </button>
-                        </h2>
-                        <div id="segEgresados" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Sistema dual -->
-                <div class="accordion" id="acordionDual">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#sistDual" aria-expanded="true" aria-controls="sistDual">
-                                Sistema Dual
-                            </button>
-                        </h2>
-                        <div id="sistDual" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Calendario Dual</h5>
-                                            <a href="https://modelo.formaciondual.sems.gob.mx/Calendario_2026_OI.pdf" class="card-link" target="_blank">Ver información</a>
                                         </div>
                                     </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Sistema de educación dual</h5>
-                                            <a href="https://modelo.formaciondual.sems.gob.mx/" class="card-link" target="_blank">Ver información</a>
+                                </div>
+                            </div>
+                
+                            <!-- Servicio social -->
+                            <div class="accordion" id="acordionServicio">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#servicioSocial" aria-expanded="true" aria-controls="servicioSocial">
+                                            Servicio social
+                                        </button>
+                                    </h2>
+                                    <div id="servicioSocial" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Solicitud practicas servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/1. SOLICITUD DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Carta compromiso de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/2. CARTA COMPROMISO DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Oficio de presentación de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/3. OFICIO DE PRESENTACION DE SERVICIO SOCIAL SlmS.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Oficio de aceptación de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/4. OFICIO DE ACEPTACION DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Reporte bimestral de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/5. REPORTE BIMESTRAL DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Reporte final de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/6. REPORTE FINAL DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Constancia de terminación de servicio social</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/servicioSocial/7. CONSTANCIA DE TERMINACIÓN DE SERVICIO SOCIAL.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                            </div>
                                         </div>
                                     </div>
-
-
+                
+                                </div>
+                            </div>
+                            <!-- Practicas profesionales -->
+                            <div class="accordion" id="acordionPracticas">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#practicasProfesionales" aria-expanded="true"
+                                            aria-controls="practicasProfesionales">
+                                            Prácticas Profesionales
+                                        </button>
+                                    </h2>
+                                    <div id="practicasProfesionales" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Solicitud practicas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/1. SOLICITUD DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Carta compromiso de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/2. CARTA COMPROMISO DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Oficio de presentacion de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/3. OFICIO DE PRESENTACION DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Oficio de aceptacion de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/4. OFICIO DE ACEPTACION DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Reporte bimestral de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/5. REPORTE BIMESTRAL DE PRACTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Reporte final de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/6. REPORTE FINAL DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Constancia de terminacion de prácticas profesionales</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/practicasProfesionales/7. CONSTANCIA DE TERMINACIÓN DE PRÁCTICAS PROFESIONALES.docx') }}" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Redes sociales -->
+                            <div class="accordion" id="acordionRedes">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#redesSociales" aria-expanded="true" aria-controls="redesSociales">
+                                            Redes Sociales
+                                        </button>
+                                    </h2>
+                                    <div id="redesSociales" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
+                                                <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
+                                                    <a href="https://x.com/CECyTEMagdalena?t=HT2fLKUgTt0QMRfcAsB_PQ" style="text-decoration: none;" target="_blank">
+                                                        <div class="card-body social-div">
+                                                            <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                                                                <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
+                                                    <a href="https://www.instagram.com/cecytemagdalena/#" style="text-decoration: none;" target="_blank">
+                                                        <div class="card-body social-div">
+                                                            <svg fill="currentColor" stroke="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M20.445 5h-8.891A6.559 6.559 0 0 0 5 11.554v8.891A6.559 6.559 0 0 0 11.554 27h8.891a6.56 6.56 0 0 0 6.554-6.555v-8.891A6.557 6.557 0 0 0 20.445 5zm4.342 15.445a4.343 4.343 0 0 1-4.342 4.342h-8.891a4.341 4.341 0 0 1-4.341-4.342v-8.891a4.34 4.34 0 0 1 4.341-4.341h8.891a4.342 4.342 0 0 1 4.341 4.341l.001 8.891z"/><path d="M16 10.312c-3.138 0-5.688 2.551-5.688 5.688s2.551 5.688 5.688 5.688 5.688-2.551 5.688-5.688-2.55-5.688-5.688-5.688zm0 9.163a3.475 3.475 0 1 1-.001-6.95 3.475 3.475 0 0 1 .001 6.95zM21.7 8.991a1.363 1.363 0 1 1-1.364 1.364c0-.752.51-1.364 1.364-1.364z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
+                                                    <a href="https://www.facebook.com/cecytemagdalena.bachillerato?rdid=F5hzy3QYF54cDVio&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CBagzfACu%2F#" style="text-decoration: none;" target="_blank">
+                                                        <div class="card-body social-div">
+                                                            <svg fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Seguimiento de egresados -->
+                            <div class="accordion" id="acordionEgresados">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#segEgresados" aria-expanded="true" aria-controls="segEgresados">
+                                            Seguimiento de Egresados
+                                        </button>
+                                    </h2>
+                                    <div id="segEgresados" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sistema dual -->
+                            <div class="accordion" id="acordionDual">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#sistDual" aria-expanded="true" aria-controls="sistDual">
+                                            Sistema Dual
+                                        </button>
+                                    </h2>
+                                    <div id="sistDual" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Calendario Dual</h5>
+                                                        <a href="https://modelo.formaciondual.sems.gob.mx/Calendario_2026_OI.pdf" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Sistema de educación dual</h5>
+                                                        <a href="https://modelo.formaciondual.sems.gob.mx/" class="card-link" target="_blank">Ver información</a>
+                                                    </div>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Sección: Extensión Educativa -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">EXTENSIÓN EDUCATIVA</h4>
-            </div>
-            <div class="card-body" id="extension-content">
-                <div class="card-flex">
-
-                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                        <div class="card-body">
-                            <h5 class="card-title">Actividades culturales y deportivas</h5>
-                            <a href="{{ asset('storage/demoMagdalena/filesExtensionEducativa/ACTIVIDADES CULTURALES Y DEPORTIVAS.pdf') }}" class="card-link" target="_blank">Ver archivo</a>
+        <div class="accordion" id="acordionSeccionExtensionEducativa">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionExtensionEducativa" aria-expanded="true" aria-controls="seccionExtensionEducativa">
+                        <h4 class="center-accordion-text">
+                            EXTENSIÓN EDUCATIVA
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionExtensionEducativa" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="extension-content">
+                            <div class="card-flex">
+                
+                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Actividades culturales y deportivas</h5>
+                                        <a href="{{ asset('storage/demoMagdalena/filesExtensionEducativa/ACTIVIDADES CULTURALES Y DEPORTIVAS.pdf') }}" class="card-link" target="_blank">Ver archivo</a>
+                                    </div>
+                                </div>
+                
+                            </div>                
                         </div>
-                    </div>
 
-                </div>                
+                    </div>
+                </div>
             </div>
         </div>
+
 
         <!-- Seccion: Control escolar -->
-        <div class="card section-card">
-            <div class="section-header">
-                <h4 class="mb-0">CONTROL ESCOLAR</h4>
-            </div>
-            <div class="card-body" id="ctrl-escolar-content">
-                <!-- Avisos -->
-                <div class="accordion" id="acordionAvisos">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#avisos" aria-expanded="true" aria-controls="avisos">
-                                Avisos
-                            </button>
-                        </h2>
-                        <div id="avisos" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-                                    
-
+        <div class="accordion" id="acordionseccionControlEscolar">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionControlEscolar" aria-expanded="true" aria-controls="seccionControlEscolar">
+                        <h4 class="center-accordion-text">
+                            control escolar
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionControlEscolar" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="ctrl-escolar-content">
+                            <!-- Avisos -->
+                            <div class="accordion" id="acordionAvisos">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#avisos" aria-expanded="true" aria-controls="avisos">
+                                            Avisos
+                                        </button>
+                                    </h2>
+                                    <div id="avisos" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                                                
+                
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Planes de estudio -->
-
-                <div class="accordion" id="acordionPlanesEstudio">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#planesEstudio" aria-expanded="true" aria-controls="planesEstudio">
-                                Planes de estudio
-                            </button>
-                        </h2>
-                        <div id="planesEstudio" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-                                    <select id="filterSelectPlanEstudio">
-                                        <option value="all">Mostrar todos</option>
-                                        <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
-                                        <option value="Mecatronica">Mecatrónica</option>
-                                        <option value="Programación">Programación</option>
-                                        <option value="Inteligencia artificial">Inteligencia artificial</option>
-                                        <option value="Gestion Administrativa">Gestion Administrativa</option>
-                                    </select>
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mantenimiento Automotriz.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                            <!-- Planes de estudio -->
+                
+                            <div class="accordion" id="acordionPlanesEstudio">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#planesEstudio" aria-expanded="true" aria-controls="planesEstudio">
+                                            Planes de estudio
+                                        </button>
+                                    </h2>
+                                    <div id="planesEstudio" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                                                <select id="filterSelectPlanEstudio">
+                                                    <option value="all">Mostrar todos</option>
+                                                    <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
+                                                    <option value="Mecatronica">Mecatrónica</option>
+                                                    <option value="Programación">Programación</option>
+                                                    <option value="Inteligencia artificial">Inteligencia artificial</option>
+                                                    <option value="Gestion Administrativa">Gestion Administrativa</option>
+                                                </select>
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mantenimiento Automotriz.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mecatrónica</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mecatronica.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Programación</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Programacion.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Inteligencia Artificial</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 09082023 Inteligencia Artificial.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Gestion Administrativa</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/planesEstudio/Octubre 2013 Procesos de Gestion Administrativa.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                                    </div>
+                                                </div>
+                
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mecatrónica</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Mecatronica.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Programación</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 653 Programacion.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Inteligencia Artificial</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/planesEstudio/Acuerdo 09082023 Inteligencia Artificial.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Gestion Administrativa</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/planesEstudio/Octubre 2013 Procesos de Gestion Administrativa.pdf') }}" class="card-link" target="_blank">Ver plan de estudio</a>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Horarios   -->
-                <div class="accordion" id="acordionHorarios">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#horarios" aria-expanded="true" aria-controls="horarios">
-                                Horarios
-                            </button>
-                        </h2>
-                        <div id="horarios" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <div class="card-flex">
-                                    <select id="filterSelectHorario">
-                                        <option value="all">Mostrar todos</option>
-                                        <option value="Tronco común">Tronco común</option>
-                                        <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
-                                        <option value="Mecatronica">Mecatrónica</option>
-                                        <option value="Procesos de gestión administrativa">Procesos de gestión administrativa</option>
-                                        <option value="Inteligencia artificial">Inteligencia artificial</option>
-                                        <option value="Programación">Programación</option>
-                                    </select>
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/01-1-1A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                
+                            <!-- Horarios   -->
+                            <div class="accordion" id="acordionHorarios">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#horarios" aria-expanded="true" aria-controls="horarios">
+                                            Horarios
+                                        </button>
+                                    </h2>
+                                    <div id="horarios" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+                                                <select id="filterSelectHorario">
+                                                    <option value="all">Mostrar todos</option>
+                                                    <option value="Tronco común">Tronco común</option>
+                                                    <option value="Mantenimiento Automotriz">Mantenimiento Automotriz</option>
+                                                    <option value="Mecatronica">Mecatrónica</option>
+                                                    <option value="Procesos de gestión administrativa">Procesos de gestión administrativa</option>
+                                                    <option value="Inteligencia artificial">Inteligencia artificial</option>
+                                                    <option value="Programación">Programación</option>
+                                                </select>
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/01-1-1A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1B</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/02-1-1B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1C</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/03-1-1C.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1D</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/04-1-1D.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1E</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/05-1-1E.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Tronco común</h5>
+                                                        <h5 class="card-subtitle">1F</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/06-1-1F.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                                        <h5 class="card-subtitle">3A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/07-3-MAUT 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                                        <h5 class="card-subtitle">3B</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/08-3-MAUT 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mecatrónica</h5>
+                                                        <h5 class="card-subtitle">3A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mecatrónica</h5>
+                                                        <h5 class="card-subtitle">3B</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Procesos de gestión administrativa</h5>
+                                                        <h5 class="card-subtitle">3A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/11-3-PGEA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Inteligencia artificial</h5>
+                                                        <h5 class="card-subtitle">3A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/12-3-IA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                                        <h5 class="card-subtitle">5A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/13-5-MAUT 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mantenimiento Automotriz</h5>
+                                                        <h5 class="card-subtitle">5B</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/14-5-MAUT 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mecatrónica</h5>
+                                                        <h5 class="card-subtitle">5A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/15-5-MECA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mecatrónica</h5>
+                                                        <h5 class="card-subtitle">5B</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/16-5-MECA 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div> 
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Procesos de gestión administrativa</h5>
+                                                        <h5 class="card-subtitle">5A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/17-5-PGEA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div> 
+                                                
+                                                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Programación</h5>
+                                                        <h5 class="card-subtitle">5A</h5>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/18-5-PROG 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                    </div>
+                                                </div> 
+                
+                
+                                            </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1B</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/02-1-1B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1C</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/03-1-1C.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1D</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/04-1-1D.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1E</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/05-1-1E.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tronco común</h5>
-                                            <h5 class="card-subtitle">1F</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/06-1-1F.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
-                                            <h5 class="card-subtitle">3A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/07-3-MAUT 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
-                                            <h5 class="card-subtitle">3B</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/08-3-MAUT 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mecatrónica</h5>
-                                            <h5 class="card-subtitle">3A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mecatrónica</h5>
-                                            <h5 class="card-subtitle">3B</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Procesos de gestión administrativa</h5>
-                                            <h5 class="card-subtitle">3A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/11-3-PGEA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Inteligencia artificial</h5>
-                                            <h5 class="card-subtitle">3A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/12-3-IA 3A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
-                                            <h5 class="card-subtitle">5A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/13-5-MAUT 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mantenimiento Automotriz</h5>
-                                            <h5 class="card-subtitle">5B</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/14-5-MAUT 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mecatrónica</h5>
-                                            <h5 class="card-subtitle">5A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/15-5-MECA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Mecatrónica</h5>
-                                            <h5 class="card-subtitle">5B</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/16-5-MECA 5B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div> 
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Procesos de gestión administrativa</h5>
-                                            <h5 class="card-subtitle">5A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/17-5-PGEA 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div> 
-                                    
-                                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Programación</h5>
-                                            <h5 class="card-subtitle">5A</h5>
-                                            <a href="{{ asset('storage/demoMagdalena/horarios/18-5-PROG 5A.pdf') }}" class="card-link" target="_blank">Ver horario</a>
-                                        </div>
-                                    </div> 
-
-
                                 </div>
                             </div>
+                
+                            <!-- <p>Cargando información de control escolar</p> -->
                         </div>
+                        
                     </div>
                 </div>
-
-                <!-- <p>Cargando información de control escolar</p> -->
             </div>
         </div>
+
+
 
         <!-- Botón Volver -->
         <button class="btn btn-primary mt-4 mb-5" onclick="window.history.back()">
