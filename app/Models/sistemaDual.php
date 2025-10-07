@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class sistemaDual extends Model
+class SistemaDual extends Model
 {
     protected $table = 'sistema_dual';
 

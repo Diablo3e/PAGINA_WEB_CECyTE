@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class instalaciones extends Model
+class Instalaciones extends Model
 {
     protected $fillable = [
         'plantel_id',

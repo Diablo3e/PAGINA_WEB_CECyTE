@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
+//TEMP: Ruta temporal para demo magdalena
+Route::get('/planteles/magdalena', function () {
+    return view('magdalena_detalle');
+})->name('magdalena');
 
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {

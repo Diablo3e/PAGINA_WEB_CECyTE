@@ -82,8 +82,14 @@ const planteles = {
 
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
-    // Redirigir a la página de detalle con el ID del plantel
-    window.location.href = route('planteles.detalle',plantelId);
+    // TEMP: Hijack para mostrar el demo del plantel magdalena
+    if(plantelId == 'plantel12'){
+        window.location.href = route('magdalena');
+    }else{
+        // Redirigir a la página de detalle con el ID del plantel
+        window.location.href = route('planteles.detalle',plantelId);
+    }
+
 }
 
 // Función para inicializar la lista de planteles
@@ -143,6 +149,7 @@ function initMapInteraction() {
         area.addEventListener('click', (e) => {
             e.preventDefault();
             if (area.dataset.plantel) {
+                console.log(area.dataset.plantel);
                 handlePlantelSelection(area.dataset.plantel);
             }
         });

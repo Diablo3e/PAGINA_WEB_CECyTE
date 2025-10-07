@@ -9,6 +9,7 @@
     --transicion: all 0.3s ease;
 }
 
+
 /* Tipografía */
 body, html {
     font-family: 'Montserrat', sans-serif;
@@ -162,6 +163,18 @@ body, html {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
+}
+.card-two-columns{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.card-auto-columns{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 /* TODO: muchas de estas no se usan, limpiar */
@@ -439,14 +452,31 @@ body, html {
     box-shadow: 0 5px 15px rgba(109, 7, 26, 0.15);
 }
 
-.section-header {
+.section-header{
     background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
-    color: white;
+    color: white !important;
     padding: 1.2rem 1.5rem;
     font-weight: 700;
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.accordion-section{
+    background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
+    color: white !important;
+    background-color: transparent !important;
+    padding: 1.2rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-items: center;
+}
+
+.center-accordion-text{
+    width: 100%;
+    text-align: center;
 }
 
 /* Tabla de horarios */
@@ -511,18 +541,20 @@ body, html {
     }
 }
 /* Acordeón de carreras */
-.accordion-button {
+.normal-accordion {
     font-weight: 600;
     padding: 1.2rem 1.5rem;
     background-color: rgba(109, 7, 26, 0.05);
     color: var(--color-primario);
 }
 
-.accordion-button:not(.collapsed) {
+.normal-accordion:not(.collapsed) {
     background-color: rgba(109, 7, 26, 0.1);
     color: var(--color-primario);
     box-shadow: none;
 }
+
+
 
 .accordion-body {
     padding: 1.5rem;
@@ -586,6 +618,32 @@ body, html {
     background-size: 60%;
 }
 
+.no-hover:hover {
+    box-shadow: none;
+    background-color: inherit;
+    border-color: none;
+    transform: none;
+}
+
+.responsive-card{
+    width: 302px;
+}
+
+.social-card{
+    width: 220px;
+    background-color: #3B0000;
+}
+
+.personnel-card{
+    width: 270px;
+    /* TODO: Encontrar una mejor manera de manejar altura */
+    height: 351px;
+}
+
+.socialDimentions{
+    min-width: 100%;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .plantel-header {
@@ -605,9 +663,43 @@ body, html {
         padding: 1rem;
     }
 
+    .accordion-section {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
     .btn-horario {
         padding: 0.6rem 0.3rem;
         font-size: 0.9rem;
+    }
+
+    .responsive-card{
+        width: 50vw;
+    }
+}
+@media (max-width: 635px){
+    
+    .card-two-columns{
+        grid-template-columns: 100%;
+        max-width: 100%;
+    }
+}
+@media (max-width: 401px){
+    .card-two-columns{
+        font-size: 11.5px;
+    }
+    .card-two-columns h5{
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width: 468px) {
+    .responsive-card{
+        width: 90vw;
+        font-size: 11.5px;
+    }
+    .responsive-card h5{
+        font-size: 11.5px;
     }
 }
 
@@ -625,11 +717,4 @@ body, html {
 .section-card {
     animation: fadeIn 0.5s ease-out forwards;
     min-height: fit-content;
-}
-
-.no-hover:hover {
-  box-shadow: none;
-  background-color: inherit;
-  border-color: none;
-  transform: none;
 }

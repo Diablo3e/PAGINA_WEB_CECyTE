@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class carrusel extends Model
+class Carrusel extends Model
 {
     protected $fillable = [
         'plantel_id',
