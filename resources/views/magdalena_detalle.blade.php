@@ -11,13 +11,13 @@
 
     <div class="container mt-4">
         <!-- Encabezado principal estilo CECYTE -->
-        <div id="carruselMagdalena" class="carousel slide mt-0 mt-sm-5" data-bs-ride="carousel">
+        <div id="plantel-carousel" class="carousel slide carousel-container mb-3 mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carruselMagdalena" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
-                <button type="button" data-bs-target="#carruselMagdalena" data-bs-slide-to="1" class aria-current="true" aria-label="Imagen 2"></button>
-                <button type="button" data-bs-target="#carruselMagdalena" data-bs-slide-to="2" class aria-current="true" aria-label="Imagen 3"></button>
-                <button type="button" data-bs-target="#carruselMagdalena" data-bs-slide-to="3" class aria-current="true" aria-label="Imagen 4"></button>
-                <button type="button" data-bs-target="#carruselMagdalena" data-bs-slide-to="4" class aria-current="true" aria-label="Imagen 5"></button>
+                <button type="button" data-bs-target="#plantel-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                <button type="button" data-bs-target="#plantel-carousel" data-bs-slide-to="1" class aria-current="true" aria-label="Imagen 2"></button>
+                <button type="button" data-bs-target="#plantel-carousel" data-bs-slide-to="2" class aria-current="true" aria-label="Imagen 3"></button>
+                <button type="button" data-bs-target="#plantel-carousel" data-bs-slide-to="3" class aria-current="true" aria-label="Imagen 4"></button>
+                <button type="button" data-bs-target="#plantel-carousel" data-bs-slide-to="4" class aria-current="true" aria-label="Imagen 5"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item  active">
@@ -36,11 +36,11 @@
                     <img src="{{ asset('storage/demoMagdalena/fotosPlantel/20250702_090440.jpg') }}" class="carousel-img d-block w-100" alt="Imagen del plantel" style="height: 400px; object-fit: cover;">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carruselMagdalena" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#plantel-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carruselMagdalena" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#plantel-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>

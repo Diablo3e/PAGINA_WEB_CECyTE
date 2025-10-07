@@ -28,18 +28,23 @@ function cargarEncabezadoPlantel(plantel) {
 }
 
 function renderInstalaciones(imagenes) {
-
     const container = document.getElementById('instalaciones-content');
     container.innerHTML = "";
     if (!container) return;
-    imagenes.forEach(imagenPath => {
-        fetch(route('publicStorage.get', imagenPath))
+    const fetchPromises = imagenes.map(imagenPath => {
+        return fetch(route('publicStorage.get', imagenPath))
             .then(imagen => {
                 const img = imagen.url;
                 container.innerHTML += `
-                        <img class="img-fluid" src="${img}" alt="imagen instalaciones" >
-                        `
+                    <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                        <img class="img-fluid" src="${img}" alt="imagen instalaciones">
+                    </a>
+                `;
             });
+    });
+
+    Promise.all(fetchPromises).then(() => {
+        addImagesExpandListener(container);
     });
 }
 
@@ -52,10 +57,11 @@ function renderPersonal(plantel) {
             fetch(route('publicStorage.get', persona.foto))
                 .then(imagenPersonal => {
                     container.innerHTML += `
-                    <div class="card no-hover" style="width: 20%; min-height: fit-content; padding-top: 5%; padding-bottom: 5%;">
+                    <div class="card no-hover personnel-card">
                         <div class="card-body">
                             <img src="${imagenPersonal.url}" alt="encargado" style="border-radius: 50%; max-width: 70%;">
-                            <h5 class="card-title">${persona.puesto}</h5>
+                            <h5 class="card-title mb-3">${persona.nombre}</h5>
+                            <h5 class="card-subtitle">${persona.puesto}</h5>
                         </div>
                     </div>
                     `;
@@ -78,7 +84,7 @@ function renderComunicados(plantel) {
             fetch(route('publicStorage.get', comunicado.pdf))
                 .then(archivoPdf => {
                     container.innerHTML += `
-                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
+                    <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                         <div class="card-body">
                             <h5 class="card-title">${comunicado.titulo}</h5>
                             <a href="${archivoPdf.url}" class="card-link" target="_blank">Ver comunicado</a>
@@ -200,14 +206,12 @@ function renderVinculacion(plantel) {
     //Randerizar informacion
     if (plantel.vinculacion.servicioSocial.length !== 0) {
         plantel.vinculacion.servicioSocial.forEach(opcion => {
+            const documentoUrl = route('publicStorage.get', opcion.documento);
             containerServicio.innerHTML += `
-            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+            <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                 <div class="card-body">
-                    <h5 class="card-title">${opcion.nombreInstitucion}</h5>
-                    <p>${opcion.descripcion}</p>
-                    <p><strong>Correo: </strong> ${opcion.correo}</p>
-                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                    <h5 class="card-title">${opcion.nombreDocumento}</h5>
+                    <a href="${documentoUrl}" class="card-link" target="_blank">Ver información</a>
                 </div>
             </div>
             `;
@@ -223,15 +227,13 @@ function renderVinculacion(plantel) {
     containerPracticas.innerHTML = '';
     //Randerizar informacion
     if (plantel.vinculacion.practicasProfesionales.length !== 0) {
-        plantel.vinculacion.practicasProfesionales.forEach(opcion => {
+        plantel.vinculacion.practicasProfesionales.forEach(plantilla => {
+            const documento = route('publicStorage.get', plantilla.documento);
             containerPracticas.innerHTML += `
-            <div class="card no-hover" style="max-width: 50%; min-height: fit-content">
+            <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                 <div class="card-body">
-                    <h5 class="card-title">${opcion.institucion}</h5>
-                    <p>${opcion.descripcion}</p>
-                    <p><strong>Correo: </strong> ${opcion.correo}</p>
-                    <p><strong>Telefono: </strong> ${opcion.telefono}</p>
-                    <p><strong>Direección:</strong> ${opcion.direccion}</p>
+                    <h5 class="card-title">${plantilla.titulo}</h5>
+                    <a href="${documento}" class="card-link" target="_blank">Ver información</a>
                 </div>
             </div>
             `;
@@ -242,6 +244,7 @@ function renderVinculacion(plantel) {
     }
 
     // redes sociales
+    // TODO: adaptarlo a que funcione con dropdown
     const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
     //Limpiar HTML
     containerRedes.innerHTML = '';
@@ -249,13 +252,13 @@ function renderVinculacion(plantel) {
     if (plantel.vinculacion.redesSociales.length !== 0) {
         plantel.vinculacion.redesSociales.forEach(red => {
             containerRedes.innerHTML += `
-            <a href="${red.link}" style="text-decoration: none;" target="_blank">
-               <div class="card" style="min-width: 10vw; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${red.nombre}</h5>
+            <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
+                <a href="${red.link}" style="text-decoration: none;" target="_blank">
+                    <div class="card-body">                    
+                        <img src="${red.logo}" alt="X" style="width:100%;">
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
             `;
         });
         hayContenido = true;
@@ -291,13 +294,18 @@ function renderVinculacion(plantel) {
     containerSistDial.innerHTML = '';
     //Randerizar informacion
     if (plantel.vinculacion.sistemaDual.length !== 0) {
-        plantel.vinculacion.sistemaDual.forEach(banner => {
-            fetch(route('publicStorage.get', banner))
-                .then(banner => {
-                    containerSistDial.innerHTML += `
-                       <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                    `;
-                });
+        plantel.vinculacion.sistemaDual.forEach(entradaSisDual => {
+            const link = route('publicStorage.get', entradaSisDual.link);
+
+            // Esto puede ser un documento o un link...
+            containerSistDial.innerHTML += `
+                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${entradaSisDual.nombreEntrada}</h5>
+                        <a href="${link}" class="card-link" target="_blank">Ver información</a>
+                    </div>
+                </div>
+            `;
         });
         hayContenido = true;
     } else {
@@ -314,13 +322,17 @@ function renderExtEducativa(plantel) {
     extensionContainer.innerHTML = '';
 
     if (plantel.extEducativa.length !== 0) {
-        plantel.extEducativa.forEach(banner => {
-            fetch(route('publicStorage.get', banner))
-                .then(banner => {
-                    extensionContainer.innerHTML += `
-                        <img src="${banner.url}" alt="Banner" style="width: 100%; margin-bottom: 1rem;">
-                    `;
-                });
+        plantel.extEducativa.forEach(documento => {
+            const url = route('publicStorage.get', documento.link);
+            extensionContainer.innerHTML += `
+                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${documento.titulo}</h5>
+                        <a href="${url}" class="card-link" target="_blank">Ver archivo</a>
+                    </div>
+                </div>
+            `;
+
         });
     } else {
         ocultarSeccion(extensionContainer, ".section-card");
@@ -351,24 +363,65 @@ function renderControlEscolar(plantel) {
         ocultarSeccion(containerAvisos, ".accordion");
     }
 
+    // Planes de estudio
+    const containerPlanesEstudio = document.getElementById('planesEstudio').querySelector('.card-flex');
+    //Limpiar HTML
+    containerPlanesEstudio.innerHTML = '';
+    //Randerizar informacion
+    if (plantel.controlEscolar.planesEstudio.length !== 0) {
+        // Añadir el elemento select
+        const selectElement = document.createElement('select');
+        containerPlanesEstudio.appendChild(selectElement);
+        addFilterToSelect(selectElement);
+        plantel.controlEscolar.planesEstudio.forEach(plan => {
+            // Añadir la opcion al elemento select
+            const option = document.createElement('option');
+            option.value = slugify(plan.carrera);
+            option.textContent = plan.carrera;
+            selectElement.appendChild(option);
+            // Añadir la tarjeta al div
+            const link = route('publicStorage.get', plan.documento);
+            containerHorarios +=`
+                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${plan.carrera}</h5>
+                        <a href="${link}" class="card-link" target="_blank">Ver plan de estudio</a>
+                    </div>
+                </div>
+            `
+        });
+        hayContenido = true;
+    } else {
+        ocultarSeccion(containerAvisos, ".accordion");
+    }
+
     // Horarios
     const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
     //Limpiar HTML
     containerHorarios.innerHTML = '';
     //Randerizar informacion
     if (plantel.controlEscolar.horarios.length !== 0) {
+        // Añadir el elemento select
+        const selectElement = document.createElement('select');
+        containerHorarios.appendChild(selectElement);
+        addFilterToSelect(selectElement);
         plantel.controlEscolar.horarios.forEach(horario => {
-            fetch(route('publicStorage.get', horario.pdf))
-                .then(horarioPdf => {
-                    containerHorarios.innerHTML += `
-                    <div class="card no-hover" style="min-width: 20%; min-height: fit-content">
-                        <div class="card-body">
-                            <h5 class="card-title">${horario.grupo}</h5>
-                            <a href="${horarioPdf.url}" class="card-link" target="_blank">Ver horario</a>
-                        </div>
+            // Añadir la opcion al elemento select
+            const option = document.createElement('option');
+            option.value = slugify(horario.carrera);
+            option.textContent = horario.carrera;
+            selectElement.appendChild(option);
+            // Añadir la tarjeta al div
+            const link = route('publicStorage.get', horario.documento);
+            containerHorarios +=`
+                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${horario.carrera}</h5>
+                        <h5 class="card-subtitle">${horario.grupo}</h5>
+                        <a href="${link}" class="card-link" target="_blank">Ver horario</a>
                     </div>
-                    `;
-                });
+                </div>
+            `
         });
         hayContenido = true;
     } else {
@@ -379,8 +432,68 @@ function renderControlEscolar(plantel) {
 }
 
 function ocultarSeccion(container, claseSeccion) {
-    const seccion = container.closest(claseSeccion);
-    seccion.remove();
+    // const seccion = container.closest(claseSeccion);
+    // seccion.remove();
+}
+
+function addResetListenerToAccordion(accordionID){
+    const accordion = document.getElementById(accordionID)
+    accordion.addEventListener("hidden.bs.collapse", () => {
+        //Reset acordion
+        const select = accordion.
+            querySelector('.accordion-body').
+            querySelector('.card-flex').
+            querySelector('select');
+        select.value = 0;
+
+        //Ocultar opciones
+        const cards = accordion.
+            querySelector('.accordion-body').
+            querySelector('.card-flex').
+            querySelectorAll('.responsive-card');
+        cards.forEach(card => {
+            card.style.display = 'none';
+        });
+    });
+}
+
+
+function addImagesExpandListener(instalacionesContent) {
+    const imagenesBtns = instalacionesContent.querySelectorAll('.btnExpandirImagen');
+    console.log(imagenesBtns)
+    imagenesBtns.forEach(imagenBtn => {
+        imagenBtn.addEventListener('click', () => {
+            const imgElement = imagenBtn.querySelector('img');
+            setModalImage(imgElement.src);
+        });
+    });
+}
+
+function setModalImage(img) {
+    console.log('alledegy doing something')
+    const imagenDiv = document.getElementById('imagenesModal')
+        .querySelector('.modal-dialog')
+        .querySelector('.modal-content')
+        .querySelector('.modal-body');
+    imagenDiv.innerHTML = `<img class="img-fluid" src="${img}" alt="imagen instalaciones">`
+
+}
+
+function addFilterToSelect(selectID){
+    document.getElementById(selectID).addEventListener('change', function () {
+        let filterValue = slugify(this.value);
+        let cards = document.getElementById(selectID).parentElement.querySelectorAll('.responsive-card');
+
+        cards.forEach(card => {
+            let cardName = slugify(card.querySelector('.card-title').textContent);
+
+            if (filterValue === 'all' || cardName.includes(filterValue)) {
+                card.style.display = 'block'; // show
+            } else {
+                card.style.display = 'none'; // hide
+            }
+        });
+    });
 }
 
 // Función principal para cargar el detalle del plantel
