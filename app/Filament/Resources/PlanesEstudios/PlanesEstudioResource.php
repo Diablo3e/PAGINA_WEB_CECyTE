@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Personals;
+namespace App\Filament\Resources\PlanesEstudios;
 
-use App\Filament\Resources\Personals\Pages\CreatePersonal;
-use App\Filament\Resources\Personals\Pages\EditPersonal;
-use App\Filament\Resources\Personals\Pages\ListPersonals;
-use App\Filament\Resources\Personals\Schemas\PersonalForm;
-use App\Filament\Resources\Personals\Tables\PersonalsTable;
-use App\Models\Personal;
+use App\Filament\Resources\PlanesEstudios\Pages\CreatePlanesEstudio;
+use App\Filament\Resources\PlanesEstudios\Pages\EditPlanesEstudio;
+use App\Filament\Resources\PlanesEstudios\Pages\ListPlanesEstudios;
+use App\Filament\Resources\PlanesEstudios\Schemas\PlanesEstudioForm;
+use App\Filament\Resources\PlanesEstudios\Tables\PlanesEstudiosTable;
+use App\Models\PlanesEstudio;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -15,17 +15,17 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
-class PersonalResource extends Resource
+class PlanesEstudioResource extends Resource
 {
-    protected static ?string $model = Personal::class;
+    protected static ?string $model = PlanesEstudio::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserCircle;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingLibrary;
 
     public static function form(Schema $schema): Schema
     {
@@ -35,14 +35,15 @@ class PersonalResource extends Resource
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
                     ->required()
                     ->label('Plantel'),
-                FileUpload::make('foto')
-                    ->directory('ImgPersonal')
+                TextInput::make('carrera')
+                    ->required(),
+                FileUpload::make('documento')
+                    ->directory('PdfPlanesEstudio')
                     ->visibility('public')
                     ->disk('public')
-                    ->acceptedFileTypes(['image/png', 'image/webp', 'image/jpeg'])
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->maxSize(20480)
                     ->required(),
-                TextInput::make('nombre')->required(),
-                TextInput::make('puesto')->required(),
             ]);
     }
 
@@ -51,10 +52,13 @@ class PersonalResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('foto')
-                    ->disk('public'),
-                TextColumn::make('nombre'),
-                TextColumn::make('puesto'),
+                TextColumn::make('carrera'),
+                IconColumn::make('documento') // Adjust to your DB column name
+                    ->label('Documento')
+                    ->icon('heroicon-s-document')
+                    ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('abrir el documento')
             ]);
     }
 
@@ -68,9 +72,9 @@ class PersonalResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListPersonals::route('/'),
-            'create' => CreatePersonal::route('/create'),
-            'edit' => EditPersonal::route('/{record}/edit'),
+            'index' => ListPlanesEstudios::route('/'),
+            'create' => CreatePlanesEstudio::route('/create'),
+            'edit' => EditPlanesEstudio::route('/{record}/edit'),
         ];
     }
 
@@ -85,10 +89,5 @@ class PersonalResource extends Resource
         
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
-    }
-
-    public static function getPluralLabel(): string
-    {
-        return 'Personal';
     }
 }

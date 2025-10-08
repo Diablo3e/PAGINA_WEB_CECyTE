@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plantel_id');
+            $table->string('carrera');
             $table->string('grupo');
-            $table->string('pdf');
+            $table->string('documento');
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles');

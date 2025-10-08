@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sistema_dual', function (Blueprint $table) {
+        Schema::create('planes_estudio', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plantel_id');
-            $table->string('nombre');
+            $table->string('carrera');
             $table->string('documento');
             $table->timestamps();
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sistema_dual');
+        Schema::dropIfExists('planes_estudios');
     }
 };

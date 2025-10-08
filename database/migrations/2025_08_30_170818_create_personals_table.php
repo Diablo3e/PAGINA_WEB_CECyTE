@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('plantel_id');
             $table->string('foto');
+            $table->string('nombre');
             $table->string('puesto');
             $table->timestamps();
 

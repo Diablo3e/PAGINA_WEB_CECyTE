@@ -11,7 +11,8 @@ class ExtensionEducativa extends Model
 
     protected $fillable = [
         'plantel_id',
-        'imagen',
+        'nombre',
+        'documento',
     ];
 
     //Claves foraneas
@@ -30,8 +31,8 @@ class ExtensionEducativa extends Model
 
         // Borrar el anterior archivo si se edita el registro
         static::updating(function ($extEdu) {
-            if ($extEdu->isDirty('imagen')) {
-                $originalImage = $extEdu->getOriginal('imagen');
+            if ($extEdu->isDirty('documento')) {
+                $originalImage = $extEdu->getOriginal('documento');
 
                 if ($originalImage && Storage::disk('public')->exists($originalImage)) {
                     Storage::disk('public')->delete($originalImage);

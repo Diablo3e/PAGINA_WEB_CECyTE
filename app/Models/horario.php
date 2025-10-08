@@ -9,8 +9,9 @@ class Horario extends Model
 {
     protected $fillable = [
         'plantel_id',
+        'carrera',
         'grupo',
-        'pdf',
+        'documento',
     ];
     
     //Claves foraneas
@@ -29,8 +30,8 @@ class Horario extends Model
 
         // Borrar el anterior archivo si se edita el registro
         static::updating(function ($documento) {
-            if ($documento->isDirty('pdf')) {
-                $originalImage = $documento->getOriginal('pdf');
+            if ($documento->isDirty('documento')) {
+                $originalImage = $documento->getOriginal('documento');
 
                 if ($originalImage && Storage::disk('public')->exists($originalImage)) {
                     Storage::disk('public')->delete($originalImage);

@@ -80,7 +80,7 @@ class InstalacionesResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

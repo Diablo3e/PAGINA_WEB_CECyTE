@@ -11,9 +11,11 @@ use App\Models\ExtensionEducativa;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -34,11 +36,13 @@ class ExtensionEducativaResource extends Resource
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
                     ->required()
                     ->label('Plantel'),
-                FileUpload::make('imagen')
-                    ->directory('ImgExtensionEducativa')
+                TextInput::make('nombre')
+                    ->required(),
+                FileUpload::make('documento')
+                    ->directory('DocumentoExtensionEducativa')
                     ->visibility('public')
                     ->disk('public')
-                    ->acceptedFileTypes(['image/png', 'image/webp', 'image/jpeg'])
+                    ->acceptedFileTypes(['application/pdf','image/png', 'image/webp', 'image/jpeg'])
                     ->maxSize(20480)
                     ->required(),
             ]);
@@ -49,8 +53,13 @@ class ExtensionEducativaResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('imagen')
-                    ->disk('public'),
+                TextColumn::make('nombre'),
+                IconColumn::make('documento') // Adjust to your DB column name
+                    ->label('Documento')
+                    ->icon('heroicon-s-document')
+                    ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('abrir el documento'),
             ]);
     }
 
@@ -78,7 +87,7 @@ class ExtensionEducativaResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }
