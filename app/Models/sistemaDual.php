@@ -23,10 +23,10 @@ class SistemaDual extends Model
 
     protected static function booted(){
         
-        //Borrar banner junto con registros
+        //Borrar documento junto con registros
         static::deleting(function ($entrada){
-            if($entrada->banner && Storage::disk('public')->exists($entrada->banner)){
-                Storage::disk('public')->delete($entrada->banner);
+            if($entrada->documento && Storage::disk('public')->exists($entrada->documento)){
+                Storage::disk('public')->delete($entrada->documento);
             }
         });
 

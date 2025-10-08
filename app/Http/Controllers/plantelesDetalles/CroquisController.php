@@ -8,7 +8,7 @@ use App\Models\Croquis;
 
 class CroquisController extends Controller
 {
-    public function getPersonalPorPlantel($plantelId):array {
+    public function getCroquisPorPlantel($plantelId):array {
         return Croquis::where('plantel_id',$plantelId)
         ->select('nombre', 'documento')
         ->get()

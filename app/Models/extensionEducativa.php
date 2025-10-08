@@ -24,8 +24,8 @@ class ExtensionEducativa extends Model
         
         //Borrar archivos junto con los registros
         static::deleting(function ($extEdu){
-            if($extEdu->imagen && Storage::disk('public')->exists($extEdu->imagen)){
-                Storage::disk('public')->delete($extEdu->imagen);
+            if($extEdu->documento && Storage::disk('public')->exists($extEdu->documento)){
+                Storage::disk('public')->delete($extEdu->documento);
             }
         });
 

@@ -22,16 +22,16 @@ class Horario extends Model
     protected static function booted(){
         
         //Borrar archivos junto con los registros
-        static::deleting(function ($documento){
-            if($documento->pdf && Storage::disk('public')->exists($documento->pdf)){
-                Storage::disk('public')->delete($documento->pdf);
+        static::deleting(function ($archivo){
+            if($archivo->documento && Storage::disk('public')->exists($archivo->documento)){
+                Storage::disk('public')->delete($archivo->documento);
             }
         });
 
         // Borrar el anterior archivo si se edita el registro
-        static::updating(function ($documento) {
-            if ($documento->isDirty('documento')) {
-                $originalImage = $documento->getOriginal('documento');
+        static::updating(function ($archivo) {
+            if ($archivo->isDirty('documento')) {
+                $originalImage = $archivo->getOriginal('documento');
 
                 if ($originalImage && Storage::disk('public')->exists($originalImage)) {
                     Storage::disk('public')->delete($originalImage);
