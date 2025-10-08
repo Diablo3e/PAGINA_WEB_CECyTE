@@ -24,6 +24,7 @@ use App\Http\Controllers\plantelesDetalles\RedesSocialesController;
 use App\Http\Controllers\plantelesDetalles\SeguimientoEgresadosController;
 use App\Http\Controllers\plantelesDetalles\ServicioSocialController;
 use App\Http\Controllers\plantelesDetalles\SistemaDualController;
+use App\Http\Controllers\plantelesDetalles\PlanesEstudioController;
 use App\Models\extensionEducativa;
 
 class PlantelesController extends Controller

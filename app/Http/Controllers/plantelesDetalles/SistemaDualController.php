@@ -10,7 +10,7 @@ class SistemaDualController extends Controller
 {
     public function getSistemaDualPorPlantel($plantelId):array{
         return SistemaDual::where('plantel_id',$plantelId)
-        ->select('banner')
+        ->select('nombre', 'documento')
         ->get()
         ->toArray();
     }

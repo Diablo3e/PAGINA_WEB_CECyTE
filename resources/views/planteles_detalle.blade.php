@@ -78,6 +78,66 @@
         </div>
     </div>
 
+    <!-- Seccion mapas -->
+    <div class="accordion" id="acordionSeccionMapas">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button accordion-section mb-0 collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#seccionMapas" aria-expanded="true" aria-controls="seccionMapas">
+                        <h4 class="center-accordion-text">
+                            Mapas
+                        </h4>
+                    </button>
+                </h2>
+                <div id="seccionMapas" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        
+                        <div class="card-body" id="personal-content">
+                            
+                            <div class="accordion" id="acordionUbicaciones">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#ubicaciones" aria-expanded="true" aria-controls="ubicaciones">
+                                            Ubicaciones
+                                        </button>
+                                    </h2>
+                                    <div id="ubicaciones" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+            
+            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion" id="acordionCroquis">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button normal-accordion collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#croquis" aria-expanded="true" aria-controls="croquis">
+                                            Croquis
+                                        </button>
+                                    </h2>
+                                    <div id="croquis" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <div class="card-flex">
+            
+            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- Sección: Personal -->
     <div class="accordion" id="acordionSeccionPersonal">
         <div class="accordion-item">
