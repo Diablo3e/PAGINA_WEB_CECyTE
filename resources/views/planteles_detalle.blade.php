@@ -92,7 +92,7 @@
                 <div id="seccionMapas" class="accordion-collapse collapse">
                     <div class="accordion-body">
                         
-                        <div class="card-body" id="personal-content">
+                        <div class="card-body" id="mapas-content">
                             
                             <div class="accordion" id="acordionUbicaciones">
                                 <div class="accordion-item">
@@ -292,7 +292,7 @@
                                     </h2>
                                     <div id="ofertaLaboral" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <div class="card-flex">
+                                            <div class="card-two-columns">
                 
                                             </div>
                                         </div>
@@ -470,9 +470,6 @@
                                     <div id="planesEstudio" class="accordion-collapse collapse">
                                         <div class="accordion-body">
                                             <div class="card-flex">
-                                                <select id="filterSelectPlanEstudio">
-                                                    
-                                                </select>
                                                 
                 
                                             </div>
@@ -493,10 +490,6 @@
                                     <div id="horarios" class="accordion-collapse collapse">
                                         <div class="accordion-body">
                                             <div class="card-flex">
-                                                <select id="filterSelectHorario">
-                                                   
-                                                </select>
-                
                 
                                             </div>
                                         </div>

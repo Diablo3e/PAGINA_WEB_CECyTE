@@ -1,6 +1,6 @@
 import { slugify } from "./slug.js";
 
-// Función para cargar el encabezado del plantel
+// ----------------- Funciones de randerizado de partes de detalles de planteles ------------------------
 function cargarEncabezadoPlantel(plantel) {
     // Configurar título
     document.getElementById('plantel-nombre').textContent = "Plantel " + plantel.encabezado[0].nombre || 'PLANTEL CECyTE';
@@ -30,22 +30,73 @@ function cargarEncabezadoPlantel(plantel) {
 function renderInstalaciones(imagenes) {
     const container = document.getElementById('instalaciones-content');
     container.innerHTML = "";
-    if (!container) return;
-    const fetchPromises = imagenes.map(imagenPath => {
-        return fetch(route('publicStorage.get', imagenPath))
-            .then(imagen => {
-                const img = imagen.url;
-                container.innerHTML += `
-                    <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
-                        <img class="img-fluid" src="${img}" alt="imagen instalaciones">
-                    </a>
-                `;
-            });
-    });
+    if (imagenes.length !== 0){
+        const fetchPromises = imagenes.map(imagenPath => {
+            return fetch(route('publicStorage.get', imagenPath))
+                .then(imagen => {
+                    const img = imagen.url;
+                    container.innerHTML += `
+                        <a class="btnExpandirImagen" data-bs-toggle="modal" data-bs-target="#imagenesModal">
+                            <img class="img-fluid" src="${img}" alt="imagen instalaciones">
+                        </a>
+                    `;
+                });
+        });
+    
+        Promise.all(fetchPromises).then(() => {
+            addImagesExpandListener(container);
+        });
+    }else{
+        ocultarSeccion(container, '.accordion-item');
+    }
+}
 
-    Promise.all(fetchPromises).then(() => {
-        addImagesExpandListener(container);
-    });
+
+function renderMapas(plantel){
+    let hayContenido = false;
+    //Ubicaciones
+    const containerUbi = document.getElementById('ubicaciones').querySelector('.card-flex');
+    //Limpiar HTML
+    containerUbi.innerHTML = '';
+    //Render info
+    if (plantel.ubicaciones.length !== 0){
+        plantel.ubicaciones.forEach(ubicacion => {
+            containerUbi.innerHTML += `
+            <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                <div class="card-body">
+                    <h5 class="card-title">${ubicacion.nombre}</h5>
+                    <a href="${ubicacion.link}" class="card-link" target="_blank">Ver ubicación</a>
+                </div>
+            </div>
+            `
+        })
+        hayContenido = true;
+    }else{
+        ocultarSeccion(containerUbi, '.accordion')
+    }
+
+    //Croquis
+    const containerCroquis = document.getElementById('croquis').querySelector('.card-flex');
+    containerCroquis.innerHTML = '';
+    //Render info
+    if (plantel.croquis.length !== 0){
+        plantel.croquis.forEach(croqui => {
+            const link = route('publicStorage.get', croqui.documento)
+            containerCroquis.innerHTML =`
+                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                    <div class="card-body">
+                        <h5 class="card-title">${croqui.nombre}</h5>
+                        <a href="${link}" class="card-link" target="_blank">Ver croquis</a>
+                    </div>
+                </div>
+                ` 
+        });
+        hayContenido = true;
+    }else{
+         ocultarSeccion(containerCroquis, '.accordion');
+    }
+
+    if (!hayContenido) ocultarSeccion(document.getElementById("acordionSeccionMapas"));
 }
 
 function renderPersonal(plantel) {
@@ -71,7 +122,7 @@ function renderPersonal(plantel) {
                 })
         });
     } else {
-        ocultarSeccion(container, ".section-card");
+        ocultarSeccion(document.getElementById('acordionSeccionPersonal'));
     }
 }
 
@@ -97,7 +148,7 @@ function renderComunicados(plantel) {
                 })
         });
     } else {
-        ocultarSeccion(container, ".section-card");
+        ocultarSeccion(document.getElementById('acordionSeccionComunicados'));
     }
 
 }
@@ -131,7 +182,14 @@ function setupCarousel(images, carouselId) {
             indicators.appendChild(indicator);
         });
     } else {
-        ocultarSeccion(carousel, ".section-card");
+        //TODO: Logica extra para ocultar carruseles
+        //Checar si el carrusel esta dentro de un acordion
+        const posibleAcordion = carousel.parentElement.parentElement;
+        if(posibleAcordion.className === 'accordion-body'){
+            ocultarSeccion(carousel, '.accordion');
+        }else{
+            ocultarSeccion(carousel);
+        }
     }
 }
 
@@ -175,7 +233,7 @@ function renderCarreras(id) {
 function renderVinculacion(plantel) {
     let hayContenido = false;
     //Ofertas Laborales
-    const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-flex');
+    const containerOfertasLab = document.getElementById('ofertaLaboral').querySelector('.card-two-columns');
     //Limpiar el HTML
     containerOfertasLab.innerHTML = '';
     //Randerizar informacion
@@ -210,7 +268,7 @@ function renderVinculacion(plantel) {
             containerServicio.innerHTML += `
             <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                 <div class="card-body">
-                    <h5 class="card-title">${opcion.nombreDocumento}</h5>
+                    <h5 class="card-title">${opcion.nombre}</h5>
                     <a href="${documentoUrl}" class="card-link" target="_blank">Ver información</a>
                 </div>
             </div>
@@ -232,7 +290,7 @@ function renderVinculacion(plantel) {
             containerPracticas.innerHTML += `
             <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                 <div class="card-body">
-                    <h5 class="card-title">${plantilla.titulo}</h5>
+                    <h5 class="card-title">${plantilla.nombre}</h5>
                     <a href="${documento}" class="card-link" target="_blank">Ver información</a>
                 </div>
             </div>
@@ -244,18 +302,25 @@ function renderVinculacion(plantel) {
     }
 
     // redes sociales
-    // TODO: adaptarlo a que funcione con dropdown
     const containerRedes = document.getElementById('redesSociales').querySelector('.card-flex');
     //Limpiar HTML
     containerRedes.innerHTML = '';
     //Randerizar informacion
     if (plantel.vinculacion.redesSociales.length !== 0) {
         plantel.vinculacion.redesSociales.forEach(red => {
+            let logoLink = `${window.location.origin}/imagenes/Barra-redes-sociales/`;
+            if(red.nombre === 'x'){
+                logoLink += 'icon-X.svg';
+            }else if (red.nombre === 'instagram'){
+                logoLink += 'icon-Instagram.svg';
+            }else{
+                logoLink += 'icon-Facebook.svg';
+            }
             containerRedes.innerHTML += `
             <div class="card social-card" style="min-width: 10vw; min-height: fit-content">
                 <a href="${red.link}" style="text-decoration: none;" target="_blank">
                     <div class="card-body">                    
-                        <img src="${red.logo}" alt="X" style="width:100%;">
+                        <img src="${logoLink}" alt="X" style="width:100%;">
                     </div>
                 </a>
             </div>
@@ -276,7 +341,7 @@ function renderVinculacion(plantel) {
             containerEgresados.innerHTML += `
                <div class="card no-hover" style="max-width: 33%; min-height: fit-content">
                     <div class="card-body">
-                        <h5 class="card-title">${egresado.nombreEgresado}</h5>
+                        <h5 class="card-title">${egresado.nombre}</h5>
                         <h6 class="card-subtitle">${egresado.carrera}</h6>
                         <p class="card-text">${egresado.testimonio}</p>
                     </div>
@@ -295,13 +360,18 @@ function renderVinculacion(plantel) {
     //Randerizar informacion
     if (plantel.vinculacion.sistemaDual.length !== 0) {
         plantel.vinculacion.sistemaDual.forEach(entradaSisDual => {
-            const link = route('publicStorage.get', entradaSisDual.link);
+            let link = '';
+            if(isValidURL(entradaSisDual.documento)){
+                link = entradaSisDual.documento;
+            }else{
+                link = route('publicStorage.get', entradaSisDual.documento);
+            }
 
             // Esto puede ser un documento o un link...
             containerSistDial.innerHTML += `
                 <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                     <div class="card-body">
-                        <h5 class="card-title">${entradaSisDual.nombreEntrada}</h5>
+                        <h5 class="card-title">${entradaSisDual.nombre}</h5>
                         <a href="${link}" class="card-link" target="_blank">Ver información</a>
                     </div>
                 </div>
@@ -312,22 +382,22 @@ function renderVinculacion(plantel) {
         ocultarSeccion(containerSistDial, ".accordion");
     }
 
-    if (!hayContenido) ocultarSeccion(document.getElementById("vinculacion-content"), ".section-card");
+    if (!hayContenido) ocultarSeccion(document.getElementById("acordionSeccionVinculacion"));
 }
 
 function renderExtEducativa(plantel) {
 
-    const extensionContainer = document.getElementById('extension-content');
+    const extensionContainer = document.getElementById('extension-content').querySelector('.card-flex');
     //Limpiar HTML
     extensionContainer.innerHTML = '';
 
     if (plantel.extEducativa.length !== 0) {
         plantel.extEducativa.forEach(documento => {
-            const url = route('publicStorage.get', documento.link);
+            const url = route('publicStorage.get', documento.documento);
             extensionContainer.innerHTML += `
                 <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                     <div class="card-body">
-                        <h5 class="card-title">${documento.titulo}</h5>
+                        <h5 class="card-title">${documento.nombre}</h5>
                         <a href="${url}" class="card-link" target="_blank">Ver archivo</a>
                     </div>
                 </div>
@@ -335,7 +405,7 @@ function renderExtEducativa(plantel) {
 
         });
     } else {
-        ocultarSeccion(extensionContainer, ".section-card");
+        ocultarSeccion(document.getElementById('acordionSeccionExtensionEducativa'));
     }
 }
 
@@ -369,20 +439,11 @@ function renderControlEscolar(plantel) {
     containerPlanesEstudio.innerHTML = '';
     //Randerizar informacion
     if (plantel.controlEscolar.planesEstudio.length !== 0) {
-        // Añadir el elemento select
-        const selectElement = document.createElement('select');
-        containerPlanesEstudio.appendChild(selectElement);
-        addFilterToSelect(selectElement);
         plantel.controlEscolar.planesEstudio.forEach(plan => {
-            // Añadir la opcion al elemento select
-            const option = document.createElement('option');
-            option.value = slugify(plan.carrera);
-            option.textContent = plan.carrera;
-            selectElement.appendChild(option);
             // Añadir la tarjeta al div
             const link = route('publicStorage.get', plan.documento);
-            containerHorarios +=`
-                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
+            containerPlanesEstudio.innerHTML +=`
+                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
                     <div class="card-body">
                         <h5 class="card-title">${plan.carrera}</h5>
                         <a href="${link}" class="card-link" target="_blank">Ver plan de estudio</a>
@@ -390,6 +451,8 @@ function renderControlEscolar(plantel) {
                 </div>
             `
         });
+        addSelectToFilterCards(containerPlanesEstudio, 'planesEstudioFilter');
+        addResetListenerToAccordion('planesEstudio');
         hayContenido = true;
     } else {
         ocultarSeccion(containerAvisos, ".accordion");
@@ -401,20 +464,11 @@ function renderControlEscolar(plantel) {
     containerHorarios.innerHTML = '';
     //Randerizar informacion
     if (plantel.controlEscolar.horarios.length !== 0) {
-        // Añadir el elemento select
-        const selectElement = document.createElement('select');
-        containerHorarios.appendChild(selectElement);
-        addFilterToSelect(selectElement);
         plantel.controlEscolar.horarios.forEach(horario => {
-            // Añadir la opcion al elemento select
-            const option = document.createElement('option');
-            option.value = slugify(horario.carrera);
-            option.textContent = horario.carrera;
-            selectElement.appendChild(option);
             // Añadir la tarjeta al div
             const link = route('publicStorage.get', horario.documento);
-            containerHorarios +=`
-                <div class="card no-hover responsive-card" style="display: none; min-width: 20%; min-height: fit-content">
+            containerHorarios.innerHTML +=`
+                <div class="card no-hover responsive-card" style=" min-width: 20%; min-height: fit-content">
                     <div class="card-body">
                         <h5 class="card-title">${horario.carrera}</h5>
                         <h5 class="card-subtitle">${horario.grupo}</h5>
@@ -423,80 +477,17 @@ function renderControlEscolar(plantel) {
                 </div>
             `
         });
+        addSelectToFilterCards(containerHorarios, 'horariosFilter');
+        addResetListenerToAccordion('horarios');
         hayContenido = true;
     } else {
         ocultarSeccion(containerHorarios, ".accordion");
     }
 
-    if (!hayContenido) ocultarSeccion(document.getElementById("ctrl-escolar-content"), ".section-card");
+    if (!hayContenido) ocultarSeccion(document.getElementById("acordionseccionControlEscolar"));
 }
 
-function ocultarSeccion(container, claseSeccion) {
-    // const seccion = container.closest(claseSeccion);
-    // seccion.remove();
-}
-
-function addResetListenerToAccordion(accordionID){
-    const accordion = document.getElementById(accordionID)
-    accordion.addEventListener("hidden.bs.collapse", () => {
-        //Reset acordion
-        const select = accordion.
-            querySelector('.accordion-body').
-            querySelector('.card-flex').
-            querySelector('select');
-        select.value = 0;
-
-        //Ocultar opciones
-        const cards = accordion.
-            querySelector('.accordion-body').
-            querySelector('.card-flex').
-            querySelectorAll('.responsive-card');
-        cards.forEach(card => {
-            card.style.display = 'none';
-        });
-    });
-}
-
-
-function addImagesExpandListener(instalacionesContent) {
-    const imagenesBtns = instalacionesContent.querySelectorAll('.btnExpandirImagen');
-    console.log(imagenesBtns)
-    imagenesBtns.forEach(imagenBtn => {
-        imagenBtn.addEventListener('click', () => {
-            const imgElement = imagenBtn.querySelector('img');
-            setModalImage(imgElement.src);
-        });
-    });
-}
-
-function setModalImage(img) {
-    console.log('alledegy doing something')
-    const imagenDiv = document.getElementById('imagenesModal')
-        .querySelector('.modal-dialog')
-        .querySelector('.modal-content')
-        .querySelector('.modal-body');
-    imagenDiv.innerHTML = `<img class="img-fluid" src="${img}" alt="imagen instalaciones">`
-
-}
-
-function addFilterToSelect(selectID){
-    document.getElementById(selectID).addEventListener('change', function () {
-        let filterValue = slugify(this.value);
-        let cards = document.getElementById(selectID).parentElement.querySelectorAll('.responsive-card');
-
-        cards.forEach(card => {
-            let cardName = slugify(card.querySelector('.card-title').textContent);
-
-            if (filterValue === 'all' || cardName.includes(filterValue)) {
-                card.style.display = 'block'; // show
-            } else {
-                card.style.display = 'none'; // hide
-            }
-        });
-    });
-}
-
-// Función principal para cargar el detalle del plantel
+// -------------- Función principal para cargar el detalle del plantel -------------------
 async function cargarDetallePlantel() {
     const pathParts = window.location.pathname.split('/');
     const plantelId = pathParts[pathParts.length - 1];
@@ -523,6 +514,9 @@ async function cargarDetallePlantel() {
 
     // Renderizar galeria instalaciones
     renderInstalaciones(plantel.instalaciones);
+
+    // Randerizar la seccion de mapas
+    renderMapas(plantel.mapas);
 
     // Randerizar personal
     renderPersonal(plantel);
@@ -559,5 +553,98 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// -------------- Funciones de apoyo -------------------
+function ocultarSeccion(container, claseSeccion = null) {
+    if (claseSeccion != null){
+        const seccion = container.closest(claseSeccion);
+        seccion.remove();
+    }else{
+        container.remove();
+    }
+}
+
+function addResetListenerToAccordion(accordionID){
+    const accordion = document.getElementById(accordionID)
+    accordion.addEventListener("hidden.bs.collapse", () => {
+        //Reset acordion
+        const select = accordion.querySelector('select');
+        select.value = 'selecciona-una-opcion';
+
+        //Ocultar allCards
+        const cards = accordion.querySelectorAll('.responsive-card');
+        cards.forEach(card => {
+            card.style.display = 'none';
+        });
+    });
+}
+
+function addImagesExpandListener(instalacionesContent) {
+    const imagenesBtns = instalacionesContent.querySelectorAll('.btnExpandirImagen');
+    imagenesBtns.forEach(imagenBtn => {
+        imagenBtn.addEventListener('click', () => {
+            const imgElement = imagenBtn.querySelector('img');
+            setModalImage(imgElement.src);
+        });
+    });
+}
+
+function setModalImage(img) {
+    const imagenDiv = document.getElementById('imagenesModal').querySelector('.modal-body');
+    imagenDiv.innerHTML = `<img class="img-fluid" src="${img}" alt="imagen instalaciones">`
+
+}
+
+function isValidURL(str) {
+    try {
+    new URL(str);
+    return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+//Por default cuando se agrega el select todas las cartas en el div se vuelven invisibles
+function addSelectToFilterCards(targetDiv, selectID){
+    // Añadir el elemento select
+    const selectElement = document.createElement('select');
+    selectElement.id = selectID;
+    
+    let allCards = ['Selecciona una opción'];
+    const cartas = targetDiv.querySelectorAll('.responsive-card');
+    cartas.forEach(carta => {
+        allCards.push(carta.querySelector('.card-title').textContent);
+        carta.style.display = 'none';
+    });
+    const uniqueCards = [...new Set(allCards)];
+    let currentOptions = [];
+    uniqueCards.forEach(nombreCarrera => {
+        if (!currentOptions.includes(slugify(nombreCarrera))){
+            const opcion = document.createElement('option');
+            opcion.value = slugify(nombreCarrera);
+            opcion.textContent = nombreCarrera;
+            selectElement.appendChild(opcion);
+            currentOptions.push(slugify(nombreCarrera));
+        }
+    });
+    targetDiv.insertBefore(selectElement, targetDiv.firstChild);
+    addFilterToSelect(selectID);
+}
+
+function addFilterToSelect(selectID){
+    document.getElementById(selectID).addEventListener('change', function () {
+        let filterValue = slugify(this.value);
+        let cards = document.getElementById(selectID).parentElement.querySelectorAll('.responsive-card');
+
+        cards.forEach(card => {
+            let cardName = slugify(card.querySelector('.card-title').textContent);
+
+            if (cardName.includes(filterValue)) {
+                card.style.display = 'block'; // show
+            } else {
+                card.style.display = 'none'; // hide
+            }
+        });
+    });
+}
 // Hacer los datos accesibles globalmente
 window.planteles = planteles;

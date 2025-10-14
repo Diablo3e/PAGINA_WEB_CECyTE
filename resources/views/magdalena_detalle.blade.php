@@ -932,7 +932,7 @@
                                                     <div class="card-body">
                                                         <h5 class="card-title">Mecatrónica</h5>
                                                         <h5 class="card-subtitle">3B</h5>
-                                                        <a href="{{ asset('storage/demoMagdalena/horarios/09-3-MECA 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
+                                                        <a href="{{ asset('storage/demoMagdalena/horarios/10-3-MECA 3B.pdf') }}" class="card-link" target="_blank">Ver horario</a>
                                                     </div>
                                                 </div>
                                                 
