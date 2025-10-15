@@ -154,7 +154,6 @@ function renderComunicados(plantel) {
 }
 
 // Función para configurar el carrusel de imágenes
-//TODO: modificar esto para desaparecer si no hay nada
 function setupCarousel(images, carouselId) {
     const carousel = document.getElementById(carouselId);
     const carouselInner = carousel.querySelector('.carousel-inner');
@@ -182,7 +181,6 @@ function setupCarousel(images, carouselId) {
             indicators.appendChild(indicator);
         });
     } else {
-        //TODO: Logica extra para ocultar carruseles
         //Checar si el carrusel esta dentro de un acordion
         const posibleAcordion = carousel.parentElement.parentElement;
         if(posibleAcordion.className === 'accordion-body'){

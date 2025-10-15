@@ -54,7 +54,6 @@ class User extends Authenticatable implements FilamentUser
         return $this->belongsToMany(Plantel::class, 'relationship_user_planteles');
     }
 
-    //TODO: Permisos avanzados de usuarios
     //Permiso global para todos los usuarios
     public function canAccessPanel(Panel $panel): bool{
         return true;
