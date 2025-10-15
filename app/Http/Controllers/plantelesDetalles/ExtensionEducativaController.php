@@ -10,7 +10,7 @@ class ExtensionEducativaController extends Controller
 {
     public function getExtensionEducativaPorPlantel($plantelId):array{
         return ExtensionEducativa::where('plantel_id',$plantelId)
-        ->select('imagen')
+        ->select('nombre','documento')
         ->get()
         ->toArray();
     }

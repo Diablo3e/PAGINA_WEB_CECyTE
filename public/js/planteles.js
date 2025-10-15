@@ -82,7 +82,6 @@ const planteles = {
 
 // Función para manejar la selección de plantel
 function handlePlantelSelection(plantelId) {
-    // Redirigir a la página de detalle con el ID del plantel
     window.location.href = route('planteles.detalle',plantelId);
 }
 
@@ -143,6 +142,7 @@ function initMapInteraction() {
         area.addEventListener('click', (e) => {
             e.preventDefault();
             if (area.dataset.plantel) {
+                console.log(area.dataset.plantel);
                 handlePlantelSelection(area.dataset.plantel);
             }
         });

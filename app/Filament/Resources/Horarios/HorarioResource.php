@@ -35,9 +35,10 @@ class HorarioResource extends Resource
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
                     ->required()
                     ->label('Plantel'),
+                TextInput::make('carrera')->required(),
                 TextInput::make('grupo')->required(),
-                FileUpload::make('pdf')
-                    ->directory('pdfHorarios')
+                FileUpload::make('documento')
+                    ->directory('DocumentoHorarios')
                     ->visibility('public')
                     ->disk('public')
                     ->acceptedFileTypes(['application/pdf'])
@@ -51,11 +52,12 @@ class HorarioResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
+                TextColumn::make('carrera'),
                 TextColumn::make('grupo'),
-                IconColumn::make('pdf') // Adjust to your DB column name
+                IconColumn::make('documento') // Adjust to your DB column name
                     ->label('Documento')
                     ->icon('heroicon-s-document')
-                    ->url(fn ($record) => $record->pdf ? asset('storage/' . $record->pdf) : null)
+                    ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el pdf')
             ]);
@@ -85,7 +87,7 @@ class HorarioResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

@@ -9,12 +9,14 @@ use App\Filament\Resources\ServicioSocials\Schemas\ServicioSocialForm;
 use App\Filament\Resources\ServicioSocials\Tables\ServicioSocialsTable;
 use App\Models\ServicioSocial;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,19 +36,17 @@ class ServicioSocialResource extends Resource
             ->components([
                 Select::make('plantel_id')
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
-                    ->required()
-                    ->label('Plantel'),
-                TextInput::make('institucion')->required(),
-                Textarea::make('descripcion')
-                    ->rows(8)
+                    ->label('Plantel')
                     ->required(),
-                TextInput::make('correo')
-                    ->email()
+                TextInput::make('nombre')
+                    ->label('Titulo del documento')
                     ->required(),
-                TextInput::make('telefono')
-                    ->numeric()
+                FileUpload::make('documento')
+                    ->directory('DocumentosServicioSocial')
+                    ->visibility('public')
+                    ->disk('public')
+                    ->acceptedFileTypes(['application/pdf','application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
                     ->required(),
-                TextInput::make('direccion')->required(),
             ]);
     }
 
@@ -55,11 +55,14 @@ class ServicioSocialResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                TextColumn::make('institucion'),
-                TextColumn::make('correo'),
-                TextColumn::make('telefono'),
-                TextColumn::make('direccion'),
-                TextColumn::make('descripcion')->limit(30),
+                TextColumn::make('nombre'),
+                IconColumn::make('documento') 
+                    ->label('Documento')
+                    ->icon('heroicon-s-document')
+                    ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('abrir el documento')
+                
             ]);
     }
 
@@ -87,7 +90,7 @@ class ServicioSocialResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

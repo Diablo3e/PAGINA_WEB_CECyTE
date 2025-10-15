@@ -10,7 +10,7 @@ class ServicioSocialController extends Controller
 {
     public function getServicioSocialPorPlantel($plantelId):array {
         return ServicioSocial::where('plantel_id',$plantelId)
-        ->select('institucion', 'descripcion', 'correo', 'telefono', 'direccion')
+        ->select('nombre', 'documento')
         ->get()
         ->toArray();
     }

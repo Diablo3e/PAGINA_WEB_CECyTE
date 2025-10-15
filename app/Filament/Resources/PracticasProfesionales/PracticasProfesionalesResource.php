@@ -9,12 +9,14 @@ use App\Filament\Resources\PracticasProfesionales\Schemas\PracticasProfesionales
 use App\Filament\Resources\PracticasProfesionales\Tables\PracticasProfesionalesTable;
 use App\Models\PracticasProfesionales;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,17 +36,15 @@ class PracticasProfesionalesResource extends Resource
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
                     ->required()
                     ->label('Plantel'),
-                TextInput::make('institucion')->required(),
-                Textarea::make('descripcion')
-                    ->rows(8)
+                TextInput::make('nombre')
+                    ->label('Titulo del documento')
                     ->required(),
-                TextInput::make('correo')
-                    ->email()
+                FileUpload::make('documento')
+                    ->directory('docuPracticasProfesionales')
+                    ->visibility('public')
+                    ->disk('public')
+                    ->acceptedFileTypes(['application/pdf','application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
                     ->required(),
-                TextInput::make('telefono')
-                    ->numeric()
-                    ->required(),
-                TextInput::make('direccion')->required(),
             ]);
     }
 
@@ -53,11 +53,13 @@ class PracticasProfesionalesResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                TextColumn::make('institucion'),
-                TextColumn::make('correo'),
-                TextColumn::make('telefono'),
-                TextColumn::make('direccion'),
-                TextColumn::make('descripcion')->limit(30),
+                TextColumn::make('nombre'),
+                IconColumn::make('documento') // Adjust to your DB column name
+                    ->label('Documento')
+                    ->icon('heroicon-s-document')
+                    ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('abrir el documento')
             ]);
     }
 
@@ -85,7 +87,7 @@ class PracticasProfesionalesResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

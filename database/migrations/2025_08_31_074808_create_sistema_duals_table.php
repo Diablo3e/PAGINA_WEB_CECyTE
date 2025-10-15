@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('sistema_dual', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plantel_id');
-            $table->string('banner');
+            $table->string('nombre');
+            $table->string('documento');
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles');

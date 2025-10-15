@@ -33,7 +33,13 @@ class RedesSocialesResource extends Resource
                     ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
                     ->required()
                     ->label('Plantel'),
-                TextInput::make('nombre')->required(),
+                Select::make('nombre')
+                    ->label('Red social')
+                    ->options([
+                        'x' => 'X',
+                        'instagram' => 'Instagram',
+                        'facebook' => 'Facebook',
+                    ])->required(),
                 TextInput::make('link')->url()->required(),
             ]);
     }
@@ -72,7 +78,7 @@ class RedesSocialesResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('extension_educativa', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plantel_id');
-            $table->string('imagen');
+            $table->string('nombre');
+            $table->string('documento');
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles');

@@ -11,7 +11,8 @@ class ExtensionEducativa extends Model
 
     protected $fillable = [
         'plantel_id',
-        'imagen',
+        'nombre',
+        'documento',
     ];
 
     //Claves foraneas
@@ -23,15 +24,15 @@ class ExtensionEducativa extends Model
         
         //Borrar archivos junto con los registros
         static::deleting(function ($extEdu){
-            if($extEdu->imagen && Storage::disk('public')->exists($extEdu->imagen)){
-                Storage::disk('public')->delete($extEdu->imagen);
+            if($extEdu->documento && Storage::disk('public')->exists($extEdu->documento)){
+                Storage::disk('public')->delete($extEdu->documento);
             }
         });
 
         // Borrar el anterior archivo si se edita el registro
         static::updating(function ($extEdu) {
-            if ($extEdu->isDirty('imagen')) {
-                $originalImage = $extEdu->getOriginal('imagen');
+            if ($extEdu->isDirty('documento')) {
+                $originalImage = $extEdu->getOriginal('documento');
 
                 if ($originalImage && Storage::disk('public')->exists($originalImage)) {
                     Storage::disk('public')->delete($originalImage);

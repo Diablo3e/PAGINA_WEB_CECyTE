@@ -14,11 +14,8 @@ return new class extends Migration
         Schema::create('servicio_social', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plantel_id');
-            $table->string('institucion');
-            $table->text('descripcion');
-            $table->string('correo');
-            $table->string('telefono');
-            $table->string('direccion');
+            $table->string('nombre');
+            $table->string('documento');
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles');

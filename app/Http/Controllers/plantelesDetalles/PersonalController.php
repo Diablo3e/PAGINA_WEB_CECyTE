@@ -10,7 +10,7 @@ class PersonalController extends Controller
 {
     public function getPersonalPorPlantel($plantelId):array {
         return Personal::where('plantel_id',$plantelId)
-        ->select('foto', 'puesto')
+        ->select('foto', 'nombre', 'puesto')
         ->get()
         ->toArray();
     }

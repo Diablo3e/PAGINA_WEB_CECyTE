@@ -11,7 +11,8 @@ class SistemaDual extends Model
 
     protected $fillable = [
         'plantel_id',
-        'banner',
+        'nombre',
+        'documento',
     ];
 
     //Claves foraneas
@@ -22,17 +23,17 @@ class SistemaDual extends Model
 
     protected static function booted(){
         
-        //Borrar banner junto con registros
+        //Borrar documento junto con registros
         static::deleting(function ($entrada){
-            if($entrada->banner && Storage::disk('public')->exists($entrada->banner)){
-                Storage::disk('public')->delete($entrada->banner);
+            if($entrada->documento && Storage::disk('public')->exists($entrada->documento)){
+                Storage::disk('public')->delete($entrada->documento);
             }
         });
 
         // Borrar el anterior archivo si se edita el registro
         static::updating(function ($entrada) {
-            if ($entrada->isDirty('banner')) {
-                $originalImage = $entrada->getOriginal('banner');
+            if ($entrada->isDirty('documento')) {
+                $originalImage = $entrada->getOriginal('documento');
 
                 if ($originalImage && Storage::disk('public')->exists($originalImage)) {
                     Storage::disk('public')->delete($originalImage);

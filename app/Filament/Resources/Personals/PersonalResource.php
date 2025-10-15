@@ -41,6 +41,7 @@ class PersonalResource extends Resource
                     ->disk('public')
                     ->acceptedFileTypes(['image/png', 'image/webp', 'image/jpeg'])
                     ->required(),
+                TextInput::make('nombre')->required(),
                 TextInput::make('puesto')->required(),
             ]);
     }
@@ -52,6 +53,7 @@ class PersonalResource extends Resource
                 TextColumn::make('plantel.nombre'),
                 ImageColumn::make('foto')
                     ->disk('public'),
+                TextColumn::make('nombre'),
                 TextColumn::make('puesto'),
             ]);
     }
@@ -80,7 +82,7 @@ class PersonalResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

@@ -12,6 +12,7 @@ class Personal extends Model
     protected $fillable = [
         'plantel_id',
         'foto',
+        'nombre',
         'puesto',
     ];
 

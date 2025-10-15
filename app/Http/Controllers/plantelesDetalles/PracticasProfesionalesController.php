@@ -10,7 +10,7 @@ class PracticasProfesionalesController extends Controller
 {
     public function getPracticasProfesionalesPorPlantel($plantelId):array {
         return PracticasProfesionales::where('plantel_id',$plantelId)
-        ->select('institucion', 'descripcion', 'correo', 'telefono', 'direccion')
+        ->select('nombre', 'documento')
         ->get()
         ->toArray();
     }

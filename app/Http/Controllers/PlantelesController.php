@@ -24,6 +24,9 @@ use App\Http\Controllers\plantelesDetalles\RedesSocialesController;
 use App\Http\Controllers\plantelesDetalles\SeguimientoEgresadosController;
 use App\Http\Controllers\plantelesDetalles\ServicioSocialController;
 use App\Http\Controllers\plantelesDetalles\SistemaDualController;
+use App\Http\Controllers\plantelesDetalles\PlanesEstudioController;
+use App\Http\Controllers\plantelesDetalles\UbicacionesController;
+use App\Http\Controllers\plantelesDetalles\CroquisController;
 use App\Models\extensionEducativa;
 
 class PlantelesController extends Controller
@@ -158,6 +161,8 @@ class PlantelesController extends Controller
         $encabezados = new EncabezadoController();
         $instalaciones = new InstalacionesController();
         $carrusel = new CarruselController();
+        $ubicaciones = new UbicacionesController();
+        $croquis = new CroquisController();
         $personal = new PersonalController();
         $comunicados = new ComunicadoController();
         $comunidad = new ComunidadController();
@@ -169,12 +174,17 @@ class PlantelesController extends Controller
         $sistemaDual = new SistemaDualController();
         $extensionEducativa = new ExtensionEducativaController();
         $avisos = new AvisoController();
+        $planesEstudio = new PlanesEstudioController();
         $horarios = new HorarioController();
 
         $data = [
             'encabezado' => $encabezados->getEncabezadoPorPlantel($plantelId),
             'imagenes' => collect($carrusel->getImagenesCarruselPorPlantel($plantelId))->pluck('imagenes')->all(),
             'instalaciones' => collect($instalaciones->getInstalacionesPorPlantel($plantelId))->pluck('imagen')->all(),
+            'mapas' => [
+                'ubicaciones' => $ubicaciones->getUbicacionesPorPlantel($plantelId),
+                'croquis' => $croquis->getCroquisPorPlantel($plantelId),
+            ],
             'personal' => $personal->getPersonalPorPlantel($plantelId),
             'comunicados' =>$comunicados->getComunicadosPorPlantel($plantelId),
             'comunidad' => collect($comunidad->getComunidadPorPlantel($plantelId))->pluck('imagen')->all(),
@@ -184,11 +194,12 @@ class PlantelesController extends Controller
                 'practicasProfesionales' => $practicasProfesionales->getPracticasProfesionalesPorPlantel($plantelId),
                 'redesSociales' => $redesSociales->getRedesSocialesPorPlantel($plantelId),
                 'seguimientoEgresados' => $seguimientoEgresados->getSeguimientoEgresadosPorPlantel($plantelId),
-                'sistemaDual' => collect($sistemaDual->getSistemaDualPorPlantel($plantelId))->pluck('banner')->all(),
+                'sistemaDual' => $sistemaDual->getSistemaDualPorPlantel($plantelId),
             ],
-            'extEducativa' => collect($extensionEducativa->getExtensionEducativaPorPlantel($plantelId))->pluck('imagen')->all(),
+            'extEducativa' => $extensionEducativa->getExtensionEducativaPorPlantel($plantelId),
             'controlEscolar' => [
                 'avisos' => $avisos->getAvisosPorPlantel($plantelId),
+                'planesEstudio' => $planesEstudio->getPlanesEstudioPorPlantel($plantelId),
                 'horarios' => $horarios->getHorarioPorPlantel($plantelId)
             ],
         ];

@@ -10,7 +10,7 @@ class HorarioController extends Controller
 {
     public function getHorarioPorPlantel($plantelId):array {
         return Horario::where('plantel_id',$plantelId)
-        ->select('grupo', 'pdf')
+        ->select('carrera', 'grupo', 'documento')
         ->get()
         ->toArray();
     }

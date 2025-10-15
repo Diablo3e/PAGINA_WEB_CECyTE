@@ -37,10 +37,11 @@ class ComunicadoResource extends Resource
                     ->label('Plantel'),
                 TextInput::make('titulo')->required(),
                 FileUpload::make('pdf')
-                    ->directory('pdfComunicados')
+                    ->label('Documento')
+                    ->directory('DocumentosComunicados')
                     ->visibility('public')
                     ->disk('public')
-                    ->acceptedFileTypes(['application/pdf'])
+                    ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png', 'image/webp'])
                     ->maxSize(20480)
                     ->required()
             ]);
@@ -85,7 +86,7 @@ class ComunicadoResource extends Resource
         // Get the plantel IDs the user is associated with
         $plantelIds = $user->plantel->pluck('id')->toArray();
 
-        // Return only Carruseles associated with those planteles
+        
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }

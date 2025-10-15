@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
-
 // Ruta para la página principal (index.blade.php)
 Route::get('/', function () {
     $items = [
