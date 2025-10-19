@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,6 +54,11 @@ class UbicacionesResource extends Resource
                     ->url(fn ($record) => $record->link)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el pdf')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 
@@ -70,5 +76,11 @@ class UbicacionesResource extends Resource
             'create' => CreateUbicaciones::route('/create'),
             'edit' => EditUbicaciones::route('/{record}/edit'),
         ];
+    }
+
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Mapas';
     }
 }

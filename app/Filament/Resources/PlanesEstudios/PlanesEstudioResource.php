@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,19 @@ class PlanesEstudioResource extends Resource
                     ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el documento')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
+                SelectFilter::make('carrera')
+                    ->options(PlanesEstudio::query()
+                    ->select('carrera')
+                    ->distinct()
+                    ->orderBy('carrera')
+                    ->pluck('carrera', 'carrera') // value => label
+                    ->toArray()
+                ),
             ]);
     }
 
@@ -89,5 +103,10 @@ class PlanesEstudioResource extends Resource
         
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Control escolar';
     }
 }

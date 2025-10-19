@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,11 @@ class ComunicadoResource extends Resource
                     ->url(fn ($record) => $record->pdf ? asset('storage/' . $record->pdf) : null)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el pdf')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 

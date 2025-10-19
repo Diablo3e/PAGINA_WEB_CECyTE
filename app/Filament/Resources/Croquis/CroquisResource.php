@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,6 +59,11 @@ class CroquisResource extends Resource
                     ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el pdf')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 
@@ -75,5 +81,10 @@ class CroquisResource extends Resource
             'create' => CreateCroquis::route('/create'),
             'edit' => EditCroquis::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Mapas';
     }
 }
