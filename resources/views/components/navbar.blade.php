@@ -18,9 +18,22 @@
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
                     </a></li>
 
-                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('linea_tiempo') }}">Nosotros
+                {{-- Dropdown --}}
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="ofertaDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Nosotros
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                    </a></li>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
+                        <li><a class="dropdown-item" href="{{ route('quienes_somos') }}">¿Quiénes somos?</a></li>
+                        <li><a class="dropdown-item" href="{{ route('linea_tiempo') }}">Historia</a></li>
+                    </ul>
+                    
+                    {{-- <a class="d-flex flex-nowrap nav-link" href="{{ route('linea_tiempo') }}">Nosotros
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a> --}}
+                </li>
 
                 <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('Admision') }}">Admisión
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">

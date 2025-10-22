@@ -152,9 +152,13 @@ Route::post('/Transparencia/pdf/subdir/{folder}', [PdfController::class, 'getSub
 //Obtener PDFs para transparencia
 Route::post('/Transparencia/pdf/{folder}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
 
+//Rutas "Nosotros"
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
 })->name('linea_tiempo');
+Route::get('/quienes_somos', function () {
+    return view('quienes_somos', ['noFondo' => true]);
+})->name('quienes_somos');
 
 
 
