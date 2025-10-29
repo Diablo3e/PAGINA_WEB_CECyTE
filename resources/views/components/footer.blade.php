@@ -47,8 +47,6 @@
                     <a class="link-style" href="{{ asset('pdfs/footer/politica-de-igualdad-laboral.pdf') }}">Política de Igualdad</a>
                     <a class="link-style" href="{{ asset('pdfs/transparencia/igualdad-laboral/politica-de-calidad.pdf') }}">Política de Calidad</a>
                     <a class="link-style" href="{{ asset('pdfs/footer/CONVENIOS2024.pdf') }}">Catálogo de Convenios</a>
-                    <a class="link-style" href="{{ route('podcast') }}">Podcast</a>
-                    <a class="link-style" href="{{ route('podcast') }}">Programa Presupuestario U006</a>
                     <a class="link-style" href="{{ asset('pdfs/footer/declaracion.pdf') }}">Declaración</a>
                     
                 </div>

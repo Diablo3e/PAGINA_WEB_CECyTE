@@ -10,21 +10,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="{{ asset('pdfs/carruselInicio/Convocatoria_FIRMA.pdf') }}" target=”_blank”>
-        <img src="{{ asset('imagenes/carruselInicio/bannerWEB_manita.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
+      <a href="{{ asset('pdfs/carrusel-inicial/Convocatoria_FIRMA.pdf') }}" target=”_blank”>
+        <img src="{{ asset('imagenes/carrusel-inicial/bannerWEB_manita.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
       </a>
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('imagenes/carruselInicio/FotoPortadaWeb.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
+      <img src="{{ asset('imagenes/carrusel-inicial/FotoPortadaWeb.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('imagenes/carruselInicio/Hackathon.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
+      <img src="{{ asset('imagenes/carrusel-inicial/Hackathon.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('imagenes/carruselInicio/FotoPortadaWeb.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
+      <img src="{{ asset('imagenes/carrusel-inicial/FotoPortadaWeb.png') }}" class="d-block w-100" alt="..." data-bs-interval="100">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('imagenes/carruselInicio/Admision-docente.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100"   >
+      <img src="{{ asset('imagenes/carrusel-inicial/Admision-docente.jpg') }}" class="d-block w-100" alt="..." data-bs-interval="100"   >
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">

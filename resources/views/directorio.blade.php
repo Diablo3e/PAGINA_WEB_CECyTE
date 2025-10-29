@@ -66,13 +66,7 @@
 </section>
 </div>
 @push('scripts')
-<script>
-    document.querySelectorAll('.flip-card').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-        });
-    });
-</script>
+<script src="{{ asset('js/directorio.js') }}"></script>
 @endpush
 
 @endsection

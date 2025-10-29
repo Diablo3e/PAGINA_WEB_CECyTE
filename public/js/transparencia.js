@@ -29,7 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     //Informacion Presupuestal
     presupuestoSelect.addEventListener("change", async function () {
         const eleccion = this.value;
+        //Randerizar botones en caso de que se encuentren pestañas/subdirectorios en el path definido
         const archivos = await buscarPestanas("transparencia", ["informe presupuestal", eleccion], presupuestoSelect, presupuestoDiv);
+        //Randerizar archivos en caso de que no se hayan encontrado pestañas
         if (archivos) {
             presupuestoDiv.innerHTML = `<ul>`;
             archivos.forEach(respuesta => {
@@ -103,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//Comprobar si son necesarias las pestañas
+//Comprobar si es necesario añadir botones con pestañas de cada subseccion, el codigo busca si hay subdirectorios en el path definido y, en caso de que si, generara un boton que muestre todos los documentos dentro de cada subdirectorio. En caso de que no haya subdirectorios mostrara todos los documentos en el path definido
 // div, directorios
 async function buscarPestanas(folder, subDirs, select, div) {
     //Comprobar si hay subDirectorios

@@ -134,9 +134,6 @@ Route::get('/Mantenimientomotoresdecombustion', function () {
 })->name('Mantenimientomotoresdecombustion');
 
 //Rutas para footer
-Route::get('/podcast', function () {
-    return view('Podcast', ['noFondo' => true]);
-})->name('podcast');
 /*ruta del directorio */
 Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 
