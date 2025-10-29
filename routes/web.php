@@ -133,6 +133,12 @@ Route::get('/Mantenimientomotoresdecombustion', function () {
     return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
 })->name('Mantenimientomotoresdecombustion');
 
+//Rutas para footer
+Route::get('/podcast', function () {
+    return view('Podcast', ['noFondo' => true]);
+})->name('podcast');
+/*ruta del directorio */
+Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 
 
 // ✅ OTRAS RUTAS
@@ -200,8 +206,6 @@ Route::get('/publicStorage/{filePath}', function ($filePath) {
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel'])->name('carreras.por.plantel');
 /*ruta del plantel estandar */
 Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');
-/*ruta del directorio */
-Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
 

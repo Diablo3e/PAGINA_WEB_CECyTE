@@ -1,0 +1,34 @@
+.img_background {
+    background-image: url('../imagenes/Footer/banner-cecyte-podcast.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 320px; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: rgb(255, 243, 243); 
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.containerPodcast{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.podcastChapter{
+    width: 40%;
+}
+@media (max-width: 575px){
+    .podcastChapter{
+        width: 100%;
+    }
+}
