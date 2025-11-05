@@ -16,7 +16,7 @@
         <li class="active" onclick="openTab(event, 'datos-generales')">Datos generales</li>
         <li onclick="openTab(event, 'perfil-ingreso')">Perfil de Ingreso</li>      
         <li onclick="openTab(event, 'perfil-egreso')">Perfil de Egreso</li>
-        <li onclick="openTab(event, 'mapa_curricular')">Mapa Curricular</li>
+        <li onclick="openTab(event, 'programa_de_estudios')">Programa de estudios</li>
         <li onclick="openTab(event, 'escenarios')">Escenarios de Actuación</li>
     </ul>
 
@@ -40,7 +40,7 @@
 
         <div id="perfil-egreso" class="tab-pane">
             <h2>Perfil de Egreso</h2>
-            <p>a formación que ofrece la carrera de Técnico en Mantenimiento Automotriz permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a la empleabilidad y productividad en el área de mantenimiento automotriz.</p>
+            <p>La formación que ofrece la carrera de Técnico en Mantenimiento Automotriz permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a la empleabilidad y productividad en el área de mantenimiento automotriz.</p>
             <p>Durante el proceso de formación de los cinco módulos, el estudiante desarrollará o reforzará las siguientes competencias profesionales, correspondientes al Técnico en mantenimiento automotriz:</p>
             <ul>
                 <li>Mantiene los sistemas eléctricos y electrónicos del automóvil</li>
@@ -51,8 +51,8 @@
             </ul>
         </div>
 
-<div id="mapa_curricular" class="table-responsive tab-pane">
-        <h2>Mapa Curricular</h2>
+<div id="programa_de_estudios" class="table-responsive tab-pane">
+        <h2>Programa de estudios</h2>
         <table border="1" cellpadding="10" cellspacing="0" class="table table-striped-columns">
           <thead>
             <tr>

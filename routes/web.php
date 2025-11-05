@@ -127,7 +127,9 @@ Route::get('/procesos-de-gestion-administrativa', function () {
 Route::get('/mantenimiento-industrial', function () {
     return view('Mantenimento_Industrial', ['noFondo' => true]);
 })->name('Mantenimento_Industrial');
-
+Route::get('/transformacion-de-plasticos', function () {
+    return view('Transformacion-de-plasticos');
+})->name('Transformacion-de-plasticos');
 //No aparece en pagina de inicio
 Route::get('/Mantenimientomotoresdecombustion', function () {
     return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);

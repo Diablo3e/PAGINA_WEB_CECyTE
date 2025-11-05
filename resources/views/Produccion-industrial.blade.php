@@ -16,7 +16,7 @@
         <li class="active" onclick="openTab(event, 'datos-generales')">Datos generales</li>
         <li onclick="openTab(event, 'perfil-ingreso')">Perfil de Ingreso</li>      
         <li onclick="openTab(event, 'perfil-egreso')">Perfil de Egreso</li>
-        <li onclick="openTab(event, 'mapa_curricular')">Mapa Curricular</li>
+        <li onclick="openTab(event, 'programa_de_estudios')">Programa de estudios</li>
         <li onclick="openTab(event, 'escenarios')">Escenarios de Actuación</li>
     </ul>
 
@@ -50,7 +50,7 @@
             </ul>
         </div>
 
-<div id="mapa_curricular" class="table-responsive tab-pane">
+<div id="programa_de_estudios" class="table-responsive tab-pane">
        
 
 
