@@ -35,7 +35,7 @@ scripts
       <li class="active" onclick="openTab(event, 'datos-generales')">Datos generales</li>
       <li onclick="openTab(event, 'perfil-ingreso')">Perfil de Ingreso</li>
       <li onclick="openTab(event, 'perfil-egreso')">Perfil de Egreso</li>
-      <li><a href="@yield('archivo-programa-estudios')" target="_blank" style="color: inherit; text-decoration: none;">Programa de estudios</a></li>
+      <a href="@yield('archivo-programa-estudios')" target="_blank" style="color: inherit; text-decoration: none;"><li>Programa de estudios</li></a>
       <li onclick="openTab(event, 'escenarios')">Escenarios de Actuación</li>
     </ul>
 

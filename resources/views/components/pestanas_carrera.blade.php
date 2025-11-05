@@ -58,7 +58,7 @@
     </div>
 
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Inteligencia-artificial') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Inteligencia-artificial-vino.png') }}"
         alt="Inteligencia-artificial" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Inteligencia-artificial.png') }}"
@@ -83,7 +83,7 @@
     </div>
 
     <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Mecatronica') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica-vino.png') }}" alt="Mecatronica" class="img-hover">
 
             <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica.png') }}" alt="Mecatronica" class="img-default">
@@ -91,7 +91,7 @@
     </div>
 
     <div class="program">
-        <a href="{{ route('Proceso-de-Gestión') }}">
+        <a href="{{ route('Proceso-de-gestion') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa-vino.png') }}"
         alt="Procesos de Gestión Administrativa" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa.png') }}"
