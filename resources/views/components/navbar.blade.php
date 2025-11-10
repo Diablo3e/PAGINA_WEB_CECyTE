@@ -60,9 +60,9 @@
                         <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenimiento
                                 Industrial</a></li>
                         <li><a class="dropdown-item" href="{{ route('Electronica') }}">Electrónica</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Mantenimientomotoresdecombustion') }}">Motores de
+                        <li><a class="dropdown-item" href="{{ route('Mantenimiento-combustion') }}">Motores de
                                 Combustión</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Proceso-de-Gestión') }}">Proceso de Gestión</a>
+                        <li><a class="dropdown-item" href="{{ route('Proceso-de-gestion') }}">Proceso de Gestión</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ route('Hoteleria') }}">Hotelería</a></li>
                         <li><a class="dropdown-item" href="#">Semiconductores</a></li>
