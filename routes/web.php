@@ -125,8 +125,6 @@ Route::get('/mantenimiento-automotriz', function () {
 Route::get('/mecatronica', function () {
     return view('carreras.Mecatronica', ['noFondo' => true]);
 })->name('Mecatronica');
-
-
 Route::get('/procesos-de-gestion-administrativa', function () {
     return view('carreras.Proceso-de-gestion', ['noFondo' => true]);
 })->name('Proceso-de-gestion');
