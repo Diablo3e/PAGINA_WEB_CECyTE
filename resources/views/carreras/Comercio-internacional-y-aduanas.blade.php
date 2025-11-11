@@ -3,7 +3,7 @@
 @section('page-title', 'Comercio Internacional de Aduanas')
 @section('carrera-title', 'Comercio Internacional de Aduanas')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Comercio Internacional y Aduanas Presencial.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/comercio-internacional-y-aduanas.pdf'))
 
 @section('descripcion-carrera')
     <p>La carrera de Técnico en Comercio internacional y aduanas proporciona al estudiante la preparación profesional en la gestión aduanera, como parte fundamental del comercio internacional, promoviendo competencias para que sea capaz de garantizar el cumplimiento legal para controlar el flujo de mercancías, facilitando el comercio y ayudando a las empresas a ahorrar costos, minimizando riesgos y mejorando la competitividad en el mercado laboral. Actualmente esta necesidad es cubierta en la formación profesional a través de los planes y programas de estudio de nivel superior y/o por las asociaciones aduaneras en cursos de especialización de corta duración.</p>

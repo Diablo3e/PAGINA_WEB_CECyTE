@@ -3,7 +3,8 @@
 @section('page-title', 'Semiconductores y Microelectrónica')
 @section('carrera-title', 'Semiconductores y Microelectrónica')
 
-@section('archivo-programa-estudios', asset('pdfs/placeholder/pdf.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/semiconductores-y-microelectronica
+.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Semiconductores y Microelectrónica surge derivado del desarrollo de la industria de fabricación de semiconductores a nivel mundial y a la aplicación de tecnologías, debido al incremento de empresas dentro de esta nueva era tecnológica, existe la necesidad de generar una cadena de suministro de chips más equilibrada y resistente que trascienda las fronteras geográficas y que promueva una colaboración mundial. Para alcanzar esta visión, es fundamental otorgarles protagonismo a países como México y en el resto de América Latina, donde además de proveer talento altamente cualificado y contar con una cultura de mucho valor, es un territorio que se está convirtiendo en la primera opción para las principales empresas del mundo que quieren generar nuevos caminos de éxito.</p> 

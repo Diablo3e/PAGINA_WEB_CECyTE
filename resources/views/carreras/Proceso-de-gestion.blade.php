@@ -3,7 +3,7 @@
 @section('page-title', 'Procesos de Gestión Administrativa')
 @section('carrera-title', 'Procesos de Gestión Administrativa')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Procesos de gestion administrativa.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/procesos-de-gestion-administrativa.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en Procesos de Gestión Administrativa ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a ejecutar funciones administrativas dentro de una organización, tales como auxiliar en el registro y análisis de los procesos contables, auxiliar en el área de costos, asistir en el proceso de ventas, apoyar en la cadena productiva y asistir en la gerencia, esto es, incidir en el ejercicio práctico de las empresas, reafirmando y consolidando objetivamente sus conocimientos, habilidades, actitudes y creatividad dentro de las mismas.</p> 

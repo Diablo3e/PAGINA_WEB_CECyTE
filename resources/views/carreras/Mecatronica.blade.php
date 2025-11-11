@@ -3,7 +3,7 @@
 @section('page-title', 'Mecatrónica')
 @section('carrera-title', 'Mecatrónica')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Mecatronica.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/mecatronica.pdf'))
 
 @section('descripcion-carrera')
   <p>En el contexto nacional de formación de Técnicos en Mecatrónica es relevante porque realiza las tareas de diagnostico, instalación, diseño y mantenimiento a sistemas Mecatrónicos, detectando anomalías en procesos de producción automatizados y realizar mantenimientos correctivos y preventivos en procesos integrales, verificando el funcionamiento de sensores, actuadores, mecanismos y programas de cómputo, que gobiernan la producción. Preparando a los técnicos de Mecatrónica a las necesidades que requiere el sector productivo que se encuentra en constante evolución.</p> 

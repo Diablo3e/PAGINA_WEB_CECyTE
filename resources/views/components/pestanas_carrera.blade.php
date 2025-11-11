@@ -144,15 +144,6 @@
 
     <div class="program">
         <a href="{{ route('semiconductores') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria-vino.png') }}"
-        alt="Servicios de Hotelería" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria.png') }}" alt="Servicios de Hotelería"
-                class="img-default">
-        </a>
-    </div>
-
-    <div class="program">
-        <a href="{{ route('Electronica') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Semiconductores-y-microelectronica-vino.png') }}"
         alt="Tecnologias-de-la-informacion" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Semiconductores-y-microelectronica.png') }}"

@@ -3,7 +3,7 @@
 @section('page-title', 'Producción Industrial')
 @section('carrera-title', 'Producción Industrial')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Produccion-industrial.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/produccion-industrial.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en producción industrial ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a , verificar la seguridad e higiene en el ámbito laboral, auxiliar en la mejora de los procesos productivos, controlar inventarios de producción, Inspeccionar la calidad en la producción y elaborar proyectos de producción. Todas estas competencias posibilitan al egresado su incorporación al mundo laboral o desarrollar procesos productivos independientes, de acuerdo con sus intereses profesionales y necesidades de su entorno social.</p> 
