@@ -1,4 +1,1 @@
-El nombre del archivo tiene que ser el mismo que la carrera tiene en la base de datos, pero quitando caracteres especiales, poniendo todo en minusculas y cambiando espacios por -.
-
-Por ejemplo:
-Procesos de Gestión Administrativa -> procesos-de-gestion-administrativa
+El nombre del archivo tiene que ser el mismo que la carrera tiene en la base de datos, cosas como capitalizacion o acentuacion no afectan al funcionamiento pero afectan al como se llamaran las carreras cuando se carguen en la vista de los planteles.

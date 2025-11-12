@@ -3,7 +3,7 @@
 @section('page-title', 'Ciberseguridad')
 @section('carrera-title', 'Ciberseguridad')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/ciberseguridad.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Ciberseguridad.pdf'))
 
 @section('descripcion-carrera')
     <p>La carrera de Técnico en Ciberseguridad proporciona al estudiante la formación en competencias para enfrentar los desafíos del mundo digital para desarrollar algoritmos de programación para resguardar la seguridad de la información, instalar sistemas operativos para asegurar la información, administrar los sistemas informáticos de la seguridad de la información, operar sistemas de seguridad informática y monitorear el tráfico de redes para detectar vulnerabilidades.</p>

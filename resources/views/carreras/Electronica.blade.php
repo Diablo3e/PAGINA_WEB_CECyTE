@@ -3,7 +3,7 @@
 @section('page-title', 'Electrónica')
 @section('carrera-title', 'Electrónica')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/electronica.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Electrónica.pdf'))
 
 @section('descripcion-carrera')
     <p>En el contexto (regional / nacional) la formación de Técnicos en Electrónica es relevante porque contribuye en la capacitación ysuperación profesional de los estudiantes y les permite tener mejores expectativas de vida al poder insertarse en un sector laboral que hoyen día necesita de personal con competencias profesionales y actitudinales en el área de electrónica. Asimismo podrá desarrollar competencias genéricas relacionadas principalmente con la participación en los procesos de comunicación en distintos contextos, la integración efectiva a los equipos de trabajo y la intervención consciente, desde su comunidad en particular, en el país y el mundo en general, todo con apego al cuidado del medio ambiente.</p>

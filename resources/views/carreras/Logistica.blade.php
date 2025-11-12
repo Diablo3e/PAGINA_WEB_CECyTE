@@ -3,7 +3,7 @@
 @section('page-title', 'Logística')
 @section('carrera-title', 'Logística')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/logistica.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Logística.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en Logística desarrolla en el estudiante la preparación profesional para la gestión en la adquisición de mercancías y servicios, la organización del flujo de mercancías en almacén, la gestión del tráfico de mercancías de importación y exportación y la distribución física de mercancías, así como la cotización de los costos de la cadena de suministro. Estas competencias posibilitan al egresado su incorporación al mundo laboral, continuar su trayectoria educativa o desarrollar procesos productivos independientes, de acuerdo con sus intereses profesionales o las necesidades en su entorno social.</p> 

@@ -3,7 +3,7 @@
 @section('page-title', 'Mantenimiento Automotriz')
 @section('carrera-title', 'Mantenimiento Automotriz')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/mantenimiento-automotriz.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Mantenimiento automotriz.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en mantenimiento automotriz ofrece las competencias profesionales que permiten al estudiante: prestar servicios en áreas de mantenimiento automotriz, capaces de proporcionar mantenimiento al automóvil moderno, que exige cada vez mayor y mejor preparación tanto en áreas mecánicas como en electrónica y electricidad. Asimismo podrá desarrollar competencias genéricas relacionadas principalmente con la participación en los procesos de comunicación en distintos contextos, la integración efectiva a los equipos de trabajo y la intervención consciente, desde su comunidad en particular, en el país y el mundo en general, todo con apego al cuidado del medio ambiente.</p> 

@@ -24,7 +24,6 @@ use App\Http\Controllers\plantelesDetalles\RedesSocialesController;
 use App\Http\Controllers\plantelesDetalles\SeguimientoEgresadosController;
 use App\Http\Controllers\plantelesDetalles\ServicioSocialController;
 use App\Http\Controllers\plantelesDetalles\SistemaDualController;
-use App\Http\Controllers\plantelesDetalles\PlanesEstudioController;
 use App\Http\Controllers\plantelesDetalles\UbicacionesController;
 use App\Http\Controllers\plantelesDetalles\CroquisController;
 use App\Models\extensionEducativa;
@@ -174,7 +173,6 @@ class PlantelesController extends Controller
         $sistemaDual = new SistemaDualController();
         $extensionEducativa = new ExtensionEducativaController();
         $avisos = new AvisoController();
-        $planesEstudio = new PlanesEstudioController();
         $horarios = new HorarioController();
 
         $data = [
@@ -199,7 +197,6 @@ class PlantelesController extends Controller
             'extEducativa' => $extensionEducativa->getExtensionEducativaPorPlantel($plantelId),
             'controlEscolar' => [
                 'avisos' => $avisos->getAvisosPorPlantel($plantelId),
-                'planesEstudio' => $planesEstudio->getPlanesEstudioPorPlantel($plantelId),
                 'horarios' => $horarios->getHorarioPorPlantel($plantelId)
             ],
         ];

@@ -3,7 +3,7 @@
 @section('page-title', 'Mantenimiento Industrial')
 @section('carrera-title', 'Mantenimiento Industrial')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/mantenimiento-industrial.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Mantenimiento industrial.pdf'))
 
 @section('descripcion-carrera')
     <p>La carrera de Técnico en mantenimiento industrial ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a realizar mantenimiento a instalaciones eléctricas, fabricar pequeñas estructuras metálicas, realiza actividades de ajuste de banco utilizando herramientas básicas, interpretar planos de piezas mecánicas, utilizar máquinas herramientas convencionales y de control numérico para reparación y fabricación de piezas, manejar máquinas de soldar de arco eléctrico y oxicorte, manipular sistemas de control y automatización, sistemas de neumática e hidráulica, mantiene equipos de refrigeración y aire acondicionado e implementara los programas de administración del mantenimiento en los sistemas.</p>

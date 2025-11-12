@@ -3,7 +3,7 @@
 @section('page-title', 'Programación')
 @section('carrera-title', 'Programación')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/programacion.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Programación.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en programación ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a: analizar, diseñar, desarrollar, instalar y mantener software de aplicación tomando como base los requerimientos del usuario.</p> 

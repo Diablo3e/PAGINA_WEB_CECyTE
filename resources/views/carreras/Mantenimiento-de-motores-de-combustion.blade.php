@@ -3,7 +3,7 @@
 @section('page-title', 'Mantenimiento a Motores de Combustión Interna')
 @section('carrera-title', 'Mantenimiento a Motores de Combustión Interna')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/mantenimiento-a-motores-de-combustion-interna.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Mantenimiento a motores de combustión interna.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en Mantenimiento a Motores de Combustión Interna ofrece las competencias profesionales que permiten al egresado realizar actividades dirigidas a prestar servicios en áreas de mantenimiento automotriz, mantenimiento de motocicletas, en empresas agroindustriales e industriales, en aéreas de mantenimiento de motosierras, desbrozadoras, bombas charqueras, generadores de electricidad y en todo tipo de maquinaria que funcione mediante un motor de combustión interna, capaces de proporcionar mantenimiento al motor de combustión interna moderno, que exige cada vez mayor y mejor preparación tanto en áreas mecánicas como en electrónica y electricidad.</p> 

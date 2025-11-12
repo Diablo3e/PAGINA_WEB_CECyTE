@@ -3,7 +3,7 @@
 @section('page-title', 'Producción Industrial de Alimentos')
 @section('carrera-title', 'Producción Industrial de Alimentos')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/produccion-industrial-de-alimentos.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Producción industrial de alimentos.pdf'))
 
 @section('descripcion-carrera')
   <p>En el contexto (regional/nacional) la formación de Técnicos en Técnico en Producción Industrial de Alimentos es relevante porque las tendencias globalizadoras, actualmente exigen mayor competitividad y profesionalismo del recurso humano, como pieza clave en el desarrollo nacional. Los altos índices de desnutrición, la escasez de alimentos y la pobreza en aumento de los suelos, son problemas que alertan hacia la búsqueda de un mayor y mejor aprovechamiento de los recursos naturales. En México se produce gran diversidad de éstos y su optimización depende en gran medida de las alternativas conservación y procesamiento que ofrezca la industria alimentaria, a través de sus distintas aplicaciones tecnológicas.</p> 

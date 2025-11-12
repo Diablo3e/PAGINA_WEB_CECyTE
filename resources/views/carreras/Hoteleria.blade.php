@@ -3,7 +3,7 @@
 @section('page-title', 'Servicios de Hotelería')
 @section('carrera-title', 'Servicios de Hotelería')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/servicios-de-hoteleria.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Servicios de hotelería.pdf'))
 
 @section('descripcion-carrera')
   <p>La carrera de Técnico en Servicios de Hotelería, ofrece las competencias profesionales que permiten al egresado realizar actividades basadas en las necesidades detectadas en el ramo de la hotelería, la cual genera una gran derrama económica. La modalidad del turismo representa el 9% del PIB y es considerado la tercera fuente de divisas más importante, según datos de la cámara de comercio de México, en el documento “cifras del turismo”, nuestro país es generador de más de 7.5 millones de empleos y por supuesto empresas que participan, la mayoría de ellas Pymes.</p> 

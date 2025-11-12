@@ -3,7 +3,7 @@
 @section('page-title', 'Semiconductores y Microelectrónica')
 @section('carrera-title', 'Semiconductores y Microelectrónica')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/semiconductores-y-microelectronica
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Semiconductores y microelectrónica
 .pdf'))
 
 @section('descripcion-carrera')

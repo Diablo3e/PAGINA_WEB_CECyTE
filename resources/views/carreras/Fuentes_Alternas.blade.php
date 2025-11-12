@@ -3,7 +3,7 @@
 @section('page-title', 'Fuentes Alternas de Energía')
 @section('carrera-title', 'Fuentes Alternas de Energía')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/fuentes-alternas-de-energia.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Fuentes alternas de energía.pdf'))
 
 @section('descripcion-carrera')
     <p>La carrera de Técnico en fuentes alternas de energía ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a instalar, operar y mantener sistemas de energía solar térmica, instalar, operar y mantener sistemas de energía solar fotovoltaica de baja potencia, instalar, operar y mantener sistemas de energía eólica de baja potencia, mejorar sistemas de energía solar térmica domestica, solar fotovoltaica y eólica de baja potencia y comercializar sistemas de energía solar térmica domestica, solar fotovoltaica y eólica de baja potencia.</p>

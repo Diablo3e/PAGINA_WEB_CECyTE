@@ -3,7 +3,7 @@
 @section('page-title', 'Inteligencia Artificial')
 @section('carrera-title', 'Inteligencia Artificial')
 
-@section('archivo-programa-estudios', asset('pdfs/programas-estudios/inteligencia-artificial.pdf'))
+@section('archivo-programa-estudios', asset('pdfs/programas-estudios/Inteligencia artificial.pdf'))
 
 @section('descripcion-carrera')
     <p>La carrera de Técnico en Inteligencia Artificial proporciona al estudiante la preparación para aplicar técnicas de representación del conocimiento y procesamiento de información en diversos contextos industriales y de servicios, basándose en estándares y procedimientos implementados por una empresa, lo que contribuye a la satisfacción y éxito del negocio.</p>

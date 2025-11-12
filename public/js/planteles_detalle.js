@@ -407,7 +407,7 @@ function renderExtEducativa(plantel) {
     }
 }
 
-function renderControlEscolar(plantel) {
+async function renderControlEscolar(plantel, plantelNum) {
     let hayContenido = false;
 
     // Avisos
@@ -431,30 +431,53 @@ function renderControlEscolar(plantel) {
         ocultarSeccion(containerAvisos, ".accordion");
     }
 
+
     // Planes de estudio
     const containerPlanesEstudio = document.getElementById('planesEstudio').querySelector('.card-flex');
     //Limpiar HTML
     containerPlanesEstudio.innerHTML = '';
-    //Randerizar informacion
-    if (plantel.controlEscolar.planesEstudio.length !== 0) {
-        plantel.controlEscolar.planesEstudio.forEach(plan => {
-            // Añadir la tarjeta al div
-            const link = route('publicStorage.get', plan.documento);
-            containerPlanesEstudio.innerHTML +=`
-                <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
-                    <div class="card-body">
-                        <h5 class="card-title">${plan.carrera}</h5>
-                        <a href="${link}" class="card-link" target="_blank">Ver plan de estudio</a>
-                    </div>
-                </div>
-            `
+
+    await fetch(route('planteles.carreras',plantelNum))
+        .then(res => res.json())
+        .then(carreras => {
+            let nombresCarrerasArray = [];
+            if (carreras.length !== 0 ){
+                carreras.forEach(carrera => {
+                    const carreraSlug = slugify(carrera.nombre)
+                    nombresCarrerasArray.push(carreraSlug); 
+                });
+            }
+            //Pasar tanto el resultado de getPdfs como nombresCarreraArray al siguiente .then()
+            return getPdfs('programas-estudios', [''])
+            .then(pdfsData => ({
+                nombresCarrerasArray,
+                pdfsData
+            }));
+        })
+        .then(({ nombresCarrerasArray, pdfsData }) => {
+            if (nombresCarrerasArray.length !== 0){
+                pdfsData.forEach(DataProgramaPdf => {
+                    const cleanNameSlug = slugify(DataProgramaPdf.name.replace('.pdf',''));
+                    if(nombresCarrerasArray.includes(cleanNameSlug)){
+                        // Añadir la tarjeta al div
+                        const nombre = capitalizeFirstLetter(DataProgramaPdf.name.replace('.pdf',''));
+                        containerPlanesEstudio.innerHTML +=`
+                            <div class="card no-hover responsive-card" style="min-width: 20%; min-height: fit-content">
+                                <div class="card-body">
+                                    <h5 class="card-title">${nombre}</h5>
+                                    <a href="${DataProgramaPdf.url}" class="card-link" target="_blank">Ver plan de estudio</a>
+                                </div>
+                            </div>
+                        `
+                    }
+                });
+                hayContenido = true;
+                addSelectToFilterCards(containerPlanesEstudio, 'planesEstudioFilter');
+                addResetListenerToAccordion('planesEstudio');
+            }else {
+                ocultarSeccion(containerPlanesEstudio, ".accordion");
+            }
         });
-        addSelectToFilterCards(containerPlanesEstudio, 'planesEstudioFilter');
-        addResetListenerToAccordion('planesEstudio');
-        hayContenido = true;
-    } else {
-        ocultarSeccion(containerAvisos, ".accordion");
-    }
 
     // Horarios
     const containerHorarios = document.getElementById('horarios').querySelector('.card-flex');
@@ -481,7 +504,6 @@ function renderControlEscolar(plantel) {
     } else {
         ocultarSeccion(containerHorarios, ".accordion");
     }
-
     if (!hayContenido) ocultarSeccion(document.getElementById("acordionseccionControlEscolar"));
 }
 
@@ -526,8 +548,7 @@ async function cargarDetallePlantel() {
     setupCarousel(plantel.comunidad, 'comunidad-carousel');
 
     //Cargar carreras / oferta educativa
-    const numPlantel = plantelId.replace("plantel", "");
-    renderCarreras(numPlantel);
+    renderCarreras(Id);
 
     //Cargar apartados de vinculacion
     renderVinculacion(plantel);
@@ -536,7 +557,7 @@ async function cargarDetallePlantel() {
     renderExtEducativa(plantel);
 
     //Cargar Control escolar
-    renderControlEscolar(plantel);
+    renderControlEscolar(plantel, Id);
 
     // Configurar "En construcción" si aplica
     if (plantel.enConstruccion) {
@@ -601,6 +622,13 @@ function isValidURL(str) {
     }
 }
 
+function capitalizeFirstLetter(str) {
+  if (typeof str !== 'string' || str.length === 0) {
+    return str; // Handle empty strings or non-string inputs
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 //Por default cuando se agrega el select todas las cartas en el div se vuelven invisibles
 function addSelectToFilterCards(targetDiv, selectID){
     // Añadir el elemento select
@@ -644,5 +672,24 @@ function addFilterToSelect(selectID){
         });
     });
 }
+
+async function getPdfs(folder, subDirectorios) {
+    try {
+        const peticion = await fetch(route('obtener.pdf', folder), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ subDirectorios })
+        });
+
+        if (!peticion.ok) throw new Error('peticion fallida, Numero:' + peticion.status + ' Texto: ' + peticion.statusText);
+        return await peticion.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 // Hacer los datos accesibles globalmente
 window.planteles = planteles;
