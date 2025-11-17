@@ -20,40 +20,48 @@ body {
 }
 
 /* Grid de tarjetas */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  justify-content: center;
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 /* Estilo de tarjetas */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  text-align: center;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-top: 6px solid transparent; /* cada tarjeta cambia con JS */
+.convenio {
+    position: relative;
+    width: 200px;
+    overflow: hidden;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+.convenio img{
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.img-default{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.img-hover {
+  z-index: 2;
 }
 
 .card h3 {
   margin: 0;
   font-size: 16px;
   color: #333;
+}
+
+/* Efecto al pasar el cursor */
+.convenio:hover .img-default {
+    opacity: 1;
 }
 
 .card p {
@@ -70,25 +78,22 @@ body {
 
 /* Responsive: tablet */
 @media (max-width: 1024px) {
-  .grid-container {
-      grid-template-columns: repeat(2, 1fr);
-  }
+    .convenios-container1 h2 {
+        font-size: 45px; /* Reduce tamaño en pantallas medianas */
+    }
 
-  .grid-container > .card:nth-child(9) {
-      grid-column: auto;
-      justify-self: stretch;
-  }
+    .convenio {
+        width: 180px; /* Ajuste del tamaño de cada programa */
+    }
 }
 
 /* Responsive: móvil */
 @media (max-width: 600px) {
-  .grid-container {
-      grid-template-columns: 1fr;
-  }
+    .convenios-container1 h2 {
+        font-size: 45px; /* Reduce tamaño en pantallas medianas */
+    }
 
-  .grid-container > .card:nth-child(9) {
-      grid-column: auto;
-      justify-self: stretch;
-  }
+    .convenio {
+        width: 180px; /* Ajuste del tamaño de cada programa */
+    }
 }
-
