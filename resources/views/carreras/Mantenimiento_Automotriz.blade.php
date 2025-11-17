@@ -12,11 +12,11 @@
 @section('descripcion-perfil-ingreso')
   <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y cumplir con los requisitos contemplados en la normas específicas de Servicios Escolares; además de contar con la siguientes habilidades:</p>
   <ul>
-    <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
-    <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
-    <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
-    <li>Aplica las tecnologías de la información y comunicación</li>
-    <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
+      <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
+      <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
+      <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
+      <li>Aplica las tecnologías de la información y comunicación</li>
+      <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
   </ul>
 @endsection
 
@@ -33,5 +33,3 @@
         <li>Mantiene los sistemas de suspensión, dirección y frenos del automóvil</li>
     </ul>
 @endsection
-
-@section('descripcion-escenarios', 'La carrera permite desempeñarse en diversos entornos laborales, tanto en el sector público como privado.')

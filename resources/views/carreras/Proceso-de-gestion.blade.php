@@ -10,13 +10,13 @@
 @endsection
 
 @section('descripcion-perfil-ingreso')
-    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y contar con cumplir los requisitos contemplados en las normas específicas de servicios escolares; además de contar con las siguientes habilidades:</p>
+    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y cumplir con los requisitos contemplados en la normas específicas de Servicios Escolares; además de contar con la siguientes habilidades:</p>
     <ul>
-        <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos </li>
+        <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
         <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
         <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
         <li>Aplica las tecnologías de la información y comunicación</li>
-        <li>Observa reglas de convivencia para la vida en la sociedad</li>
+        <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
     </ul>
 @endsection
 
@@ -32,5 +32,3 @@
         <li>Apoya en la cadena productiva de una organización</li>  
     </ul>
 @endsection
-
-@section('descripcion-escenarios', 'Se favorece el desarrollo de competencias de empleabilidad y productividad tales como tener claras las metas y objetivos de su área y de su puesto, detectar y reportar inconsistencias o errores en el producto, en el proceso o en los insumos, observar permanentemente y reporta los cambios presentes en los procesos, infraestructura e insumos, diseñar y utilizar indicadores para medir y comprobar los resultados obtenidos, responsabilidades y avances de las tareas asignadas, promover la mejora como un activo decisivo para la competitividad de la organización o empresa, actuar por convicción personal más que por presión externa y compartir su experiencia, conocimiento y recursos para el desempeño armónico del equipo.')

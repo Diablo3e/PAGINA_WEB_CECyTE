@@ -10,7 +10,7 @@
 @endsection
 
 @section('descripcion-perfil-ingreso')
-    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y contar con cumplir los requisitos contemplados en las normas específicas de servicios escolares; además de contar con las siguientes habilidades:</p>
+    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y cumplir con los requisitos contemplados en la normas específicas de Servicios Escolares; además de contar con la siguientes habilidades:</p>
     <ul>
         <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
         <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
@@ -33,5 +33,3 @@
         <li>Mantiene equipos de refrigeración y aire acondicionado</li>
     </ul>
 @endsection
-
-@section('descripcion-escenarios', 'La carrera permite desempeñarse en diversos entornos laborales, tanto en el sector público como privado.')

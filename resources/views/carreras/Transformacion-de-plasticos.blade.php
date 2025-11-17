@@ -8,14 +8,14 @@
 @section('descripcion-carrera', 'La carrera de Técnico en transformación de plásticos ofrece las competencias profesionales que permiten al estudiante realizar actividades dirigidas a la transformación de estos materiales, utilizando materia prima, aditivos, equipos y herramientas necesarios para el desarrollo y manufactura de productos plásticos, respondiendo a las necesidades de la sociedad actual que exige artículos de alta calidad, mediante el uso de materiales vanguardistas, todo esto bajo la reglamentación, estándares, normas y especificaciones que reclama el sector industrial del plástico.')
 
 @section('descripcion-perfil-ingreso')
-    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y contar con cumplir los requisitos contemplados en las normas específicas de servicios escolares; además de contar con las siguientes habilidades:</p>
-      <ul>
+    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y cumplir con los requisitos contemplados en la normas específicas de Servicios Escolares; además de contar con la siguientes habilidades:</p>
+    <ul>
         <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
         <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
         <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
         <li>Aplica las tecnologías de la información y comunicación</li>
-        <li>Observa reglas de convivencia para la vida en la sociedad</li>
-      </ul>
+        <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
+    </ul>
 @endsection
 
 @section('descripcion-perfil-egreso')
@@ -31,5 +31,3 @@
         <li>Procesa alimentos a partir de cereales u oleaginosas con calidad e inocuidad.</li>
       </ul>
 @endsection
-
-@section('descripcion-escenarios', 'La carrera permite desempeñarse en diversos entornos laborales, tanto en el sector público como privado.')

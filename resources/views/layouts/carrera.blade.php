@@ -7,7 +7,6 @@ descripcion-carrera
 descripcion-perfil-ingreso
 descripcion-perfil-egreso
 competencias-egreso
-descripcion-escenarios
 
 opcionales:
 styles
@@ -36,7 +35,6 @@ scripts
       <li onclick="openTab(event, 'perfil-ingreso')">Perfil de Ingreso</li>
       <li onclick="openTab(event, 'perfil-egreso')">Perfil de Egreso</li>
       <a href="@yield('archivo-programa-estudios')" target="_blank" style="color: inherit; text-decoration: none;"><li>Programa de estudios</li></a>
-      <li onclick="openTab(event, 'escenarios')">Escenarios de Actuación</li>
     </ul>
 
     <div class="tab-content">
@@ -58,11 +56,6 @@ scripts
         @yield('competencias-egreso')
       </div>
 
-
-      <div id="escenarios" class="tab-pane">
-        <h2>Escenarios de Actuación</h2>
-        <p>@yield('descripcion-escenarios')</p>
-      </div>
     </div>
   </div>
   @push('scripts')

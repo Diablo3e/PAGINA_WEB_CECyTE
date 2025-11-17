@@ -10,7 +10,14 @@
 @endsection
 
 @section('descripcion-perfil-ingreso')
-    
+    <p>Los aspirantes a ingresar a nuestros planteles, deberán haber concluido su educación media básica y cumplir con los requisitos contemplados en la normas específicas de Servicios Escolares; además de contar con la siguientes habilidades:</p>
+    <ul>
+        <li>Resuelve problemas mediante el uso de operaciones y procesos aritméticos, geométricos y algebraicos</li>
+        <li>Interactúa en diferentes contextos utilizando el lenguaje oral y escrito</li>
+        <li>Maneja hábitos de estudio y técnicas de aprendizaje</li>
+        <li>Aplica las tecnologías de la información y comunicación</li>
+        <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
+    </ul>
 @endsection
 
 @section('descripcion-perfil-egreso')
@@ -26,5 +33,3 @@
         <li>Cotiza los costos de la cadena de suministro.</li>
     </ul>
 @endsection
-
-@section('descripcion-escenarios', 'Facilita al egresado su incorporación al mundo laboral en sitios de inserción como auxiliar en el departamento de compras y adquisiciones, trabajadores en control de almacén y bodega, trabajadores en el control de la operación de transporte, despachador de transporte, trabajadores en servicio de alquiler de bienes muebles, entre otros, para desempeñarse como almacenista de bodega, auxiliar de almacén, empleado de inventario, operador de báscula de bodega, tramitadores en empresas navieras, asistir en los tramites de transporte de carga aéreo regular e irregular de líneas nacionales y extranjeras, transporte de carga por ferrocarril, transporte de carga por carretera y transporte de carga marítima, servicios relacionados con el transporte de carga, trabajadores en servicios de paquetería y mensajería, ayudante de operador de maquinaria pesada o para el movimiento de mercancía, estibador, alijador y descargador o en el desarrollo de procesos productivos independientes.')
