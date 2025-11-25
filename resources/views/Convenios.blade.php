@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Convenios CECYTE')
 @section('body-class', 'no-background')
-<link href="{{ asset(path: 'css/styles_convenios.css') }}" rel="stylesheet">
+
+@push('styles')
+    <link href="{{ asset(path: 'css/styles_convenios.css') }}" rel="stylesheet">
+@endpush
 
 @section('content')
     <div class="convenios-container1">
