@@ -1,6 +1,3 @@
-[Regresar](index.md)
-
----
 En esta sección se presentarán los componentes que existen dentro de la página, las secciones dentro de estos (si existen) con sus vistas relacionadas y cualquier comportamiento especial relacionado. En cuanto a las vistas, la documentación se centrará en registrar los comportamientos o interacciones especiales que algunas de estas tengan, si no está aquí lo más seguro es que sea una vista HTML estándar.
 
 La mayoría de las vistas tienen un .css y un .js asociado, cuando este sea el caso, en la mayoría de los casos estos tendrán un nombre similar a la vista. Por ejemplo, `navbar.blade.php` puede tener relacionados archivos como `styles_navbar.css`,`styles_barra_navegacion.css`, `navbar.js`, etc. 
@@ -10,6 +7,7 @@ Se recomienda aprender Laravel para poder navegar el proyecto con más facilidad
 ## [Plantillas](#plantillas-1)
 - [Plantilla Global](#plantilla-global-appbladephp)
 - [Plantilla de carreras](#plantilla-de-carreras-carrerabladephp)
+
 ## [Componentes](#componentes-1)
 - [Barra de redes](#barra-redes)
 - [Carrusel inicio](#carrusel-inicio)
@@ -20,6 +18,7 @@ Se recomienda aprender Laravel para poder navegar el proyecto con más facilidad
 - [Mapa de planteles en puebla](#mapa-planteles)
 - [Menú de accesibilidad ](#menú-de-accesibilidad)
 - [Pie de página](#pie-de-página)
+
 ## [Vistas especiales](#vistas-especiales-1)
 - [Detalles de planteles](#detalles-de-planteles)
 - [Transparencia](#transparencia)
@@ -38,10 +37,12 @@ Plantilla que incluye los elementos que se quiere estén en toda la página (hea
 - [Chatbot](#chatbot)
 - [Formulario](#formulario)
 - [Pie de página](#pie-de-pagina)
+
 ### Secciones
 - title
 - body-class
 - content
+
 ## Plantilla de carreras (carrera.blade.php)
 Plantilla que se usó para generar cada vista de las distintas carreras disponibles, estas vistas se encuentran en `resources\views\carreras\`. Esta plantilla a su vez también utiliza la plantilla global. 
 ### Componentes externos
@@ -54,24 +55,30 @@ Plantilla que se usó para generar cada vista de las distintas carreras disponib
 - descripcion-perfil-ingreso
 - descripcion-perfil-egreso
 - competencias-egreso
+
 # Componentes
 Laravel permite definir componentes (pequeños pedazos de código HTML con los extras de blade) para que luego estas puedan ser incluidos en cualquier vista dentro del proyecto con `@include(nombreComponente)`, todos los componentes están en `resources\views\components\`
 ## Barra redes
 - `barra_redes.blade.php` 
 - Barra de redes flotante en la parte izquierda de la pantalla
+
 ## Carrusel inicio
 - `mapa_carrusel.blade.php`
 - Carrusel que se muestra en la página inicial.
+
 ## Cuadricula de carreras
 - `pestanas_carrera.blade.php`
 - Container con la cuadrícula de todas las imágenes que llevan a las respectivas páginas con los detalles de cada una
+
 ## Chatbot
 - `chatbot.blade.php`
 - Icono del chatbot y container que muestra la conversación con todas las diferentes opciones
+
 ## Encabezado
 - `navbar.blade.php`
 - La barra de navegación superior con todas las diferentes opciones
 - **COMPORTAMIENTO ESPECIAL:** La barra de navegación incluye un apartado para hacer búsquedas, esta búsqueda está dictada por el método `SearchAll()` que existe en `searchController` y la búsqueda se conecta con el controlador por medio de una ruta llamada `busqueda` que renderiza los resultados en la vista `search.blade.php`. Hasta el momento está configurada para buscar coincidencias de nombre en las tablas de carreras y planteles.
+
 ## Formulario
 - `formulario.blade.php`
 - UI para introducir datos que se muestra cuando se le da click al botón 'informes' en la navbar
@@ -79,20 +86,24 @@ Laravel permite definir componentes (pequeños pedazos de código HTML con los e
     Cuando se le proporciona todos los datos necesarios al formulario y se le da click al botón para enviar ocurren 2 cosas en `formulario.js`:
     + Se hace una petición a la ruta `formulario.enviar`, la cual llama a `FormularioController` que a su vez ejecuta la función `enviarFormulario()` que guardar los datos introducidos en la tabla `formularios`
     + Se hace una petición a la ruta `formulario.enviar.email`, la cual llama a `FormularioController` que a su vez ejecuta la función `enviarEmail()` la cual enviara un correo con los datos introducidos al correo relacionado con el plantel, la redacción del correo se hace por medio de una vista HTML, en este caso `resources\views\Mails\infoFormulario.blade.php`, el correo destino es el que está en base de datos dentro de la tabla planteles y el correo origen es el que está en `.env` junto con las credenciales necesarias.
+
 ## Mapa planteles
 - `mapa-Planteles.blade.php`
 - Container con las secciones de planteles EMSad, la imagen con la localización de los distintos planteles dentro del estado de puebla, y planteles CECyTE
+
 ## Menú de accesibilidad
 - `menu_accesibilidad.blade.php`
 - Botón inicial del menú de accesibilidad y todas las opciones que se despliegan después
 - **COMPORTAMIENTOS ESPECIALES:**   
     Las opciones del menú de accesibilidad afectan el cómo se ve la página, esto se hace por medio de `menu_accesibilidad.js` el cual maneja la opción de texto a voz, aplica clases y modifica atributos del elemento `<body>` de la página, las clases a su vez aplican los filtros detallados en `styles_menu_accesibilidad.css`, los filtros existentes son negativo y escala de grises.
+
 ## Pie de página
 - `footer.blade.php`
 - Todos los componentes e información del pie de página junto con los logos de la parte de abajo
+
 # Vistas especiales
 Se referirá como vistas especiales a aquellas vistas HTML que ocupan otra cosa que no sea .js o .css. Y, en cambio, hacen uso de bases de datos, plantillas de Laravel (que no sea la global) o acciones especiales que no sean obvias. Cabe resaltar que dentro de Laravel, todas las vistas tienen la terminación `.blade.php` y están conformadas por código HTML estándar con la opción de utilizar @ seguido de keywords especiales (como `@php`, `@include`, `@foreach`, etc.) para hacer una variedad de cosas.
-   
+
 Todas las vistas están en `resources\views\`
 ## Detalles de planteles
 La vista de `planteles_detalle.blade.php` es la responsable de renderizar las siguientes secciones para cada uno de los planteles existentes:
@@ -126,6 +137,7 @@ El flujo que la vista sigue es:
 2. `planteles_detalle.js` hace una petición fetch a la ruta con el nombre  `plantelData.get` con el # indicado
 3. La ruta a su vez va al controlador `PlantelesController` que llama la función `getDetallesPlanteles(#)` que a su vez accede a todos los diferentes controllers para todas las secciones, construyendo un .json con los datos obtenidos de las tablas en la base de datos.
 4. `planteles_detalle.js` recibe el .json resultante y ejecuta todas las funciones para renderizar correctamente la página con la información.
+
 ### Edición del contenido de planteles
 Para los planteles se tenía el requerimiento de que cada encargado de los distintos planteles pudiera modificar los detalles de su propio plantel sin tener que hacer una petición a los encargados de la página, por este motivo, se implementó un panel de administradores usando [Filament](dependencias.md#dependencias-de-laravel-utilizadas) por lo que dentro del proyecto, todos los archivos relacionados a Filament sirven con este propósito.   
    
@@ -146,9 +158,11 @@ El flujo que sigue la vista es el siguiente
     1. Llamar la función `buscarPestanas()` como `buscarPestanas(folderPrincipal, [seccion, eleccionSelect], selectDeLaSeccion, contenedorParaDocumentos)`
     2. La función busca si hay más subfolders dentro del path indicado, en caso de que los encuentre insertará un botón dentro del `contenedorParaDocumentos` indicado por cada subfolder, donde cada botón muestra los contenidos de su subfolder correspondiente y devuelve null. En caso de que no encuentre subfolders, devolverá los resultados de `getPdfs(folderPrincipal, [seccion, eleccionSelect])` que será un array con todos los archivos encontrados.
     3. Si la función `buscarPestanas()` devuelve null no se hará nada más, pero sí devolvió el array de archivos, se renderizará cada uno de ellos dentro de `contenedorParaDocumentos`
+
 ### Formato del nombre de archivos
 * Se espera que las carpetas siempre tengan su nombre en minúsculas, eviten caracteres especiales como acentos y se remplacen espacios por guion bajo o medio.   
 * Los archivos pueden usar caracteres especiales y mayúsculas/minúsculas, pero se espera que se remplacen los espacios por guion bajo o medio (cuando se renderizan los archivos todos los guiones bajos o medios son cambiados otra vez a espacios).
+
 ### Edición de los archivos mostrados
 Debido a las peculiaridades de la vista, los siguientes cambios de folders/archivos harán lo siguiente:
 + Cambiar los nombres de archivos -> Los nombres de los archivos renderizados cambiarán de acuerdo al nombre del archivo original, pero mantienen la extensión del archivo. La extensión puede modificarse al cambiar la función `getArchivos` de `app\Http\Controllers\PdfController.php`

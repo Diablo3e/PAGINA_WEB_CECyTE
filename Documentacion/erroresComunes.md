@@ -1,6 +1,3 @@
-[Regresar](index.md)
-
----
 Esta sección tiene la intención de documentar los errores encontrados durante el desarrollo y actualización de la página en servicios de hostinger junto con la solución encontrada para ellos
 
 # Índice
@@ -35,3 +32,13 @@ php artisan view:clear
 php artisan optimize:clear
 php artisan vendor:publish --tag=filament-assets --force
 ```
+# Se le quitaron los permisos a todos los usuarios administradores de filament
+Filament es esencialmente una UI entre el usuario y la base de datos, por lo tanto, se le pueden volver a dar permisos de administrador a un usuario al ir a la tabla usuarios en la base de datos y cambiar el campo de admin de 0 a 1
+# Se eliminaron/modificaron las contraseñas de todos los usuarios administradores
+Si por algun motivo no se puede acceder a ningun usuario que tenga accesos de administrador existen un par de opciones para solucionarlo.
+**Nota: Aunque es cierto que se pueden modificar las entradas de la base de datos para afectar filament, como la contraseña se hashea por seguridad, es imposible cambiar la contraseña por este medio**
+## Se tiene acceso a ssh
+Se puede ejecutar el comando `php artisan make:filament-user` para crear un nuevo usuario usando la consola, lo que proporciona un nuevo usuario con contraseña que se le pueden dar permisos de administrador al modificar el registro en la base de datos para poder acceder al panel de administradores y poder resetear/modificar otras cuentas.   
+Se desconoce si este comando funciona por medio de el [Facade de artisan](#ejecutar-comandos-artisan-sin-acceso-a-ssh)
+## No se tiene acceso a ssh
+Como ultimo recurso, es posible ejecutar el comando `php artisan make:filament-user` en un proyecto local con filament instalado y simplemente copiar los datos del usuario creado localmente a la base de datos de la pagina de hosting, creando un usuario que permita acceder al panel de administradores y poder resetear/modificar otras cuentas. 
