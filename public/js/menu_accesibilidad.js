@@ -120,5 +120,7 @@ window.addEventListener('visibilitychange', () => {
 });
 //Funcion Safari
 window.addEventListener("pagehide", () => {
-  window.speechSynthesis.cancel();
+  if (document.visibilityState === "hidden") {
+    window.speechSynthesis.cancel();
+  }
 });
