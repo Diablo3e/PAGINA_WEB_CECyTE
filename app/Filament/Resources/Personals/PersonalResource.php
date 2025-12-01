@@ -52,8 +52,10 @@ class PersonalResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('foto')
-                    ->disk('public'),
+                ImageColumn::make('foto')->disk('public')
+                    ->url(fn ($record) => $record->foto ? asset('storage/' . $record->foto) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen'),
                 TextColumn::make('nombre'),
                 TextColumn::make('puesto'),
             ])

@@ -55,8 +55,10 @@ class OfertasEmpleoResource extends Resource
             ->columns([
                 TextColumn::make('plantel.nombre'),
                 TextColumn::make('empleador'),
-                ImageColumn::make('imagen')
-                    ->disk('public'),
+                ImageColumn::make('imagen')->disk('public')
+                    ->url(fn ($record) => $record->imagen ? asset('storage/' . $record->imagen) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen'),
             ])
             ->filters([
                 SelectFilter::make('plantel_id')
@@ -97,5 +99,10 @@ class OfertasEmpleoResource extends Resource
     public static function getPluralLabel(): string
     {
         return 'Ofertas de Empleo';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Vinculación';
     }
 }

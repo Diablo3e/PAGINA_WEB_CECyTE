@@ -54,7 +54,10 @@ class CarruselResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('imagenes')->disk('public'),
+                ImageColumn::make('imagenes')->disk('public')
+                    ->url(fn ($record) => $record->imagenes ? asset('storage/' . $record->imagenes) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen')
             ])
             ->filters([
                 SelectFilter::make('plantel_id')

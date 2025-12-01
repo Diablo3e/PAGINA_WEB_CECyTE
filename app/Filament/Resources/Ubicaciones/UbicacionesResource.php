@@ -53,7 +53,7 @@ class UbicacionesResource extends Resource
                     ->icon('heroicon-s-document')
                     ->url(fn ($record) => $record->link)
                     ->openUrlInNewTab()
-                    ->tooltip('abrir el pdf')
+                    ->tooltip('ver la ubicacion')
             ])
             ->filters([
                 SelectFilter::make('plantel_id')

@@ -50,8 +50,10 @@ class ComunidadResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('imagen')
-                    ->disk('public'),
+                ImageColumn::make('imagen')->disk('public')
+                    ->url(fn ($record) => $record->imagen ? asset('storage/' . $record->imagen) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen')
             ])
             ->filters([
                 SelectFilter::make('plantel_id')

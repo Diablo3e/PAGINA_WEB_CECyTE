@@ -85,4 +85,9 @@ class AvisoResource extends Resource
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
     }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Control escolar';
+    }
 }
