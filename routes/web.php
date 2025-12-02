@@ -174,6 +174,10 @@ Route::get('/Transparencia', function () {
 Route::post('/Transparencia/pdf/subdir/{folder}', [PdfController::class, 'getSubDirectories'])->name('obtener.subDirectorios');
 //Obtener PDFs para transparencia
 Route::post('/Transparencia/pdf/{folder}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
+Route::get('/COSIG', function () {
+    return view('cosig', ['noFondo' => true]);
+})->name('cosig');
+
 
 //Rutas "Nosotros"
 Route::get('/linea_tiempo', function () {

@@ -40,14 +40,10 @@
                     <a class="link-style" href="{{ route('linea_tiempo') }}">Nosotros</a>
                     <a class="link-style" href="{{ url('/') }}#ofertaEdu">Carreras</a>
                     <a class="link-style" href="{{ route('directorio') }}">Directorio</a>
-                    <a class="link-style" href="{{ asset('pdfs/transparencia/igualdad-laboral/codigo-de-etica.pdf') }}">Código de Ética</a>
-                    <a class="link-style" href="{{ asset('pdfs/footer/CodigoDeConductaV05.pdf') }}">Código de Conducta</a>
                     <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Portal Dirección General</a>
                     <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Convenio Marco</a>
-                    <a class="link-style" href="{{ asset('pdfs/footer/politica-de-igualdad-laboral.pdf') }}">Política de Igualdad</a>
                     <a class="link-style" href="{{ asset('pdfs/transparencia/igualdad-laboral/politica-de-calidad.pdf') }}">Política de Calidad</a>
-                    <a class="link-style" href="{{ asset('pdfs/footer/CONVENIOS2024.pdf') }}">Catálogo de Convenios</a>
-                    <a class="link-style" href="{{ asset('pdfs/footer/declaracion.pdf') }}">Declaración</a>
+                    <a class="link-style" href="{{ route('cosig') }}">COSIG</a>
                     
                 </div>
 

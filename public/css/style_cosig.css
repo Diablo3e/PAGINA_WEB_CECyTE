@@ -1,0 +1,36 @@
+.imgContainer{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    height: fit-content;
+    margin-bottom: 20px;
+}
+
+.documentContainer{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.cartaDocumento{
+    background-color: #660000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.cartaDocumento:hover{
+    filter: saturate(0.75) brightness(0.85);
+}
+
+.cartaDocumento strong{
+    color: white;
+}
+
+.extraSpace{
+    margin: 30px;
+}
