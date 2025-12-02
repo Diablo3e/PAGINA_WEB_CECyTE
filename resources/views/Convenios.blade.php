@@ -12,23 +12,23 @@
         <div class="grid" id="tarjetas-container">
             @php
                 $convenios = [
-                    ['imagenOriginal' => 'Empresas1', 'imagenAlterna' => 'Empresas2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Empresas1', 'imagenAlterna' => 'Empresas2', 'documento' => 'pdfs/convenios/EMPRESAS.pdf'],
 
-                    ['imagenOriginal' => 'Unis privadas1', 'imagenAlterna' => 'Unis privadas2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Unis privadas1', 'imagenAlterna' => 'Unis privadas2', 'documento' => 'pdfs/convenios/UNIVERSIDADES PRIVADAS.pdf'],
 
-                    ['imagenOriginal' => 'Unis publicas1', 'imagenAlterna' => 'Unis publicas2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Unis publicas1', 'imagenAlterna' => 'Unis publicas2', 'documento' => 'pdfs/convenios/UNIVERSIDADES PÚBLICAS.pdf'],
 
-                    ['imagenOriginal' => 'HotelesyRestauran1', 'imagenAlterna' => 'HotelesyRestauran2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'HotelesyRestauran1', 'imagenAlterna' => 'HotelesyRestauran2', 'documento' => 'pdfs/convenios/HOTELES Y RESTAURANTES.pdf'],
 
-                    ['imagenOriginal' => 'Descuentos colaboradores1', 'imagenAlterna' => 'Descuentos colaboradores2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Descuentos colaboradores1', 'imagenAlterna' => 'Descuentos colaboradores2', 'documento' => 'pdfs/convenios/DESCUENTOS PARA COLABORADORES.pdf'],
 
-                    ['imagenOriginal' => 'Asociaciones civiles1', 'imagenAlterna' => 'Asociaciones civiles2', 'enlace' => 'https://cecytepuebla.edu.mx/Vinculacion/convenios2024/CONVENIOS2024.pdf'],
+                    ['imagenOriginal' => 'Asociaciones civiles1', 'imagenAlterna' => 'Asociaciones civiles2', 'documento' => 'pdfs/convenios/ASOCIACIONES CIVILES.pdf'],
 
-                    ['imagenOriginal' => 'Estancias Infantiles1', 'imagenAlterna' => 'Estancias Infantiles2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Estancias Infantiles1', 'imagenAlterna' => 'Estancias Infantiles2', 'documento' => 'pdfs/convenios/ESTANCIAS INFANTILES.pdf'],
 
-                    ['imagenOriginal' => 'Sector Guberna1', 'imagenAlterna' => 'Sector Guberna2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'Sector Guberna1', 'imagenAlterna' => 'Sector Guberna2', 'documento' => 'pdfs/convenios/SECTOR GUBERNAMENTAL.pdf'],
 
-                    ['imagenOriginal' => 'OtrosConvenios1', 'imagenAlterna' => 'OtrosConvenios2', 'enlace' => 'https://www.ejemplo.com'],
+                    ['imagenOriginal' => 'OtrosConvenios1', 'imagenAlterna' => 'OtrosConvenios2', 'documento' => '#'],
                 ];
             @endphp
 
@@ -41,7 +41,7 @@
                 @endphp
                 {{-- convenio --}}
                 <div class="convenio"> 
-                    <a href="{{ $convenio['enlace'] }}">
+                    <a href="{{ asset($convenio['documento']) }}" target="_blank">
                         <img src="{{ asset($imgAlterna) }}"
                             alt="Imagen convenios" class="img-hover">
                         <img src="{{ asset($imgOriginal) }}"
