@@ -25,8 +25,6 @@
             <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
       </ul>
 @endsection
-    
-@endsection
 
 @section('descripcion-perfil-egreso')
     <p>La formación que ofrece la carrera de Técnico en Electromovilidad permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a la Electromovilidad basados en procedimientos que integran la seguridad y la calidad al realizar procedimientos donde:</p>

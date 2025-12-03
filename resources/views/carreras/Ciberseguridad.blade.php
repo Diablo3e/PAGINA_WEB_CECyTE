@@ -20,8 +20,6 @@
             <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
       </ul>
 @endsection
-    
-@endsection
 
 @section('descripcion-perfil-egreso')
       <p>La formación que ofrece la carrera de Técnico en Ciberseguridad permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a salvaguardar la integridad de los sistemas informáticos contra amenazas cibernéticas, empleando herramientas, procedimientos, aplicación de la normativa vigente de seguridad, para mantener los sistemas en operación en un entorno digital y conectado, alineando sus habilidades para coadyuvar con los objetivos de desarrollo sustentable.</p>

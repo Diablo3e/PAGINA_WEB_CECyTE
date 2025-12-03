@@ -42,7 +42,6 @@
                     <a class="link-style" href="{{ route('directorio') }}">Directorio</a>
                     <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Portal Dirección General</a>
                     <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Convenio Marco</a>
-                    <a class="link-style" href="{{ asset('pdfs/transparencia/igualdad-laboral/politica-de-calidad.pdf') }}">Política de Calidad</a>
                     <a class="link-style" href="{{ route('cosig') }}">COSIG</a>
                     
                 </div>

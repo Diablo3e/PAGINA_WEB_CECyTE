@@ -20,8 +20,6 @@
             <li>Observa reglas de convivencia para la vida en la sociedad potencia</li>
       </ul>
 @endsection
-    
-@endsection
 
 @section('descripcion-perfil-egreso')
       <p>La formación que ofrece la carrera técnica en Comercio Internacional y Aduanas permite al egresado, a través de la articulación de saberes de diversos campos, realizar actividades dirigidas a auxiliar en la coordinación y planeación de procesos de importación y exportación, así mismo apoyar en el diseño, aplicación y evaluación de operaciones comerciales internacionales.</p>
