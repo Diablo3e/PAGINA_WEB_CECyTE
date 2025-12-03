@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="imgContainer">
-        <img class="img-fluid" src="{{ asset('/imagenes/COSIG/BannerWebCOSIG.jpg') }}" alt="logo COSIG">
+        <img class="img-fluid" src="{{ asset('/imagenes/COSIG/BannerWebCOSIG.jpg') }}" alt="logo COSIG" style="width: 100%">
     </div>
     <div class="imgContainer">
         <img class="img-fluid" src="{{ asset('imagenes/COSIG/normativa.png') }}" alt="Norma Mexicana NMX-R-025-SCFI-2015">

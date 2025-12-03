@@ -2,9 +2,6 @@
     --color-rojo: #660000;
 }
 
-.no-background .background-box {
-    display: none !important;
-}
 body {
     background-color: white !important; /* Fondo blanco para evitar herencia */
 }

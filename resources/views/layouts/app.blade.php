@@ -36,8 +36,6 @@
     @include('components.chatbot')
     @include('components.barra_redes')
     <div id="containerParaFiltro" style="overflow-x: hidden">
-        <div class="background-box"></div>
-        <div class="background-box d-none d-sm-block"></div>
     
         <!-- Componentes de la página -->
         @include('components.navbar')
@@ -45,12 +43,12 @@
         <!-- Contenido principal con ajuste para barra de navegación fija -->
         <main class="main-content">
             <div class="row inicio-container">
-            <section>
-                <div>
-                    @include('components.formulario')
-                </div>
-            </section>
-        </div>
+                <section>
+                    <div>
+                        @include('components.formulario')
+                    </div>
+                </section>
+            </div>
             @yield('content')
         </main>
     

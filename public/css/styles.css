@@ -33,7 +33,7 @@ body {
     align-items: flex-start;
     right: 10vh;
     width: 100%;
-    min-height: 15vh;
+    min-height: 85px;
     position: relative; /* Para que el fondo solo esté en esta parte */
 
 }
@@ -42,11 +42,6 @@ body {
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-    .background-box {
-        height: 30vh; /* Reducir la altura en dispositivos pequeños */
-        z-index: -1;
-    }
-
     .inicio-container {
         flex-direction: column;
         align-items: center;
@@ -73,14 +68,6 @@ body {
     #ocelote-icon {
         width: 60px;
         height: auto;
-    }
-    
-}
-@media (max-width: 480px) {
-    .background-box {
-        margin-top: 30%;
-        height: 15vh; /* Reducir la altura en dispositivos pequeños */
-        z-index: -1;
     }
     
 }

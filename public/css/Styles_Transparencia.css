@@ -1,8 +1,3 @@
-/*––– Layout general –––––––––––––––––––––––––*/
-.no-background .background-box {
-  display: none !important;
-}
-
 .top-strip {
   background: #d5d1c5;
   height: 40px
