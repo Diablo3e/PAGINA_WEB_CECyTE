@@ -9,12 +9,18 @@
 }
 
 .documentContainer{
-    display: grid;
+    display: flex;
+    justify-content: center;
     max-width: 100%;
-    grid-template-columns: 50% 50%;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 33% !important;
 }
 
 .cartaDocumento{
+    height: 100%;
     background-color: #660000;
     text-decoration: none;
     display: flex;
@@ -33,4 +39,16 @@
 
 .extraSpace{
     margin: 30px;
+}
+
+@media (max-width: 941px){
+    .card{
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 642px){
+    .card{
+        width: 100% !important;
+    }
 }
