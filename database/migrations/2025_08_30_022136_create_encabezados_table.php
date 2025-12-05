@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('tipo');
             $table->text('descripcion')->nullable();
+            $table->unsignedInteger('estudiantes')->default(0);
+            $table->unsignedInteger('docentes')->default(0);
+            $table->unsignedInteger('administrativos')->default(0);
             $table->timestamps();
 
             $table->foreign('plantel_id')->references('id')->on('planteles')->onDelete('cascade');

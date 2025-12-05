@@ -10,7 +10,7 @@ class EncabezadoController extends Controller
 {
     public function getEncabezadoPorPlantel($plantelId):array {
         return Encabezado::where('plantel_id',$plantelId)
-        ->select('nombre', 'tipo', 'descripcion')
+        ->select('nombre', 'tipo', 'descripcion', 'estudiantes', 'docentes', 'administrativos',)
         ->get()
         ->toArray();
     }
