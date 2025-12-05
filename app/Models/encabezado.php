@@ -11,6 +11,10 @@ class Encabezado extends Model
         'nombre',
         'tipo',
         'descripcion',
+        'estudiantes',
+        'docentes',
+        'administrativos',
+
     ];
 
     public function plantel(){

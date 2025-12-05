@@ -1,4 +1,5 @@
-const body = document.getElementById('containerParaFiltro');
+const divFiltros = document.getElementById('containerParaFiltro');
+const divResize = document.getElementById('zoom');
 
 // Funciones de zoom, con event listeners
 var zoom = 1;
@@ -13,20 +14,20 @@ document.getElementById("menos").addEventListener("click", function (e) {
   }
 });
 function resize() {
-  body.style.zoom = zoom;
+  divResize.style.zoom = zoom;
 }
 
 //Funciones de filtros de color, llamadas por onclick
 function escalaGrises() {
-  body.classList = '';
-  body.classList.add('gray');
+  divFiltros.classList = '';
+  divFiltros.classList.add('gray');
 }
 function escalaNegativa() {
-  body.classList = '';
-  body.classList.add('negative');
+  divFiltros.classList = '';
+  divFiltros.classList.add('negative');
 }
 function escalaNormal() {
-  body.classList = '';
+  divFiltros.classList = '';
 }
 
 //--------------------Interacciones del boton de texto a lenguaje--------------------

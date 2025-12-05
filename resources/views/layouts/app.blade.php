@@ -30,7 +30,7 @@
     <!-- Espacio para estilos adicionales -->
     @stack('styles')
 </head>
-<body class="@yield('body-class')">
+<body id="zoom" class="@yield('body-class')">
     {{-- Div usado para aplicar filtros de manera global (menu de accesibilidad), todo lo que esta afuera del div tiene el filtro --}}
     <div id="containerParaFiltro" style="overflow-x: hidden"></div>
     {{-- Componentes con posicion fixes --}}
