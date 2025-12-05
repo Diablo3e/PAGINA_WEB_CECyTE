@@ -38,6 +38,9 @@
                 Cargando información del plantel...
             </p>
         </div>
+        <div id="contadores" class="contenedorContadores">
+            
+        </div>
     </div>
 
     {{-- El modal es lo que permite expandir imagenes cuando se les da click en la seccion de instalaciones --}}

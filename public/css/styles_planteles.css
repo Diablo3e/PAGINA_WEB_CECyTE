@@ -83,6 +83,21 @@ body, html {
     color: var(--color-primario);
     font-weight: 700;
 }
+ .contenedorContadores{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 5%;
+ }
+ .contador{
+    display: flex;
+    flex-direction: column;
+}
+.numContador{
+    font-size: 2.4rem;
+    color: #660000;
+}
 
 /* Badge */
 #plantel-tipo-badge {

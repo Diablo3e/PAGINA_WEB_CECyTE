@@ -25,6 +25,14 @@ function cargarEncabezadoPlantel(plantel) {
     const badgeElement = document.getElementById('plantel-tipo-badge');
     badgeElement.textContent = plantel.encabezado[0].tipo === 'cecyte' ? 'CECyTE' : 'EMSaD';
     badgeElement.className = `badge fs-6 ${plantel.encabezado[0].tipo === 'cecyte' ? 'bg-primary' : 'bg-success'}`;
+
+    //Configurar contadores
+    const contadorContainer = document.getElementById('contadores');
+    contadorContainer.innerHTML = ``;
+    contadorContainer.innerHTML += getContadorHTMLElement('Estudiantes', plantel.encabezado[0].estudiantes);
+    contadorContainer.innerHTML += getContadorHTMLElement('Docentes', plantel.encabezado[0].docentes);
+    contadorContainer.innerHTML += getContadorHTMLElement('Administrativos', plantel.encabezado[0].administrativos);
+    
 }
 
 function renderInstalaciones(imagenes) {
@@ -563,6 +571,7 @@ async function cargarDetallePlantel() {
     if (plantel.enConstruccion) {
         document.getElementById('en-construccion').classList.remove('d-none');
     }
+    document.dispatchEvent(new CustomEvent("plantelLoaded"));
 }
 
 // Inicializar cuando el DOM esté listo
@@ -570,6 +579,34 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.plantel-header')) {
         cargarDetallePlantel();
     }
+
+});
+
+// Inicializar cuando todos los elementos del plantel esten cargados
+document.addEventListener('plantelLoaded', function () {
+    //Animacion de los contadores del encabezado
+    const contadoresHTML = document.getElementsByClassName('contador');
+    const contadoresArray = Array.from(contadoresHTML);
+    console.log(contadoresArray)
+    contadoresArray.forEach(contadorDiv => {
+        const contador = contadorDiv.querySelector('.numContador');
+        console.log(contador)
+        const target = +contador.textContent;
+        contador.textContent = "0";
+    
+        const duration = 2000; // Tiempo de la animacion en ms
+        const start = performance.now();
+    
+        function animate(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            contador.textContent = Math.floor(progress * target);
+    
+            if (progress < 1) requestAnimationFrame(animate);
+        }
+    
+        requestAnimationFrame(animate);
+    });
+
 });
 
 // -------------- Funciones de apoyo -------------------
@@ -689,6 +726,17 @@ async function getPdfs(folder, subDirectorios) {
     } catch (error) {
         console.error(error);
     }
+}
+
+function getContadorHTMLElement(titulo, numero){
+    const htmlElement = 
+    `
+    <div class="contador">
+        <strong class="numContador">${numero}</strong>
+        <strong>${titulo}</strong>
+    </div>
+    `
+    return htmlElement;
 }
 
 // Hacer los datos accesibles globalmente
