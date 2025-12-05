@@ -13,6 +13,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
@@ -43,6 +44,21 @@ class EncabezadoResource extends Resource
                     ])->required(),
                 Textarea::make('descripcion')
                     ->rows(8),
+                Fieldset::make('Contadores')
+                    ->visible(Auth::user()?->admin)
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('estudiantes')
+                            ->numeric()
+                            ->label('Numero de estudiantes'),
+                        TextInput::make('docentes')
+                            ->numeric()
+                            ->label('Numero de docentes'),
+                        TextInput::make('administrativos')
+                            ->numeric()
+                            ->label('Numero de administrativos'),
+                    ])
+
             ]);
     }
 
@@ -53,6 +69,9 @@ class EncabezadoResource extends Resource
                 TextColumn::make('plantel.nombre'),
                 TextColumn::make('nombre'),
                 TextColumn::make('tipo'),
+                TextColumn::make('estudiantes')->visible(Auth::user()?->admin),
+                TextColumn::make('docentes')->visible(Auth::user()?->admin),
+                TextColumn::make('administrativos')->visible(Auth::user()?->admin),
                 TextColumn::make('descripcion')->limit(30),
             ])
             ->filters([
