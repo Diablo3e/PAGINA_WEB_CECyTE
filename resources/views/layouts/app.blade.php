@@ -31,38 +31,38 @@
     @stack('styles')
 </head>
 <body class="@yield('body-class')">
+    {{-- Div usado para aplicar filtros de manera global (menu de accesibilidad), todo lo que esta afuera del div tiene el filtro --}}
+    <div id="containerParaFiltro" style="overflow-x: hidden"></div>
     {{-- Componentes con posicion fixes --}}
     @include('components.menu_accesibilidad')
     @include('components.chatbot')
     @include('components.barra_redes')
-    <div id="containerParaFiltro" style="overflow-x: hidden">
     
-        <!-- Componentes de la página -->
-        @include('components.navbar')
-    
-        <!-- Contenido principal con ajuste para barra de navegación fija -->
-        <main class="main-content">
-            <div class="row inicio-container">
-                <section>
-                    <div>
-                        @include('components.formulario')
-                    </div>
-                </section>
-            </div>
-            @yield('content')
-        </main>
-    
-        <!-- Footer -->
-        @include('components.footer')
-    
-        <!-- Scripts generales -->
-        <script src="{{ asset('js/formulario.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/navbar.js') }}"></script>
-        <script src="{{ asset('js/chatbot.js') }}"></script>
-        <script src="{{ asset('js/menu_accesibilidad.js') }}"></script>
-        <!-- Scripts específicos para planteles -->
-        @stack('scripts')
-    </div>
+    <!-- Componentes de la página -->
+    @include('components.navbar')
+
+    <!-- Contenido principal con ajuste para barra de navegación fija -->
+    <main class="main-content">
+        <div class="row inicio-container">
+            <section>
+                <div>
+                    @include('components.formulario')
+                </div>
+            </section>
+        </div>
+        @yield('content')
+    </main>
+
+    <!-- Footer -->
+    @include('components.footer')
+
+    <!-- Scripts generales -->
+    <script src="{{ asset('js/formulario.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/chatbot.js') }}"></script>
+    <script src="{{ asset('js/menu_accesibilidad.js') }}"></script>
+    <!-- Scripts específicos para planteles -->
+    @stack('scripts')
 </body>
 </html>

@@ -1,5 +1,4 @@
 const body = document.getElementById('containerParaFiltro');
-let activado = true;
 
 // Funciones de zoom, con event listeners
 var zoom = 1;
