@@ -10,7 +10,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
-    max-width: 100vw;
     margin: auto;
 }
 
@@ -64,8 +63,8 @@
     color: #ffffff;
     display: block; 
     padding: 8px;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
+    word-wrap: normal; 
+    overflow-wrap: normal; 
     white-space: normal;
 }
 

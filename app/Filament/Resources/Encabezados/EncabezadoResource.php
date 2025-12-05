@@ -16,6 +16,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,11 @@ class EncabezadoResource extends Resource
                 TextColumn::make('nombre'),
                 TextColumn::make('tipo'),
                 TextColumn::make('descripcion')->limit(30),
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 

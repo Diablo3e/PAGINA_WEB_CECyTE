@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,27 @@ class HorarioResource extends Resource
                     ->url(fn ($record) => $record->documento ? asset('storage/' . $record->documento) : null)
                     ->openUrlInNewTab()
                     ->tooltip('abrir el pdf')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
+                SelectFilter::make('carrera')
+                ->options(Horario::query()
+                    ->select('carrera')
+                    ->distinct()
+                    ->orderBy('carrera')
+                    ->pluck('carrera', 'carrera') // value => label
+                    ->toArray()
+                ),
+                SelectFilter::make('grupo')
+                ->options(Horario::query()
+                    ->select('grupo')
+                    ->distinct()
+                    ->orderBy('grupo')
+                    ->pluck('grupo', 'grupo') // value => label
+                    ->toArray()
+                ),
             ]);
     }
 
@@ -90,5 +112,10 @@ class HorarioResource extends Resource
         
         return parent::getEloquentQuery()
             ->whereIn('plantel_id', $plantelIds);
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Control escolar';
     }
 }

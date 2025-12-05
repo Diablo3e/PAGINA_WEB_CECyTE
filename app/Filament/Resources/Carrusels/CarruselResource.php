@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
@@ -53,7 +54,15 @@ class CarruselResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('imagenes')->disk('public'),
+                ImageColumn::make('imagenes')->disk('public')
+                    ->url(fn ($record) => $record->imagenes ? asset('storage/' . $record->imagenes) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 

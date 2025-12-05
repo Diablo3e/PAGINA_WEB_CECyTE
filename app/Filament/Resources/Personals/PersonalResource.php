@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -51,10 +52,17 @@ class PersonalResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('foto')
-                    ->disk('public'),
+                ImageColumn::make('foto')->disk('public')
+                    ->url(fn ($record) => $record->foto ? asset('storage/' . $record->foto) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen'),
                 TextColumn::make('nombre'),
                 TextColumn::make('puesto'),
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 

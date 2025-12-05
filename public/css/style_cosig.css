@@ -1,0 +1,54 @@
+.imgContainer{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    height: fit-content;
+    margin-bottom: 20px;
+}
+
+.documentContainer{
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 33% !important;
+}
+
+.cartaDocumento{
+    height: 100%;
+    background-color: #660000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.cartaDocumento:hover{
+    filter: saturate(0.75) brightness(0.85);
+}
+
+.cartaDocumento strong{
+    color: white;
+}
+
+.extraSpace{
+    margin: 30px;
+}
+
+@media (max-width: 941px){
+    .card{
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 642px){
+    .card{
+        width: 100% !important;
+    }
+}

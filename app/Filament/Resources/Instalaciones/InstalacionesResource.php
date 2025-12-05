@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -51,8 +52,15 @@ class InstalacionesResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('plantel.nombre'),
-                ImageColumn::make('imagen')
-                    ->disk('public'),
+                ImageColumn::make('imagen')->disk('public')
+                    ->url(fn ($record) => $record->imagen ? asset('storage/' . $record->imagen) : null)
+                    ->openUrlInNewTab()
+                    ->tooltip('ver imagen'),
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 
@@ -91,4 +99,6 @@ class InstalacionesResource extends Resource
             'data.imagen' => 'max:25600',
         ];
     }
+
+    
 }

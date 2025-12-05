@@ -18,9 +18,22 @@
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
                     </a></li>
 
-                <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('linea_tiempo') }}">Nosotros
+                {{-- Dropdown --}}
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="ofertaDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Nosotros
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
-                    </a></li>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
+                        <li><a class="dropdown-item" href="{{ route('quienes_somos') }}">¿Quiénes somos?</a></li>
+                        <li><a class="dropdown-item" href="{{ route('linea_tiempo') }}">Historia</a></li>
+                    </ul>
+                    
+                    {{-- <a class="d-flex flex-nowrap nav-link" href="{{ route('linea_tiempo') }}">Nosotros
+                        <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
+                    </a> --}}
+                </li>
 
                 <li class="nav-item"><a class="d-flex flex-nowrap nav-link" href="{{ route('Admision') }}">Admisión
                         <img src="{{ asset('imagenes/Barra-de-navegacion/icon-flecha.svg') }}" alt="Flecha hacia abajo" class="icono-flecha">
@@ -47,9 +60,9 @@
                         <li><a class="dropdown-item" href="{{ route('Mantenimento_Industrial') }}">Mantenimiento
                                 Industrial</a></li>
                         <li><a class="dropdown-item" href="{{ route('Electronica') }}">Electrónica</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Mantenimientomotoresdecombustion') }}">Motores de
+                        <li><a class="dropdown-item" href="{{ route('Mantenimiento-combustion') }}">Motores de
                                 Combustión</a></li>
-                        <li><a class="dropdown-item" href="{{ route('Proceso-de-Gestión') }}">Proceso de Gestión</a>
+                        <li><a class="dropdown-item" href="{{ route('Proceso-de-gestion') }}">Proceso de Gestión</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ route('Hoteleria') }}">Hotelería</a></li>
                         <li><a class="dropdown-item" href="#">Semiconductores</a></li>

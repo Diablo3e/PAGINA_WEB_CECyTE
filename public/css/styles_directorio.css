@@ -1,6 +1,7 @@
-.no-background .background-box {
-    display: none !important;
+:root{
+    --color-rojo: #660000;
 }
+
 body {
     background-color: white !important; /* Fondo blanco para evitar herencia */
 }
@@ -31,7 +32,7 @@ section, .container {
 }
 
 .tarjeta-contacto h5 {
-    color: #800000;
+    color: var(--color-rojo);
     font-weight: bold;
 }
 
@@ -49,13 +50,13 @@ section, .container {
 
 .telefono-section h2 {
     font-weight: bold;
-    color: #660000;
+    color: var(--color-rojo);
 }
 
 .telefono-section .numero {
     font-size: 32px;
     font-weight: 700;
-    color: #800000;
+    color: var(--color-rojo);
 }
 
 /*el efecto de que de vuelta*/
@@ -86,21 +87,21 @@ section, .container {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 2px solid #800000;
+    border: 2px solid var(--color-rojo);
     border-radius: 10px;
     padding: 1rem;
 }
 
 .flip-card-front {
     background-color: #fff;
-    color: #800000;
+    color: var(--color-rojo);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .flip-card-back {
-    background-color: #800000;
+    background-color: var(--color-rojo);
     color: white;
     transform: rotateY(180deg);
 }

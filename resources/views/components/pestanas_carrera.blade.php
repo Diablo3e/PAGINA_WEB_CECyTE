@@ -3,109 +3,160 @@
 <div id="ofertaEdu" class="oferta-educativa">
     <h2>OFERTA EDUCATIVA</h2>
 <div class="grid">
+    
     <div class="program">
-        <a href="{{ route('Produccion-de-alimentos') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos-vino.png') }}"
+        <a href="{{ route('Ciberseguridad') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Ciberseguridad-vino.png') }}"
         alt="Produccion-de-alimentos" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos.png') }}"
+            <img src="{{ asset('imagenes/Pestañas-carrera/Ciberseguridad.png') }}"
                 alt="Produccion-de-alimentos" class="img-default">
-
         </a>
     </div>
+
+    <div class="program">
+        <a href="{{ route('comercio-internacional') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Comercio-aduanas-vino.png') }}"
+        alt="Produccion-de-alimentos" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Comercio-aduanas.png') }}"
+                alt="Produccion-de-alimentos" class="img-default">
+        </a>
+    </div>
+    
     <div class="program">
         <a href="{{ route('Electronica') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Electronica-vino.png') }}" alt="Electrónica"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Electronica.png') }}" alt="Electrónica" class="img-default">
-
-
         </a>
     </div>
+    
     <div class="program">
-        <a href="{{ route('Electronica') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Tecnologias-de-la-informacion-vino.png') }}"
-        alt="Tecnologias-de-la-informacion" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Tecnologias-de-la-informacion.png') }}"
-                alt="Tecnologias-de-la-informacion" class="img-default">
-
+        <a href="{{ route('Electromovilidad') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Electromovilidad-vino.png') }}" alt="Electrónica"
+        class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Electromovilidad.png') }}" alt="Ele" class="img-default">
         </a>
     </div>
+    
     <div class="program">
         <a href="{{ route('Fuentes_Alternas') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Fuentes-alternas-de-energia-vino.png') }}"
         alt="Fuentes Alternas de Energía" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Fuentes-alternas-de-energia.png') }}"
                 alt="Fuentes Alternas de Energía" class="img-default">
-
         </a>
     </div>
+    
     <div class="program">
-        <a href="{{ route('Hoteleria') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria-vino.png') }}"
-        alt="Servicios de Hotelería" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria.png') }}" alt="Servicios de Hotelería"
-                class="img-default">
-
-        </a>
-    </div>
-    <div class="program">
-        <a href="{{ route('Produccion-industrial') }}">
-        <img src="{{ asset(path: 'imagenes/Pestañas-carrera/Produccion-industrial-vino.png') }}"
-        alt="Produccion-industrial" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial.png') }}" alt="Produccion-industrial"
-                class="img-default">
-
-        </a>
-    </div>
-    <div class="program">
-        <a href="{{ route('Electronica') }}">
+        <a href="{{ route('Inteligencia-artificial') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Inteligencia-artificial-vino.png') }}"
         alt="Inteligencia-artificial" class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Inteligencia-artificial.png') }}"
                 alt="Inteligencia-artificial" class="img-default">
-
         </a>
     </div>
-    <div class="program">
-        <a href="{{ route('Programacion') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Programacion-vino.png') }}" alt="Programacion" class="img-hover">
 
-            <img src="{{ asset('imagenes/Pestañas-carrera/Programacion.png') }}" alt="Programacion" class="img-default">
-
-        </a>
-    </div>
     <div class="program">
         <a href="{{ route('Mantenimiento_Automotriz') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz-vino.png') }}" alt="Mantenimiento-automotriz"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-automotriz.png') }}" alt="Mantenimiento-automotriz"
                 class="img-default">
-
         </a>
     </div>
-    <div class="program">
-        <a href="{{ route('Electronica') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica-vino.png') }}" alt="Mecatronica" class="img-hover">
 
-            <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica.png') }}" alt="Mecatronica" class="img-default">
-        </a>
-    </div>
-    <div class="program">
-        <a href="{{ route('Proceso-de-Gestión') }}">
-        <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa-vino.png') }}"
-        alt="Procesos de Gestión Administrativa" class="img-hover">
-            <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa.png') }}"
-                alt="Procesos de Gestión Administrativa" class="img-default">
-
-        </a>
-    </div>
     <div class="program">
         <a href="{{ route('Mantenimento_Industrial') }}">
         <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-industrial-vino.png') }}" alt="Mantenimiento industrial"
         class="img-hover">
             <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-industrial.png') }}" alt="Mantenimiento industrial"
                 class="img-default">
+        </a>
+    </div>
 
+    <div class="program">
+        <a href="{{ route('Mantenimiento-combustion') }}">
+        <img src="{{ asset(path: 'imagenes/Pestañas-carrera/Mantenimiento-motores-combustion-vino.png') }}"
+        alt="Produccion-industrial" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Mantenimiento-motores-combustion.png') }}" alt="Mantenimiento a motores de combustion interna"
+                class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Mecatronica') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica-vino.png') }}" alt="Mecatronica" class="img-hover">
+
+            <img src="{{ asset('imagenes/Pestañas-carrera/Mecatronica.png') }}" alt="Mecatronica" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Logistica') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Logistica-vino.png') }}" alt="Mecatronica" class="img-hover">
+
+            <img src="{{ asset('imagenes/Pestañas-carrera/Logistica.png') }}" alt="Mecatronica" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Proceso-de-gestion') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa-vino.png') }}"
+        alt="Procesos de Gestión Administrativa" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Proceso-de-gestion-administrativa.png') }}"
+                alt="Procesos de Gestión Administrativa" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Produccion-industrial') }}">
+        <img src="{{ asset(path: 'imagenes/Pestañas-carrera/Produccion-industrial-vino.png') }}"
+        alt="Produccion-industrial" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-industrial.png') }}" alt="Produccion-industrial"
+                class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Produccion-de-alimentos') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos-vino.png') }}"
+        alt="Produccion-de-alimentos" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Produccion-de-alimentos.png') }}"
+                alt="Produccion-de-alimentos" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Programacion') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Programacion-vino.png') }}" alt="Programacion" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Programacion.png') }}" alt="Programacion" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Hoteleria') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria-vino.png') }}"
+        alt="Servicios de Hotelería" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Servicio-de-hoteleria.png') }}" alt="Servicios de Hotelería"
+                class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('semiconductores') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Semiconductores-y-microelectronica-vino.png') }}"
+        alt="Tecnologias-de-la-informacion" class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Semiconductores-y-microelectronica.png') }}"
+                alt="Tecnologias-de-la-informacion" class="img-default">
+        </a>
+    </div>
+
+    <div class="program">
+        <a href="{{ route('Transformacion-de-plasticos') }}">
+        <img src="{{ asset('imagenes/Pestañas-carrera/Transformacion-plasticos-vino.png') }}" alt="Transformacion de plasticos"
+        class="img-hover">
+            <img src="{{ asset('imagenes/Pestañas-carrera/Transformacion-plasticos.png') }}" alt="Transformacion de plasticos"
+                class="img-default">
         </a>
     </div>
 

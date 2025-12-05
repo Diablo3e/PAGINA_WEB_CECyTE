@@ -98,41 +98,64 @@ Route::get('/planteles', function () {
 // ✅ RUTAS DE CARRERAS DE LA PAGINA PRINCIPAL
 //❗❗❗PARA QUE FUNCIONE LA BUSQUEDA LA URL TIENE QUE CONCIDIR CON EL NOMBRE DE LA CARRERA EN LA BASE DE DATOS, TODOS LOS CARACTERES EN MINUSCULAS Y EXCLUYENDO CARACTERES QUE NO EXISTAN EN INGLES (ñ y acentos) ADEMAS DE REMPLAZAR ESPACIOS POR "-" EN LUGAR DE "_"❗❗❗
 Route::get('/produccion-industrial-de-alimentos', function () {
-    return view('Produccion-de-alimentos', ['noFondo' => true]);
+    return view('carreras.Produccion-de-alimentos', ['noFondo' => true]);
 })->name('Produccion-de-alimentos');
 Route::get('/electronica', function () {
-    return view('Electronica', ['noFondo' => true]);
+    return view('carreras.Electronica', ['noFondo' => true]);
 })->name('Electronica');
 //Tecnologias de la informacion y comunicacion
 Route::get('/fuentes-alternas-de-energia', function () {
-    return view('Fuentes_Alternas', ['noFondo' => true]);
+    return view('carreras.Fuentes_Alternas', ['noFondo' => true]);
 })->name('Fuentes_Alternas');
 Route::get('/servicios-de-hoteleria', function () {
-    return view('Hoteleria', ['noFondo' => true]);
+    return view('carreras.Hoteleria', ['noFondo' => true]);
 })->name('Hoteleria');
 Route::get('/produccion-industrial', function () {
-    return view('Produccion-industrial', ['noFondo' => true]);
+    return view('carreras.Produccion-industrial', ['noFondo' => true]);
 })->name('Produccion-industrial');
-//Inteligencia artificial
+Route::get('/inteligencia-artificial', function () {
+    return view('carreras.Inteligencia-artificial', ['noFondo' => true]);
+})->name('Inteligencia-artificial');
 Route::get('/programacion', function () {
-    return view('Programacion', ['noFondo' => true]);
+    return view('carreras.Programacion', ['noFondo' => true]);
 })->name('Programacion');
 Route::get('/mantenimiento-automotriz', function () {
-    return view('Mantenimiento_Automotriz', ['noFondo' => true]);
+    return view('carreras.Mantenimiento_Automotriz', ['noFondo' => true]);
 })->name('Mantenimiento_Automotriz');
-//Mecatronica
+Route::get('/mecatronica', function () {
+    return view('carreras.Mecatronica', ['noFondo' => true]);
+})->name('Mecatronica');
 Route::get('/procesos-de-gestion-administrativa', function () {
-    return view('Proceso-de-Gestión', ['noFondo' => true]);
-})->name('Proceso-de-Gestión');
+    return view('carreras.Proceso-de-gestion', ['noFondo' => true]);
+})->name('Proceso-de-gestion');
 Route::get('/mantenimiento-industrial', function () {
-    return view('Mantenimento_Industrial', ['noFondo' => true]);
+    return view('carreras.Mantenimento_Industrial', ['noFondo' => true]);
 })->name('Mantenimento_Industrial');
+Route::get('/transformacion-de-plasticos', function () {
+    return view('carreras.Transformacion-de-plasticos');
+})->name('Transformacion-de-plasticos');
+Route::get('/ciberseguridad', function () {
+    return view('carreras.Ciberseguridad');
+})->name('Ciberseguridad');
+Route::get('/comercio-internacional-y-aduanas', function () {
+    return view('carreras.Comercio-internacional-y-aduanas');
+})->name('comercio-internacional');
+Route::get('/electromovilidad', function () {
+    return view('carreras.Electromovilidad');
+})->name('Electromovilidad');
+Route::get('/mantenimiento-a-motores-de-combustion-interna', function () {
+    return view('carreras.Mantenimiento-de-motores-de-combustion', ['noFondo' => true]);
+})->name('Mantenimiento-combustion');
+Route::get('/logistica', function () {
+    return view('carreras.Logistica', ['noFondo' => true]);
+})->name('Logistica');
+Route::get('/semiconductores-y-microelectronica', function () {
+    return view('carreras.Semiconductores-y-microelectronica', ['noFondo' => true]);
+})->name('semiconductores');
 
-//No aparece en pagina de inicio
-Route::get('/Mantenimientomotoresdecombustion', function () {
-    return view('Mantenimientomotoresdecombustion', ['noFondo' => true]);
-})->name('Mantenimientomotoresdecombustion');
-
+//Rutas para footer
+/*ruta del directorio */
+Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 
 
 // ✅ OTRAS RUTAS
@@ -151,10 +174,18 @@ Route::get('/Transparencia', function () {
 Route::post('/Transparencia/pdf/subdir/{folder}', [PdfController::class, 'getSubDirectories'])->name('obtener.subDirectorios');
 //Obtener PDFs para transparencia
 Route::post('/Transparencia/pdf/{folder}', [PdfController::class, 'getArchivos'])->name('obtener.pdf');
+Route::get('/COSIG', function () {
+    return view('cosig', ['noFondo' => true]);
+})->name('cosig');
 
+
+//Rutas "Nosotros"
 Route::get('/linea_tiempo', function () {
     return view('linea_tiempo', ['noFondo' => true]);
 })->name('linea_tiempo');
+Route::get('/quienes_somos', function () {
+    return view('quienes_somos', ['noFondo' => true]);
+})->name('quienes_somos');
 
 
 
@@ -196,8 +227,6 @@ Route::get('/publicStorage/{filePath}', function ($filePath) {
 Route::get('/carreras/{plantel_id}', [FormularioController::class, 'getCarrerasByPlantel'])->name('carreras.por.plantel');
 /*ruta del plantel estandar */
 Route::get('/pagina-informativa', [InicioController::class, 'paginaInformativa'])->name('pagina.informativa');
-/*ruta del directorio */
-Route::get('/directorio', [InicioController::class, 'mostrarDirectorio'])->name('directorio');
 /*Ruta de la bolsa de trabajo*/
 Route::get('/bolsa', [InicioController::class, 'mostrarBolsa'])->name('bolsa');
 

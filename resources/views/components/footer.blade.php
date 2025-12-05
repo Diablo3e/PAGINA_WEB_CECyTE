@@ -39,18 +39,11 @@
                     <a class="link-style" href="{{ route('Transparencia') }}">Transparencia</a>
                     <a class="link-style" href="{{ route('linea_tiempo') }}">Nosotros</a>
                     <a class="link-style" href="{{ url('/') }}#ofertaEdu">Carreras</a>
-                    <a class="link-style" href="#">Directorio</a>
-                    <a class="link-style" href="#">Código de Ética</a>
-                    <a class="link-style" href="#">Código de Conducta</a>
-                    <a class="link-style" href="#">Portal Dirección General</a>
-                    <a class="link-style" href="#">Convenio Marco</a>
-                    <a class="link-style" href="#">Política de Igualdad</a>
-                    <a class="link-style" href="#">Política de Calidad</a>
-                    <a class="link-style" href="#">Catálogo de Convenios</a>
-                    <a class="link-style" href="#">Podcast</a>
-                    <a class="link-style" href="#">Programa Presupuestario U006</a>
-                    <a class="link-style" href="#">Declaración</a>
-    
+                    <a class="link-style" href="{{ route('directorio') }}">Directorio</a>
+                    <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Portal Dirección General</a>
+                    <a class="link-style" href="https://portal.cecytepuebla.edu.mx/">Convenio Marco</a>
+                    <a class="link-style" href="{{ route('cosig') }}">COSIG</a>
+                    
                 </div>
 
             </div>

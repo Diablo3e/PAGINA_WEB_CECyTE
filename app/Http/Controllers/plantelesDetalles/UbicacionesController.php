@@ -4,7 +4,7 @@ namespace App\Http\Controllers\plantelesDetalles;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\ubicaciones;
+use App\Models\Ubicaciones;
 
 class UbicacionesController extends Controller
 {

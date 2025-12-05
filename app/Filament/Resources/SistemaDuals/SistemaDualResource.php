@@ -19,6 +19,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -109,6 +110,11 @@ class SistemaDualResource extends Resource
                     )
                     ->openUrlInNewTab()
                     ->tooltip('abrir el documento/url')
+            ])
+            ->filters([
+                SelectFilter::make('plantel_id')
+                ->options(Auth::user()?->plantel->pluck('nombre', 'id')->sort())
+                ->label('Filtrar por Plantel'),
             ]);
     }
 
@@ -146,4 +152,8 @@ class SistemaDualResource extends Resource
         return 'Sistema Dual';
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Vinculación';
+    }
 }

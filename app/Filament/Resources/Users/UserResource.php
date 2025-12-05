@@ -19,6 +19,7 @@ use Filament\Support\Enums\GridDirection;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,6 +61,11 @@ class UserResource extends Resource
                 TextColumn::make('email'),
                 CheckboxColumn::make('admin')->label('Es administrador'),
                 TextColumn::make('plantel.nombre')->label('Puede modificar')->listWithLineBreaks()->badge(),
+            ])
+            ->filters([
+                SelectFilter::make('plantel.nombre')
+                ->relationship('plantel', 'nombre')
+                ->label('Filtrar por Plantel'),
             ]);
     }
 
