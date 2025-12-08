@@ -27,6 +27,9 @@
      @routes
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @if (config('veda.filtro_gris'))
+        <style>html { filter: grayscale(100%); }</style>
+    @endif
     <!-- Espacio para estilos adicionales -->
     @stack('styles')
 </head>
@@ -40,16 +43,16 @@
     
     <!-- Componentes de la página -->
     @include('components.navbar')
-
     <!-- Contenido principal con ajuste para barra de navegación fija -->
     <main class="main-content">
-        <div class="row inicio-container">
-            <section>
-                <div>
-                    @include('components.formulario')
-                </div>
-            </section>
-        </div>
+    <div class="row inicio-container {{ config('veda.filtro_gris') && config('veda.mensaje_veda') ? 'espacioParaMensaje' : '' }}">
+        <section>
+            <div>
+                @include('components.formulario')
+            </div>
+        </section>
+    </div>
+
         @yield('content')
     </main>
 

@@ -35,7 +35,9 @@ body {
     width: 100%;
     min-height: 85px;
     position: relative; /* Para que el fondo solo esté en esta parte */
-
+}
+.espacioParaMensaje{
+    min-height: 110px !important;
 }
 
 
@@ -70,4 +72,10 @@ body {
         height: auto;
     }
     
+}
+
+@media (max-width: 571px) {
+    .espacioParaMensaje{
+        min-height: 160px !important;
+    }
 }

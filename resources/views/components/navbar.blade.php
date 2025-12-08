@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xxl navbar-cecyte"
+<nav class="navbar navbar-expand-xxl navbar-cecyte" 
     style="background: url('{{ asset('imagenes/Barra-de-navegacion/barra-de-navegacion-1.png') }}') no-repeat center center; background-size: cover;">
     <div class="container-fluid px-4">
 
@@ -106,3 +106,8 @@
         </div>
     </div>
 </nav>
+@if (config('veda.filtro_gris') == true && config('veda.mensaje_veda') != null)
+    <div class="mensajeAviso">
+        <strong style="font-size: 1.5rem;">{{ config('veda.mensaje_veda') }}</strong>
+    </div>
+@endif
