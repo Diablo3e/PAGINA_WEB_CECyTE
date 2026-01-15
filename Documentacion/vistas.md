@@ -108,7 +108,7 @@ Todas las vistas están en `resources\views\`
 ## Detalles de planteles
 La vista de `planteles_detalle.blade.php` es la responsable de renderizar las siguientes secciones para cada uno de los planteles existentes:
 - Carrusel con fotos de portada
-- Encabezado del plantel (Título, lema, descripción y badge)
+- Encabezado del plantel (Título, lema, descripción, badge y contadores de estudiantes, docentes y administrativos)
 - Fotos de las instalaciones 
 - Mapas 
     - ubicaciones (en Google Maps)
@@ -136,7 +136,7 @@ El flujo que la vista sigue es:
 1. Se recibe una petición get en la ruta https://nombredominio.com/planteles/detalle/plantel#
 2. `planteles_detalle.js` hace una petición fetch a la ruta con el nombre  `plantelData.get` con el # indicado
 3. La ruta a su vez va al controlador `PlantelesController` que llama la función `getDetallesPlanteles(#)` que a su vez accede a todos los diferentes controllers para todas las secciones, construyendo un .json con los datos obtenidos de las tablas en la base de datos.
-4. `planteles_detalle.js` recibe el .json resultante y ejecuta todas las funciones para renderizar correctamente la página con la información.
+4. `planteles_detalle.js` recibe el .json resultante y ejecuta todas las funciones con  para renderizar correctamente la página con la información.
 
 ### Edición del contenido de planteles
 Para los planteles se tenía el requerimiento de que cada encargado de los distintos planteles pudiera modificar los detalles de su propio plantel sin tener que hacer una petición a los encargados de la página, por este motivo, se implementó un panel de administradores usando [Filament](dependencias.md#dependencias-de-laravel-utilizadas) por lo que dentro del proyecto, todos los archivos relacionados a Filament sirven con este propósito.   
